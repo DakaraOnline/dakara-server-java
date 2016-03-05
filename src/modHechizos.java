@@ -85,8 +85,8 @@ public class modHechizos {
 
 		Declaraciones.Npclist[NpcIndex].CanAttack = 0;
 
-		int dano;
-		int AnilloObjIndex;
+		int dano = 0;
+		int AnilloObjIndex = 0;
 		AnilloObjIndex = Declaraciones.UserList[UserIndex].Invent.AnilloEqpObjIndex;
 
 		/* ' Heal HP */
@@ -146,7 +146,7 @@ public class modHechizos {
 						SistemaCombate.RestarCriminalidad(UserIndex);
 					}
 
-					int MasterIndex;
+					int MasterIndex = 0;
 					MasterIndex = Declaraciones.Npclist[NpcIndex].MaestroUser;
 
 					/* '[Barrin 1-12-03] */
@@ -317,7 +317,7 @@ public class modHechizos {
 		}
 		Declaraciones.Npclist[NpcIndex].CanAttack = 0;
 
-		int Danio;
+		int Danio = 0;
 
 		/* ' Spell sound and FX */
 		modSendData.SendData(SendTarget.ToNPCArea, TargetNPC,
@@ -399,7 +399,7 @@ public class modHechizos {
 	}
 
 	static boolean TieneHechizo(int i, int UserIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -408,7 +408,7 @@ public class modHechizos {
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int j;
+		int j = 0;
 		for (j = (1); j <= (Declaraciones.MAXUSERHECHIZOS); j++) {
 			if (Declaraciones.UserList[UserIndex].Stats.UserHechizos[j] == i) {
 				retval = true;
@@ -429,8 +429,8 @@ public class modHechizos {
 		/* ' */
 		/* '*************************************************** */
 
-		int hIndex;
-		int j;
+		int hIndex = 0;
+		int j = 0;
 
 		hIndex = Declaraciones.ObjData[Declaraciones.UserList[UserIndex].Invent.Object[Slot].ObjIndex].HechizoIndex;
 
@@ -501,7 +501,7 @@ public class modHechizos {
 	/* ' @param HechizoIndex Specifies reference to spell */
 	/* ' @return True if the user can cast the spell, otherwise returns false */
 	static boolean PuedeLanzar(int UserIndex, int HechizoIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 12/01/2010 */
@@ -516,7 +516,7 @@ public class modHechizos {
 		 * druida.
 		 */
 		/* '*************************************************** */
-		float DruidManaBonus;
+		float DruidManaBonus = 0.0f;
 
 		if (Declaraciones.UserList[UserIndex].flags.Muerto) {
 			Protocol.WriteConsoleMsg(UserIndex, "No puedes lanzar hechizos estando muerto.",
@@ -613,12 +613,12 @@ public class modHechizos {
 		/* ' */
 		/* '*************************************************** */
 
-		int PosCasteadaX;
-		int PosCasteadaY;
-		int PosCasteadaM;
-		int H;
-		int TempX;
-		int TempY;
+		int PosCasteadaX = 0;
+		int PosCasteadaY = 0;
+		int PosCasteadaM = 0;
+		int H = 0;
+		int TempX = 0;
+		int TempY = 0;
 
 		PosCasteadaX = Declaraciones.UserList[UserIndex].flags.TargetX;
 		PosCasteadaY = Declaraciones.UserList[UserIndex].flags.TargetY;
@@ -669,7 +669,7 @@ public class modHechizos {
 
 		/* FIXME: ON ERROR GOTO ERROR */
 
-		int mapa;
+		int mapa = 0;
 		mapa = Declaraciones.UserList[UserIndex].Pos.Map;
 
 		/* 'No permitimos se invoquen criaturas en zonas seguras */
@@ -691,10 +691,10 @@ public class modHechizos {
 			return;
 		}
 
-		int SpellIndex;
-		int NroNpcs;
-		int NpcIndex;
-		int PetIndex;
+		int SpellIndex = 0;
+		int NroNpcs = 0;
+		int NpcIndex = 0;
+		int PetIndex = 0;
 		Declaraciones.WorldPos TargetPos;
 
 		TargetPos.Map = Declaraciones.UserList[UserIndex].flags.TargetMap;
@@ -769,8 +769,8 @@ public class modHechizos {
 		/* '18/11/2009: ZaMa - Optimizacion de codigo. */
 		/* '*************************************************** */
 
-		boolean HechizoCasteado;
-		int ManaRequerida;
+		boolean HechizoCasteado = false;
+		int ManaRequerida = 0;
 
 		switch (Declaraciones.Hechizos[SpellIndex].Tipo) {
 		case uInvocacion:
@@ -833,8 +833,8 @@ public class modHechizos {
 		 */
 		/* '*************************************************** */
 
-		boolean HechizoCasteado;
-		int ManaRequerida;
+		boolean HechizoCasteado = false;
+		int ManaRequerida = 0;
 
 		switch (Declaraciones.Hechizos[SpellIndex].Tipo) {
 		case uEstado:
@@ -911,8 +911,8 @@ public class modHechizos {
 		 * ignorados.
 		 */
 		/* '*************************************************** */
-		boolean HechizoCasteado;
-		int ManaRequerida;
+		boolean HechizoCasteado = false;
+		int ManaRequerida = 0;
 
 		switch (Declaraciones.Hechizos[HechizoIndex].Tipo) {
 		case uEstado:
@@ -1121,13 +1121,13 @@ public class modHechizos {
 		 */
 		/* '*************************************************** */
 
-		int HechizoIndex;
-		int TargetIndex;
+		int HechizoIndex = 0;
+		int TargetIndex = 0;
 
 		HechizoIndex = Declaraciones.UserList[UserIndex].flags.Hechizo;
 		TargetIndex = Declaraciones.UserList[UserIndex].flags.TargetUser;
 
-		int AnilloObjIndex;
+		int AnilloObjIndex = 0;
 		AnilloObjIndex = Declaraciones.UserList[TargetIndex].Invent.AnilloEqpObjIndex;
 
 		/* ' <-------- Agrega Invisibilidad ----------> */
@@ -1485,7 +1485,7 @@ public class modHechizos {
 					return;
 				}
 
-				boolean EraCriminal;
+				boolean EraCriminal = false;
 				EraCriminal = ES.criminal(UserIndex);
 
 				if (!ES.criminal(TargetIndex)) {
@@ -1839,7 +1839,7 @@ public class modHechizos {
 		/* '18/09/2010: ZaMa - Ahora valida si podes ayudar a un npc. */
 		/* '*************************************************** */
 
-		int dano;
+		int dano = 0;
 
 		/* 'Salud */
 		if (Declaraciones.Hechizos[SpellIndex].SubeHP == 1) {
@@ -1929,9 +1929,9 @@ public class modHechizos {
 		 * anyone but themselves
 		 */
 		/* '*************************************************** */
-		int SpellIndex;
-		int tUser;
-		int tNPC;
+		int SpellIndex = 0;
+		int tUser = 0;
+		int tNPC = 0;
 
 		SpellIndex = Declaraciones.UserList[UserIndex].flags.Hechizo;
 		tUser = Declaraciones.UserList[UserIndex].flags.TargetUser;
@@ -1990,7 +1990,7 @@ public class modHechizos {
 	}
 
 	static boolean HechizoPropUsuario(int UserIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Autor: Unknown (orginal version) */
 		/* 'Last Modification: 28/04/2010 */
@@ -2004,9 +2004,9 @@ public class modHechizos {
 		 */
 		/* '*************************************************** */
 
-		int SpellIndex;
-		int dano;
-		int TargetIndex;
+		int SpellIndex = 0;
+		int dano = 0;
+		int TargetIndex = 0;
 
 		SpellIndex = Declaraciones.UserList[UserIndex].flags.Hechizo;
 		TargetIndex = Declaraciones.UserList[UserIndex].flags.TargetUser;
@@ -2498,7 +2498,7 @@ public class modHechizos {
 	}
 
 	static boolean CanSupportUser(int CasterIndex, int TargetIndex, boolean DoCriminal) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 28/04/2010 */
@@ -2616,7 +2616,7 @@ public class modHechizos {
 		/* ' */
 		/* '*************************************************** */
 
-		int LoopC;
+		int LoopC = 0;
 
 		/* 'Actualiza un solo slot */
 		if (!UpdateAll) {
@@ -2641,7 +2641,7 @@ public class modHechizos {
 	}
 
 	static boolean CanSupportNpc(int CasterIndex, int TargetIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 18/09/2010 */
@@ -2650,7 +2650,7 @@ public class modHechizos {
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int OwnerIndex;
+		int OwnerIndex = 0;
 
 		OwnerIndex = Declaraciones.Npclist[TargetIndex].Owner;
 
@@ -2787,7 +2787,7 @@ public class modHechizos {
 			return;
 		}
 
-		int TempHechizo;
+		int TempHechizo = 0;
 
 		/* 'Mover arriba */
 		if (Dire == 1) {
@@ -2828,7 +2828,7 @@ public class modHechizos {
 		 * 'disminuye la nobleza NoblePts puntos y aumenta el bandido BandidoPts
 		 * puntos
 		 */
-		boolean EraCriminal;
+		boolean EraCriminal = false;
 		EraCriminal = ES.criminal(UserIndex);
 
 		/* 'Si estamos en la arena no hacemos nada */

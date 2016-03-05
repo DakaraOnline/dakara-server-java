@@ -28,4 +28,8 @@ public enum eTrigger6 {
 		}
 		return 0;
 	}
+
+	public int toInteger() {
+		return toInteger(this);
+	}
 }

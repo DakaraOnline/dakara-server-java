@@ -40,4 +40,8 @@ public enum EstaNotificaciones {
 		}
 		return 0;
 	}
+
+	public int toInteger() {
+		return toInteger(this);
+	}
 }

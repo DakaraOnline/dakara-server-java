@@ -45,14 +45,14 @@ public class modNuevoTimer {
 	}
 
 	static boolean IntervaloPermiteLanzarSpell(int UserIndex, boolean Actualizar) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
 		/* ' */
 		/* '*************************************************** */
 
-		int TActual;
+		int TActual = 0;
 
 		TActual = Declaraciones.GetTickCount() && 0x7FFFFFFF;
 
@@ -74,14 +74,14 @@ public class modNuevoTimer {
 	}
 
 	static boolean IntervaloPermiteAtacar(int UserIndex, boolean Actualizar) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
 		/* ' */
 		/* '*************************************************** */
 
-		int TActual;
+		int TActual = 0;
 
 		TActual = Declaraciones.GetTickCount() && 0x7FFFFFFF;
 
@@ -103,7 +103,7 @@ public class modNuevoTimer {
 	}
 
 	static boolean IntervaloPermiteGolpeUsar(int UserIndex, boolean Actualizar) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/*
@@ -113,7 +113,7 @@ public class modNuevoTimer {
 		/* 'Last Modification: 06/04/2009 */
 		/* '*************************************************** */
 
-		int TActual;
+		int TActual = 0;
 
 		TActual = Declaraciones.GetTickCount() && 0x7FFFFFFF;
 
@@ -134,13 +134,13 @@ public class modNuevoTimer {
 	}
 
 	static boolean IntervaloPermiteMagiaGolpe(int UserIndex, boolean Actualizar) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
 		/* ' */
 		/* '*************************************************** */
-		int TActual;
+		int TActual = 0;
 
 		if (Declaraciones.UserList[UserIndex].Counters.TimerMagiaGolpe > Declaraciones.UserList[UserIndex].Counters.TimerLanzarSpell) {
 			return retval;
@@ -167,14 +167,14 @@ public class modNuevoTimer {
 	}
 
 	static boolean IntervaloPermiteGolpeMagia(int UserIndex, boolean Actualizar) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
 		/* ' */
 		/* '*************************************************** */
 
-		int TActual;
+		int TActual = 0;
 
 		if (Declaraciones.UserList[UserIndex].Counters.TimerGolpeMagia > Declaraciones.UserList[UserIndex].Counters.TimerPuedeAtacar) {
 			return retval;
@@ -224,14 +224,14 @@ public class modNuevoTimer {
 	}
 
 	static boolean IntervaloPermiteTrabajar(int UserIndex, boolean Actualizar) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
 		/* ' */
 		/* '*************************************************** */
 
-		int TActual;
+		int TActual = 0;
 
 		TActual = Declaraciones.GetTickCount() && 0x7FFFFFFF;
 
@@ -253,14 +253,14 @@ public class modNuevoTimer {
 	}
 
 	static boolean IntervaloPermiteUsar(int UserIndex, boolean Actualizar) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 25/01/2010 (ZaMa) */
 		/* '25/01/2010: ZaMa - General adjustments. */
 		/* '*************************************************** */
 
-		int TActual;
+		int TActual = 0;
 
 		TActual = Declaraciones.GetTickCount() && 0x7FFFFFFF;
 
@@ -302,14 +302,14 @@ public class modNuevoTimer {
 	}
 
 	static boolean IntervaloPermiteUsarArcos(int UserIndex, boolean Actualizar) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
 		/* ' */
 		/* '*************************************************** */
 
-		int TActual;
+		int TActual = 0;
 
 		TActual = Declaraciones.GetTickCount() && 0x7FFFFFFF;
 
@@ -331,7 +331,7 @@ public class modNuevoTimer {
 	}
 
 	static boolean IntervaloPermiteSerAtacado(int UserIndex, boolean Actualizar) {
-		boolean retval;
+		boolean retval = false;
 		/* '************************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modify by: ZaMa */
@@ -341,7 +341,7 @@ public class modNuevoTimer {
 		 * can be atacked by a NPc or not
 		 */
 		/* '************************************************************** */
-		int TActual;
+		int TActual = 0;
 
 		TActual = Declaraciones.GetTickCount() && 0x7FFFFFFF;
 
@@ -368,7 +368,7 @@ public class modNuevoTimer {
 	}
 
 	static boolean IntervaloPerdioNpc(int UserIndex, boolean Actualizar) {
-		boolean retval;
+		boolean retval = false;
 		/* '************************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modify by: ZaMa */
@@ -378,7 +378,7 @@ public class modNuevoTimer {
 		 * still owns a Npc or not
 		 */
 		/* '************************************************************** */
-		int TActual;
+		int TActual = 0;
 
 		TActual = Declaraciones.GetTickCount() && 0x7FFFFFFF;
 
@@ -403,7 +403,7 @@ public class modNuevoTimer {
 	}
 
 	static boolean IntervaloEstadoAtacable(int UserIndex, boolean Actualizar) {
-		boolean retval;
+		boolean retval = false;
 		/* '************************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modify by: ZaMa */
@@ -413,7 +413,7 @@ public class modNuevoTimer {
 		 * can be atacked by an user or not
 		 */
 		/* '************************************************************** */
-		int TActual;
+		int TActual = 0;
 
 		TActual = Declaraciones.GetTickCount() && 0x7FFFFFFF;
 
@@ -438,7 +438,7 @@ public class modNuevoTimer {
  }
 
 	static boolean IntervaloGoHome(int UserIndex, int TimeInterval, boolean Actualizar) {
-		boolean retval;
+		boolean retval = false;
 		/* '************************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modify by: ZaMa */
@@ -448,7 +448,7 @@ public class modNuevoTimer {
 		 * can be teleported to its home or not
 		 */
 		/* '************************************************************** */
-		int TActual;
+		int TActual = 0;
 
 		TActual = Declaraciones.GetTickCount() && 0x7FFFFFFF;
 
@@ -466,8 +466,8 @@ public class modNuevoTimer {
 	}
 
 	static boolean checkInterval(int /* FIXME BYREF!! */ startTime, int timeNow, int interval) {
-		boolean retval;
-		int lInterval;
+		boolean retval = false;
+		int lInterval = 0;
 
 		if (timeNow < startTime) {
 			lInterval = 0x7FFFFFFF - startTime + timeNow + 1;
@@ -485,7 +485,7 @@ public class modNuevoTimer {
 	}
 
 	static int getInterval(int timeNow, int startTime) {
-		int retval;
+		int retval = 0;
 		if (timeNow < startTime) {
 			retval = 0x7FFFFFFF - startTime + timeNow + 1;
 		} else {

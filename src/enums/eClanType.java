@@ -40,4 +40,8 @@ public enum eClanType {
 		}
 		return 0;
 	}
+
+	public int toInteger() {
+		return toInteger(this);
+	}
 }

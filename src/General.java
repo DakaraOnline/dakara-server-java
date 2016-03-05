@@ -47,7 +47,7 @@ public class General {
 		/* '23/11/2009: ZaMa - Optimizacion de codigo. */
 		/* '*************************************************** */
 
-		int CuerpoDesnudo;
+		int CuerpoDesnudo = 0;
 
 		switch (Declaraciones.UserList[UserIndex].Genero) {
 		case Hombre:
@@ -135,7 +135,7 @@ public class General {
 	}
 
 	static boolean HayAgua(int Map, int X, int Y) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -162,7 +162,7 @@ public class General {
 	}
 
 	static boolean HayLava(int Map, int X, int Y) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Autor: Nacho (Integer) */
 		/* 'Last Modification: 03/12/07 */
@@ -190,7 +190,7 @@ public class General {
  /* '*************************************************** */
  /* FIXME: ON ERROR GOTO ErrHandler */
  
- int i;
+ int i = 0;
  cGarbage d;
  d = new cGarbage();
  
@@ -217,7 +217,7 @@ public class General {
  /* ' */
  /* '*************************************************** */
  
- int k;
+ int k = 0;
  String[] npcNames;
  
  npcNames = new String[0];
@@ -535,7 +535,7 @@ public class General {
 		/* '***************************************************************** */
 		/* FIXME: ON ERROR RESUME NEXT */
 
-		int LoopC;
+		int LoopC = 0;
 		for (LoopC = (1); LoopC <= (Declaraciones.MaxUsers); LoopC++) {
 			Declaraciones.UserList[LoopC].ConnID = -1;
 			Declaraciones.UserList[LoopC].ConnIDValida = false;
@@ -604,7 +604,7 @@ public class General {
 		/* 'Last Modify Date: 15/03/2011 */
 		/* 'Logs Server Start Time. */
 		/* '***************************************************************** */
-		int N;
+		int N = 0;
 		N = vb6.FreeFile();
 		/*
 		 * FIXME: OPEN App . Path & "\\logs\\Main.log" FOR Append Shared AS # N
@@ -622,7 +622,7 @@ public class General {
 	}
 
 	static boolean FileExist(String File, int FileType) {
-		boolean retval;
+		boolean retval = false;
 		/* '***************************************************************** */
 		/* 'Se fija si existe el archivo */
 		/* '***************************************************************** */
@@ -639,9 +639,9 @@ public class General {
 		/* 'Gets a field from a delimited string */
 		/* '***************************************************************** */
 
-		int i;
-		int lastPos;
-		int CurrentPos;
+		int i = 0;
+		int lastPos = 0;
+		int CurrentPos = 0;
 		String delimiter;
 
 		delimiter = vb6.Chr(SepASCII);
@@ -660,7 +660,7 @@ public class General {
 	}
 
 	static boolean MapaValido(int Map) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -691,7 +691,7 @@ public class General {
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int nfile;
+		int nfile = 0;
 		/* ' obtenemos un canal */
 		nfile = vb6.FreeFile();
 		/*
@@ -716,7 +716,7 @@ public class General {
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int nfile;
+		int nfile = 0;
 		/* ' obtenemos un canal */
 		nfile = vb6.FreeFile();
 		/*
@@ -741,7 +741,7 @@ public class General {
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int nfile;
+		int nfile = 0;
 		/* ' obtenemos un canal */
 		nfile = vb6.FreeFile();
 		/*
@@ -766,7 +766,7 @@ public class General {
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int nfile;
+		int nfile = 0;
 		/* ' obtenemos un canal */
 		nfile = vb6.FreeFile();
 		/*
@@ -791,7 +791,7 @@ public class General {
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int nfile;
+		int nfile = 0;
 		/* ' obtenemos un canal */
 		nfile = vb6.FreeFile();
 		/*
@@ -816,7 +816,7 @@ public class General {
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int nfile;
+		int nfile = 0;
 		/* ' obtenemos un canal */
 		nfile = vb6.FreeFile();
 		/*
@@ -841,7 +841,7 @@ public class General {
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int nfile;
+		int nfile = 0;
 		/* ' obtenemos un canal */
 		nfile = vb6.FreeFile(1);
 		/*
@@ -864,7 +864,7 @@ public class General {
 		/* ' */
 		/* '*************************************************** */
 
-		int nfile;
+		int nfile = 0;
 		/* ' obtenemos un canal */
 		nfile = vb6.FreeFile();
 		/*
@@ -883,7 +883,7 @@ public class General {
 		/* ' */
 		/* '*************************************************** */
 
-		int nfile;
+		int nfile = 0;
 		/* ' obtenemos un canal */
 		nfile = vb6.FreeFile();
 		/*
@@ -902,7 +902,7 @@ public class General {
 		/* ' */
 		/* '*************************************************** */
 
-		int nfile;
+		int nfile = 0;
 		/* ' obtenemos un canal */
 		nfile = vb6.FreeFile();
 		/*
@@ -923,7 +923,7 @@ public class General {
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int nfile;
+		int nfile = 0;
 		/* ' obtenemos un canal */
 		nfile = vb6.FreeFile();
 		/* 'Guardamos todo en el mismo lugar. Pablo (ToxicWaste) 18/05/07 */
@@ -948,7 +948,7 @@ public class General {
 		/* '*************************************************** */
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
-		int nfile;
+		int nfile = 0;
 
 		/* ' obtenemos un canal */
 		nfile = vb6.FreeFile();
@@ -975,7 +975,7 @@ public class General {
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int nfile;
+		int nfile = 0;
 		/* ' obtenemos un canal */
 		nfile = vb6.FreeFile();
 
@@ -1009,7 +1009,7 @@ public class General {
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int nfile;
+		int nfile = 0;
 		/* ' obtenemos un canal */
 		nfile = vb6.FreeFile();
 		/*
@@ -1042,7 +1042,7 @@ public class General {
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int nfile;
+		int nfile = 0;
 		/* ' obtenemos un canal */
 		nfile = vb6.FreeFile();
 		/*
@@ -1067,7 +1067,7 @@ public class General {
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int nfile;
+		int nfile = 0;
 		/* ' obtenemos un canal */
 		nfile = vb6.FreeFile();
 		/*
@@ -1100,7 +1100,7 @@ public class General {
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int nfile;
+		int nfile = 0;
 		/* ' obtenemos un canal */
 		nfile = vb6.FreeFile();
 		/*
@@ -1118,7 +1118,7 @@ public class General {
 	}
 
 	static boolean ValidInputNP(String cad) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1126,7 +1126,7 @@ public class General {
 		/* '*************************************************** */
 
 		String Arg;
-		int i;
+		int i = 0;
 
 		for (i = (1); i <= (33); i++) {
 
@@ -1157,7 +1157,7 @@ public class General {
  frmMain.txStatus.Caption = "Reiniciando.";
  }
  
- int LoopC;
+ int LoopC = 0;
  
  /* # IF UsarQueSocket = 0 THEN */
  
@@ -1225,7 +1225,7 @@ public class General {
  }
  
  /* 'Log it */
- int N;
+ int N = 0;
  N = vb6.FreeFile();
  /* FIXME: OPEN App . Path & "\\logs\\Main.log" FOR Append Shared AS # N */
  /* FIXME: PRINT # N , Date & " " & time & " servidor reiniciado." */
@@ -1242,7 +1242,7 @@ public class General {
 }
 
 	static boolean Intemperie(int UserIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '************************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modify Date: 15/11/2009 */
@@ -1278,7 +1278,7 @@ public class General {
 
 		if (Declaraciones.UserList[UserIndex].flags.UserLogged) {
 			if (Intemperie(UserIndex)) {
-				int modifi;
+				int modifi = 0;
 				modifi = Matematicas.Porcentaje(Declaraciones.UserList[UserIndex].Stats.MaxSta, 3);
 				Trabajo.QuitarSta(UserIndex, modifi);
 				Protocol.FlushBuffer(UserIndex);
@@ -1297,7 +1297,7 @@ public class General {
 		/* ' */
 		/* '*************************************************** */
 
-		int i;
+		int i = 0;
 		for (i = (1); i <= (Declaraciones.MAXMASCOTAS); i++) {
 			if (Declaraciones.UserList[UserIndex].MascotasIndex[i] > 0) {
 				if (Declaraciones.Npclist[Declaraciones.UserList[UserIndex].MascotasIndex[i]].Contadores.TiempoExistencia > 0) {
@@ -1320,7 +1320,7 @@ public class General {
 		 */
 		/* '23/11/2009: ZaMa - Optimizacion de codigo. */
 		/* '*************************************************** */
-		int modifi;
+		int modifi = 0;
 
 		if (Declaraciones.UserList[UserIndex].Counters.Frio < Admin.IntervaloFrio) {
 			Declaraciones.UserList[UserIndex].Counters.Frio = Declaraciones.UserList[UserIndex].Counters.Frio + 1;
@@ -1577,7 +1577,7 @@ public class General {
 
 		if (Declaraciones.UserList[UserIndex].Counters.Paralisis > 0) {
 
-			int CasterIndex;
+			int CasterIndex = 0;
 			CasterIndex = Declaraciones.UserList[UserIndex].flags.ParalizedByIndex;
 
 			/* ' Only aplies to non-magic clases */
@@ -1664,7 +1664,7 @@ public class General {
 			return;
 		}
 
-		int massta;
+		int massta = 0;
 		if (Declaraciones.UserList[UserIndex].Stats.MinSta < Declaraciones.UserList[UserIndex].Stats.MaxSta) {
 			if (Declaraciones.UserList[UserIndex].Counters.STACounter < Intervalo) {
 				Declaraciones.UserList[UserIndex].Counters.STACounter = Declaraciones.UserList[UserIndex].Counters.STACounter
@@ -1696,7 +1696,7 @@ public class General {
 		/* ' */
 		/* '*************************************************** */
 
-		int N;
+		int N = 0;
 
 		if (Declaraciones.UserList[UserIndex].Counters.Veneno < Admin.IntervaloVeneno) {
 			Declaraciones.UserList[UserIndex].Counters.Veneno = Declaraciones.UserList[UserIndex].Counters.Veneno + 1;
@@ -1732,7 +1732,7 @@ public class General {
 				Declaraciones.UserList[UserIndex].flags.TomoPocion = false;
 				Declaraciones.UserList[UserIndex].flags.TipoPocion = 0;
 				/* 'volvemos los atributos al estado normal */
-				int loopX;
+				int loopX = 0;
 
 				for (loopX = (1); loopX <= (Declaraciones.NUMATRIBUTOS); loopX++) {
 					Declaraciones.UserList[UserIndex].Stats.UserAtributos[loopX] = Declaraciones.UserList[UserIndex].Stats.UserAtributosBackUP[loopX];
@@ -1804,7 +1804,7 @@ public class General {
 			return;
 		}
 
-		int mashit;
+		int mashit = 0;
 		/* 'con el paso del tiempo va sanando....pero muy lentamente ;-) */
 		if (Declaraciones.UserList[UserIndex].Stats.MinHp < Declaraciones.UserList[UserIndex].Stats.MaxHp) {
 			if (Declaraciones.UserList[UserIndex].Counters.HPCounter < Intervalo) {
@@ -1848,7 +1848,7 @@ public class General {
 		/* '*************************************************** */
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
-		int i;
+		int i = 0;
 
 		for (i = (1); i <= (Declaraciones.LastUser); i++) {
 			if (Declaraciones.UserList[i].flags.UserLogged) {
@@ -1873,7 +1873,7 @@ public class General {
 	}
 
 	static double ReiniciarAutoUpdate() {
-		double retval;
+		double retval = 0.0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1927,7 +1927,7 @@ public class General {
 		modSendData.SendData(SendTarget.ToAll, 0,
 				Protocol.PrepareMessageConsoleMsg("Servidor> Grabando Personajes", FontTypeNames.FONTTYPE_SERVER));
 
-		int i;
+		int i = 0;
 		for (i = (1); i <= (Declaraciones.LastUser); i++) {
 			if (Declaraciones.UserList[i].flags.UserLogged) {
 				ES.SaveUser(i, Declaraciones.CharPath + vb6.UCase(Declaraciones.UserList[i].Name) + ".chr", false);
@@ -1951,7 +1951,7 @@ public class General {
 		/* ' */
 		/* '*************************************************** */
 
-		int Ta;
+		int Ta = 0;
 		Ta = Declaraciones.GetTickCount() && 0x7FFFFFFF;
 
 		Admin.EstadisticasWeb = new clsEstadisticasIPC();
@@ -1969,7 +1969,7 @@ public class General {
 		/* 'Last Modification: 05/17/06 */
 		/* 'Releases all NPC Indexes */
 		/* '*************************************************** */
-		int LoopC;
+		int LoopC = 0;
 
 		/* ' Free all NPC indexes */
 		for (LoopC = (1); LoopC <= (Declaraciones.MAXNPCS); LoopC++) {

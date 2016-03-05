@@ -86,7 +86,7 @@ public class Protocol {
 		/* ' */
 		/* '*************************************************** */
 		/* FIXME: ON ERROR RESUME NEXT */
-		int packetID;
+		int packetID = 0;
 
 		packetID = Declaraciones.UserList[UserIndex].incomingData.PeekByte();
 
@@ -1049,7 +1049,7 @@ public class Protocol {
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int Command;
+		int Command = 0;
 
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
@@ -2047,7 +2047,7 @@ public class Protocol {
 			return;
 		}
 
-		boolean bConFailed;
+		boolean bConFailed = false;
 
 		/* # IF SeguridadAlkon THEN */
 		/* # END IF */
@@ -2073,7 +2073,7 @@ public class Protocol {
 		}
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -2154,7 +2154,7 @@ public class Protocol {
 		eGenero gender;
 		eCiudad homeland;
 		eClass Class;
-		int Head;
+		int Head = 0;
 		String mail;
 
 		/* # IF SeguridadAlkon THEN */
@@ -2224,7 +2224,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -2329,7 +2329,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -2435,7 +2435,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -2485,7 +2485,7 @@ public class Protocol {
 		buffer.ReadByte();
 
 		String Chat;
-		int TargetUserIndex;
+		int TargetUserIndex = 0;
 		PlayerType TargetPriv;
 		PlayerType UserPriv;
 		String TargetName;
@@ -2617,7 +2617,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -2651,8 +2651,8 @@ public class Protocol {
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int dummy;
-		int TempTick;
+		int dummy = 0;
+		int TempTick = 0;
 		eHeading heading;
 
 		/* 'Remove packet ID */
@@ -3180,7 +3180,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -3240,7 +3240,7 @@ public class Protocol {
 		/* 'Last Modification: 05/17/06 */
 		/* ' */
 		/* '*************************************************** */
-		int otherUser;
+		int otherUser = 0;
 
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
@@ -3282,8 +3282,8 @@ public class Protocol {
 			return;
 		}
 
-		int Slot;
-		int Amount;
+		int Slot = 0;
+		int Amount = 0;
 
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
@@ -3355,7 +3355,7 @@ public class Protocol {
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
-		int Spell;
+		int Spell = 0;
 
 		Spell = Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
@@ -3397,8 +3397,8 @@ public class Protocol {
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
-		int X;
-		int Y;
+		int X = 0;
+		int Y = 0;
 
 		X = Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 		Y = Declaraciones.UserList[UserIndex].incomingData.ReadByte();
@@ -3425,8 +3425,8 @@ public class Protocol {
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
-		int X;
-		int Y;
+		int X = 0;
+		int Y = 0;
 
 		X = Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 		Y = Declaraciones.UserList[UserIndex].incomingData.ReadByte();
@@ -3527,8 +3527,8 @@ public class Protocol {
 		/* 'Last Modification: 29/01/2010 */
 		/* ' */
 		/* '*************************************************** */
-		int TotalItems;
-		int ItemsPorCiclo;
+		int TotalItems = 0;
+		int ItemsPorCiclo = 0;
 
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
@@ -3587,7 +3587,7 @@ public class Protocol {
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
-		int Slot;
+		int Slot = 0;
 
 		Slot = Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
@@ -3627,7 +3627,7 @@ public class Protocol {
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
-		int Item;
+		int Item = 0;
 
 		Item = Declaraciones.UserList[UserIndex].incomingData.ReadInteger();
 
@@ -3664,7 +3664,7 @@ public class Protocol {
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
-		int Item;
+		int Item = 0;
 
 		Item = Declaraciones.UserList[UserIndex].incomingData.ReadInteger();
 
@@ -3711,16 +3711,16 @@ public class Protocol {
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
-		int X;
-		int Y;
+		int X = 0;
+		int Y = 0;
 		eSkill Skill;
-		int DummyInt;
+		int DummyInt = 0;
 		/* 'Target user */
-		int tU;
+		int tU = 0;
 		/* 'Target NPC */
-		int tN;
+		int tN = 0;
 
-		int WeaponIndex;
+		int WeaponIndex = 0;
 
 		X = Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 		Y = Declaraciones.UserList[UserIndex].incomingData.ReadByte();
@@ -4201,7 +4201,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -4232,8 +4232,8 @@ public class Protocol {
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
-		int spellSlot;
-		int Spell;
+		int spellSlot = 0;
+		int Spell = 0;
 
 		spellSlot = Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
@@ -4277,7 +4277,7 @@ public class Protocol {
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
-		int itemSlot;
+		int itemSlot = 0;
 
 		itemSlot = Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
@@ -4323,8 +4323,8 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
 		eHeading heading;
-		int posX;
-		int posY;
+		int posX = 0;
+		int posY = 0;
 
 		heading = Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
@@ -4389,8 +4389,8 @@ public class Protocol {
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
-		int i;
-		int Count;
+		int i = 0;
+		int Count = 0;
 		int[] points;
 
 		/* 'Codigo para prevenir el hackeo de los skills */
@@ -4458,8 +4458,8 @@ public class Protocol {
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
-		int SpawnedNpc;
-		int PetIndex;
+		int SpawnedNpc = 0;
+		int PetIndex = 0;
 
 		PetIndex = Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
@@ -4513,8 +4513,8 @@ public class Protocol {
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
-		int Slot;
-		int Amount;
+		int Slot = 0;
+		int Amount = 0;
 
 		Slot = Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 		Amount = Declaraciones.UserList[UserIndex].incomingData.ReadInteger();
@@ -4569,8 +4569,8 @@ public class Protocol {
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
-		int Slot;
-		int Amount;
+		int Slot = 0;
+		int Amount = 0;
 
 		Slot = Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 		Amount = Declaraciones.UserList[UserIndex].incomingData.ReadInteger();
@@ -4614,8 +4614,8 @@ public class Protocol {
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
-		int Slot;
-		int Amount;
+		int Slot = 0;
+		int Amount = 0;
 
 		Slot = Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 		Amount = Declaraciones.UserList[UserIndex].incomingData.ReadInteger();
@@ -4664,8 +4664,8 @@ public class Protocol {
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
-		int Slot;
-		int Amount;
+		int Slot = 0;
+		int Amount = 0;
 
 		Slot = Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 		Amount = Declaraciones.UserList[UserIndex].incomingData.ReadInteger();
@@ -4723,9 +4723,9 @@ public class Protocol {
 		String File;
 		String Title;
 		String Post;
-		int ForumIndex;
+		int ForumIndex = 0;
 		String postFile;
-		int ForumType;
+		int ForumType = 0;
 
 		ForumMsgType = buffer.ReadByte();
 
@@ -4765,7 +4765,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -4796,7 +4796,7 @@ public class Protocol {
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
-		int dir;
+		int dir = 0;
 
 		if (Declaraciones.UserList[UserIndex].incomingData.ReadBoolean()) {
 			dir = 1;
@@ -4826,8 +4826,8 @@ public class Protocol {
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
-		int dir;
-		int Slot;
+		int dir = 0;
+		int Slot = 0;
 		Declaraciones.Obj TempItem;
 
 		if (Declaraciones.UserList[UserIndex].incomingData.ReadBoolean()) {
@@ -4903,7 +4903,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -4936,11 +4936,11 @@ public class Protocol {
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
-		int Amount;
-		int Slot;
-		int tUser;
-		int OfferSlot;
-		int ObjIndex;
+		int Amount = 0;
+		int Slot = 0;
+		int tUser = 0;
+		int OfferSlot = 0;
+		int ObjIndex = 0;
 
 		Slot = Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 		Amount = Declaraciones.UserList[UserIndex].incomingData.ReadLong();
@@ -5125,7 +5125,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -5193,7 +5193,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -5261,7 +5261,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -5329,7 +5329,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -5389,7 +5389,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -5449,7 +5449,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -5510,7 +5510,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -5571,7 +5571,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -5632,7 +5632,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -5708,7 +5708,7 @@ public class Protocol {
 
 		String guild;
 		String errorStr;
-		int otherGuildIndex;
+		int otherGuildIndex = 0;
 
 		guild = buffer.ReadASCIIString();
 
@@ -5737,7 +5737,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -5786,7 +5786,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -5828,7 +5828,7 @@ public class Protocol {
 
 		String errorStr;
 		String UserName;
-		int tUser;
+		int tUser = 0;
 
 		UserName = buffer.ReadASCIIString();
 
@@ -5855,7 +5855,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -5899,7 +5899,7 @@ public class Protocol {
 		String errorStr;
 		String UserName;
 		String Reason;
-		int tUser;
+		int tUser = 0;
 
 		UserName = buffer.ReadASCIIString();
 		Reason = buffer.ReadASCIIString();
@@ -5924,7 +5924,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -5965,7 +5965,7 @@ public class Protocol {
 		buffer.ReadByte();
 
 		String UserName;
-		int GuildIndex;
+		int GuildIndex = 0;
 
 		UserName = buffer.ReadASCIIString();
 
@@ -5987,7 +5987,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -6036,7 +6036,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -6085,7 +6085,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -6174,7 +6174,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -6223,7 +6223,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -6246,8 +6246,8 @@ public class Protocol {
 		/* 'Last Modification: 05/17/06 */
 		/* ' */
 		/* '*************************************************** */
-		int i;
-		int Count;
+		int i = 0;
+		int Count = 0;
 
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
@@ -6279,8 +6279,8 @@ public class Protocol {
 		 * (NicoNZ)
 		 */
 		/* '*************************************************** */
-		int tUser;
-		boolean isNotVisible;
+		int tUser = 0;
+		boolean isNotVisible = false;
 
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
@@ -6319,7 +6319,7 @@ public class Protocol {
 		/* 'Last Modification: 05/17/06 */
 		/* ' */
 		/* '*************************************************** */
-		int GuildIndex;
+		int GuildIndex = 0;
 
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
@@ -6347,8 +6347,8 @@ public class Protocol {
 		/* 'Last Modification: 05/17/06 */
 		/* ' */
 		/* '*************************************************** */
-		int earnings;
-		int Percentage;
+		int earnings = 0;
+		int Percentage = 0;
 
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
@@ -6781,7 +6781,7 @@ public class Protocol {
 		 */
 		/* '*************************************************** */
 
-		int UserConsulta;
+		int UserConsulta = 0;
 
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
@@ -6937,7 +6937,7 @@ public class Protocol {
 		/* 'Last Modification: 05/17/06 */
 		/* ' */
 		/* '*************************************************** */
-		int i;
+		int i = 0;
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
@@ -7122,9 +7122,9 @@ public class Protocol {
 		/* 'Last Modification: 05/17/06 */
 		/* ' */
 		/* '*************************************************** */
-		int Matados;
-		int NextRecom;
-		int Diferencia;
+		int Matados = 0;
+		int NextRecom = 0;
+		int Diferencia = 0;
 
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
@@ -7283,7 +7283,7 @@ public class Protocol {
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
-		int time;
+		int time = 0;
 		String UpTimeStr;
 
 		/* 'Get total time in seconds */
@@ -7375,8 +7375,8 @@ public class Protocol {
 		/* 'Shares owned npcs with other user */
 		/* '*************************************************** */
 
-		int TargetUserIndex;
-		int SharingUserIndex;
+		int TargetUserIndex = 0;
+		int SharingUserIndex = 0;
 
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
@@ -7454,7 +7454,7 @@ public class Protocol {
 		/* 'Stop Sharing owned npcs with other user */
 		/* '*************************************************** */
 
-		int SharingUserIndex;
+		int SharingUserIndex = 0;
 
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
@@ -7551,7 +7551,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -7619,7 +7619,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -7750,7 +7750,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -7808,7 +7808,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -7871,7 +7871,7 @@ public class Protocol {
 		 */
 		clsByteQueue buffer;
 		buffer = new clsByteQueue();
-		int N;
+		int N = 0;
 
 		buffer.CopyBuffer(Declaraciones.UserList[UserIndex].incomingData);
 
@@ -7903,7 +7903,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -7965,7 +7965,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -8023,7 +8023,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -8079,7 +8079,7 @@ public class Protocol {
   buffer.ReadByte();
   
   String Name;
-  int Count;
+  int Count = 0;
   
   Name = buffer.ReadASCIIString();
   
@@ -8120,7 +8120,7 @@ public class Protocol {
   Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
  
  /* FIXME: ErrHandler : */
- int ERROR;
+ int ERROR = 0;
  /* ERROR = Err . Number */
  /* FIXME: ON ERROR GOTO 0 */
  
@@ -8198,7 +8198,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -8231,7 +8231,7 @@ public class Protocol {
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
-		int Amount;
+		int Amount = 0;
 		eNPCType TypeNpc;
 
 		Amount = Declaraciones.UserList[UserIndex].incomingData.ReadInteger();
@@ -8330,7 +8330,7 @@ public class Protocol {
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
-		int opt;
+		int opt = 0;
 
 		opt = Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
@@ -8356,7 +8356,7 @@ public class Protocol {
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
-		int Amount;
+		int Amount = 0;
 
 		Amount = Declaraciones.UserList[UserIndex].incomingData.ReadLong();
 
@@ -8416,9 +8416,9 @@ public class Protocol {
 		/* ' 05/17/06 - Maraxus */
 		/* '*************************************************** */
 
-		boolean TalkToKing;
-		boolean TalkToDemon;
-		int NpcIndex;
+		boolean TalkToKing = false;
+		boolean TalkToDemon = false;
+		int NpcIndex = 0;
 
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
@@ -8525,7 +8525,7 @@ public class Protocol {
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
-		int Amount;
+		int Amount = 0;
 
 		Amount = Declaraciones.UserList[UserIndex].incomingData.ReadLong();
 
@@ -8623,7 +8623,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -8767,7 +8767,7 @@ public class Protocol {
 		buffer.ReadByte();
 
 		String UserName;
-		int tUser;
+		int tUser = 0;
 
 		UserName = buffer.ReadASCIIString();
 
@@ -8793,7 +8793,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -8838,8 +8838,8 @@ public class Protocol {
 		buffer.ReadByte();
 
 		String UserName;
-		int tUser;
-		int rank;
+		int tUser = 0;
+		int rank = 0;
 		rank = PlayerType.Admin || PlayerType.Dios || PlayerType.SemiDios || PlayerType.Consejero;
 
 		UserName = buffer.ReadASCIIString();
@@ -8872,7 +8872,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -8917,9 +8917,9 @@ public class Protocol {
 		buffer.ReadByte();
 
 		String UserName;
-		int tUser;
-		int rank;
-		boolean bUserVivo;
+		int tUser = 0;
+		int rank = 0;
+		boolean bUserVivo = false;
 
 		rank = PlayerType.Admin || PlayerType.Dios || PlayerType.SemiDios || PlayerType.Consejero;
 
@@ -8968,7 +8968,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -9009,8 +9009,8 @@ public class Protocol {
 		buffer.ReadByte();
 
 		String guild;
-		int memberCount;
-		int i;
+		int memberCount = 0;
+		int i = 0;
 		String UserName;
 
 		guild = buffer.ReadASCIIString();
@@ -9045,7 +9045,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -9108,7 +9108,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -9163,7 +9163,7 @@ public class Protocol {
 			return;
 		}
 
-		int i;
+		int i = 0;
 		String list;
 		PlayerType priv;
 
@@ -9212,7 +9212,7 @@ public class Protocol {
 			return;
 		}
 
-		int i;
+		int i = 0;
 		String list;
 		PlayerType priv;
 
@@ -9273,11 +9273,11 @@ public class Protocol {
 
 		UserName = buffer.ReadASCIIString();
 
-		int tIndex;
-		int X;
-		int Y;
-		int i;
-		boolean Found;
+		int tIndex = 0;
+		int X = 0;
+		int Y = 0;
+		int i = 0;
+		boolean Found = false;
 
 		tIndex = Extra.NameIndex(UserName);
 
@@ -9344,7 +9344,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -9399,7 +9399,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -9471,7 +9471,7 @@ public class Protocol {
 		buffer.ReadByte();
 
 		String UserName;
-		int tUser;
+		int tUser = 0;
 		String miPos;
 
 		UserName = buffer.ReadASCIIString();
@@ -9530,7 +9530,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -9564,11 +9564,11 @@ public class Protocol {
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
-		int Map;
+		int Map = 0;
 		Object i;
-		int j;
+		int j = 0;
 		Object NPCcount1;
-		int NPCcount2;
+		int NPCcount2 = 0;
 		int[] NPCcant1;
 		int[] NPCcant2;
 		String[] List1;
@@ -9692,8 +9692,8 @@ public class Protocol {
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
-		int X;
-		int Y;
+		int X = 0;
+		int Y = 0;
 
 		if (Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.User) {
 			return;
@@ -9742,10 +9742,10 @@ public class Protocol {
 		buffer.ReadByte();
 
 		String UserName;
-		int Map;
-		int X;
-		int Y;
-		int tUser;
+		int Map = 0;
+		int X = 0;
+		int Y = 0;
+		int tUser = 0;
 
 		UserName = buffer.ReadASCIIString();
 		Map = buffer.ReadInteger();
@@ -9796,7 +9796,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -9837,7 +9837,7 @@ public class Protocol {
 		buffer.ReadByte();
 
 		String UserName;
-		int tUser;
+		int tUser = 0;
 
 		UserName = buffer.ReadASCIIString();
 
@@ -9873,7 +9873,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -9937,7 +9937,7 @@ public class Protocol {
 		/* 'Last Modification: 12/09/09 */
 		/* ' */
 		/* '*************************************************** */
-		int ItemIndex;
+		int ItemIndex = 0;
 
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
@@ -9999,7 +9999,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -10043,9 +10043,9 @@ public class Protocol {
 		buffer.ReadByte();
 
 		String UserName;
-		int tUser;
-		int X;
-		int Y;
+		int tUser = 0;
+		int X = 0;
+		int Y = 0;
 
 		UserName = buffer.ReadASCIIString();
 		tUser = Extra.NameIndex(UserName);
@@ -10090,7 +10090,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -10157,9 +10157,9 @@ public class Protocol {
  /* 'Last modified by: Lucas Tavolaro Ortiz (Tavo) */
  /* 'I haven`t found a solution to split, so i make an array of names */
  /* '*************************************************** */
- int i;
+ int i = 0;
  String[] names;
- int Count;
+ int Count = 0;
  
   /* 'Remove packet ID */
   Declaraciones.UserList[UserIndex].incomingData.ReadByte();
@@ -10200,7 +10200,7 @@ public class Protocol {
 		 * paralelo.
 		 */
 		/* '*************************************************** */
-		int i;
+		int i = 0;
 		String users;
 
 		/* 'Remove packet ID */
@@ -10240,7 +10240,7 @@ public class Protocol {
 		/* 'Last Modification: 05/17/06 */
 		/* ' */
 		/* '*************************************************** */
-		int i;
+		int i = 0;
 		String users;
 
 		/* 'Remove packet ID */
@@ -10297,9 +10297,9 @@ public class Protocol {
 
 		String UserName;
 		String Reason;
-		int jailTime;
-		int Count;
-		int tUser;
+		int jailTime = 0;
+		int Count = 0;
+		int tUser = 0;
 
 		UserName = buffer.ReadASCIIString();
 		Reason = buffer.ReadASCIIString();
@@ -10361,7 +10361,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -10391,7 +10391,7 @@ public class Protocol {
 			return;
 		}
 
-		int tNPC;
+		int tNPC = 0;
 		Declaraciones.npc auxNPC;
 
 		/* 'Los consejeros no pueden RMATAr a nada en el mapa pretoriano */
@@ -10450,7 +10450,7 @@ public class Protocol {
 		String UserName;
 		String Reason;
 		PlayerType Privs;
-		int Count;
+		int Count = 0;
 
 		UserName = buffer.ReadASCIIString();
 		Reason = buffer.ReadASCIIString();
@@ -10494,7 +10494,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -10534,16 +10534,16 @@ public class Protocol {
   buffer.ReadByte();
   
   String UserName;
-  int tUser;
-  int opcion;
+  int tUser = 0;
+  int opcion = 0;
   String Arg1;
   String Arg2;
-  boolean valido;
-  int LoopC;
+  boolean valido = false;
+  int LoopC = 0;
   String CommandString;
-  int N;
+  int N = 0;
   String UserCharPath;
-  int Var;
+  int Var = 0;
   
   UserName = vb6.Replace(buffer.ReadASCIIString(), "+", " ");
   
@@ -10721,7 +10721,7 @@ public class Protocol {
      /* ' Chequeamos si puede permanecer en el clan */
       if (vb6.val(Arg1)>=25) {
       
-      int GI;
+      int GI = 0;
        if (tUser<=0) {
        GI = ES.GetVar(UserCharPath, "GUILD", "GUILDINDEX");
        } else {
@@ -10866,7 +10866,7 @@ public class Protocol {
      break;
      
      case eo_Sex:
-     int Sex;
+     int Sex = 0;
      /* ' Mujer? */
      Sex = vb6.IIf(vb6.UCase(Arg1) == "MUJER", eGenero.Mujer, 0);
      /* ' Hombre? */
@@ -10892,7 +10892,7 @@ public class Protocol {
      break;
      
      case eo_Raza:
-     int raza;
+     int raza = 0;
      
      Arg1 = vb6.UCase(Arg1);
      switch (Arg1) {
@@ -10937,7 +10937,7 @@ public class Protocol {
      
      case eo_addGold:
      
-     int bankGold;
+     int bankGold = 0;
      
       if (vb6.Abs(Arg1)>Declaraciones.MAX_ORO_EDIT) {
       WriteConsoleMsg(UserIndex, "No está permitido utilizar valores mayores a " + Declaraciones.MAX_ORO_EDIT + ".", FontTypeNames.FONTTYPE_INFO);
@@ -10977,9 +10977,9 @@ public class Protocol {
      
      case eo_Poss:
      
-     int Map;
-     int X;
-     int Y;
+     int Map = 0;
+     int X = 0;
+     int Y = 0;
      
      Map = vb6.val(General.ReadField(1, Arg1, 45));
      X = vb6.val(General.ReadField(2, Arg1, 45));
@@ -11020,7 +11020,7 @@ public class Protocol {
   Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
   
  /* FIXME: ErrHandler : */
- int ERROR;
+ int ERROR = 0;
  /* ERROR = Err . Number */
  /* FIXME: ON ERROR GOTO 0 */
  
@@ -11061,7 +11061,7 @@ public class Protocol {
 		buffer.ReadByte();
 
 		String TargetName;
-		int TargetIndex;
+		int TargetIndex = 0;
 
 		TargetName = vb6.Replace(buffer.ReadASCIIString(), "+", " ");
 		TargetIndex = Extra.NameIndex(TargetName);
@@ -11091,7 +11091,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -11135,10 +11135,10 @@ public class Protocol {
 		buffer.ReadByte();
 
 		String UserName;
-		int tUser;
+		int tUser = 0;
 
-		boolean UserIsAdmin;
-		boolean OtherUserIsAdmin;
+		boolean UserIsAdmin = false;
+		boolean OtherUserIsAdmin = false;
 
 		UserName = buffer.ReadASCIIString();
 
@@ -11179,7 +11179,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -11223,10 +11223,10 @@ public class Protocol {
 		buffer.ReadByte();
 
 		String UserName;
-		int tUser;
+		int tUser = 0;
 
-		boolean UserIsAdmin;
-		boolean OtherUserIsAdmin;
+		boolean UserIsAdmin = false;
+		boolean OtherUserIsAdmin = false;
 
 		UserName = buffer.ReadASCIIString();
 
@@ -11268,7 +11268,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -11312,10 +11312,10 @@ public class Protocol {
 		buffer.ReadByte();
 
 		String UserName;
-		int tUser;
+		int tUser = 0;
 
-		boolean UserIsAdmin;
-		boolean OtherUserIsAdmin;
+		boolean UserIsAdmin = false;
+		boolean OtherUserIsAdmin = false;
 
 		UserName = buffer.ReadASCIIString();
 
@@ -11358,7 +11358,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -11402,10 +11402,10 @@ public class Protocol {
 		buffer.ReadByte();
 
 		String UserName;
-		int tUser;
+		int tUser = 0;
 
-		boolean UserIsAdmin;
-		boolean OtherUserIsAdmin;
+		boolean UserIsAdmin = false;
+		boolean OtherUserIsAdmin = false;
 
 		UserName = buffer.ReadASCIIString();
 
@@ -11447,7 +11447,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -11488,8 +11488,8 @@ public class Protocol {
 		buffer.ReadByte();
 
 		String UserName;
-		int tUser;
-		int LoopC;
+		int tUser = 0;
+		int LoopC = 0;
 		String message;
 
 		UserName = buffer.ReadASCIIString();
@@ -11528,7 +11528,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -11572,8 +11572,8 @@ public class Protocol {
 		buffer.ReadByte();
 
 		String UserName;
-		int tUser;
-		int LoopC;
+		int tUser = 0;
+		int LoopC = 0;
 
 		UserName = buffer.ReadASCIIString();
 
@@ -11640,7 +11640,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -11663,10 +11663,10 @@ public class Protocol {
 		/* 'Last Modification: 12/28/06 */
 		/* ' */
 		/* '*************************************************** */
-		int i;
+		int i = 0;
 		String list;
 		PlayerType priv;
-		boolean isRM;
+		boolean isRM = false;
 
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
@@ -11720,14 +11720,14 @@ public class Protocol {
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
-		int Map;
+		int Map = 0;
 		Map = Declaraciones.UserList[UserIndex].incomingData.ReadInteger();
 
 		if (Declaraciones.UserList[UserIndex].flags.Privilegios && (PlayerType.User || PlayerType.Consejero)) {
 			return;
 		}
 
-		int LoopC;
+		int LoopC = 0;
 		String list;
 		PlayerType priv;
 
@@ -11784,7 +11784,7 @@ public class Protocol {
 		buffer.ReadByte();
 
 		String UserName;
-		int tUser;
+		int tUser = 0;
 
 		UserName = buffer.ReadASCIIString();
 
@@ -11814,7 +11814,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -11858,9 +11858,9 @@ public class Protocol {
 		buffer.ReadByte();
 
 		String UserName;
-		int tUser;
-		int rank;
-		boolean IsAdmin;
+		int tUser = 0;
+		int rank = 0;
+		boolean IsAdmin = false;
 
 		rank = PlayerType.Admin || PlayerType.Dios || PlayerType.SemiDios || PlayerType.Consejero;
 
@@ -11896,7 +11896,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -11940,7 +11940,7 @@ public class Protocol {
 		buffer.ReadByte();
 
 		String UserName;
-		int tUser;
+		int tUser = 0;
 
 		UserName = buffer.ReadASCIIString();
 
@@ -11978,7 +11978,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -12037,7 +12037,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -12078,7 +12078,7 @@ public class Protocol {
 		buffer.ReadByte();
 
 		String UserName;
-		int cantPenas;
+		int cantPenas = 0;
 
 		UserName = buffer.ReadASCIIString();
 
@@ -12120,7 +12120,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -12190,9 +12190,9 @@ public class Protocol {
 		buffer.ReadByte();
 
 		String UserName;
-		int tUser;
-		int X;
-		int Y;
+		int tUser = 0;
+		int X = 0;
+		int Y = 0;
 
 		UserName = buffer.ReadASCIIString();
 
@@ -12234,7 +12234,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -12286,7 +12286,7 @@ public class Protocol {
   /* 'Remove packet ID */
   Declaraciones.UserList[UserIndex].incomingData.ReadByte();
   
-  int npc;
+  int npc = 0;
   npc = Declaraciones.UserList[UserIndex].incomingData.ReadInteger();
   
    if ((Declaraciones.UserList[UserIndex].flags.Privilegios && (PlayerType.Admin || PlayerType.Dios || PlayerType.SemiDios))) {
@@ -12400,7 +12400,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -12449,7 +12449,7 @@ public class Protocol {
 
 			if (vb6.LenB(message) != 0) {
 
-				int mapa;
+				int mapa = 0;
 				mapa = Declaraciones.UserList[UserIndex].Pos.Map;
 
 				General.LogGM(Declaraciones.UserList[UserIndex].Name, "Mensaje a mapa " + mapa + ":" + message);
@@ -12465,7 +12465,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -12513,9 +12513,9 @@ public class Protocol {
 		buffer.ReadByte();
 
 		String UserName;
-		int tUser;
+		int tUser = 0;
 		PlayerType priv;
-		boolean IsAdmin;
+		boolean IsAdmin = false;
 
 		UserName = buffer.ReadASCIIString();
 
@@ -12540,7 +12540,7 @@ public class Protocol {
 							FontTypeNames.FONTTYPE_INFO);
 					String ip;
 					String lista;
-					int LoopC;
+					int LoopC = 0;
 					ip = Declaraciones.UserList[tUser].ip;
 					for (LoopC = (1); LoopC <= (Declaraciones.LastUser); LoopC++) {
 						if (Declaraciones.UserList[LoopC].ip == ip) {
@@ -12572,7 +12572,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -12604,7 +12604,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
 		String ip;
-		int LoopC;
+		int LoopC = 0;
 		String lista;
 		PlayerType priv;
 
@@ -12673,7 +12673,7 @@ public class Protocol {
 		buffer.ReadByte();
 
 		String GuildName;
-		int tGuild;
+		int tGuild = 0;
 
 		GuildName = buffer.ReadASCIIString();
 
@@ -12700,7 +12700,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -12738,10 +12738,10 @@ public class Protocol {
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
-		int mapa;
-		int X;
-		int Y;
-		int Radio;
+		int mapa = 0;
+		int X = 0;
+		int Y = 0;
+		int Radio = 0;
 
 		mapa = Declaraciones.UserList[UserIndex].incomingData.ReadInteger();
 		X = Declaraciones.UserList[UserIndex].incomingData.ReadByte();
@@ -12812,9 +12812,9 @@ public class Protocol {
 		/* 'Last Modification: 12/29/06 */
 		/* ' */
 		/* '*************************************************** */
-		int mapa;
-		int X;
-		int Y;
+		int mapa = 0;
+		int X = 0;
+		int Y = 0;
 
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
@@ -12902,7 +12902,7 @@ public class Protocol {
 			return;
 		}
 
-		boolean Activado;
+		boolean Activado = false;
 		String msg;
 
 		Activado = !Declaraciones.UserList[UserIndex].flags.SendDenounces;
@@ -12964,7 +12964,7 @@ public class Protocol {
 		/* 'Remove packet ID */
 		buffer.ReadByte();
 
-		int tUser;
+		int tUser = 0;
 		String desc;
 
 		desc = buffer.ReadASCIIString();
@@ -12986,7 +12986,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -13017,8 +13017,8 @@ public class Protocol {
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
-		int midiID;
-		int mapa;
+		int midiID = 0;
+		int mapa = 0;
 
 		midiID = Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 		mapa = Declaraciones.UserList[UserIndex].incomingData.ReadInteger();
@@ -13061,10 +13061,10 @@ public class Protocol {
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
-		int waveID;
-		int mapa;
-		int X;
-		int Y;
+		int waveID = 0;
+		int mapa = 0;
+		int X = 0;
+		int Y = 0;
 
 		waveID = Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 		mapa = Declaraciones.UserList[UserIndex].incomingData.ReadInteger();
@@ -13131,7 +13131,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -13188,7 +13188,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -13245,7 +13245,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -13302,7 +13302,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -13368,7 +13368,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -13399,9 +13399,9 @@ public class Protocol {
 			return;
 		}
 
-		int X;
-		int Y;
-		boolean bIsExit;
+		int X = 0;
+		int Y = 0;
+		boolean bIsExit = false;
 
 		for (Y = (Declaraciones.UserList[UserIndex].Pos.Y - Declaraciones.MinYBorder
 				+ 1); Y <= (Declaraciones.UserList[UserIndex].Pos.Y + Declaraciones.MinYBorder - 1); Y++) {
@@ -13453,8 +13453,8 @@ public class Protocol {
 		buffer.ReadByte();
 
 		String UserName;
-		int tUser;
-		int LoopC;
+		int tUser = 0;
+		int LoopC = 0;
 
 		UserName = buffer.ReadASCIIString();
 
@@ -13488,7 +13488,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -13529,8 +13529,8 @@ public class Protocol {
 		buffer.ReadByte();
 
 		String UserName;
-		int tUser;
-		int LoopC;
+		int tUser = 0;
+		int LoopC = 0;
 
 		UserName = buffer.ReadASCIIString();
 
@@ -13564,7 +13564,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -13595,10 +13595,10 @@ public class Protocol {
 			return;
 		}
 
-		int tObj;
+		int tObj = 0;
 		String lista;
-		int X;
-		int Y;
+		int X = 0;
+		int Y = 0;
 
 		for (X = (5); X <= (95); X++) {
 			for (Y = (5); Y <= (95); Y++) {
@@ -13642,7 +13642,7 @@ public class Protocol {
 		buffer.ReadByte();
 
 		String UserName;
-		int tUser;
+		int tUser = 0;
 
 		UserName = buffer.ReadASCIIString();
 
@@ -13666,7 +13666,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -13707,7 +13707,7 @@ public class Protocol {
 		buffer.ReadByte();
 
 		String UserName;
-		int tUser;
+		int tUser = 0;
 
 		UserName = buffer.ReadASCIIString();
 
@@ -13732,7 +13732,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -13794,7 +13794,7 @@ public class Protocol {
 		buffer.ReadByte();
 
 		String UserName;
-		int tUser;
+		int tUser = 0;
 
 		UserName = buffer.ReadASCIIString();
 
@@ -13845,7 +13845,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -13876,7 +13876,7 @@ public class Protocol {
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
-		int tTrigger;
+		int tTrigger = 0;
 		String tLog;
 
 		tTrigger = Declaraciones.UserList[UserIndex].incomingData.ReadByte();
@@ -13907,7 +13907,7 @@ public class Protocol {
 		/* 'Last Modification: 04/13/07 */
 		/* ' */
 		/* '*************************************************** */
-		int tTrigger;
+		int tTrigger = 0;
 
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
@@ -13950,7 +13950,7 @@ public class Protocol {
 		}
 
 		String lista;
-		int LoopC;
+		int LoopC = 0;
 
 		General.LogGM(Declaraciones.UserList[UserIndex].Name, "/BANIPLIST");
 
@@ -14017,11 +14017,11 @@ public class Protocol {
 		buffer.ReadByte();
 
 		String GuildName;
-		int cantMembers;
-		int LoopC;
+		int cantMembers = 0;
+		int LoopC = 0;
 		String member;
-		int Count;
-		int tIndex;
+		int Count = 0;
+		int tIndex = 0;
 		String tFile;
 
 		GuildName = buffer.ReadASCIIString();
@@ -14079,7 +14079,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -14124,9 +14124,9 @@ public class Protocol {
 		buffer.ReadByte();
 
 		String bannedIP;
-		int tUser;
+		int tUser = 0;
 		String Reason;
-		int i;
+		int i = 0;
 
 		/* ' Is it by ip?? */
 		if (buffer.ReadBoolean()) {
@@ -14178,7 +14178,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -14246,7 +14246,7 @@ public class Protocol {
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
-		int tObj;
+		int tObj = 0;
 		String tStr;
 		tObj = Declaraciones.UserList[UserIndex].incomingData.ReadInteger();
 
@@ -14255,9 +14255,9 @@ public class Protocol {
 			return;
 		}
 
-		int mapa;
-		int X;
-		int Y;
+		int mapa = 0;
+		int X = 0;
+		int Y = 0;
 
 		mapa = Declaraciones.UserList[UserIndex].Pos.Map;
 		X = Declaraciones.UserList[UserIndex].Pos.X;
@@ -14317,15 +14317,15 @@ public class Protocol {
 			return;
 		}
 
-		int mapa;
-		int X;
-		int Y;
+		int mapa = 0;
+		int X = 0;
+		int Y = 0;
 
 		mapa = Declaraciones.UserList[UserIndex].Pos.Map;
 		X = Declaraciones.UserList[UserIndex].Pos.X;
 		Y = Declaraciones.UserList[UserIndex].Pos.Y;
 
-		int ObjIndex;
+		int ObjIndex = 0;
 		ObjIndex = Declaraciones.MapData[mapa][X][Y].ObjInfo.ObjIndex;
 
 		if (ObjIndex == 0) {
@@ -14375,8 +14375,8 @@ public class Protocol {
 
 		String UserName;
 		String Reason;
-		int tUser;
-		int cantPenas;
+		int tUser = 0;
+		int cantPenas = 0;
 
 		UserName = buffer.ReadASCIIString();
 		Reason = buffer.ReadASCIIString();
@@ -14440,7 +14440,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -14482,8 +14482,8 @@ public class Protocol {
 
 		String UserName;
 		String Reason;
-		int tUser;
-		int cantPenas;
+		int tUser = 0;
+		int cantPenas = 0;
 
 		UserName = buffer.ReadASCIIString();
 		Reason = buffer.ReadASCIIString();
@@ -14546,7 +14546,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -14577,7 +14577,7 @@ public class Protocol {
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
-		int midiID;
+		int midiID = 0;
 		midiID = Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
 		if (Declaraciones.UserList[UserIndex].flags.Privilegios
@@ -14611,7 +14611,7 @@ public class Protocol {
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
-		int waveID;
+		int waveID = 0;
 		waveID = Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
 		if (Declaraciones.UserList[UserIndex].flags.Privilegios
@@ -14652,7 +14652,7 @@ public class Protocol {
 		buffer.ReadByte();
 
 		String UserName;
-		int punishment;
+		int punishment = 0;
 		String NewText;
 
 		UserName = buffer.ReadASCIIString();
@@ -14694,7 +14694,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -14785,8 +14785,8 @@ public class Protocol {
 			return;
 		}
 
-		int X;
-		int Y;
+		int X = 0;
+		int Y = 0;
 
 		for (Y = (Declaraciones.UserList[UserIndex].Pos.Y - Declaraciones.MinYBorder
 				+ 1); Y <= (Declaraciones.UserList[UserIndex].Pos.Y + Declaraciones.MinYBorder - 1); Y++) {
@@ -14829,9 +14829,9 @@ public class Protocol {
   
   String UserName;
   String lista;
-  int LoopC;
-  int priv;
-  boolean validCheck;
+  int LoopC = 0;
+  int priv = 0;
+  boolean validCheck = false;
   
   priv = PlayerType.Admin || PlayerType.Dios || PlayerType.SemiDios || PlayerType.Consejero;
   UserName = buffer.ReadASCIIString();
@@ -14876,7 +14876,7 @@ public class Protocol {
   Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
  
  /* FIXME: ErrHandler : */
- int ERROR;
+ int ERROR = 0;
  /* ERROR = Err . Number */
  /* FIXME: ON ERROR GOTO 0 */
  
@@ -14908,7 +14908,7 @@ public class Protocol {
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
-		int color;
+		int color = 0;
 
 		color = vb6.RGB(Declaraciones.UserList[UserIndex].incomingData.ReadByte(),
 				Declaraciones.UserList[UserIndex].incomingData.ReadByte(),
@@ -14974,11 +14974,11 @@ public class Protocol {
 
 		/* 'Reads the UserName and Slot Packets */
 		String UserName;
-		int Slot;
-		int tIndex;
+		int Slot = 0;
+		int tIndex = 0;
 
-		boolean UserIsAdmin;
-		boolean OtherUserIsAdmin;
+		boolean UserIsAdmin = false;
+		boolean OtherUserIsAdmin = false;
 
 		/* 'Que UserName? */
 		UserName = buffer.ReadASCIIString();
@@ -15032,7 +15032,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -15252,7 +15252,7 @@ public class Protocol {
 
 		Admin.DeNoche = !Admin.DeNoche;
 
-		int i;
+		int i = 0;
 
 		for (i = (1); i <= (Declaraciones.NumUsers); i++) {
 			if (Declaraciones.UserList[i].flags.UserLogged && Declaraciones.UserList[i].ConnID > -1) {
@@ -15352,7 +15352,7 @@ public class Protocol {
 		/* 'Remove Packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
-		boolean doTheBackUp;
+		boolean doTheBackUp = false;
 
 		doTheBackUp = Declaraciones.UserList[UserIndex].incomingData.ReadBoolean();
 
@@ -15403,7 +15403,7 @@ public class Protocol {
 		/* 'Remove Packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
-		boolean isMapPk;
+		boolean isMapPk = false;
 
 		isMapPk = Declaraciones.UserList[UserIndex].incomingData.ReadBoolean();
 
@@ -15490,7 +15490,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -15518,7 +15518,7 @@ public class Protocol {
 			return;
 		}
 
-		boolean nomagic;
+		boolean nomagic = false;
 
 		/* 'Remove Packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
@@ -15555,7 +15555,7 @@ public class Protocol {
 			return;
 		}
 
-		boolean noinvi;
+		boolean noinvi = false;
 
 		/* 'Remove Packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
@@ -15592,7 +15592,7 @@ public class Protocol {
 			return;
 		}
 
-		boolean noresu;
+		boolean noresu = false;
 
 		/* 'Remove Packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
@@ -15683,7 +15683,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -15761,7 +15761,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -15789,7 +15789,7 @@ public class Protocol {
 			return;
 		}
 
-		int RoboNpc;
+		int RoboNpc = 0;
 
 		/* 'Remove Packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
@@ -15828,8 +15828,8 @@ public class Protocol {
 			return;
 		}
 
-		int NoOcultar;
-		int mapa;
+		int NoOcultar = 0;
+		int mapa = 0;
 
 		/* 'Remove Packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
@@ -15868,8 +15868,8 @@ public class Protocol {
 			return;
 		}
 
-		int NoInvocar;
-		int mapa;
+		int NoInvocar = 0;
+		int mapa = 0;
 
 		/* 'Remove Packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
@@ -15965,7 +15965,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -16065,8 +16065,8 @@ public class Protocol {
 		/* 'Reads the userName and newUser Packets */
 		String UserName;
 		String newName;
-		int changeNameUI;
-		int GuildIndex;
+		int changeNameUI = 0;
+		int GuildIndex = 0;
 
 		UserName = buffer.ReadASCIIString();
 		newName = buffer.ReadASCIIString();
@@ -16104,7 +16104,7 @@ public class Protocol {
 
 								ES.WriteVar(Declaraciones.CharPath + UserName + ".chr", "FLAGS", "Ban", "1");
 
-								int cantPenas;
+								int cantPenas = 0;
 
 								cantPenas = vb6
 										.val(ES.GetVar(Declaraciones.CharPath + UserName + ".chr", "PENAS", "Cant"));
@@ -16137,7 +16137,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -16208,7 +16208,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -16283,7 +16283,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -16314,7 +16314,7 @@ public class Protocol {
 		/* 'Remove Packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
-		int NpcIndex;
+		int NpcIndex = 0;
 
 		NpcIndex = Declaraciones.UserList[UserIndex].incomingData.ReadInteger();
 
@@ -16357,7 +16357,7 @@ public class Protocol {
 		/* 'Remove Packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
-		int NpcIndex;
+		int NpcIndex = 0;
 
 		NpcIndex = Declaraciones.UserList[UserIndex].incomingData.ReadInteger();
 
@@ -16400,8 +16400,8 @@ public class Protocol {
 		/* 'Remove Packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
-		int index;
-		int ObjIndex;
+		int index = 0;
+		int ObjIndex = 0;
 
 		index = Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 		ObjIndex = Declaraciones.UserList[UserIndex].incomingData.ReadInteger();
@@ -16452,8 +16452,8 @@ public class Protocol {
 		/* 'Remove Packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
-		int index;
-		int ObjIndex;
+		int index = 0;
+		int ObjIndex = 0;
 
 		index = Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 		ObjIndex = Declaraciones.UserList[UserIndex].incomingData.ReadInteger();
@@ -16554,7 +16554,7 @@ public class Protocol {
 		/* 'Last Modification: 12/24/06 */
 		/* 'Turns off the server */
 		/* '*************************************************** */
-		int handle;
+		int handle = 0;
 
 		/* 'Remove Packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
@@ -16615,7 +16615,7 @@ public class Protocol {
 		buffer.ReadByte();
 
 		String UserName;
-		int tUser;
+		int tUser = 0;
 
 		UserName = buffer.ReadASCIIString();
 
@@ -16636,7 +16636,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -16678,9 +16678,9 @@ public class Protocol {
 
 		String UserName;
 		String Reason;
-		int tUser;
+		int tUser = 0;
 		String Char;
-		int cantPenas;
+		int cantPenas = 0;
 
 		UserName = buffer.ReadASCIIString();
 
@@ -16737,7 +16737,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -16778,7 +16778,7 @@ public class Protocol {
 		buffer.ReadByte();
 
 		String UserName;
-		int GuildIndex;
+		int GuildIndex = 0;
 
 		UserName = buffer.ReadASCIIString();
 
@@ -16806,7 +16806,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -16868,7 +16868,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -16925,7 +16925,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -16967,7 +16967,7 @@ public class Protocol {
   
   String newMOTD;
   String[] auxiliaryString;
-  int LoopC;
+  int LoopC = 0;
   
   newMOTD = buffer.ReadASCIIString();
   auxiliaryString = vb6.Split(newMOTD, vbCrLf);
@@ -16996,7 +16996,7 @@ public class Protocol {
   Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
  
  /* FIXME: ErrHandler : */
- int ERROR;
+ int ERROR = 0;
  /* ERROR = Err . Number */
  /* FIXME: ON ERROR GOTO 0 */
  
@@ -17027,7 +17027,7 @@ public class Protocol {
   }
   
   String auxiliaryString;
-  int LoopC;
+  int LoopC = 0;
   
    for (LoopC = (vb6.LBound(Admin.MOTD[])); LoopC <= (vb6.UBound(Admin.MOTD[])); LoopC++) {
    auxiliaryString = auxiliaryString + Admin.MOTD[LoopC].texto + vbCrLf;
@@ -17130,7 +17130,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 
 		/* ERROR = Err . Number */
 
@@ -17156,10 +17156,10 @@ public class Protocol {
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int Map;
-		int X;
-		int Y;
-		int index;
+		int Map = 0;
+		int X = 0;
+		int Y = 0;
+		int index = 0;
 
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
@@ -17225,8 +17225,8 @@ public class Protocol {
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int Map;
-		int index;
+		int Map = 0;
+		int index = 0;
 
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
@@ -18696,7 +18696,7 @@ public class Protocol {
  /* '*************************************************** */
  /* FIXME: ON ERROR GOTO ErrHandler */
  String Tmp;
- int i;
+ int i = 0;
  
   Declaraciones.UserList[UserIndex].outgoingData.WriteByte(ServerPacketID.guildList);
   
@@ -18955,7 +18955,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].outgoingData.WriteByte(ServerPacketID.ChangeInventorySlot);
 		Declaraciones.UserList[UserIndex].outgoingData.WriteByte(Slot);
 
-		int ObjIndex;
+		int ObjIndex = 0;
 		Declaraciones.ObjData obData;
 
 		ObjIndex = Declaraciones.UserList[UserIndex].Invent.Object[Slot].ObjIndex;
@@ -19028,7 +19028,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].outgoingData.WriteByte(ServerPacketID.ChangeBankSlot);
 		Declaraciones.UserList[UserIndex].outgoingData.WriteByte(Slot);
 
-		int ObjIndex;
+		int ObjIndex = 0;
 		Declaraciones.ObjData obData;
 
 		ObjIndex = Declaraciones.UserList[UserIndex].BancoInvent.Object[Slot].ObjIndex;
@@ -19162,10 +19162,10 @@ public class Protocol {
  /* 'Writes the "BlacksmithWeapons" message to the given user's outgoing data buffer */
  /* '*************************************************** */
  /* FIXME: ON ERROR GOTO ErrHandler */
- int i;
+ int i = 0;
  Declaraciones.ObjData Obj;
  int[] validIndexes;
- int Count;
+ int Count = 0;
  
  validIndexes = new Integer[0];
  validIndexes = (validIndexes == null) ? new Integer[1 + vb6.UBound(Declaraciones.ArmasHerrero[])] : java.util.Arrays.copyOf(validIndexes, 1 + vb6.UBound(Declaraciones.ArmasHerrero[]));
@@ -19222,10 +19222,10 @@ public class Protocol {
  /* 'Writes the "BlacksmithArmors" message to the given user's outgoing data buffer */
  /* '*************************************************** */
  /* FIXME: ON ERROR GOTO ErrHandler */
- int i;
+ int i = 0;
  Declaraciones.ObjData Obj;
  int[] validIndexes;
- int Count;
+ int Count = 0;
  
  validIndexes = new Integer[0];
  validIndexes = (validIndexes == null) ? new Integer[1 + vb6.UBound(Declaraciones.ArmadurasHerrero[])] : java.util.Arrays.copyOf(validIndexes, 1 + vb6.UBound(Declaraciones.ArmadurasHerrero[]));
@@ -19282,10 +19282,10 @@ public class Protocol {
  /* 'Writes the "CarpenterObjects" message to the given user's outgoing data buffer */
  /* '*************************************************** */
  /* FIXME: ON ERROR GOTO ErrHandler */
- int i;
+ int i = 0;
  Declaraciones.ObjData Obj;
  int[] validIndexes;
- int Count;
+ int Count = 0;
  
  validIndexes = new Integer[0];
  validIndexes = (validIndexes == null) ? new Integer[1 + vb6.UBound(Declaraciones.ObjCarpintero[])] : java.util.Arrays.copyOf(validIndexes, 1 + vb6.UBound(Declaraciones.ObjCarpintero[]));
@@ -19747,8 +19747,8 @@ public class Protocol {
 		/* '*************************************************** */
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int Visibilidad;
-		int CanMakeSticky;
+		int Visibilidad = 0;
+		int CanMakeSticky = 0;
 
 		Declaraciones.UserList[UserIndex].outgoingData.WriteByte(ServerPacketID.ShowForumForm);
 
@@ -19984,7 +19984,7 @@ public class Protocol {
 		 */
 		/* '*************************************************** */
 		/* FIXME: ON ERROR GOTO ErrHandler */
-		int i;
+		int i = 0;
 
 		Declaraciones.UserList[UserIndex].outgoingData.WriteByte(ServerPacketID.SendSkills);
 
@@ -20031,7 +20031,7 @@ public class Protocol {
 		 */
 		/* '*************************************************** */
 		/* FIXME: ON ERROR GOTO ErrHandler */
-		int i;
+		int i = 0;
 		String str;
 
 		Declaraciones.UserList[UserIndex].outgoingData.WriteByte(ServerPacketID.TrainerCreatureList);
@@ -20076,7 +20076,7 @@ public class Protocol {
  /* 'Writes the "GuildNews" message to the given user's outgoing data buffer */
  /* '*************************************************** */
  /* FIXME: ON ERROR GOTO ErrHandler */
- int i;
+ int i = 0;
  String Tmp;
  
   Declaraciones.UserList[UserIndex].outgoingData.WriteByte(ServerPacketID.guildNews);
@@ -20137,7 +20137,7 @@ public class Protocol {
 		 */
 		/* '*************************************************** */
 		/* FIXME: ON ERROR GOTO ErrHandler */
-		int i;
+		int i = 0;
 
 		Declaraciones.UserList[UserIndex].outgoingData.WriteByte(ServerPacketID.OfferDetails);
 
@@ -20171,7 +20171,7 @@ public class Protocol {
  /* 'Writes the "AlianceProposalsList" message to the given user's outgoing data buffer */
  /* '*************************************************** */
  /* FIXME: ON ERROR GOTO ErrHandler */
- int i;
+ int i = 0;
  String Tmp;
  
   Declaraciones.UserList[UserIndex].outgoingData.WriteByte(ServerPacketID.AlianceProposalsList);
@@ -20215,7 +20215,7 @@ public class Protocol {
  /* 'Writes the "PeaceProposalsList" message to the given user's outgoing data buffer */
  /* '*************************************************** */
  /* FIXME: ON ERROR GOTO ErrHandler */
- int i;
+ int i = 0;
  String Tmp;
  
   Declaraciones.UserList[UserIndex].outgoingData.WriteByte(ServerPacketID.PeaceProposalsList);
@@ -20341,7 +20341,7 @@ public class Protocol {
  /* 'Writes the "GuildLeaderInfo" message to the given user's outgoing data buffer */
  /* '*************************************************** */
  /* FIXME: ON ERROR GOTO ErrHandler */
- int i;
+ int i = 0;
  String Tmp;
  
   Declaraciones.UserList[UserIndex].outgoingData.WriteByte(ServerPacketID.GuildLeaderInfo);
@@ -20413,7 +20413,7 @@ public class Protocol {
  /* 'Writes the "GuildMemberInfo" message to the given user's outgoing data buffer */
  /* '*************************************************** */
  /* FIXME: ON ERROR GOTO ErrHandler */
- int i;
+ int i = 0;
  String Tmp;
  
   Declaraciones.UserList[UserIndex].outgoingData.WriteByte(ServerPacketID.GuildMemberInfo);
@@ -20484,7 +20484,7 @@ public class Protocol {
  /* 'Writes the "GuildDetails" message to the given user's outgoing data buffer */
  /* '*************************************************** */
  /* FIXME: ON ERROR GOTO ErrHandler */
- int i;
+ int i = 0;
  String temp;
  
   Declaraciones.UserList[UserIndex].outgoingData.WriteByte(ServerPacketID.GuildDetails);
@@ -20838,7 +20838,7 @@ public class Protocol {
  /* 'Writes the "SpawnList" message to the given user's outgoing data buffer */
  /* '*************************************************** */
  /* FIXME: ON ERROR GOTO ErrHandler */
- int i;
+ int i = 0;
  String Tmp;
  
   Declaraciones.UserList[UserIndex].outgoingData.WriteByte(ServerPacketID.SpawnList);
@@ -20883,7 +20883,7 @@ public class Protocol {
 		 */
 		/* '*************************************************** */
 		/* FIXME: ON ERROR GOTO ErrHandler */
-		int i;
+		int i = 0;
 		String Tmp;
 
 		Declaraciones.UserList[UserIndex].outgoingData.WriteByte(ServerPacketID.ShowSOSForm);
@@ -20929,7 +20929,7 @@ public class Protocol {
 		/* '*************************************************** */
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int DenounceIndex;
+		int DenounceIndex = 0;
 		String DenounceList;
 
 		Declaraciones.UserList[UserIndex].outgoingData.WriteByte(ServerPacketID.ShowDenounces);
@@ -20972,9 +20972,9 @@ public class Protocol {
  /* 'Writes the "ShowPartyForm" message to the given user's outgoing data buffer */
  /* '*************************************************** */
  /* FIXME: ON ERROR GOTO ErrHandler */
- int i;
+ int i = 0;
  String Tmp;
- int PI;
+ int PI = 0;
  int[] members;
  
   Declaraciones.UserList[UserIndex].outgoingData.WriteByte(ServerPacketID.ShowPartyForm);
@@ -21097,7 +21097,7 @@ public class Protocol {
 		 */
 		/* '*************************************************** */
 		/* FIXME: ON ERROR GOTO ErrHandler */
-		int i;
+		int i = 0;
 		String Tmp;
 
 		Declaraciones.UserList[UserIndex].outgoingData.WriteByte(ServerPacketID.UserNameList);
@@ -21970,7 +21970,7 @@ return retval;
 		}
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -22005,7 +22005,7 @@ return retval;
 			return;
 		}
 
-		int NpcIndex;
+		int NpcIndex = 0;
 		NpcIndex = Declaraciones.UserList[UserIndex].flags.TargetNPC;
 
 		if (NpcIndex == 0) {
@@ -22054,7 +22054,7 @@ return retval;
 			return;
 		}
 
-		int NpcIndex;
+		int NpcIndex = 0;
 		NpcIndex = Declaraciones.UserList[UserIndex].flags.TargetNPC;
 
 		if (NpcIndex == 0) {
@@ -22120,7 +22120,7 @@ return retval;
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -22161,7 +22161,7 @@ return retval;
 		/* 'Remove packet id */
 		buffer.ReadByte();
 
-		int RecordIndex;
+		int RecordIndex = 0;
 		String Obs;
 
 		RecordIndex = buffer.ReadByte();
@@ -22179,7 +22179,7 @@ return retval;
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -22202,7 +22202,7 @@ return retval;
 		/* 'Last Modification: 29/11/2010 */
 		/* ' */
 		/* '*************************************************** */
-		int RecordIndex;
+		int RecordIndex = 0;
 
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
@@ -22270,8 +22270,8 @@ return retval;
 		 * buffer
 		 */
 		/* '*************************************************** */
-		int i;
-		int tIndex;
+		int i = 0;
+		int tIndex = 0;
 		String tmpStr;
 		vb6.Date TempDate;
 		/* FIXME: ON ERROR GOTO ErrHandler */
@@ -22349,7 +22349,7 @@ return retval;
 		 * buffer
 		 */
 		/* '*************************************************** */
-		int i;
+		int i = 0;
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
@@ -22379,7 +22379,7 @@ return retval;
 		/* 'Last Modification: 07/04/2011 */
 		/* 'Handles the "RecordListRequest" message */
 		/* '*************************************************** */
-		int RecordIndex;
+		int RecordIndex = 0;
 
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
@@ -22401,8 +22401,8 @@ return retval;
 		/* ' */
 		/* '*************************************************** */
 
-		int originalSlot;
-		int newSlot;
+		int originalSlot = 0;
+		int newSlot = 0;
 
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
@@ -22467,7 +22467,7 @@ return retval;
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 
@@ -22510,7 +22510,7 @@ return retval;
 		/* 'Reads the userName and newUser Packets */
 		String GuildName;
 		String newGuildName;
-		int GuildIndex;
+		int GuildIndex = 0;
 
 		GuildName = buffer.ReadASCIIString();
 		newGuildName = buffer.ReadASCIIString();
@@ -22594,10 +22594,10 @@ return retval;
 						modGuilds.SetNewGuildName(GuildIndex, newGuildName);
 
 						/* ' Actualiza todos los online del clan */
-						int index;
-						int NumOnline;
+						int index = 0;
+						int NumOnline = 0;
 						String MemberList;
-						int MemberIndex;
+						int MemberIndex = 0;
 
 						MemberIndex = modGuilds.m_Iterador_ProximoUserIndex(GuildIndex);
 						while (MemberIndex > 0) {
@@ -22627,7 +22627,7 @@ return retval;
 		Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 
 		/* FIXME: ErrHandler : */
-		int ERROR;
+		int ERROR = 0;
 		/* ERROR = Err . Number */
 		/* FIXME: ON ERROR GOTO 0 */
 

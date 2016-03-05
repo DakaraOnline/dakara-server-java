@@ -56,12 +56,12 @@ public class modCentinela {
 	static final int TIEMPO_PASAR_RANDOM = 10;
 
 	static public class tCentinela {
-		int NpcIndex;
-		int RevisandoUserIndex;
-		int TiempoRestante;
-		int clave;
-		int SpawnTime;
-		boolean Activo;
+		public int NpcIndex;
+		public int RevisandoUserIndex;
+		public int TiempoRestante;
+		public int clave;
+		public int SpawnTime;
+		public boolean Activo;
 	}
 
 	public static boolean centinelaActivado;
@@ -73,7 +73,7 @@ public class modCentinela {
 	private static boolean DetenerAsignacion;
 
 	static final int NRO_CENTINELA = 5;
-	public static tCentinela[] Centinela = new tCentinela[1 + modCentinela.NRO_CENTINELA]; /* XXX */
+	public static tCentinela[] Centinela = new tCentinela[1 + modCentinela.NRO_CENTINELA];
 
 	static void CallUserAttention() {
 		/* '************************************************* */
@@ -91,10 +91,10 @@ public class modCentinela {
 			return;
 		}
 
-		int index;
-		int UserIndex;
+		int index = 0;
+		int UserIndex = 0;
 
-		int TActual;
+		int TActual = 0;
 		TActual = (Declaraciones.GetTickCount() && 0x7FFFFFFF);
 
 		/* ' Chequea todos los centinelas */
@@ -146,8 +146,8 @@ public class modCentinela {
 		 */
 		/* '************************************************* */
 
-		int LoopC;
-		int CentinelaIndex;
+		int LoopC = 0;
+		int CentinelaIndex = 0;
 
 		CentinelaIndex = GetIdleCentinela(1);
 
@@ -209,7 +209,7 @@ public class modCentinela {
 	}
 
 	static int GetIdleCentinela(int StartCheckIndex) {
-		int retval;
+		int retval = 0;
 		/* '************************************************* */
 		/* 'Author: ZaMa */
 		/* 'Last modified: 07/10/2010 */
@@ -218,7 +218,7 @@ public class modCentinela {
 		 * given index.
 		 */
 		/* '************************************************* */
-		int index;
+		int index = 0;
 
 		for (index = (StartCheckIndex); index <= (modCentinela.NRO_CENTINELA); index++) {
 
@@ -248,7 +248,7 @@ public class modCentinela {
 
 		/* FIXME: ON ERROR GOTO Error_Handler */
 
-		int UserIndex;
+		int UserIndex = 0;
 		String UserName;
 
 		UserIndex = modCentinela.Centinela[CentiIndex].RevisandoUserIndex;
@@ -314,7 +314,7 @@ public class modCentinela {
 		/* '08/10/2010: ZaMa - Agrego algunos logueos mas coherentes. */
 		/* '************************************************* */
 
-		int CentinelaIndex;
+		int CentinelaIndex = 0;
 
 		CentinelaIndex = Declaraciones.UserList[UserIndex].flags.CentinelaIndex;
 
@@ -391,7 +391,7 @@ public class modCentinela {
 		 * paralelo.
 		 */
 		/* '************************************************* */
-		int LoopC;
+		int LoopC = 0;
 
 		for (LoopC = (1); LoopC <= (Declaraciones.LastUser); LoopC++) {
 
@@ -451,9 +451,9 @@ public class modCentinela {
 		/* '************************************************* */
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int index;
-		int UserIndex;
-		int IdleCount;
+		int index = 0;
+		int UserIndex = 0;
+		int IdleCount = 0;
 
 		if (!modCentinela.centinelaActivado) {
 			return;
@@ -515,7 +515,7 @@ public class modCentinela {
 		}
 
 		/* 'Verificamos si ya debemos resetear la lista */
-		int TActual;
+		int TActual = 0;
 		TActual = Declaraciones.GetTickCount() && 0x7FFFFFFF;
 
 		if (modNuevoTimer.checkInterval(centinelaStartTime, TActual, centinelaInterval)) {
@@ -637,7 +637,7 @@ public class modCentinela {
 		/* '************************************************* */
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int nfile;
+		int nfile = 0;
 		/* ' obtenemos un canal */
 		nfile = vb6.FreeFile();
 
@@ -658,8 +658,8 @@ public class modCentinela {
 		/* 'Last modified: 02/10/2010 */
 		/* 'Resetea todos los centinelas */
 		/* '************************************************* */
-		int index;
-		int UserIndex;
+		int index = 0;
+		int UserIndex = 0;
 
 		for (index = (vb6.LBound(modCentinela.Centinela)); index <= (vb6.UBound(modCentinela.Centinela)); index++) {
 
@@ -693,14 +693,14 @@ public class modCentinela {
 	}
 
 	static int EsCentinela(int NpcIndex) {
-		int retval;
+		int retval = 0;
 		/* '************************************************* */
 		/* 'Author: ZaMa */
 		/* 'Last modified: 07/10/2010 */
 		/* 'Devuelve True si el indice pertenece a un centinela. */
 		/* '************************************************* */
 
-		int index;
+		int index = 0;
 
 		if (NpcIndex == 0) {
 			return retval;

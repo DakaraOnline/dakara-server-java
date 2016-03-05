@@ -86,14 +86,14 @@ public class PathFinding {
 	static final int MAXINT = 1000;
 
 	static public class tIntermidiateWork {
-		int DistV;
-		Queue.tVertice PrevV;
+		public int DistV;
+		public Queue.tVertice PrevV;
 	}
 
 private static tIntermidiateWork[] TmpArray = new tIntermidiateWork[[('1', 'PathFinding.ROWS'), ('1', 'PathFinding.COLUMS')]]; /* XXX MULTIDIMENSIONAL [('1', 'PathFinding.ROWS'), ('1', 'PathFinding.COLUMS')] */
 
 	static boolean Limites(int vfila, int vcolu) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -105,7 +105,7 @@ private static tIntermidiateWork[] TmpArray = new tIntermidiateWork[[('1', 'Path
 	}
 
 	static boolean IsWalkable(int Map, int row, int Col, int NpcIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -133,7 +133,7 @@ private static tIntermidiateWork[] TmpArray = new tIntermidiateWork[[('1', 'Path
 		/* '*************************************************** */
 
 		Queue.tVertice V;
-		int j;
+		int j = 0;
 
 		/* 'Look to North */
 		j = vfila - 1;
@@ -226,8 +226,8 @@ private static tIntermidiateWork[] TmpArray = new tIntermidiateWork[[('1', 'Path
 		Queue.tVertice cur_npc_pos;
 		Queue.tVertice tar_npc_pos;
 		Queue.tVertice V;
-		int NpcMap;
-		int steps;
+		int NpcMap = 0;
+		int steps = 0;
 
 		NpcMap = Declaraciones.Npclist[NpcIndex].Pos.Map;
 
@@ -266,9 +266,9 @@ private static tIntermidiateWork[] TmpArray = new tIntermidiateWork[[('1', 'Path
 		/* 'Builds the path previously calculated */
 		/* '*************************************************** */
 
-		int Pasos;
+		int Pasos = 0;
 		Queue.tVertice miV;
-		int i;
+		int i = 0;
 
 		Pasos = TmpArray[Declaraciones.Npclist[NpcIndex].PFINFO.Target.Y][Declaraciones.Npclist[NpcIndex].PFINFO.Target.X].DistV;
 		Declaraciones.Npclist[NpcIndex].PFINFO.PathLenght = Pasos;
@@ -311,8 +311,8 @@ private static tIntermidiateWork[] TmpArray = new tIntermidiateWork[[('1', 'Path
  /* 'Initialize the array where we calculate the path */
  /* '*************************************************** */
  
- int j;
- int k;
+ int j = 0;
+ int k = 0;
 
 	static final int anymap = 1;
 

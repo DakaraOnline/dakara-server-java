@@ -72,4 +72,8 @@ public enum TipoAI {
 		}
 		return 0;
 	}
+
+	public int toInteger() {
+		return toInteger(this);
+	}
 }

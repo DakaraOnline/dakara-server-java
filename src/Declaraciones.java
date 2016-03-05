@@ -95,9 +95,9 @@ public class Declaraciones {
 
 	/* 'Cabecera de los con */
 	static public class tCabecera {
-		String desc;
-		int crc;
-		int MagicWord;
+		public String desc;
+		public int crc;
+		public int MagicWord;
 	}
 
 	public static tCabecera MiCabecera;
@@ -291,7 +291,7 @@ public class Declaraciones {
 	static final int Pescado = 139;
 
 	static final int NUM_PECES = 4;
-	public static int[] ListaPeces = new int[1 + Declaraciones.NUM_PECES]; /* XXX */
+	public static int[] ListaPeces = new int[1 + Declaraciones.NUM_PECES];
 
 	/* '%%%%%%%%%% CONSTANTES DE INDICES %%%%%%%%%%%%%%% */
 
@@ -403,324 +403,324 @@ public class Declaraciones {
 	/* ' ************************************************************** */
 
 	static public class tObservacion {
-		String Creador;
-		vb6.Date Fecha;
+		public String Creador;
+		public vb6.Date Fecha;
 
-		String Detalles;
+		public String Detalles;
 	}
 
 	static public class tRecord {
-		String Usuario;
-		String Motivo;
-		String Creador;
-		vb6.Date Fecha;
+		public String Usuario;
+		public String Motivo;
+		public String Creador;
+		public vb6.Date Fecha;
 
-		int NumObs;
-		tObservacion[] Obs;
+		public int NumObs;
+		public tObservacion[] Obs;
 	}
 
 	static public class tHechizo {
-		String Nombre;
-		String desc;
-		String PalabrasMagicas;
+		public String Nombre;
+		public String desc;
+		public String PalabrasMagicas;
 
-		String HechizeroMsg;
-		String TargetMsg;
-		String PropioMsg;
+		public String HechizeroMsg;
+		public String TargetMsg;
+		public String PropioMsg;
 
-		TipoHechizo Tipo;
+		public TipoHechizo Tipo;
 
-		int WAV;
-		int FXgrh;
-		int loops;
+		public int WAV;
+		public int FXgrh;
+		public int loops;
 
-		int SubeHP;
-		int MinHp;
-		int MaxHp;
+		public int SubeHP;
+		public int MinHp;
+		public int MaxHp;
 
-		int SubeMana;
-		int MiMana;
-		int MaMana;
+		public int SubeMana;
+		public int MiMana;
+		public int MaMana;
 
-		int SubeSta;
-		int MinSta;
-		int MaxSta;
+		public int SubeSta;
+		public int MinSta;
+		public int MaxSta;
 
-		int SubeHam;
-		int MinHam;
-		int MaxHam;
+		public int SubeHam;
+		public int MinHam;
+		public int MaxHam;
 
-		int SubeSed;
-		int MinSed;
-		int MaxSed;
+		public int SubeSed;
+		public int MinSed;
+		public int MaxSed;
 
-		int SubeAgilidad;
-		int MinAgilidad;
-		int MaxAgilidad;
+		public int SubeAgilidad;
+		public int MinAgilidad;
+		public int MaxAgilidad;
 
-		int SubeFuerza;
-		int MinFuerza;
-		int MaxFuerza;
+		public int SubeFuerza;
+		public int MinFuerza;
+		public int MaxFuerza;
 
-		int SubeCarisma;
-		int MinCarisma;
-		int MaxCarisma;
+		public int SubeCarisma;
+		public int MinCarisma;
+		public int MaxCarisma;
 
-		int Invisibilidad;
-		int Paraliza;
-		int Inmoviliza;
-		int RemoverParalisis;
-		int RemoverEstupidez;
-		int CuraVeneno;
-		int Envenena;
-		int Maldicion;
-		int RemoverMaldicion;
-		int Bendicion;
-		int Estupidez;
-		int Ceguera;
-		int Revivir;
-		int Morph;
-		int Mimetiza;
-		int RemueveInvisibilidadParcial;
+		public int Invisibilidad;
+		public int Paraliza;
+		public int Inmoviliza;
+		public int RemoverParalisis;
+		public int RemoverEstupidez;
+		public int CuraVeneno;
+		public int Envenena;
+		public int Maldicion;
+		public int RemoverMaldicion;
+		public int Bendicion;
+		public int Estupidez;
+		public int Ceguera;
+		public int Revivir;
+		public int Morph;
+		public int Mimetiza;
+		public int RemueveInvisibilidadParcial;
 
-		int Warp;
-		int Invoca;
-		int NumNpc;
-		int cant;
+		public int Warp;
+		public int Invoca;
+		public int NumNpc;
+		public int cant;
 
-		int MinSkill;
-		int ManaRequerido;
+		public int MinSkill;
+		public int ManaRequerido;
 
-		int StaRequerido;
+		public int StaRequerido;
 
-		TargetType Target;
+		public TargetType Target;
 
-		int NeedStaff;
-		boolean StaffAffected;
+		public int NeedStaff;
+		public boolean StaffAffected;
 	}
 
 	static public class LevelSkill {
-		int LevelValue;
+		public int LevelValue;
 	}
 
 	static public class UserOBJ {
-		int ObjIndex;
-		int Amount;
-		int Equipped;
+		public int ObjIndex;
+		public int Amount;
+		public int Equipped;
 	}
 
 	static public class Inventario {
-		UserOBJ[] Object;
-		int WeaponEqpObjIndex;
-		int WeaponEqpSlot;
-		int ArmourEqpObjIndex;
-		int ArmourEqpSlot;
-		int EscudoEqpObjIndex;
-		int EscudoEqpSlot;
-		int CascoEqpObjIndex;
-		int CascoEqpSlot;
-		int MunicionEqpObjIndex;
-		int MunicionEqpSlot;
-		int AnilloEqpObjIndex;
-		int AnilloEqpSlot;
-		int BarcoObjIndex;
-		int BarcoSlot;
-		int MochilaEqpObjIndex;
-		int MochilaEqpSlot;
-		int NroItems;
+		public UserOBJ[] Object;
+		public int WeaponEqpObjIndex;
+		public int WeaponEqpSlot;
+		public int ArmourEqpObjIndex;
+		public int ArmourEqpSlot;
+		public int EscudoEqpObjIndex;
+		public int EscudoEqpSlot;
+		public int CascoEqpObjIndex;
+		public int CascoEqpSlot;
+		public int MunicionEqpObjIndex;
+		public int MunicionEqpSlot;
+		public int AnilloEqpObjIndex;
+		public int AnilloEqpSlot;
+		public int BarcoObjIndex;
+		public int BarcoSlot;
+		public int MochilaEqpObjIndex;
+		public int MochilaEqpSlot;
+		public int NroItems;
 	}
 
 	static public class tPartyData {
-		int PIndex;
-		double RemXP;
-		int TargetUser;
+		public int PIndex;
+		public double RemXP;
+		public int TargetUser;
 	}
 
 	static public class Position {
-		int X;
-		int Y;
+		public int X;
+		public int Y;
 	}
 
 	static public class WorldPos {
-		int Map;
-		int X;
-		int Y;
+		public int Map;
+		public int X;
+		public int Y;
 	}
 
 	static public class FXdata {
-		String Nombre;
-		int GrhIndex;
-		int Delay;
+		public String Nombre;
+		public int GrhIndex;
+		public int Delay;
 	}
 
 	/* 'Datos de user o npc */
 	static public class Char {
-		int CharIndex;
-		int Head;
-		int body;
+		public int CharIndex;
+		public int Head;
+		public int body;
 
-		int WeaponAnim;
-		int ShieldAnim;
-		int CascoAnim;
+		public int WeaponAnim;
+		public int ShieldAnim;
+		public int CascoAnim;
 
-		int FX;
-		int loops;
+		public int FX;
+		public int loops;
 
-		eHeading heading;
+		public eHeading heading;
 	}
 
 	/* 'Tipos de objetos */
 	static public class ObjData {
-		String Name;
+		public String Name;
 
-		eOBJType OBJType;
+		public eOBJType OBJType;
 
-		int GrhIndex;
-		int GrhSecundario;
+		public int GrhIndex;
+		public int GrhSecundario;
 
-		int MaxItems;
-		Inventario Conte;
-		int Apunala;
-		int Acuchilla;
+		public int MaxItems;
+		public Inventario Conte;
+		public int Apunala;
+		public int Acuchilla;
 
-		int HechizoIndex;
+		public int HechizoIndex;
 
-		String ForoID;
+		public String ForoID;
 
-		int MinHp;
-		int MaxHp;
+		public int MinHp;
+		public int MaxHp;
 
-		int MineralIndex;
-		int LingoteInex;
+		public int MineralIndex;
+		public int LingoteInex;
 
-		int proyectil;
-		int Municion;
+		public int proyectil;
+		public int Municion;
 
-		int Crucial;
-		int Newbie;
+		public int Crucial;
+		public int Newbie;
 
-		int MinSta;
+		public int MinSta;
 
-		int TipoPocion;
-		int MaxModificador;
-		int MinModificador;
-		int DuracionEfecto;
-		int MinSkill;
-		int LingoteIndex;
+		public int TipoPocion;
+		public int MaxModificador;
+		public int MinModificador;
+		public int DuracionEfecto;
+		public int MinSkill;
+		public int LingoteIndex;
 
-		int MinHIT;
-		int MaxHIT;
+		public int MinHIT;
+		public int MaxHIT;
 
-		int MinHam;
-		int MinSed;
+		public int MinHam;
+		public int MinSed;
 
-		int def;
-		int MinDef;
-		int MaxDef;
+		public int def;
+		public int MinDef;
+		public int MaxDef;
 
-		int Ropaje;
+		public int Ropaje;
 
-		int WeaponAnim;
-		int WeaponRazaEnanaAnim;
-		int ShieldAnim;
-		int CascoAnim;
+		public int WeaponAnim;
+		public int WeaponRazaEnanaAnim;
+		public int ShieldAnim;
+		public int CascoAnim;
 
-		int Valor;
+		public int Valor;
 
-		int Cerrada;
-		int Llave;
-		int clave;
+		public int Cerrada;
+		public int Llave;
+		public int clave;
 
-		int Radio;
+		public int Radio;
 
-		int MochilaType;
+		public int MochilaType;
 
-		int Guante;
+		public int Guante;
 
-		int IndexAbierta;
-		int IndexCerrada;
-		int IndexCerradaLlave;
+		public int IndexAbierta;
+		public int IndexCerrada;
+		public int IndexCerradaLlave;
 
-		int RazaEnana;
-		int RazaDrow;
-		int RazaElfa;
-		int RazaGnoma;
-		int RazaHumana;
+		public int RazaEnana;
+		public int RazaDrow;
+		public int RazaElfa;
+		public int RazaGnoma;
+		public int RazaHumana;
 
-		int Mujer;
-		int Hombre;
+		public int Mujer;
+		public int Hombre;
 
-		int Envenena;
-		int Paraliza;
+		public int Envenena;
+		public int Paraliza;
 
-		int Agarrable;
+		public int Agarrable;
 
-		int LingH;
-		int LingO;
-		int LingP;
-		int Madera;
-		int MaderaElfica;
+		public int LingH;
+		public int LingO;
+		public int LingP;
+		public int Madera;
+		public int MaderaElfica;
 
-		int SkHerreria;
-		int SkCarpinteria;
+		public int SkHerreria;
+		public int SkCarpinteria;
 
-		String texto;
+		public String texto;
 
-		eClass[] ClaseProhibida;
+		public eClass[] ClaseProhibida;
 
-		int Snd1;
-		int Snd2;
-		int Snd3;
+		public int Snd1;
+		public int Snd2;
+		public int Snd3;
 
-		int Real;
-		int Caos;
+		public int Real;
+		public int Caos;
 
-		int NoSeCae;
-		int NoSeTira;
-		int NoRobable;
-		int NoComerciable;
-		int Intransferible;
+		public int NoSeCae;
+		public int NoSeTira;
+		public int NoRobable;
+		public int NoComerciable;
+		public int Intransferible;
 
-		int StaffPower;
-		int StaffDamageBonus;
-		int DefensaMagicaMax;
-		int DefensaMagicaMin;
-		int Refuerzo;
+		public int StaffPower;
+		public int StaffDamageBonus;
+		public int DefensaMagicaMax;
+		public int DefensaMagicaMin;
+		public int Refuerzo;
 
-		int ImpideParalizar;
-		int ImpideInmobilizar;
-		int ImpideAturdir;
-		int ImpideCegar;
+		public int ImpideParalizar;
+		public int ImpideInmobilizar;
+		public int ImpideAturdir;
+		public int ImpideCegar;
 
-		int Log;
-		int NoLog;
+		public int Log;
+		public int NoLog;
 
-		int Upgrade;
+		public int Upgrade;
 	}
 
 	static public class Obj {
-		int ObjIndex;
-		int Amount;
+		public int ObjIndex;
+		public int Amount;
 	}
 
 	/* '[Pablo ToxicWaste] */
 	static public class ModClase {
-		double Evasion;
-		double AtaqueArmas;
-		double AtaqueProyectiles;
-		double AtaqueWrestling;
-		double DanoArmas;
-		double DanoProyectiles;
-		double DanoWrestling;
-		double Escudo;
+		public double Evasion;
+		public double AtaqueArmas;
+		public double AtaqueProyectiles;
+		public double AtaqueWrestling;
+		public double DanoArmas;
+		public double DanoProyectiles;
+		public double DanoWrestling;
+		public double Escudo;
 	}
 
 	static public class ModRaza {
-		float Fuerza;
-		float Agilidad;
-		float Inteligencia;
-		float Carisma;
-		float Constitucion;
+		public float Fuerza;
+		public float Agilidad;
+		public float Inteligencia;
+		public float Carisma;
+		public float Constitucion;
 	}
 	/* '[/Pablo ToxicWaste] */
 
@@ -731,8 +731,8 @@ public class Declaraciones {
 
 	/* '[KEVIN] */
 	static public class BancoInventario {
-		UserOBJ[] Object;
-		int NroItems;
+		public UserOBJ[] Object;
+		public int NroItems;
 	}
 	/* '[/KEVIN] */
 
@@ -772,310 +772,310 @@ public class Declaraciones {
 
 	/* 'Fama del usuario */
 	static public class tReputacion {
-		int NobleRep;
-		int BurguesRep;
-		int PlebeRep;
-		int LadronesRep;
-		int BandidoRep;
-		int AsesinoRep;
-		int Promedio;
+		public int NobleRep;
+		public int BurguesRep;
+		public int PlebeRep;
+		public int LadronesRep;
+		public int BandidoRep;
+		public int AsesinoRep;
+		public int Promedio;
 	}
 
 	/* 'Estadisticas de los usuarios */
 	static public class UserStats {
-		int GLD;
-		int Banco;
+		public int GLD;
+		public int Banco;
 
-		int MaxHp;
-		int MinHp;
+		public int MaxHp;
+		public int MinHp;
 
-		int MaxSta;
-		int MinSta;
-		int MaxMAN;
-		int MinMAN;
-		int MaxHIT;
-		int MinHIT;
+		public int MaxSta;
+		public int MinSta;
+		public int MaxMAN;
+		public int MinMAN;
+		public int MaxHIT;
+		public int MinHIT;
 
-		int MaxHam;
-		int MinHam;
+		public int MaxHam;
+		public int MinHam;
 
-		int MaxAGU;
-		int MinAGU;
+		public int MaxAGU;
+		public int MinAGU;
 
-		int def;
-		double Exp;
-		int ELV;
-		int ELU;
-		int[] UserSkills;
-		int[] UserAtributos;
-		int[] UserAtributosBackUP;
-		int[] UserHechizos;
-		int UsuariosMatados;
-		int CriminalesMatados;
-		int NPCsMuertos;
+		public int def;
+		public double Exp;
+		public int ELV;
+		public int ELU;
+		public int[] UserSkills;
+		public int[] UserAtributos;
+		public int[] UserAtributosBackUP;
+		public int[] UserHechizos;
+		public int UsuariosMatados;
+		public int CriminalesMatados;
+		public int NPCsMuertos;
 
-		int SkillPts;
+		public int SkillPts;
 
-		int[] ExpSkills;
-		int[] EluSkills;
+		public int[] ExpSkills;
+		public int[] EluSkills;
 
 	}
 
 	/* 'Flags */
 	static public class UserFlags {
-		int Muerto;
-		int Escondido;
-		boolean Comerciando;
-		boolean UserLogged;
-		boolean Meditando;
-		String Descuento;
-		int Hambre;
-		int Sed;
-		int PuedeMoverse;
-		int TimerLanzarSpell;
-		int PuedeTrabajar;
-		int Envenenado;
-		int Paralizado;
-		int Inmovilizado;
-		int Estupidez;
-		int Ceguera;
-		int invisible;
-		int Maldicion;
-		int Bendicion;
-		int Oculto;
-		int Desnudo;
-		boolean Descansar;
-		int Hechizo;
-		boolean TomoPocion;
-		int TipoPocion;
+		public int Muerto;
+		public int Escondido;
+		public boolean Comerciando;
+		public boolean UserLogged;
+		public boolean Meditando;
+		public String Descuento;
+		public int Hambre;
+		public int Sed;
+		public int PuedeMoverse;
+		public int TimerLanzarSpell;
+		public int PuedeTrabajar;
+		public int Envenenado;
+		public int Paralizado;
+		public int Inmovilizado;
+		public int Estupidez;
+		public int Ceguera;
+		public int invisible;
+		public int Maldicion;
+		public int Bendicion;
+		public int Oculto;
+		public int Desnudo;
+		public boolean Descansar;
+		public int Hechizo;
+		public boolean TomoPocion;
+		public int TipoPocion;
 
-		boolean NoPuedeSerAtacado;
-		int AtacablePor;
-		int ShareNpcWith;
+		public boolean NoPuedeSerAtacado;
+		public int AtacablePor;
+		public int ShareNpcWith;
 
-		int Vuela;
-		int Navegando;
-		boolean Seguro;
-		boolean SeguroResu;
+		public int Vuela;
+		public int Navegando;
+		public boolean Seguro;
+		public boolean SeguroResu;
 
-		int DuracionEfecto;
-		int TargetNPC;
-		eNPCType TargetNpcTipo;
-		int OwnedNpc;
-		int NpcInv;
+		public int DuracionEfecto;
+		public int TargetNPC;
+		public eNPCType TargetNpcTipo;
+		public int OwnedNpc;
+		public int NpcInv;
 
-		int Ban;
-		int AdministrativeBan;
+		public int Ban;
+		public int AdministrativeBan;
 
-		int TargetUser;
+		public int TargetUser;
 
-		int TargetObj;
-		int TargetObjMap;
-		int TargetObjX;
-		int TargetObjY;
+		public int TargetObj;
+		public int TargetObjMap;
+		public int TargetObjX;
+		public int TargetObjY;
 
-		int TargetMap;
-		int TargetX;
-		int TargetY;
+		public int TargetMap;
+		public int TargetX;
+		public int TargetY;
 
-		int TargetObjInvIndex;
-		int TargetObjInvSlot;
+		public int TargetObjInvIndex;
+		public int TargetObjInvSlot;
 
-		int AtacadoPorNpc;
-		int AtacadoPorUser;
-		int NPCAtacado;
-		boolean Ignorado;
+		public int AtacadoPorNpc;
+		public int AtacadoPorUser;
+		public int NPCAtacado;
+		public boolean Ignorado;
 
-		boolean EnConsulta;
-		boolean SendDenounces;
+		public boolean EnConsulta;
+		public boolean SendDenounces;
 
-		int StatsChanged;
-		PlayerType Privilegios;
-		boolean PrivEspecial;
+		public int StatsChanged;
+		public PlayerType Privilegios;
+		public boolean PrivEspecial;
 
-		int ValCoDe;
+		public int ValCoDe;
 
-		String LastCrimMatado;
-		String LastCiudMatado;
+		public String LastCrimMatado;
+		public String LastCiudMatado;
 
-		int OldBody;
-		int OldHead;
-		int AdminInvisible;
-		boolean AdminPerseguible;
+		public int OldBody;
+		public int OldHead;
+		public int AdminInvisible;
+		public boolean AdminPerseguible;
 
-		int ChatColor;
+		public int ChatColor;
 
-		String MD5Reportado;
+		public String MD5Reportado;
 
-		int TimesWalk;
-		int StartWalk;
-		int CountSH;
+		public int TimesWalk;
+		public int StartWalk;
+		public int CountSH;
 
-		int UltimoMensaje;
+		public int UltimoMensaje;
 
-		int Silenciado;
+		public int Silenciado;
 
-		int Mimetizado;
+		public int Mimetizado;
 
-		int CentinelaIndex;
-		boolean CentinelaOK;
+		public int CentinelaIndex;
+		public boolean CentinelaOK;
 
-		int lastMap;
-		int Traveling;
+		public int lastMap;
+		public int Traveling;
 
-		String ParalizedBy;
-		int ParalizedByIndex;
-		int ParalizedByNpcIndex;
+		public String ParalizedBy;
+		public int ParalizedByIndex;
+		public int ParalizedByNpcIndex;
 
 		/* # IF SeguridadAlkon THEN */
 		/* # END IF */
 	}
 
 	static public class UserCounters {
-		int IdleCount;
-		int AttackCounter;
-		int HPCounter;
-		int STACounter;
-		int Frio;
-		int Lava;
-		int COMCounter;
-		int AGUACounter;
-		int Veneno;
-		int Paralisis;
-		int Ceguera;
-		int Estupidez;
+		public int IdleCount;
+		public int AttackCounter;
+		public int HPCounter;
+		public int STACounter;
+		public int Frio;
+		public int Lava;
+		public int COMCounter;
+		public int AGUACounter;
+		public int Veneno;
+		public int Paralisis;
+		public int Ceguera;
+		public int Estupidez;
 
-		int Invisibilidad;
-		int TiempoOculto;
+		public int Invisibilidad;
+		public int TiempoOculto;
 
-		int Mimetismo;
-		int PiqueteC;
-		int Pena;
-		WorldPos SendMapCounter;
-		boolean Saliendo;
-		int Salir;
+		public int Mimetismo;
+		public int PiqueteC;
+		public int Pena;
+		public WorldPos SendMapCounter;
+		public boolean Saliendo;
+		public int Salir;
 
-		int tInicioMeditar;
-		boolean bPuedeMeditar;
+		public int tInicioMeditar;
+		public boolean bPuedeMeditar;
 
-		int TimerLanzarSpell;
-		int TimerPuedeAtacar;
-		int TimerPuedeUsarArco;
-		int TimerPuedeTrabajar;
-		int TimerUsar;
-		int TimerMagiaGolpe;
-		int TimerGolpeMagia;
-		int TimerGolpeUsar;
-		int TimerPuedeSerAtacado;
-		int TimerPerteneceNpc;
-		int TimerEstadoAtacable;
+		public int TimerLanzarSpell;
+		public int TimerPuedeAtacar;
+		public int TimerPuedeUsarArco;
+		public int TimerPuedeTrabajar;
+		public int TimerUsar;
+		public int TimerMagiaGolpe;
+		public int TimerGolpeMagia;
+		public int TimerGolpeUsar;
+		public int TimerPuedeSerAtacado;
+		public int TimerPerteneceNpc;
+		public int TimerEstadoAtacable;
 
-		int Trabajando;
-		int Ocultando;
+		public int Trabajando;
+		public int Ocultando;
 
-		int failedUsageAttempts;
+		public int failedUsageAttempts;
 
-		int goHome;
-		int AsignedSkills;
+		public int goHome;
+		public int AsignedSkills;
 		/* # IF SeguridadAlkon THEN */
 		/* # END IF */
 	}
 
 	/* 'Cosas faccionarias. */
 	static public class tFacciones {
-		int ArmadaReal;
-		int FuerzasCaos;
-		int CriminalesMatados;
-		int CiudadanosMatados;
-		int RecompensasReal;
-		int RecompensasCaos;
-		int RecibioExpInicialReal;
-		int RecibioExpInicialCaos;
-		int RecibioArmaduraReal;
-		int RecibioArmaduraCaos;
-		int Reenlistadas;
-		int NivelIngreso;
-		String FechaIngreso;
-		int MatadosIngreso;
-		int NextRecompensa;
+		public int ArmadaReal;
+		public int FuerzasCaos;
+		public int CriminalesMatados;
+		public int CiudadanosMatados;
+		public int RecompensasReal;
+		public int RecompensasCaos;
+		public int RecibioExpInicialReal;
+		public int RecibioExpInicialCaos;
+		public int RecibioArmaduraReal;
+		public int RecibioArmaduraCaos;
+		public int Reenlistadas;
+		public int NivelIngreso;
+		public String FechaIngreso;
+		public int MatadosIngreso;
+		public int NextRecompensa;
 	}
 
 	static public class tCrafting {
-		int Cantidad;
-		int PorCiclo;
+		public int Cantidad;
+		public int PorCiclo;
 	}
 
 	/* 'Tipo de los Usuarios */
 	static public class User {
-		String Name;
-		int ID;
+		public String Name;
+		public int ID;
 
-		boolean showName;
+		public boolean showName;
 
-		Char Char;
-		Char CharMimetizado;
-		Char OrigChar;
+		public Char Char;
+		public Char CharMimetizado;
+		public Char OrigChar;
 
-		String desc;
-		String DescRM;
+		public String desc;
+		public String DescRM;
 
-		eClass clase;
-		eRaza raza;
-		eGenero Genero;
-		String email;
-		eCiudad Hogar;
+		public eClass clase;
+		public eRaza raza;
+		public eGenero Genero;
+		public String email;
+		public eCiudad Hogar;
 
-		Inventario Invent;
+		public Inventario Invent;
 
-		WorldPos Pos;
+		public WorldPos Pos;
 
-		boolean ConnIDValida;
-		int ConnID;
+		public boolean ConnIDValida;
+		public int ConnID;
 
-		BancoInventario BancoInvent;
+		public BancoInventario BancoInvent;
 
-		UserCounters Counters;
+		public UserCounters Counters;
 
-		tCrafting Construir;
+		public tCrafting Construir;
 
-		int[] MascotasIndex;
-		int[] MascotasType;
-		int NroMascotas;
+		public int[] MascotasIndex;
+		public int[] MascotasType;
+		public int NroMascotas;
 
-		UserStats Stats;
-		UserFlags flags;
+		public UserStats Stats;
+		public UserFlags flags;
 
-		tReputacion Reputacion;
+		public tReputacion Reputacion;
 
-		tFacciones Faccion;
+		public tFacciones Faccion;
 
 		/* # IF SeguridadAlkon THEN */
 		/* # END IF */
 
 		/* # IF ConUpTime THEN */
-		vb6.Date LogOnTime;
-		int UpTime;
+		public vb6.Date LogOnTime;
+		public int UpTime;
 		/* # END IF */
 
-		String ip;
+		public String ip;
 
-		mdlCOmercioConUsuario.tCOmercioUsuario ComUsu;
+		public mdlCOmercioConUsuario.tCOmercioUsuario ComUsu;
 
-		int GuildIndex;
-		ALINEACION_GUILD FundandoGuildAlineacion;
-		int EscucheClan;
+		public int GuildIndex;
+		public ALINEACION_GUILD FundandoGuildAlineacion;
+		public int EscucheClan;
 
-		int PartyIndex;
-		int PartySolicitud;
+		public int PartyIndex;
+		public int PartySolicitud;
 
-		int KeyCrypt;
+		public int KeyCrypt;
 
-		ModAreas.AreaInfo AreasInfo;
+		public ModAreas.AreaInfo AreasInfo;
 
-		clsByteQueue outgoingData;
-		clsByteQueue incomingData;
+		public clsByteQueue outgoingData;
+		public clsByteQueue incomingData;
 
-		int CurrentInventorySlots;
+		public int CurrentInventorySlots;
 	}
 
 	/* '********************************************************* */
@@ -1089,139 +1089,139 @@ public class Declaraciones {
 	/* '********************************************************* */
 
 	static public class NPCStats {
-		int Alineacion;
-		int MaxHp;
-		int MinHp;
-		int MaxHIT;
-		int MinHIT;
-		int def;
-		int defM;
+		public int Alineacion;
+		public int MaxHp;
+		public int MinHp;
+		public int MaxHIT;
+		public int MinHIT;
+		public int def;
+		public int defM;
 	}
 
 	static public class NpcCounters {
-		int Paralisis;
-		int TiempoExistencia;
+		public int Paralisis;
+		public int TiempoExistencia;
 	}
 
 	static public class NPCFlags {
-		int AfectaParalisis;
-		int Domable;
-		int Respawn;
-		boolean NPCActive;
-		boolean Follow;
-		int Faccion;
-		int AtacaDoble;
-		int LanzaSpells;
+		public int AfectaParalisis;
+		public int Domable;
+		public int Respawn;
+		public boolean NPCActive;
+		public boolean Follow;
+		public int Faccion;
+		public int AtacaDoble;
+		public int LanzaSpells;
 
-		int ExpCount;
+		public int ExpCount;
 
-		TipoAI OldMovement;
-		int OldHostil;
+		public TipoAI OldMovement;
+		public int OldHostil;
 
-		int AguaValida;
-		int TierraInvalida;
+		public int AguaValida;
+		public int TierraInvalida;
 
-		int Sound;
-		String AttackedBy;
-		String AttackedFirstBy;
-		int BackUp;
-		int RespawnOrigPos;
+		public int Sound;
+		public String AttackedBy;
+		public String AttackedFirstBy;
+		public int BackUp;
+		public int RespawnOrigPos;
 
-		int Envenenado;
-		int Paralizado;
-		int Inmovilizado;
-		int invisible;
-		int Maldicion;
-		int Bendicion;
+		public int Envenenado;
+		public int Paralizado;
+		public int Inmovilizado;
+		public int invisible;
+		public int Maldicion;
+		public int Bendicion;
 
-		int Snd1;
-		int Snd2;
-		int Snd3;
+		public int Snd1;
+		public int Snd2;
+		public int Snd3;
 	}
 
 	static public class tCriaturasEntrenador {
-		int NpcIndex;
-		String NpcName;
-		int tmpIndex;
+		public int NpcIndex;
+		public String NpcName;
+		public int tmpIndex;
 	}
 
 	/* ' New type for holding the pathfinding info */
 	static public class NpcPathFindingInfo {
-		Queue.tVertice[] Path;
-		Position Target;
-		int PathLenght;
-		int CurPos;
-		int TargetUser;
-		boolean NoPath;
+		public Queue.tVertice[] Path;
+		public Position Target;
+		public int PathLenght;
+		public int CurPos;
+		public int TargetUser;
+		public boolean NoPath;
 
 	}
 	/* ' New type for holding the pathfinding info */
 
 	static public class tDrops {
-		int ObjIndex;
-		int Amount;
+		public int ObjIndex;
+		public int Amount;
 	}
 
 	static final int MAX_NPC_DROPS = 5;
 
 	static public class npc {
-		String Name;
-		Char Char;
-		String desc;
+		public String Name;
+		public Char Char;
+		public String desc;
 
-		eNPCType NPCtype;
-		int Numero;
+		public eNPCType NPCtype;
+		public int Numero;
 
-		int InvReSpawn;
+		public int InvReSpawn;
 
-		int Comercia;
-		int Target;
-		int TargetNPC;
-		int TipoItems;
+		public int Comercia;
+		public int Target;
+		public int TargetNPC;
+		public int TipoItems;
 
-		int Veneno;
+		public int Veneno;
 
-		WorldPos Pos;
-		WorldPos Orig;
-		int SkillDomar;
+		public WorldPos Pos;
+		public WorldPos Orig;
+		public int SkillDomar;
 
-		TipoAI Movement;
-		int Attackable;
-		int Hostile;
-		int PoderAtaque;
-		int PoderEvasion;
+		public TipoAI Movement;
+		public int Attackable;
+		public int Hostile;
+		public int PoderAtaque;
+		public int PoderEvasion;
 
-		int Owner;
+		public int Owner;
 
-		int GiveEXP;
-		int GiveGLD;
-		tDrops[] Drop;
+		public int GiveEXP;
+		public int GiveGLD;
+		public tDrops[] Drop;
 
-		NPCStats Stats;
-		NPCFlags flags;
-		NpcCounters Contadores;
+		public NPCStats Stats;
+		public NPCFlags flags;
+		public NpcCounters Contadores;
 
-		Inventario Invent;
-		int CanAttack;
+		public Inventario Invent;
+		public int CanAttack;
 
-		int NroExpresiones;
-		String[] Expresiones;
+		public int NroExpresiones;
+		public String[] Expresiones;
 
-		int NroSpells;
-		int[] Spells;
+		public int NroSpells;
+		public int[] Spells;
 
-		int NroCriaturas;
-		tCriaturasEntrenador[] Criaturas;
-		int MaestroUser;
-		int MaestroNpc;
-		int Mascotas;
+		public int NroCriaturas;
+		public tCriaturasEntrenador[] Criaturas;
+		public int MaestroUser;
+		public int MaestroNpc;
+		public int Mascotas;
 
-		NpcPathFindingInfo PFINFO;
-		ModAreas.AreaInfo AreasInfo;
+		public NpcPathFindingInfo PFINFO;
+		public ModAreas.AreaInfo AreasInfo;
 
-		int Ciudad;
+		public int Ciudad;
 
-		int ClanIndex;
+		public int ClanIndex;
 	}
 
 	/* '********************************************************** */
@@ -1231,39 +1231,39 @@ public class Declaraciones {
 	/* '********************************************************** */
 	/* 'Tile */
 	static public class MapBlock {
-		int Blocked;
-		int[] Graphic;
-		int UserIndex;
-		int NpcIndex;
-		Obj ObjInfo;
-		WorldPos TileExit;
-		eTrigger trigger;
+		public int Blocked;
+		public int[] Graphic;
+		public int UserIndex;
+		public int NpcIndex;
+		public Obj ObjInfo;
+		public WorldPos TileExit;
+		public eTrigger trigger;
 	}
 
 	/* 'Info del mapa */
 	static public class MapInfo {
-		int NumUsers;
-		String Music;
-		String Name;
-		WorldPos StartPos;
-		WorldPos OnDeathGoTo;
+		public int NumUsers;
+		public String Music;
+		public String Name;
+		public WorldPos StartPos;
+		public WorldPos OnDeathGoTo;
 
-		int MapVersion;
-		boolean Pk;
-		int MagiaSinEfecto;
-		int NoEncriptarMP;
+		public int MapVersion;
+		public boolean Pk;
+		public int MagiaSinEfecto;
+		public int NoEncriptarMP;
 
-		int InviSinEfecto;
-		int ResuSinEfecto;
-		int OcultarSinEfecto;
-		int InvocarSinEfecto;
+		public int InviSinEfecto;
+		public int ResuSinEfecto;
+		public int OcultarSinEfecto;
+		public int InvocarSinEfecto;
 
-		int RoboNpcsPermitido;
+		public int RoboNpcsPermitido;
 
-		String Terreno;
-		String Zona;
-		int Restringir;
-		int BackUp;
+		public String Terreno;
+		public String Zona;
+		public int Restringir;
+		public int BackUp;
 	}
 
 	/* '********** V A R I A B L E S P U B L I C A S *********** */
@@ -1273,10 +1273,10 @@ public class Declaraciones {
 	/* ' TODO: Se usa esta variable ? */
 	public static boolean BackUp;
 
-	public static String[] ListaRazas = new String[1 + Declaraciones.NUMRAZAS]; /* XXX */
-	public static String[] SkillsNames = new String[1 + Declaraciones.NUMSKILLS]; /* XXX */
-	public static String[] ListaClases = new String[1 + Declaraciones.NUMCLASES]; /* XXX */
-	public static String[] ListaAtributos = new String[1 + Declaraciones.NUMATRIBUTOS]; /* XXX */
+	public static String[] ListaRazas = new String[1 + Declaraciones.NUMRAZAS];
+	public static String[] SkillsNames = new String[1 + Declaraciones.NUMSKILLS];
+	public static String[] ListaClases = new String[1 + Declaraciones.NUMCLASES];
+	public static String[] ListaAtributos = new String[1 + Declaraciones.NUMATRIBUTOS];
 
 	public static int RECORDusuarios;
 
@@ -1331,7 +1331,7 @@ public class Declaraciones {
 	public static int NumRecords;
 	public static float HappyHour;
 	public static boolean HappyHourActivated;
-	public static float[] HappyHourDays = new float[1 + 7]; /* XXX */
+	public static float[] HappyHourDays = new float[1 + 7];
 
 	/* '' */
 	/* 'Esta activada la verificacion MD5 ? */
@@ -1342,36 +1342,36 @@ public class Declaraciones {
 
 	/* '*****************ARRAYS PUBLICOS************************* */
 	/* 'USUARIOS */
-	public static User[] UserList = new User[0]; /* XXX */
+	public static User[] UserList = new User[0];
 	/* 'NPCS */
-	public static npc[] Npclist = new npc[1 + Declaraciones.MAXNPCS]; /* XXX */
-	public static MapBlock[] MapData = new MapBlock[0]; /* XXX */
-	public static MapInfo[] MapInfo = new MapInfo[0]; /* XXX */
-	public static tHechizo[] Hechizos = new tHechizo[0]; /* XXX */
-	public static int[] CharList = new int[1 + Declaraciones.MAXCHARS]; /* XXX */
-	public static ObjData[] ObjData = new ObjData[0]; /* XXX */
-	public static FXdata[] FX = new FXdata[0]; /* XXX */
-	public static tCriaturasEntrenador[] SpawnList = new tCriaturasEntrenador[0]; /* XXX */
-	public static LevelSkill[] LevelSkill = new LevelSkill[1 + 50]; /* XXX */
-	public static String[] ForbidenNames = new String[0]; /* XXX */
-	public static int[] ArmasHerrero = new int[0]; /* XXX */
-	public static int[] ArmadurasHerrero = new int[0]; /* XXX */
-	public static int[] ObjCarpintero = new int[0]; /* XXX */
-	public static String[] MD5s = new String[0]; /* XXX */
+	public static npc[] Npclist = new npc[1 + Declaraciones.MAXNPCS];
+	public static MapBlock[] MapData = new MapBlock[0];
+	public static MapInfo[] MapInfo = new MapInfo[0];
+	public static tHechizo[] Hechizos = new tHechizo[0];
+	public static int[] CharList = new int[1 + Declaraciones.MAXCHARS];
+	public static ObjData[] ObjData = new ObjData[0];
+	public static FXdata[] FX = new FXdata[0];
+	public static tCriaturasEntrenador[] SpawnList = new tCriaturasEntrenador[0];
+	public static LevelSkill[] LevelSkill = new LevelSkill[1 + 50];
+	public static String[] ForbidenNames = new String[0];
+	public static int[] ArmasHerrero = new int[0];
+	public static int[] ArmadurasHerrero = new int[0];
+	public static int[] ObjCarpintero = new int[0];
+	public static String[] MD5s = new String[0];
 	public static vb6.Collection BanIps;
-	public static clsParty[] Parties = new clsParty[1 + mdParty.MAX_PARTIES]; /* XXX */
-	public static ModClase[] ModClase = new ModClase[1 + Declaraciones.NUMCLASES]; /* XXX */
-	public static ModRaza[] ModRaza = new ModRaza[1 + Declaraciones.NUMRAZAS]; /* XXX */
-	public static double[] ModVida = new double[1 + Declaraciones.NUMCLASES]; /* XXX */
-	public static int[] DistribucionEnteraVida = new int[1 + 5]; /* XXX */
-	public static int[] DistribucionSemienteraVida = new int[1 + 4]; /* XXX */
-	public static WorldPos[] Ciudades = new WorldPos[1 + Declaraciones.NUMCIUDADES]; /* XXX */
-	public static HomeDistance[] distanceToCities = new HomeDistance[0]; /* XXX */
-	public static tRecord[] Records = new tRecord[0]; /* XXX */
+	public static clsParty[] Parties = new clsParty[1 + mdParty.MAX_PARTIES];
+	public static ModClase[] ModClase = new ModClase[1 + Declaraciones.NUMCLASES];
+	public static ModRaza[] ModRaza = new ModRaza[1 + Declaraciones.NUMRAZAS];
+	public static double[] ModVida = new double[1 + Declaraciones.NUMCLASES];
+	public static int[] DistribucionEnteraVida = new int[1 + 5];
+	public static int[] DistribucionSemienteraVida = new int[1 + 4];
+	public static WorldPos[] Ciudades = new WorldPos[1 + Declaraciones.NUMCIUDADES];
+	public static HomeDistance[] distanceToCities = new HomeDistance[0];
+	public static tRecord[] Records = new tRecord[0];
 	/* '********************************************************* */
 
 	static public class HomeDistance {
-		int[] distanceToCity;
+		public int[] distanceToCity;
 	}
 
 	public static WorldPos Nix;
@@ -1442,7 +1442,7 @@ public class Declaraciones {
 	/* ''''''' */
 	/* '' Pretorianos */
 	/* ''''''' */
-	public static clsClanPretoriano[] ClanPretoriano = new clsClanPretoriano[0]; /* XXX */
+	public static clsClanPretoriano[] ClanPretoriano = new clsClanPretoriano[0];
 
 	static final int MAX_DENOUNCES = 20;
 

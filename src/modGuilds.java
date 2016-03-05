@@ -43,7 +43,7 @@ public class modGuilds {
 	public static int CANTIDADDECLANES;
 	/* 'cantidad actual de clanes en el servidor */
 
-	private static clsClan[] guilds = new clsClan[1 + modGuilds.MAX_GUILDS]; /* XXX */
+	private static clsClan[] guilds = new clsClan[1 + modGuilds.MAX_GUILDS];
 	/* 'array global de guilds, se indexa por userlist().guildindex */
 
 	static final int CANTIDADMAXIMACODEX = 8;
@@ -78,7 +78,7 @@ public class modGuilds {
 		/* '*************************************************** */
 
 		String CantClanes;
-		int i;
+		int i = 0;
 		String TempStr;
 		ALINEACION_GUILD Alin;
 
@@ -102,14 +102,14 @@ public class modGuilds {
 	}
 
 	static boolean m_ConectarMiembroAClan(int UserIndex, int GuildIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
 		/* ' */
 		/* '*************************************************** */
 
-		boolean NuevaA;
+		boolean NuevaA = false;
 		String News;
 
 		/* 'x las dudas... */
@@ -136,7 +136,7 @@ public class modGuilds {
 
 	static boolean m_ValidarPermanencia(int UserIndex, boolean SumaAntifaccion,
 			boolean /* FIXME BYREF!! */ CambioAlineacion) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Autor: Unknown (orginal version) */
 		/* 'Last Modification: 14/12/2009 */
@@ -151,7 +151,7 @@ public class modGuilds {
 		 */
 		/* '*************************************************** */
 
-		int GuildIndex;
+		int GuildIndex = 0;
 
 		retval = true;
 
@@ -212,12 +212,12 @@ public class modGuilds {
 		/* '14/01/2010: ZaMa - Pulo detalles en el funcionamiento general. */
 		/* '*************************************************** */
 		String[] GuildMembers;
-		int TotalMembers;
-		int MemberIndex;
-		boolean Sale;
+		int TotalMembers = 0;
+		int MemberIndex = 0;
+		boolean Sale = false;
 		String MemberName;
-		int UserIndex;
-		int Reenlistadas;
+		int UserIndex = 0;
+		int Reenlistadas = 0;
 
 		/*
 		 * ' Si devuelve true, cambio a neutro y echamos a todos los que estén
@@ -293,7 +293,7 @@ public class modGuilds {
 		/* 'Reduce el grado de la alineacion a partir de la alineacion dada */
 		/* '*************************************************** */
 
-		switch (guilds[GuildIndex].Alineacion()) {
+		switch (guilds[GuildIndex].Alineacion) {
 		case ALINEACION_ARMADA:
 			retval = ALINEACION_CIUDA;
 			break;
@@ -324,7 +324,7 @@ public class modGuilds {
 	}
 
 	static boolean m_EsGuildLeader(String /* FIXME BYREF!! */ PJ, int GuildIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -336,7 +336,7 @@ public class modGuilds {
 	}
 
 	static boolean m_EsGuildFounder(String /* FIXME BYREF!! */ PJ, int GuildIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -348,7 +348,7 @@ public class modGuilds {
 	}
 
 	static int m_EcharMiembroDeClan(int Expulsador, String Expulsado) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -356,8 +356,8 @@ public class modGuilds {
 		/* '*************************************************** */
 
 		/* 'UI echa a Expulsado del clan de Expulsado */
-		int UserIndex;
-		int GI;
+		int UserIndex = 0;
+		int GI = 0;
 
 		retval = 0;
 
@@ -407,7 +407,7 @@ public class modGuilds {
 		/* ' */
 		/* '*************************************************** */
 
-		int GI;
+		int GI = 0;
 
 		GI = Declaraciones.UserList[UserIndex].GuildIndex;
 		if (GI <= 0 || GI > modGuilds.CANTIDADDECLANES) {
@@ -429,7 +429,7 @@ public class modGuilds {
  /* ' */
  /* '*************************************************** */
  
- int i;
+ int i = 0;
  
  if (GuildIndex<1 || GuildIndex>modGuilds.CANTIDADDECLANES) {
  return;
@@ -456,7 +456,7 @@ public class modGuilds {
 		 */
 		/* '*************************************************** */
 
-		int GI;
+		int GI = 0;
 
 		GI = Declaraciones.UserList[UserIndex].GuildIndex;
 
@@ -476,15 +476,15 @@ public class modGuilds {
 	}
 
 	static boolean CrearNuevoClan(int FundadorIndex, String /* FIXME BYREF!! */ desc, String /* FIXME BYREF!! */ GuildName, String /* FIXME BYREF!! */ URL, String[] /* FIXME BYREF!! */ codex, ALINEACION_GUILD Alineacion, String /* FIXME BYREF!! */ refError) {
- boolean retval;
+ boolean retval = false;
  /* '*************************************************** */
  /* 'Author: Unknown */
  /* 'Last Modification: - */
  /* ' */
  /* '*************************************************** */
  
- int CantCodex;
- int i;
+ int CantCodex = 0;
+ int i = 0;
  String DummyString;
  
  retval = false;
@@ -553,9 +553,9 @@ return retval;
 		/* ' */
 		/* '*************************************************** */
 
-		int GuildIndex;
-		int i;
-		int go;
+		int GuildIndex = 0;
+		int i = 0;
+		int go = 0;
 
 		GuildIndex = Declaraciones.UserList[UserIndex].GuildIndex;
 		if (GuildIndex == 0) {
@@ -617,7 +617,7 @@ return retval;
 	}
 
 	static boolean m_PuedeSalirDeClan(String /* FIXME BYREF!! */ Nombre, int GuildIndex, int QuienLoEchaUI) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -662,7 +662,7 @@ return retval;
 
 	static boolean PuedeFundarUnClan(int UserIndex, ALINEACION_GUILD Alineacion,
 			String /* FIXME BYREF!! */ refError) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Autor: Unknown */
 		/* 'Last Modification: 27/11/2009 */
@@ -733,16 +733,16 @@ return retval;
 	}
 
 	static boolean m_EstadoPermiteEntrarChar(String /* FIXME BYREF!! */ Personaje, int GuildIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
 		/* ' */
 		/* '*************************************************** */
 
-		int Promedio;
-		int ELV;
-		int f;
+		int Promedio = 0;
+		int ELV = 0;
+		int f = 0;
 
 		retval = false;
 
@@ -805,7 +805,7 @@ return retval;
 	}
 
 	static boolean m_EstadoPermiteEntrar(int UserIndex, int GuildIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -979,15 +979,15 @@ return retval;
 	}
 
 	static boolean GuildNameValido(String cad) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
 		/* ' */
 		/* '*************************************************** */
 
-		int car;
-		int i;
+		int car = 0;
+		int i = 0;
 
 		/* 'old function by morgo */
 
@@ -1009,14 +1009,14 @@ return retval;
 	}
 
 	static boolean YaExiste(String GuildName) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
 		/* ' */
 		/* '*************************************************** */
 
-		int i;
+		int i = 0;
 
 		retval = false;
 		GuildName = vb6.UCase(GuildName);
@@ -1032,13 +1032,13 @@ return retval;
 	}
 
 	static boolean HasFound(String /* FIXME BYREF!! */ UserName) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Autor: ZaMa */
 		/* 'Last Modification: 27/11/2009 */
 		/* 'Returns true if it's already the founder of other guild */
 		/* '*************************************************** */
-		int i;
+		int i = 0;
 		String Name;
 
 		Name = vb6.UCase(UserName);
@@ -1054,14 +1054,14 @@ return retval;
 	}
 
 	static boolean v_AbrirElecciones(int UserIndex, String /* FIXME BYREF!! */ refError) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
 		/* ' */
 		/* '*************************************************** */
 
-		int GuildIndex;
+		int GuildIndex = 0;
 
 		retval = false;
 		GuildIndex = Declaraciones.UserList[UserIndex].GuildIndex;
@@ -1088,16 +1088,16 @@ return retval;
 	}
 
 	static boolean v_UsuarioVota(int UserIndex, String /* FIXME BYREF!! */ Votado, String /* FIXME BYREF!! */ refError) {
- boolean retval;
+ boolean retval = false;
  /* '*************************************************** */
  /* 'Author: Unknown */
  /* 'Last Modification: - */
  /* ' */
  /* '*************************************************** */
  
- int GuildIndex;
+ int GuildIndex = 0;
  String[] list;
- int i;
+ int i = 0;
  
  retval = false;
  GuildIndex = Declaraciones.UserList[UserIndex].GuildIndex;
@@ -1142,7 +1142,7 @@ return retval;
  /* ' */
  /* '*************************************************** */
  
- int i;
+ int i = 0;
  
  /* FIXME: ON ERROR GOTO errh */
  modSendData.SendData(SendTarget.ToAll, 0, Protocol.PrepareMessageConsoleMsg("Servidor> Revisando elecciones", FontTypeNames.FONTTYPE_SERVER));
@@ -1162,7 +1162,7 @@ return retval;
 }
 
 	static int GetGuildIndexFromChar(String /* FIXME BYREF!! */ PlayerName) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1191,7 +1191,7 @@ return retval;
 	}
 
 	static int GetGuildIndex(String GuildName) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1199,7 +1199,7 @@ return retval;
 		/* '*************************************************** */
 
 		/* 'me da el indice del guildname */
-		int i;
+		int i = 0;
 
 		retval = 0;
 		GuildName = vb6.UCase(GuildName);
@@ -1220,7 +1220,7 @@ return retval;
 		/* '28/05/2010: ZaMa - Solo dioses pueden ver otros dioses online. */
 		/* '*************************************************** */
 
-		int i;
+		int i = 0;
 		PlayerType priv;
 
 		priv = PlayerType.User || PlayerType.Consejero || PlayerType.SemiDios;
@@ -1261,7 +1261,7 @@ return retval;
 		/* '*************************************************** */
 
 		String[] tStr;
-		int i;
+		int i = 0;
 
 		if (modGuilds.CANTIDADDECLANES == 0) {
 			tStr = new String[0];
@@ -1288,8 +1288,8 @@ return retval;
 		/* '*************************************************** */
 
 		String[] codex;
-		int GI;
-		int i;
+		int GI = 0;
+		int i = 0;
 
 		GI = GetGuildIndex(GuildName);
 		if (GI == 0) {
@@ -1313,7 +1313,7 @@ return retval;
 		/* 'Last Modification: 12/10/06 */
 		/* 'Las Modified By: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* '*************************************************** */
-		int GI;
+		int GI = 0;
 		String[] guildList;
 		String[] MemberList;
 		String[] aspirantsList;
@@ -1342,7 +1342,7 @@ return retval;
 	}
 
 	static int m_Iterador_ProximoUserIndex(int GuildIndex) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1358,7 +1358,7 @@ return retval;
 	}
 
 	static int Iterador_ProximoGM(int GuildIndex) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1374,7 +1374,7 @@ return retval;
 	}
 
 	static int r_Iterador_ProximaPropuesta(int GuildIndex, RELACIONES_GUILD Tipo) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1390,14 +1390,14 @@ return retval;
 	}
 
 	static int GMEscuchaClan(int UserIndex, String GuildName) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
 		/* ' */
 		/* '*************************************************** */
 
-		int GI;
+		int GI = 0;
 
 		/* 'listen to no guild at all */
 		if (vb6.LenB(GuildName) == 0 && Declaraciones.UserList[UserIndex].EscucheClan != 0) {
@@ -1453,15 +1453,15 @@ return retval;
 
 	static int r_DeclararGuerra(int UserIndex, String /* FIXME BYREF!! */ GuildGuerra,
 			String /* FIXME BYREF!! */ refError) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
 		/* ' */
 		/* '*************************************************** */
 
-		int GI;
-		int GIG;
+		int GI = 0;
+		int GIG = 0;
 
 		retval = 0;
 		GI = Declaraciones.UserList[UserIndex].GuildIndex;
@@ -1509,7 +1509,7 @@ return retval;
 
 	static int r_AceptarPropuestaDePaz(int UserIndex, String /* FIXME BYREF!! */ GuildPaz,
 			String /* FIXME BYREF!! */ refError) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1520,8 +1520,8 @@ return retval;
 		 * 'el clan de userindex acepta la propuesta de paz de guildpaz, con
 		 * quien esta en guerra
 		 */
-		int GI;
-		int GIG;
+		int GI = 0;
+		int GIG = 0;
 
 		GI = Declaraciones.UserList[UserIndex].GuildIndex;
 		if (GI <= 0 || GI > modGuilds.CANTIDADDECLANES) {
@@ -1568,7 +1568,7 @@ return retval;
 
 	static int r_RechazarPropuestaDeAlianza(int UserIndex,
 			String /* FIXME BYREF!! */ GuildPro, String /* FIXME BYREF!! */ refError) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1576,8 +1576,8 @@ return retval;
 		/* '*************************************************** */
 
 		/* 'devuelve el index al clan guildPro */
-		int GI;
-		int GIG;
+		int GI = 0;
+		int GIG = 0;
 
 		retval = 0;
 		GI = Declaraciones.UserList[UserIndex].GuildIndex;
@@ -1621,7 +1621,7 @@ return retval;
 
 	static int r_RechazarPropuestaDePaz(int UserIndex,
 			String /* FIXME BYREF!! */ GuildPro, String /* FIXME BYREF!! */ refError) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1629,8 +1629,8 @@ return retval;
 		/* '*************************************************** */
 
 		/* 'devuelve el index al clan guildPro */
-		int GI;
-		int GIG;
+		int GI = 0;
+		int GIG = 0;
 
 		retval = 0;
 		GI = Declaraciones.UserList[UserIndex].GuildIndex;
@@ -1674,7 +1674,7 @@ return retval;
 
 	static int r_AceptarPropuestaDeAlianza(int UserIndex,
 			String /* FIXME BYREF!! */ GuildAllie, String /* FIXME BYREF!! */ refError) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1685,8 +1685,8 @@ return retval;
 		 * 'el clan de userindex acepta la propuesta de paz de guildpaz, con
 		 * quien esta en guerra
 		 */
-		int GI;
-		int GIG;
+		int GI = 0;
+		int GIG = 0;
 
 		retval = 0;
 		GI = Declaraciones.UserList[UserIndex].GuildIndex;
@@ -1736,15 +1736,15 @@ return retval;
 	static boolean r_ClanGeneraPropuesta(int UserIndex,
 			String /* FIXME BYREF!! */ OtroClan, RELACIONES_GUILD Tipo,
 			String /* FIXME BYREF!! */ Detalle, String /* FIXME BYREF!! */ refError) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
 		/* ' */
 		/* '*************************************************** */
 
-		int OtroClanGI;
-		int GI;
+		int OtroClanGI = 0;
+		int GI = 0;
 
 		retval = false;
 
@@ -1806,8 +1806,8 @@ return retval;
 		/* ' */
 		/* '*************************************************** */
 
-		int OtroClanGI;
-		int GI;
+		int OtroClanGI = 0;
+		int GI = 0;
 
 		retval = "";
 		refError = "";
@@ -1843,9 +1843,9 @@ return retval;
 		/* ' */
 		/* '*************************************************** */
 
-		int GI;
-		int i;
-		int proposalCount;
+		int GI = 0;
+		int i = 0;
+		int proposalCount = 0;
 		String[] proposals;
 
 		GI = Declaraciones.UserList[UserIndex].GuildIndex;
@@ -1917,15 +1917,15 @@ return retval;
 
 	static boolean a_RechazarAspirante(int UserIndex, String /* FIXME BYREF!! */ Nombre,
 			String /* FIXME BYREF!! */ refError) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
 		/* ' */
 		/* '*************************************************** */
 
-		int GI;
-		int NroAspirante;
+		int GI = 0;
+		int NroAspirante = 0;
 
 		retval = false;
 		GI = Declaraciones.UserList[UserIndex].GuildIndex;
@@ -1956,8 +1956,8 @@ return retval;
 		/* ' */
 		/* '*************************************************** */
 
-		int GI;
-		int NroAspirante;
+		int GI = 0;
+		int NroAspirante = 0;
 
 		GI = Declaraciones.UserList[UserIndex].GuildIndex;
 		if (GI <= 0 || GI > modGuilds.CANTIDADDECLANES) {
@@ -1983,14 +1983,14 @@ return retval;
  /* ' */
  /* '*************************************************** */
  
- int GI;
- int NroAsp;
+ int GI = 0;
+ int NroAsp = 0;
  String GuildName;
  clsIniManager UserFile;
  String Miembro;
- int GuildActual;
+ int GuildActual = 0;
  String[] list;
- int i;
+ int i = 0;
  
  /* FIXME: ON ERROR GOTO ERROR */
  GI = Declaraciones.UserList[UserIndex].GuildIndex;
@@ -2074,7 +2074,7 @@ return retval;
 
 	static boolean a_NuevoAspirante(int UserIndex, String /* FIXME BYREF!! */ clan,
 			String /* FIXME BYREF!! */ Solicitud, String /* FIXME BYREF!! */ refError) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -2082,9 +2082,9 @@ return retval;
 		/* '*************************************************** */
 
 		String ViejoSolicitado;
-		int ViejoGuildINdex;
-		int ViejoNroAspirante;
-		int NuevoGuildIndex;
+		int ViejoGuildINdex = 0;
+		int ViejoNroAspirante = 0;
+		int NuevoGuildIndex = 0;
 
 		retval = false;
 
@@ -2142,16 +2142,16 @@ return retval;
 
 	static boolean a_AceptarAspirante(int UserIndex, String /* FIXME BYREF!! */ Aspirante,
 			String /* FIXME BYREF!! */ refError) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
 		/* ' */
 		/* '*************************************************** */
 
-		int GI;
-		int NroAspirante;
-		int AspiranteUI;
+		int GI = 0;
+		int NroAspirante = 0;
+		int AspiranteUI = 0;
 
 		/* 'un pj ingresa al clan :D */
 

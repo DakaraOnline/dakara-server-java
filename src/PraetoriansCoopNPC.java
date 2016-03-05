@@ -67,8 +67,8 @@ static final int SONIDO_DRAGON_VIVO = 30;
 /* 'Public Const ALCOBA2_Y As Integer = 25 */
 
 /* ' Contains all the pretorian's combinations, and its the offsets */
-public static int[] PretorianAIOffset = new int[1 + 7]; /* XXX */
-public static int[] PretorianDatNumbers = new int[0]; /* XXX */
+public static int[] PretorianAIOffset = new int[1 + 7];
+public static int[] PretorianDatNumbers = new int[0];
 /* ' */
 /* ''Added by Nacho */
 /* ''Cuantos pretorianos vivos quedan. Uno por cada alcoba */
@@ -80,15 +80,15 @@ public static int[] PretorianDatNumbers = new int[0]; /* XXX */
  String PretorianDat;
  PretorianDat = Declaraciones.DatPath + "Pretorianos.dat";
  
- int NroCombinaciones;
+ int NroCombinaciones = 0;
  NroCombinaciones = vb6.val(ES.GetVar(PretorianDat, "MAIN", "Combinaciones"));
  
  PraetoriansCoopNPC.PretorianDatNumbers = new None[0];
  PraetoriansCoopNPC.PretorianDatNumbers = (PraetoriansCoopNPC.PretorianDatNumbers == null) ? new None[1 + NroCombinaciones] : java.util.Arrays.copyOf(PraetoriansCoopNPC.PretorianDatNumbers, 1 + NroCombinaciones);
  
- int TempInt;
- int Counter;
- int PretorianIndex;
+ int TempInt = 0;
+ int Counter = 0;
+ int PretorianIndex = 0;
  
  PretorianIndex = 1;
  

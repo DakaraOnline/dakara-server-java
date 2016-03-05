@@ -55,7 +55,7 @@ public class Acciones {
 		/* ' */
 		/* '*************************************************** */
 
-		int tempIndex;
+		int tempIndex = 0;
 
 		/* FIXME: ON ERROR RESUME NEXT */
 		/* '¿Rango Visión? (ToxicWaste) */
@@ -330,11 +330,11 @@ public class Acciones {
  
  /* FIXME: ON ERROR RESUME NEXT */
  
- int Suerte;
- int exito;
+ int Suerte = 0;
+ int exito = 0;
  Declaraciones.Obj Obj;
  
- int SkillSupervivencia;
+ int SkillSupervivencia = 0;
  
  Declaraciones.WorldPos Pos;
  Pos.Map = Map;

@@ -50,7 +50,7 @@ public class clsClan {
 	/* 'Numero de guild en el mundo */
 	private int p_GuildNumber;
 	/* 'array de relaciones con los otros clanes */
-	private RELACIONES_GUILD[] p_Relaciones = new RELACIONES_GUILD[0]; /* XXX */
+	private RELACIONES_GUILD[] p_Relaciones = new RELACIONES_GUILD[0];
 	private String GUILDINFOFILE;
 	/* 'aca pq me es mas comodo setearlo y pq en ningun disenio */
 	private String GUILDPATH;
@@ -83,7 +83,7 @@ public class clsClan {
 	}
 
 	int PuntosAntifaccion() {
-		int retval;
+		int retval = 0;
 		retval = vb6.val(ES.GetVar(Declaraciones.GUILDINFOFILE, "GUILD" + p_GuildNumber, "Antifaccion"));
 		return retval;
 	}
@@ -93,7 +93,7 @@ public class clsClan {
 	}
 
 	boolean CambiarAlineacion(ALINEACION_GUILD NuevaAlineacion) {
-		boolean retval;
+		boolean retval = false;
 		p_Alineacion = NuevaAlineacion;
 		ES.WriteVar(Declaraciones.GUILDINFOFILE, "GUILD" + p_GuildNumber, "Alineacion",
 				modGuilds.Alineacion2String(p_Alineacion));
@@ -121,7 +121,7 @@ public class clsClan {
 	}
 
 	void Inicializar(String GuildName, int GuildNumber, ALINEACION_GUILD Alineacion) {
-		int i;
+		int i = 0;
 
 		p_GuildName = GuildName;
 		p_GuildNumber = GuildNumber;
@@ -172,7 +172,7 @@ public class clsClan {
 		 * ""
 		 */
 		String OldQ;
-		int NewQ;
+		int NewQ = 0;
 		/* 'para que genere los archivos */
 		ES.WriteVar(MEMBERSFILE, "INIT", "NroMembers", "0");
 		ES.WriteVar(SOLICITUDESFILE, "INIT", "CantSolicitudes", "0");
@@ -223,7 +223,7 @@ public class clsClan {
 	/* 'End Property */
 
 	int CantidadDeMiembros() {
-		int retval;
+		int retval = 0;
 		String OldQ;
 		OldQ = ES.GetVar(MEMBERSFILE, "INIT", "NroMembers");
 		retval = vb6.IIf(vb6.IsNumeric(OldQ), vb6.CInt(OldQ), 0);
@@ -242,9 +242,9 @@ public class clsClan {
 
 	String[] GetMemberList() {
 		String[] retval;
-		int OldQ;
+		int OldQ = 0;
 		String[] list;
-		int i;
+		int i = 0;
 
 		OldQ = Me.CantidadDeMiembros;
 
@@ -280,7 +280,7 @@ public class clsClan {
 		/* 'Last Modification: 28/05/2010 */
 		/* '28/05/2010: ZaMa - No avisa cuando desloguea un dios o admin. */
 		/* '*************************************************** */
-		int i;
+		int i = 0;
 		for (i = (1); i <= (p_OnlineMembers.Count); i++) {
 			if (p_OnlineMembers.Item[i] == UserIndex) {
 				p_OnlineMembers.Remove(i);
@@ -300,7 +300,7 @@ public class clsClan {
 	}
 
 	void AceptarNuevoMiembro(String /* FIXME BYREF!! */ Nombre) {
-		int OldQ;
+		int OldQ = 0;
 		String OldQs;
 		String ruta;
 
@@ -334,10 +334,10 @@ public class clsClan {
 	}
 
 	void ExpulsarMiembro(String /* FIXME BYREF!! */ Nombre) {
-		int OldQ;
+		int OldQ = 0;
 		String Temps;
-		int i;
-		boolean EsMiembro;
+		int i = 0;
+		boolean EsMiembro = false;
 		String MiembroDe;
 
 		if (vb6.LenB(vb6.dir(Declaraciones.CharPath + Nombre + ".chr")) != 0) {
@@ -375,10 +375,10 @@ public class clsClan {
 	}
 
 	void RemoveMemberName(String /* FIXME BYREF!! */ Nombre) {
-		int OldQ;
+		int OldQ = 0;
 		String Temps;
-		int i;
-		boolean EsMiembro;
+		int i = 0;
+		boolean EsMiembro = false;
 
 		OldQ = vb6.CInt(ES.GetVar(MEMBERSFILE, "INIT", "NroMembers"));
 		i = 1;
@@ -408,9 +408,9 @@ public class clsClan {
 
 	String[] GetAspirantes() {
 		String[] retval;
-		int OldQ;
+		int OldQ = 0;
 		String[] list;
-		int i;
+		int i = 0;
 
 		OldQ = Me.CantidadAspirantes();
 
@@ -431,7 +431,7 @@ public class clsClan {
 	}
 
 	int CantidadAspirantes() {
-		int retval;
+		int retval = 0;
 		String Temps;
 
 		retval = 0;
@@ -451,8 +451,8 @@ public class clsClan {
 	}
 
 	int NumeroDeAspirante(String /* FIXME BYREF!! */ Nombre) {
-		int retval;
-		int i;
+		int retval = 0;
+		int i = 0;
 
 		retval = 0;
 
@@ -467,9 +467,9 @@ public class clsClan {
 
 	void NuevoAspirante(String /* FIXME BYREF!! */ Nombre,
 			String /* FIXME BYREF!! */ Peticion) {
-		int i;
+		int i = 0;
 		String OldQ;
-		int OldQI;
+		int OldQI = 0;
 
 		OldQ = ES.GetVar(SOLICITUDESFILE, "INIT", "CantSolicitudes");
 		if (vb6.IsNumeric(OldQ)) {
@@ -494,7 +494,7 @@ public class clsClan {
 		String OldQ;
 		String OldQI;
 		String Pedidos;
-		int i;
+		int i = 0;
 
 		OldQ = ES.GetVar(SOLICITUDESFILE, "INIT", "CantSolicitudes");
 		if (vb6.IsNumeric(OldQ)) {
@@ -604,7 +604,7 @@ public class clsClan {
 	/* ' */
 
 	boolean EleccionesAbiertas() {
-		boolean retval;
+		boolean retval = false;
 		String ee;
 		ee = ES.GetVar(Declaraciones.GUILDINFOFILE, "GUILD" + p_GuildNumber, "EleccionesAbiertas");
 		/* 'cualquier otra cosa da falso */
@@ -629,7 +629,7 @@ public class clsClan {
 
 	void ContabilizarVoto(String /* FIXME BYREF!! */ Votante,
 			String /* FIXME BYREF!! */ Votado) {
-		int q;
+		int q = 0;
 		String Temps;
 
 		Temps = ES.GetVar(VOTACIONESFILE, "INIT", "NumVotos");
@@ -639,15 +639,15 @@ public class clsClan {
 	}
 
 	boolean YaVoto(Object /* FIXME BYREF!! */ Votante) {
-		boolean retval;
+		boolean retval = false;
 		retval = ((vb6.LenB(vb6.Trim(ES.GetVar(VOTACIONESFILE, "VOTOS", Votante)))) != 0);
 		return retval;
 	}
 
 	String ContarVotos(int /* FIXME BYREF!! */ CantGanadores) {
  String retval;
- int q;
- int i;
+ int q = 0;
+ int i = 0;
  String Temps;
  String tempV;
  diccionario d;
@@ -696,13 +696,13 @@ return retval;
 }
 
 	boolean RevisarElecciones() {
- boolean retval;
+ boolean retval = false;
  vb6.Date FechaSufragio;
  String Temps;
  String Ganador;
- int CantGanadores;
+ int CantGanadores = 0;
  String[] list;
- int i;
+ int i = 0;
  
  retval = false;
  Temps = vb6.Trim(ES.GetVar(Declaraciones.GUILDINFOFILE, "GUILD" + p_GuildNumber, "EleccionesFinalizan"));
@@ -757,7 +757,7 @@ return retval;
 	/* ' */
 
 	int CantidadPropuestas(RELACIONES_GUILD Tipo) {
-		int retval;
+		int retval = 0;
 		switch (Tipo) {
 		case ALIADOS:
 			retval = p_PropuestasDeAlianza.Count;
@@ -775,8 +775,8 @@ return retval;
 	}
 
 	int CantidadEnemys() {
-		int retval;
-		int i;
+		int retval = 0;
+		int i = 0;
 		for (i = (1); i <= (modGuilds.CANTIDADDECLANES); i++) {
 			retval = retval + vb6.IIf(p_Relaciones[i] == GUERRA, 1, 0);
 		}
@@ -784,8 +784,8 @@ return retval;
 	}
 
 	int CantidadAllies() {
-		int retval;
-		int i;
+		int retval = 0;
+		int i = 0;
 		for (i = (1); i <= (modGuilds.CANTIDADDECLANES); i++) {
 			retval = retval + vb6.IIf(p_Relaciones[i] == ALIADOS, 1, 0);
 		}
@@ -820,7 +820,7 @@ return retval;
 	}
 
 	void AnularPropuestas(int OtroGuild) {
- int i;
+ int i = 0;
  
  ES.WriteVar(PROPUESTASFILE, vb6.CStr(OtroGuild), "Detalle", "");
  ES.WriteVar(PROPUESTASFILE, vb6.CStr(OtroGuild), "Pendiente", "0");
@@ -850,8 +850,8 @@ return retval;
 	}
 
 	boolean HayPropuesta(int OtroGuild, RELACIONES_GUILD /* FIXME BYREF!! */ Tipo) {
-		boolean retval;
-		int i;
+		boolean retval = false;
+		int i = 0;
 
 		retval = false;
 		switch (Tipo) {
@@ -892,7 +892,7 @@ return retval;
 	/* ' */
 
 	int Iterador_ProximaPropuesta(RELACIONES_GUILD Tipo) {
-		int retval;
+		int retval = 0;
 
 		retval = 0;
 		switch (Tipo) {
@@ -923,7 +923,7 @@ return retval;
 	}
 
 	int m_Iterador_ProximoUserIndex() {
-		int retval;
+		int retval = 0;
 
 		if (p_IteradorOnlineMembers < p_OnlineMembers.Count) {
 			p_IteradorOnlineMembers = p_IteradorOnlineMembers + 1;
@@ -936,7 +936,7 @@ return retval;
 	}
 
 	int Iterador_ProximoGM() {
-		int retval;
+		int retval = 0;
 
 		if (p_IteradorOnlineGMs < p_GMsOnline.Count) {
 			p_IteradorOnlineGMs = p_IteradorOnlineGMs + 1;
@@ -949,7 +949,7 @@ return retval;
 	}
 
 	int Iterador_ProximaRelacion(RELACIONES_GUILD r) {
-		int retval;
+		int retval = 0;
 
 		while (p_IteradorRelaciones < vb6.UBound(p_Relaciones)) {
 
@@ -978,7 +978,7 @@ return retval;
 	}
 
 	void DesconectarGM(int UserIndex) {
- int i;
+ int i = 0;
   for (i = (1); i <= (p_GMsOnline.Count); i++) {
    if (p_GMsOnline.Item[i] == UserIndex) {
    p_GMsOnline.Remove[i];

@@ -45,7 +45,7 @@ public class modSendData {
 		/* '14/11/2010: ZaMa - Now denounces can be desactivated. */
 		/* '************************************************************** */
 		/* FIXME: ON ERROR RESUME NEXT */
-		int LoopC;
+		int LoopC = 0;
 
 		switch (sndRoute) {
 		case ToPCArea:
@@ -412,12 +412,12 @@ public class modSendData {
 		/* 'Last Modify Date: Unknow */
 		/* ' */
 		/* '************************************************************** */
-		int LoopC;
-		int tempIndex;
+		int LoopC = 0;
+		int tempIndex = 0;
 
-		int Map;
-		int AreaX;
-		int AreaY;
+		int Map = 0;
+		int AreaX = 0;
+		int AreaY = 0;
 
 		Map = Declaraciones.UserList[UserIndex].Pos.Map;
 		AreaX = Declaraciones.UserList[UserIndex].AreasInfo.AreaPerteneceX;
@@ -447,13 +447,13 @@ public class modSendData {
 		/* 'Last Modify Date: Unknow */
 		/* ' */
 		/* '************************************************************** */
-		int LoopC;
-		int TempInt;
-		int tempIndex;
+		int LoopC = 0;
+		int TempInt = 0;
+		int tempIndex = 0;
 
-		int Map;
-		int AreaX;
-		int AreaY;
+		int Map = 0;
+		int AreaX = 0;
+		int AreaY = 0;
 
 		Map = Declaraciones.UserList[UserIndex].Pos.Map;
 		AreaX = Declaraciones.UserList[UserIndex].AreasInfo.AreaPerteneceX;
@@ -487,12 +487,12 @@ public class modSendData {
 		/* 'Last Modify Date: Unknow */
 		/* ' */
 		/* '************************************************************** */
-		int LoopC;
-		int tempIndex;
+		int LoopC = 0;
+		int tempIndex = 0;
 
-		int Map;
-		int AreaX;
-		int AreaY;
+		int Map = 0;
+		int AreaX = 0;
+		int AreaY = 0;
 
 		Map = Declaraciones.UserList[UserIndex].Pos.Map;
 		AreaX = Declaraciones.UserList[UserIndex].AreasInfo.AreaPerteneceX;
@@ -526,12 +526,12 @@ public class modSendData {
 		/* 'Last Modify Date: Unknow */
 		/* ' */
 		/* '************************************************************** */
-		int LoopC;
-		int tempIndex;
+		int LoopC = 0;
+		int tempIndex = 0;
 
-		int Map;
-		int AreaX;
-		int AreaY;
+		int Map = 0;
+		int AreaX = 0;
+		int AreaY = 0;
 
 		Map = Declaraciones.UserList[UserIndex].Pos.Map;
 		AreaX = Declaraciones.UserList[UserIndex].AreasInfo.AreaPerteneceX;
@@ -569,12 +569,12 @@ public class modSendData {
 		/* 'Last Modify Date: Unknow */
 		/* ' */
 		/* '************************************************************** */
-		int LoopC;
-		int tempIndex;
+		int LoopC = 0;
+		int tempIndex = 0;
 
-		int Map;
-		int AreaX;
-		int AreaY;
+		int Map = 0;
+		int AreaX = 0;
+		int AreaY = 0;
 
 		Map = Declaraciones.UserList[UserIndex].Pos.Map;
 		AreaX = Declaraciones.UserList[UserIndex].AreasInfo.AreaPerteneceX;
@@ -609,12 +609,12 @@ public class modSendData {
 		/* 'Last Modify Date: Unknow */
 		/* ' */
 		/* '************************************************************** */
-		int LoopC;
-		int tempIndex;
+		int LoopC = 0;
+		int tempIndex = 0;
 
-		int Map;
-		int AreaX;
-		int AreaY;
+		int Map = 0;
+		int AreaX = 0;
+		int AreaY = 0;
 
 		Map = Declaraciones.UserList[UserIndex].Pos.Map;
 		AreaX = Declaraciones.UserList[UserIndex].AreasInfo.AreaPerteneceX;
@@ -647,13 +647,13 @@ public class modSendData {
 		/* 'Last Modify Date: Unknow */
 		/* ' */
 		/* '************************************************************** */
-		int LoopC;
-		int TempInt;
-		int tempIndex;
+		int LoopC = 0;
+		int TempInt = 0;
+		int tempIndex = 0;
 
-		int Map;
-		int AreaX;
-		int AreaY;
+		int Map = 0;
+		int AreaX = 0;
+		int AreaY = 0;
 
 		Map = Declaraciones.Npclist[NpcIndex].Pos.Map;
 		AreaX = Declaraciones.Npclist[NpcIndex].AreasInfo.AreaPerteneceX;
@@ -685,9 +685,9 @@ public class modSendData {
  /* 'Last Modify Date: Unknow */
  /* ' */
  /* '************************************************************** */
- int LoopC;
- int TempInt;
- int tempIndex;
+ int LoopC = 0;
+ int TempInt = 0;
+ int tempIndex = 0;
  
  AreaX = 2 $ (AreaX/9);
  AreaY = 2 $ (AreaY/9);
@@ -718,8 +718,8 @@ public class modSendData {
 		/* 'Last Modify Date: 5/24/2007 */
 		/* ' */
 		/* '************************************************************** */
-		int LoopC;
-		int tempIndex;
+		int LoopC = 0;
+		int tempIndex = 0;
 
 		if (!General.MapaValido(Map)) {
 			return;
@@ -740,9 +740,9 @@ public class modSendData {
 		/* 'Last Modify Date: 5/24/2007 */
 		/* ' */
 		/* '************************************************************** */
-		int LoopC;
-		int Map;
-		int tempIndex;
+		int LoopC = 0;
+		int Map = 0;
+		int tempIndex = 0;
 
 		Map = Declaraciones.UserList[UserIndex].Pos.Map;
 
@@ -769,12 +769,12 @@ public class modSendData {
 		 * nuevo: ToGmsAreaButRMsOrCounselors)
 		 */
 		/* '************************************************************** */
-		int LoopC;
-		int tempIndex;
+		int LoopC = 0;
+		int tempIndex = 0;
 
-		int Map;
-		int AreaX;
-		int AreaY;
+		int Map = 0;
+		int AreaX = 0;
+		int AreaY = 0;
 
 		Map = Declaraciones.UserList[UserIndex].Pos.Map;
 		AreaX = Declaraciones.UserList[UserIndex].AreasInfo.AreaPerteneceX;
@@ -809,12 +809,12 @@ public class modSendData {
 		/* 'Last Modify Date: 10/17/2009 */
 		/* ' */
 		/* '************************************************************** */
-		int LoopC;
-		int tempIndex;
+		int LoopC = 0;
+		int tempIndex = 0;
 
-		int Map;
-		int AreaX;
-		int AreaY;
+		int Map = 0;
+		int AreaX = 0;
+		int AreaY = 0;
 
 		Map = Declaraciones.UserList[UserIndex].Pos.Map;
 		AreaX = Declaraciones.UserList[UserIndex].AreasInfo.AreaPerteneceX;
@@ -846,12 +846,12 @@ public class modSendData {
 		/* 'Last Modify Date: 10/17/2009 */
 		/* ' */
 		/* '************************************************************** */
-		int LoopC;
-		int tempIndex;
+		int LoopC = 0;
+		int tempIndex = 0;
 
-		int Map;
-		int AreaX;
-		int AreaY;
+		int Map = 0;
+		int AreaX = 0;
+		int AreaY = 0;
 
 		Map = Declaraciones.UserList[UserIndex].Pos.Map;
 		AreaX = Declaraciones.UserList[UserIndex].AreasInfo.AreaPerteneceX;
@@ -884,9 +884,9 @@ public class modSendData {
 		/* 'Last Modify Date: 17/11/2009 */
 		/* 'Alerta a los faccionarios, dandoles una orientacion */
 		/* '************************************************************** */
-		int LoopC;
-		int tempIndex;
-		int Map;
+		int LoopC = 0;
+		int tempIndex = 0;
+		int Map = 0;
 		FontTypeNames Font;
 
 		if (Extra.esCaos(UserIndex)) {

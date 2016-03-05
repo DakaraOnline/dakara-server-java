@@ -536,4 +536,8 @@ public enum ClientPacketID {
 		}
 		return 0;
 	}
+
+	public int toInteger() {
+		return toInteger(this);
+	}
 }

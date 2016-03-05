@@ -29,19 +29,19 @@ public class mdlCOmercioConUsuario {
 	static final int GOLD_OFFER_SLOT = /* FANCY EXPRESSION */ MAX_OFFER_SLOTS + 1;
 
 	static public class tCOmercioUsuario {
-		int DestUsu;
-		String DestNick;
-		int[] Objeto;
-		int GoldAmount;
+		public int DestUsu;
+		public String DestNick;
+		public int[] Objeto;
+		public int GoldAmount;
 
-		int[] cant;
-		boolean Acepto;
-		boolean Confirmo;
+		public int[] cant;
+		public boolean Acepto;
+		public boolean Confirmo;
 	}
 
 	static public class tOfferItem {
-		int ObjIndex;
-		int Amount;
+		public int ObjIndex;
+		public int Amount;
 	}
 
 	/* 'origen: origen de la transaccion, originador del comando */
@@ -103,9 +103,9 @@ public class mdlCOmercioConUsuario {
 		 * ofertas variables.
 		 */
 		/* '*************************************************** */
-		int ObjIndex;
-		int ObjAmount;
-		int OtherUserIndex;
+		int ObjIndex = 0;
+		int ObjAmount = 0;
+		int OtherUserIndex = 0;
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
@@ -135,7 +135,7 @@ public class mdlCOmercioConUsuario {
 		/* 'Last Modification: 25/11/2009 */
 		/* '25/11/2009: ZaMa - Limpio los arrays (por el nuevo sistema) */
 		/* '*************************************************** */
-		int i;
+		int i = 0;
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
@@ -177,8 +177,8 @@ public class mdlCOmercioConUsuario {
 		 */
 		/* '*************************************************** */
 		Declaraciones.Obj TradingObj;
-		int OtroUserIndex;
-		int OfferSlot;
+		int OtroUserIndex = 0;
+		int OfferSlot = 0;
 
 		Declaraciones.UserList[UserIndex].ComUsu.Acepto = true;
 
@@ -406,7 +406,7 @@ public class mdlCOmercioConUsuario {
 	}
 
 	static boolean PuedeSeguirComerciando(int UserIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Autor: ZaMa */
 		/* 'Last Modification: 24/11/2009 */
@@ -415,8 +415,8 @@ public class mdlCOmercioConUsuario {
 		 * satisfied
 		 */
 		/* '*************************************************** */
-		int OtroUserIndex;
-		boolean ComercioInvalido;
+		int OtroUserIndex = 0;
+		boolean ComercioInvalido = false;
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
@@ -485,7 +485,7 @@ public class mdlCOmercioConUsuario {
 	}
 
 	static boolean HasOfferedItems(int UserIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Autor: ZaMa */
 		/* 'Last Modification: 05/06/2010 */
@@ -496,11 +496,11 @@ public class mdlCOmercioConUsuario {
 		/* '*************************************************** */
 
 		tOfferItem[] OfferedItems;
-		int Slot;
-		int SlotAux;
-		int SlotCount;
+		int Slot = 0;
+		int SlotAux = 0;
+		int SlotCount = 0;
 
-		int ObjIndex;
+		int ObjIndex = 0;
 
 		/* ' Agrupo los items que son iguales */
 		for (Slot = (1); Slot <= (mdlCOmercioConUsuario.MAX_OFFER_SLOTS); Slot++) {

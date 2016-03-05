@@ -105,9 +105,9 @@ public class Trabajo {
  
  /* FIXME: ON ERROR GOTO ErrHandler */
  
- double Suerte;
- int res;
- int Skill;
+ double Suerte = 0.0;
+ int res = 0;
+ int Skill = 0;
  
   Skill = Declaraciones.UserList[UserIndex].Stats.UserSkills[eSkill.Ocultarse];
   
@@ -183,7 +183,7 @@ public class Trabajo {
 		 */
 		/* '*************************************************** */
 
-		float ModNave;
+		float ModNave = 0.0f;
 
 		ModNave = ModNavegacion(Declaraciones.UserList[UserIndex].clase, UserIndex);
 
@@ -358,15 +358,15 @@ public class Trabajo {
 	}
 
 	static boolean TieneObjetos(int ItemIndex, int cant, int UserIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 10/07/2010 */
 		/* '10/07/2010: ZaMa - Ahora cant es long para evitar un overflow. */
 		/* '*************************************************** */
 
-		int i;
-		int Total;
+		int i = 0;
+		int Total = 0;
 		for (i = (1); i <= (Declaraciones.UserList[UserIndex].CurrentInventorySlots); i++) {
 			if (Declaraciones.UserList[UserIndex].Invent.Object[i].ObjIndex == ItemIndex) {
 				Total = Total + Declaraciones.UserList[UserIndex].Invent.Object[i].Amount;
@@ -391,7 +391,7 @@ public class Trabajo {
 		 */
 		/* '*************************************************** */
 
-		int i;
+		int i = 0;
 		for (i = (1); i <= (Declaraciones.UserList[UserIndex].CurrentInventorySlots); i++) {
 			if (Declaraciones.UserList[UserIndex].Invent.Object[i].ObjIndex == ItemIndex) {
 				if (Declaraciones.UserList[UserIndex].Invent.Object[i].Amount <= cant
@@ -462,7 +462,7 @@ public class Trabajo {
 	}
 
 	static boolean CarpinteroTieneMateriales(int UserIndex, int ItemIndex, int Cantidad, boolean ShowMsg) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 16/11/2009 */
@@ -500,7 +500,7 @@ public class Trabajo {
 	}
 
 	static boolean HerreroTieneMateriales(int UserIndex, int ItemIndex, int CantidadItems) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 16/11/2009 */
@@ -538,13 +538,13 @@ public class Trabajo {
 	}
 
 	static boolean TieneMaterialesUpgrade(int UserIndex, int ItemIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Torres Patricio (Pato) */
 		/* 'Last Modification: 12/08/2009 */
 		/* ' */
 		/* '*************************************************** */
-		int ItemUpgrade;
+		int ItemUpgrade = 0;
 
 		ItemUpgrade = Declaraciones.ObjData[ItemIndex].Upgrade;
 
@@ -615,7 +615,7 @@ public class Trabajo {
 		/* 'Last Modification: 12/08/2009 */
 		/* ' */
 		/* '*************************************************** */
-		int ItemUpgrade;
+		int ItemUpgrade = 0;
 
 		ItemUpgrade = Declaraciones.ObjData[ItemIndex].Upgrade;
 
@@ -653,7 +653,7 @@ public class Trabajo {
 	}
 
 	static boolean PuedeConstruir(int UserIndex, int ItemIndex, int CantidadItems) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 24/08/2009 */
@@ -671,13 +671,13 @@ public class Trabajo {
 	}
 
 	static boolean PuedeConstruirHerreria(int ItemIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
 		/* ' */
 		/* '*************************************************** */
-		int i;
+		int i = 0;
 
 		for (i = (1); i <= (vb6.UBound(Declaraciones.ArmasHerrero)); i++) {
 			if (Declaraciones.ArmasHerrero[i] == ItemIndex) {
@@ -706,9 +706,9 @@ public class Trabajo {
 		/* '22/05/2010: ZaMa - Los caos ya no suben plebe al trabajar. */
 		/* '30/05/2010: ZaMa - Los pks no suben plebe al trabajar. */
 		/* '*************************************************** */
-		int CantidadItems;
-		boolean TieneMateriales;
-		int OtroUserIndex;
+		int CantidadItems = 0;
+		boolean TieneMateriales = false;
+		int OtroUserIndex = 0;
 
 		if (Declaraciones.UserList[UserIndex].flags.Comerciando) {
 			OtroUserIndex = Declaraciones.UserList[UserIndex].ComUsu.DestUsu;
@@ -844,13 +844,13 @@ public class Trabajo {
 	}
 
 	static boolean PuedeConstruirCarpintero(int ItemIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
 		/* ' */
 		/* '*************************************************** */
-		int i;
+		int i = 0;
 
 		for (i = (1); i <= (vb6.UBound(Declaraciones.ObjCarpintero)); i++) {
 			if (Declaraciones.ObjCarpintero[i] == ItemIndex) {
@@ -877,10 +877,10 @@ public class Trabajo {
 		/* '*************************************************** */
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int CantidadItems;
-		boolean TieneMateriales;
-		int WeaponIndex;
-		int OtroUserIndex;
+		int CantidadItems = 0;
+		boolean TieneMateriales = false;
+		int WeaponIndex = 0;
+		int OtroUserIndex = 0;
 
 		if (Declaraciones.UserList[UserIndex].flags.Comerciando) {
 			OtroUserIndex = Declaraciones.UserList[UserIndex].ComUsu.DestUsu;
@@ -1009,7 +1009,7 @@ public class Trabajo {
 	}
 
 	static int MineralesParaLingote(iMinerales Lingote) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1045,11 +1045,11 @@ public class Trabajo {
 		 */
 		/* '*************************************************** */
 		/* ' Call LogTarea("Sub DoLingotes") */
-		int Slot;
-		int obji;
-		int CantidadItems;
-		boolean TieneMinerales;
-		int OtroUserIndex;
+		int Slot = 0;
+		int obji = 0;
+		int CantidadItems = 0;
+		boolean TieneMinerales = false;
+		int OtroUserIndex = 0;
 
 		if (Declaraciones.UserList[UserIndex].flags.Comerciando) {
 			OtroUserIndex = Declaraciones.UserList[UserIndex].ComUsu.DestUsu;
@@ -1121,13 +1121,13 @@ public class Trabajo {
 		 * performanse.
 		 */
 		/* '*************************************************** */
-		int i;
-		int num;
-		int Slot;
+		int i = 0;
+		int num = 0;
+		int Slot = 0;
 		int[] Lingotes;
-		int OtroUserIndex;
+		int OtroUserIndex = 0;
 
-		int ItemIndex;
+		int ItemIndex = 0;
 
 		if (Declaraciones.UserList[UserIndex].flags.Comerciando) {
 			OtroUserIndex = Declaraciones.UserList[UserIndex].ComUsu.DestUsu;
@@ -1202,9 +1202,9 @@ public class Trabajo {
 		/* 'Last Modification: 12/08/2009 */
 		/* '12/08/2009: Pato - Implementado nuevo sistema de mejora de items */
 		/* '*************************************************** */
-		int ItemUpgrade;
-		int WeaponIndex;
-		int OtroUserIndex;
+		int ItemUpgrade = 0;
+		int WeaponIndex = 0;
+		int OtroUserIndex = 0;
 
 		ItemUpgrade = Declaraciones.ObjData[ItemIndex].Upgrade;
 
@@ -1364,7 +1364,7 @@ public class Trabajo {
 	}
 
 	static float ModNavegacion(eClass clase, int UserIndex) {
-		float retval;
+		float retval = 0.0f;
 		/* '*************************************************** */
 		/* 'Autor: Unknown (orginal version) */
 		/* 'Last Modification: 27/11/2009 */
@@ -1399,7 +1399,7 @@ public class Trabajo {
 	}
 
 	static float ModFundicion(eClass clase) {
-		float retval;
+		float retval = 0.0f;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1420,7 +1420,7 @@ public class Trabajo {
 	}
 
 	static int ModCarpinteria(eClass clase) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1441,7 +1441,7 @@ public class Trabajo {
 	}
 
 	static float ModHerreriA(eClass clase) {
-		float retval;
+		float retval = 0.0f;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1461,7 +1461,7 @@ public class Trabajo {
 	}
 
 	static int ModDomar(eClass clase) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1488,7 +1488,7 @@ public class Trabajo {
 	}
 
 	static int FreeMascotaIndex(int UserIndex) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 02/03/09 */
@@ -1497,7 +1497,7 @@ public class Trabajo {
 		 * types y no los indices de los npcs
 		 */
 		/* '*************************************************** */
-		int j;
+		int j = 0;
 		for (j = (1); j <= (Declaraciones.MAXMASCOTAS); j++) {
 			if (Declaraciones.UserList[UserIndex].MascotasType[j] == 0) {
 				retval = j;
@@ -1526,11 +1526,11 @@ public class Trabajo {
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int puntosDomar;
-		int puntosRequeridos;
-		boolean CanStay;
-		int petType;
-		int NroPets;
+		int puntosDomar = 0;
+		int puntosRequeridos = 0;
+		boolean CanStay = false;
+		int petType = 0;
+		int NroPets = 0;
 
 		if (Declaraciones.Npclist[NpcIndex].MaestroUser == UserIndex) {
 			Protocol.WriteConsoleMsg(UserIndex, "Ya domaste a esa criatura.", FontTypeNames.FONTTYPE_INFO);
@@ -1566,7 +1566,7 @@ public class Trabajo {
 			}
 
 			if (puntosRequeridos <= puntosDomar && Matematicas.RandomNumber(1, 5) == 1) {
-				int index;
+				int index = 0;
 				Declaraciones.UserList[UserIndex].NroMascotas = Declaraciones.UserList[UserIndex].NroMascotas + 1;
 				index = FreeMascotaIndex(UserIndex);
 				Declaraciones.UserList[UserIndex].MascotasIndex[index] = NpcIndex;
@@ -1626,15 +1626,15 @@ public class Trabajo {
 	/* ' @param integer NPCindex The index of the npc to tome. */
 	/* ' @return boolean True if can, false if not. */
 	static boolean PuedeDomarMascota(int UserIndex, int NpcIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'This function checks how many NPCs of the same type have */
 		/* 'been tamed by the user. */
 		/* 'Returns True if that amount is less than two. */
 		/* '*************************************************** */
-		int i;
-		int numMascotas;
+		int i = 0;
+		int numMascotas = 0;
 
 		for (i = (1); i <= (Declaraciones.MAXMASCOTAS); i++) {
 			if (Declaraciones.UserList[UserIndex].MascotasType[i] == Declaraciones.Npclist[NpcIndex].Numero) {
@@ -1733,8 +1733,8 @@ public class Trabajo {
 		/* ' */
 		/* '*************************************************** */
 
-		int Suerte;
-		int exito;
+		int Suerte = 0;
+		int exito = 0;
 		Declaraciones.Obj Obj;
 		Declaraciones.WorldPos posMadera;
 
@@ -1769,7 +1769,7 @@ public class Trabajo {
 			return;
 		}
 
-		int SupervivenciaSkill;
+		int SupervivenciaSkill = 0;
 
 		SupervivenciaSkill = Declaraciones.UserList[UserIndex].Stats.UserSkills[eSkill.Supervivencia];
 
@@ -1826,10 +1826,10 @@ public class Trabajo {
 		/* '*************************************************** */
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int Suerte;
-		int res;
-		int CantidadItems;
-		int Skill;
+		int Suerte = 0;
+		int res = 0;
+		int CantidadItems = 0;
+		int Skill = 0;
 
 		if (Declaraciones.UserList[UserIndex].clase == eClass.Worker) {
 			QuitarSta(UserIndex, Declaraciones.EsfuerzoPescarPescador);
@@ -1898,11 +1898,11 @@ public class Trabajo {
 		/* '*************************************************** */
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int iSkill;
-		int Suerte;
-		int res;
-		boolean EsPescador;
-		int CantidadItems;
+		int iSkill = 0;
+		int Suerte = 0;
+		int res = 0;
+		boolean EsPescador = false;
+		int CantidadItems = 0;
 
 		if (Declaraciones.UserList[UserIndex].clase == eClass.Worker) {
 			QuitarSta(UserIndex, Declaraciones.EsfuerzoPescarPescador);
@@ -1993,7 +1993,7 @@ public class Trabajo {
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int OtroUserIndex;
+		int OtroUserIndex = 0;
 
 		if (!Declaraciones.MapInfo[Declaraciones.UserList[VictimaIndex].Pos.Map].Pk) {
 			return;
@@ -2048,7 +2048,7 @@ public class Trabajo {
 		/* ' Quito energia */
 		QuitarSta(LadrOnIndex, 15);
 
-		boolean GuantesHurto;
+		boolean GuantesHurto = false;
 
 		if (Declaraciones.UserList[LadrOnIndex].Invent.AnilloEqpObjIndex == Declaraciones.GUANTE_HURTO) {
 			GuantesHurto = true;
@@ -2056,9 +2056,9 @@ public class Trabajo {
 
 		if (Declaraciones.UserList[VictimaIndex].flags.Privilegios && PlayerType.User) {
 
-			int Suerte;
-			int res;
-			int RobarSkill;
+			int Suerte = 0;
+			int res = 0;
+			int RobarSkill = 0;
 
 			RobarSkill = Declaraciones.UserList[LadrOnIndex].Stats.UserSkills[eSkill.Robar];
 
@@ -2116,7 +2116,7 @@ public class Trabajo {
 					/* 'Roba oro */
 				} else {
 					if (Declaraciones.UserList[VictimaIndex].Stats.GLD > 0) {
-						int N;
+						int N = 0;
 
 						if (Declaraciones.UserList[LadrOnIndex].clase == eClass.Thief) {
 							/*
@@ -2202,7 +2202,7 @@ public class Trabajo {
 	/* ' @param Slot Specifies reference to victim's inventory slot */
 	/* ' @return If the item is stealable */
 	static boolean ObjEsRobable(int VictimaIndex, int Slot) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -2211,7 +2211,7 @@ public class Trabajo {
 		/* ' 22/05/2010: Los items newbies ya no son robables. */
 		/* '*************************************************** */
 
-		int OI;
+		int OI = 0;
 
 		OI = Declaraciones.UserList[VictimaIndex].Invent.Object[Slot].ObjIndex;
 
@@ -2238,8 +2238,8 @@ public class Trabajo {
 		 */
 		/* '*************************************************** */
 
-		boolean flag;
-		int i;
+		boolean flag = false;
+		int i = 0;
 
 		flag = false;
 
@@ -2278,8 +2278,8 @@ public class Trabajo {
 
 		if (flag) {
 			Declaraciones.Obj MiObj;
-			int num;
-			int ObjAmount;
+			int num = 0;
+			int ObjAmount = 0;
 
 			ObjAmount = Declaraciones.UserList[VictimaIndex].Invent.Object[i].Amount;
 
@@ -2328,8 +2328,8 @@ public class Trabajo {
 		/* 'Simplifique la cuenta que hacia para sacar la suerte */
 		/* 'y arregle la cuenta que hacia para sacar el dano */
 		/* '*************************************************** */
-		int Suerte;
-		int Skill;
+		int Suerte = 0;
+		int Skill = 0;
 
 		Skill = Declaraciones.UserList[UserIndex].Stats.UserSkills[eSkill.Apunalar];
 
@@ -2433,9 +2433,9 @@ public class Trabajo {
 		 * si es vikinga.
 		 */
 		/* '*************************************************** */
-		int Suerte;
-		int Skill;
-		int WeaponIndex;
+		int Suerte = 0;
+		int Skill = 0;
+		int WeaponIndex = 0;
 
 		/* ' Es bandido? */
 		if (Declaraciones.UserList[UserIndex].clase != eClass.Bandit) {
@@ -2527,10 +2527,10 @@ public class Trabajo {
 		/* '*************************************************** */
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int Suerte;
-		int res;
-		int CantidadItems;
-		int Skill;
+		int Suerte = 0;
+		int res = 0;
+		int CantidadItems = 0;
+		int Skill = 0;
 
 		if (Declaraciones.UserList[UserIndex].clase == eClass.Worker) {
 			QuitarSta(UserIndex, Declaraciones.EsfuerzoTalarLenador);
@@ -2609,9 +2609,9 @@ public class Trabajo {
 		/* '*************************************************** */
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int Suerte;
-		int res;
-		int CantidadItems;
+		int Suerte = 0;
+		int res = 0;
+		int CantidadItems = 0;
 
 		if (Declaraciones.UserList[UserIndex].clase == eClass.Worker) {
 			QuitarSta(UserIndex, Declaraciones.EsfuerzoExcavarMinero);
@@ -2619,7 +2619,7 @@ public class Trabajo {
 			QuitarSta(UserIndex, Declaraciones.EsfuerzoExcavarGeneral);
 		}
 
-		int Skill;
+		int Skill = 0;
 		Skill = Declaraciones.UserList[UserIndex].Stats.UserSkills[eSkill.Mineria];
 		Suerte = vb6.Int(-0.00125 * Skill * Skill - 0.3 * Skill + 49);
 
@@ -2686,17 +2686,17 @@ public class Trabajo {
 
 		Declaraciones.UserList[UserIndex].Counters.IdleCount = 0;
 
-		int Suerte;
-		int res;
-		int cant;
-		int MeditarSkill;
+		int Suerte = 0;
+		int res = 0;
+		int cant = 0;
+		int MeditarSkill = 0;
 
 		/* 'Barrin 3/10/03 */
 		/* 'Esperamos a que se termine de concentrar */
-		int TActual;
+		int TActual = 0;
 		TActual = Declaraciones.GetTickCount() && 0x7FFFFFFF;
 
-		int iInterval;
+		int iInterval = 0;
 		iInterval = vb6.Int(Declaraciones.UserList[UserIndex].Stats.ELV / 17) * 1000;
 		/* ' [TEMPORAL] TIEMPO_INICIOMEDITAR Then */
 		if (modNuevoTimer.getInterval(TActual, Declaraciones.UserList[UserIndex].Counters.tInicioMeditar) < iInterval) {
@@ -2776,10 +2776,10 @@ public class Trabajo {
 		/* 'Unequips either shield, weapon or helmet from target user. */
 		/* '*************************************************** */
 
-		int Probabilidad;
-		int Resultado;
-		int WrestlingSkill;
-		boolean AlgoEquipado;
+		int Probabilidad = 0;
+		int Resultado = 0;
+		int WrestlingSkill = 0;
+		boolean AlgoEquipado = false;
 
 		/* ' Si no tiene guantes de hurto no desequipa. */
 		if (Declaraciones.UserList[UserIndex].Invent.AnilloEqpObjIndex != Declaraciones.GUANTE_HURTO) {
@@ -2894,7 +2894,7 @@ public class Trabajo {
 		 * '03/03/2010 - Pato: Sólo se puede hurtar si no está en trigger 6 :)
 		 */
 		/* '*************************************************** */
-		int OtroUserIndex;
+		int OtroUserIndex = 0;
 
 		if (SistemaCombate.TriggerZonaPelea(UserIndex, VictimaIndex) != TRIGGER6_AUSENTE) {
 			return;
@@ -2912,7 +2912,7 @@ public class Trabajo {
 			return;
 		}
 
-		int res;
+		int res = 0;
 		res = Matematicas.RandomNumber(1, 100);
 		if ((res < 20)) {
 			if (InvUsuario.TieneObjetosRobables(VictimaIndex)) {
@@ -2959,7 +2959,7 @@ public class Trabajo {
 			return;
 		}
 
-		int res;
+		int res = 0;
 		res = Matematicas.RandomNumber(0, 100);
 		if (res < (Declaraciones.UserList[UserIndex].Stats.UserSkills[eSkill.Wrestling] / 4)) {
 			Declaraciones.UserList[VictimaIndex].flags.Paralizado = 1;
@@ -2983,9 +2983,9 @@ public class Trabajo {
 		/* '02/04/2010: ZaMa - Nueva formula para desarmar. */
 		/* '*************************************************** */
 
-		int Probabilidad;
-		int Resultado;
-		int WrestlingSkill;
+		int Probabilidad = 0;
+		int Resultado = 0;
+		int WrestlingSkill = 0;
 
 		WrestlingSkill = Declaraciones.UserList[UserIndex].Stats.UserSkills[eSkill.Wrestling];
 
@@ -3005,7 +3005,7 @@ public class Trabajo {
 	}
 
 	static int MaxItemsConstruibles(int UserIndex) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 29/01/2010 */
@@ -3028,7 +3028,7 @@ public class Trabajo {
 	}
 
 	static int MaxItemsExtraibles(int UserLevel) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 14/05/2010 */

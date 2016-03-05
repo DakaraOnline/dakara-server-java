@@ -61,8 +61,8 @@ public class clsIniManager {
 	/* ' */
 
 	static public class ChildNode {
-		String key;
-		String value;
+		public String key;
+		public String value;
 	}
 
 	/* '' */
@@ -81,14 +81,14 @@ public class clsIniManager {
 	/* ' @param numValues Number of entrys in the main node. */
 
 	static public class MainNode {
-		String Name;
-		ChildNode[] values;
-		int numValues;
+		public String Name;
+		public ChildNode[] values;
+		public int numValues;
 	}
 
 	/* '' */
 	/* 'Containts all Main sections of the loaded INI file */
-	private MainNode[] fileData = new MainNode[0]; /* XXX */
+	private MainNode[] fileData = new MainNode[0];
 
 	/* '' */
 	/* 'Stores the total number of main sections in the loaded INI file */
@@ -115,7 +115,7 @@ public class clsIniManager {
 		/* 'Last Modify Date: 5/01/2006 */
 		/* ' */
 		/* '************************************************************** */
-		int i;
+		int i = 0;
 
 		/* 'Clean up */
 		if (MainNodes) {
@@ -144,9 +144,9 @@ public class clsIniManager {
 		/* 'Last Modify Date: 27/07/2006 */
 		/* 'Opens the requested file and loads it's data into memory */
 		/* '************************************************************** */
-		int handle;
+		int handle = 0;
 		String Text;
-		int Pos;
+		int Pos = 0;
 
 		/* 'Prevent memory losses if we are attempting to reload a file.... */
 		diccionario.Class_Terminate();
@@ -210,7 +210,7 @@ public class clsIniManager {
 
 		/* FIXME: CLOSE handle */
 
-		int i;
+		int i = 0;
 
 		if (MainNodes) {
 			/* 'Sort main nodes to allow binary search */
@@ -243,9 +243,9 @@ public class clsIniManager {
 		/* 'this allows the use of Binary Search for faster searches */
 		/* '************************************************************** */
 		/* 'First item in the list */
-		int min;
+		int min = 0;
 		/* 'Last item in the list */
-		int max;
+		int max = 0;
 		/* 'Item used to compare */
 		String comp;
 		ChildNode temp;
@@ -296,9 +296,9 @@ public class clsIniManager {
 		/* 'this allows the use of Binary Search for faster searches */
 		/* '************************************************************** */
 		/* 'First item in the list */
-		int min;
+		int min = 0;
 		/* 'Last item in the list */
-		int max;
+		int max = 0;
 		/* 'Item used to compare */
 		String comp;
 		MainNode temp;
@@ -357,8 +357,8 @@ public class clsIniManager {
 		 * otherwise
 		 */
 		/* '************************************************************** */
-		int i;
-		int j;
+		int i = 0;
+		int j = 0;
 
 		/* 'Search for the main node */
 		i = FindMain(vb6.UCase(Main));
@@ -396,8 +396,8 @@ public class clsIniManager {
 		/* 'Last Modify Date: 27/05/2009 */
 		/* 'If the key and main node exist, changes the value */
 		/* '************************************************************** */
-		int i;
-		int j;
+		int i = 0;
+		int j = 0;
 
 		/* 'Search for the main node */
 		i = FindMain(vb6.UCase(Main));
@@ -436,7 +436,7 @@ public class clsIniManager {
 	 */
 
 	int FindKey(MainNode /* FIXME BYREF!! */ Node, String key) {
-		int retval;
+		int retval = 0;
 		/* '************************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero */
 		/* 'Last Modify Date: 5/01/2006 */
@@ -445,9 +445,9 @@ public class clsIniManager {
 		 */
 		/* 'or the negation of the position were it should be if not found */
 		/* '************************************************************** */
-		int min;
-		int max;
-		int mid;
+		int min = 0;
+		int max = 0;
+		int mid = 0;
 
 		min = 0;
 		max = Node.numValues - 1;
@@ -489,7 +489,7 @@ public class clsIniManager {
 	 */
 
 	int FindMain(String Name) {
-		int retval;
+		int retval = 0;
 		/* '************************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero */
 		/* 'Last Modify Date: 5/01/2006 */
@@ -499,9 +499,9 @@ public class clsIniManager {
 		 */
 		/* 'or the negation of the position were it should be if not found */
 		/* '************************************************************** */
-		int min;
-		int max;
-		int mid;
+		int min = 0;
+		int max = 0;
+		int mid = 0;
 
 		min = 0;
 		max = MainNodes - 1;
@@ -538,7 +538,7 @@ public class clsIniManager {
 	/* ' @returns True if the key exists, false otherwise. */
 
 	boolean KeyExists(String Name) {
-		boolean retval;
+		boolean retval = false;
 		/* '************************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero */
 		/* 'Last Modify Date: 04/01/2008 */
@@ -549,14 +549,14 @@ public class clsIniManager {
 	}
 
 	int AddNode(String /* FIXME BYREF!! */ Name) {
-		int retval;
+		int retval = 0;
 		/* '************************************************************** */
 		/* 'Author: Torres Patricio (Pato) */
 		/* 'Last Modify Date: 10/10/2010 */
 		/* ' */
 		/* '************************************************************** */
-		int i;
-		int MainPos;
+		int i = 0;
+		int MainPos = 0;
 
 		Name = vb6.UCase(Name);
 
@@ -589,15 +589,15 @@ public class clsIniManager {
 	}
 
 	int AddKey(String /* FIXME BYREF!! */ Main, String /* FIXME BYREF!! */ key, String value) {
-		int retval;
+		int retval = 0;
 		/* '************************************************************** */
 		/* 'Author: Torres Patricio (Pato) */
 		/* 'Last Modify Date: 10/10/2010 */
 		/* ' */
 		/* '************************************************************** */
-		int MainPos;
-		int KeyPos;
-		int i;
+		int MainPos = 0;
+		int KeyPos = 0;
+		int i = 0;
 
 		Main = vb6.UCase(Main);
 		key = vb6.UCase(key);
@@ -637,9 +637,9 @@ public class clsIniManager {
 		/* 'Last Modify Date: 10/10/2010 */
 		/* ' */
 		/* '************************************************************** */
-		int hFile;
-		int i;
-		int j;
+		int hFile = 0;
+		int i = 0;
+		int j = 0;
 
 		hFile = vb6.FreeFile();
 

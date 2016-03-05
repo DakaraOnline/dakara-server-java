@@ -34,17 +34,17 @@ import enums.*;
 public class Admin {
 
 	static public class tMotd {
-		String texto;
-		String Formato;
+		public String texto;
+		public String Formato;
 	}
 
 	public static int MaxLines;
-	public static tMotd[] MOTD = new tMotd[0]; /* XXX */
+	public static tMotd[] MOTD = new tMotd[0];
 
 	static public class tAPuestas {
-		int Ganancias;
-		int Perdidas;
-		int Jugadas;
+		public int Ganancias;
+		public int Perdidas;
+		public int Jugadas;
 	}
 
 	public static tAPuestas Apuestas;
@@ -100,7 +100,7 @@ public class Admin {
 	public static boolean DeNoche;
 
 	static boolean VersionOK(String Ver) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -120,7 +120,7 @@ public class Admin {
 
 		/* FIXME: ON ERROR RESUME NEXT */
 
-		int i;
+		int i = 0;
 		Declaraciones.npc MiNPC;
 
 		for (i = (1); i <= (Declaraciones.LastNPC); i++) {
@@ -153,8 +153,8 @@ public class Admin {
 
 		/* FIXME: ON ERROR RESUME NEXT */
 
-		int loopX;
-		int hFile;
+		int loopX = 0;
+		int hFile = 0;
 
 		modSendData.SendData(SendTarget.ToAll, 0,
 				Protocol.PrepareMessageConsoleMsg("Servidor> Iniciando WorldSave", FontTypeNames.FONTTYPE_SERVER));
@@ -165,8 +165,8 @@ public class Admin {
 		/* 'respawn de los guardias en las pos originales */
 		ReSpawnOrigPosNpcs();
 
-		int j;
-		int k;
+		int j = 0;
+		int k = 0;
 
 		for (j = (1); j <= (Declaraciones.NumMaps); j++) {
 			if (Declaraciones.MapInfo[j].BackUp == 1) {
@@ -219,7 +219,7 @@ public class Admin {
 		/* ' */
 		/* '*************************************************** */
 
-		int i;
+		int i = 0;
 
 		for (i = (1); i <= (Declaraciones.LastUser); i++) {
 			if (Declaraciones.UserList[i].flags.UserLogged) {
@@ -285,7 +285,7 @@ public class Admin {
 	}
 
 	static boolean BANCheck(String Name) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -298,7 +298,7 @@ public class Admin {
 	}
 
 	static boolean PersonajeExiste(String Name) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -311,7 +311,7 @@ public class Admin {
 	}
 
 	static boolean UnBan(String Name) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -328,14 +328,14 @@ public class Admin {
 	}
 
 	static boolean MD5ok(String md5formateado) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
 		/* ' */
 		/* '*************************************************** */
 
-		int i;
+		int i = 0;
 
 		if (Declaraciones.MD5ClientesActivado == 1) {
 			for (i = (0); i <= (vb6.UBound(Declaraciones.MD5s)); i++) {
@@ -359,7 +359,7 @@ public class Admin {
 		/* ' */
 		/* '*************************************************** */
 
-		int LoopC;
+		int LoopC = 0;
 
 		Declaraciones.MD5ClientesActivado = vb6
 				.val(ES.GetVar(Declaraciones.IniPath + "Server.ini", "MD5Hush", "Activado"));
@@ -393,15 +393,15 @@ public class Admin {
 	}
 
 	static int BanIpBuscar(String ip) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
 		/* ' */
 		/* '*************************************************** */
 
-		boolean Dale;
-		int LoopC;
+		boolean Dale = false;
+		int LoopC = 0;
 
 		Dale = true;
 		LoopC = 1;
@@ -419,7 +419,7 @@ public class Admin {
 	}
 
 	static boolean BanIpQuita(String ip) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -428,7 +428,7 @@ public class Admin {
 
 		/* FIXME: ON ERROR RESUME NEXT */
 
-		int N;
+		int N = 0;
 
 		N = BanIpBuscar(ip);
 		if (N > 0) {
@@ -450,8 +450,8 @@ public class Admin {
 		/* '*************************************************** */
 
 		String ArchivoBanIp;
-		int ArchN;
-		int LoopC;
+		int ArchN = 0;
+		int LoopC = 0;
 
 		ArchivoBanIp = vb6.App.Instance().Path + "\\Dat\\BanIps.dat";
 
@@ -473,7 +473,7 @@ public class Admin {
 		/* ' */
 		/* '*************************************************** */
 
-		int ArchN;
+		int ArchN = 0;
 		String Tmp;
 		String ArchivoBanIp;
 
@@ -502,7 +502,7 @@ public class Admin {
 
 		Static(AndandoASBoolean);
 		Static(ContadorASLong);
-		boolean Tmp;
+		boolean Tmp = false;
 
 		Contador = Contador + 1;
 
@@ -551,10 +551,10 @@ public class Admin {
 		 */
 		/* '*************************************************** */
 
-		int tUser;
-		int UserPriv;
-		int cantPenas;
-		int rank;
+		int tUser = 0;
+		int UserPriv = 0;
+		int cantPenas = 0;
+		int rank = 0;
 
 		if (vb6.InStrB(UserName, "+")) {
 			UserName = vb6.Replace(UserName, "+", " ");

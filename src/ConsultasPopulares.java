@@ -55,14 +55,14 @@ public class ConsultasPopulares {
 	private int pEncuestaActualNum;
 	private String pEncuestaActualTex;
 	private int pNivelRequerido;
-	private int[] pOpciones = new int[0]; /* XXX */
+	private int[] pOpciones = new int[0];
 
 	void Numero(int NumEncuesta) {
 		pEncuestaActualNum = NumEncuesta;
 	}
 
 	int Numero() {
-		int retval;
+		int retval = 0;
 		retval = pEncuestaActualNum;
 		return retval;
 	}
@@ -78,8 +78,8 @@ public class ConsultasPopulares {
 	}
 
 	void LoadData() {
-		int CantOpciones;
-		int i;
+		int CantOpciones = 0;
+		int i = 0;
 
 		pEncuestaActualNum = vb6.val(ES.GetVar(vb6.App.Instance().Path + ARCHIVOCONFIG, "INIT", "ConsultaActual"));
 		pEncuestaActualTex = ES.GetVar(vb6.App.Instance().Path + ARCHIVOCONFIG, "INIT", "ConsultaActualTexto");
@@ -103,9 +103,9 @@ public class ConsultasPopulares {
 		String retval;
 		/* FIXME: ON ERROR GOTO errorh */
 
-		boolean YaVoto;
+		boolean YaVoto = false;
 		String CharFile;
-		int sufragio;
+		int sufragio = 0;
 
 		/* 'revisar q no haya votado */
 		/* 'grabar en el charfile el numero de encuesta */
@@ -154,7 +154,7 @@ public class ConsultasPopulares {
 
 	String SendInfoEncuesta(int UserIndex) {
 		String retval;
-		int i;
+		int i = 0;
 		Protocol.WriteConsoleMsg(UserIndex, "CONSULTA POPULAR NUMERO " + pEncuestaActualNum,
 				FontTypeNames.FONTTYPE_GUILD);
 		Protocol.WriteConsoleMsg(UserIndex, pEncuestaActualTex, FontTypeNames.FONTTYPE_GUILD);
@@ -176,12 +176,12 @@ public class ConsultasPopulares {
 	}
 
 	boolean MailYaVoto(String email) {
-		boolean retval;
+		boolean retval = false;
 		/*
 		 * 'abro el archivo, while not eof levnato 1 linea y comparo. Si da
 		 * true, cierro
 		 */
-		int ArchN;
+		int ArchN = 0;
 		String Tmp;
 
 		retval = false;
@@ -209,7 +209,7 @@ public class ConsultasPopulares {
 	}
 
 	void MarcarMailComoQueYaVoto(String email) {
-		int ArchN;
+		int ArchN = 0;
 
 		ArchN = vb6.FreeFile();
 
@@ -221,7 +221,7 @@ public class ConsultasPopulares {
 	}
 
 	boolean OpcionValida(int opcion) {
-		boolean retval;
+		boolean retval = false;
 		retval = opcion > 0 && opcion <= vb6.UBound(pOpciones);
 		return retval;
 	}

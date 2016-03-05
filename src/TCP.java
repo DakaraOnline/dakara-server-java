@@ -43,9 +43,9 @@ public class TCP {
 		/* 'Last modified: 14/03/2007 */
 		/* 'Elije una cabeza para el usuario y le da un body */
 		/* '************************************************* */
-		int NewBody;
-		int UserRaza;
-		int UserGenero;
+		int NewBody = 0;
+		int UserRaza = 0;
+		int UserGenero = 0;
 
 		UserGenero = Declaraciones.UserList[UserIndex].Genero;
 		UserRaza = Declaraciones.UserList[UserIndex].raza;
@@ -101,7 +101,7 @@ public class TCP {
 	}
 
 	static boolean ValidarCabeza(int UserRaza, int UserGenero, int Head) {
-		boolean retval;
+		boolean retval = false;
 
 		switch (UserGenero) {
 		case Hombre:
@@ -155,15 +155,15 @@ public class TCP {
 	}
 
 	static boolean AsciiValidos(String cad) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
 		/* ' */
 		/* '*************************************************** */
 
-		int car;
-		int i;
+		int car = 0;
+		int i = 0;
 
 		cad = vb6.LCase(cad);
 
@@ -183,15 +183,15 @@ public class TCP {
 	}
 
 	static boolean Numeric(String cad) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
 		/* ' */
 		/* '*************************************************** */
 
-		int car;
-		int i;
+		int car = 0;
+		int i = 0;
 
 		cad = vb6.LCase(cad);
 
@@ -211,14 +211,14 @@ public class TCP {
 	}
 
 	static boolean NombrePermitido(String Nombre) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
 		/* ' */
 		/* '*************************************************** */
 
-		int i;
+		int i = 0;
 
 		for (i = (1); i <= (vb6.UBound(Declaraciones.ForbidenNames)); i++) {
 			if (vb6.InStr(Nombre, Declaraciones.ForbidenNames[i])) {
@@ -233,14 +233,14 @@ public class TCP {
 	}
 
 	static boolean ValidateSkills(int UserIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
 		/* ' */
 		/* '*************************************************** */
 
-		int LoopC;
+		int LoopC = 0;
 
 		for (LoopC = (1); LoopC <= (Declaraciones.NUMSKILLS); LoopC++) {
 			if (Declaraciones.UserList[UserIndex].Stats.UserSkills[LoopC] < 0) {
@@ -284,7 +284,7 @@ public class TCP {
 		 */
 		/* '03/12/2009: Budi - Optimización del código. */
 		/* '************************************************* */
-		int i;
+		int i = 0;
 
 		if (!AsciiValidos(Name) || vb6.LenB(Name) == 0) {
 			Protocol.WriteErrorMsg(UserIndex, "Nombre inválido.");
@@ -368,7 +368,7 @@ public class TCP {
 
 		Declaraciones.UserList[UserIndex].OrigChar = Declaraciones.UserList[UserIndex].Char;
 
-		int MiInt;
+		int MiInt = 0;
 		MiInt = Matematicas.RandomNumber(1,
 				Declaraciones.UserList[UserIndex].Stats.UserAtributos[eAtributos.Constitucion] / 3);
 
@@ -428,8 +428,8 @@ public class TCP {
 		Declaraciones.UserList[UserIndex].Stats.ELV = 1;
 
 		/* '???????????????? INVENTARIO ¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿ */
-		int Slot;
-		boolean IsPaladin;
+		int Slot = 0;
+		boolean IsPaladin = false;
 
 		IsPaladin = UserClase == eClass.Paladin;
 
@@ -589,7 +589,7 @@ public class TCP {
 		 * nombre del user
 		 */
 		/* ' y lo podemos loguear */
-		int CentinelaIndex;
+		int CentinelaIndex = 0;
 		CentinelaIndex = Declaraciones.UserList[UserIndex].flags.CentinelaIndex;
 
 		if (CentinelaIndex != 0) {
@@ -691,7 +691,7 @@ public class TCP {
 	/* ' @remarks If UsarQueSocket is 3 it won`t use the clsByteQueue */
 
 	static int EnviarDatosASlot(int UserIndex, String /* FIXME BYREF!! */ Datos) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 01/10/07 */
@@ -706,7 +706,7 @@ public class TCP {
 		/* # IF UsarQueSocket = 1 THEN */
 		/* FIXME: ON ERROR GOTO Err */
 
-		int ret;
+		int ret = 0;
 
 		ret = wskapiAO.WsApiEnviar(UserIndex, Datos);
 
@@ -734,15 +734,15 @@ public class TCP {
 	}
 
 	static boolean EstaPCarea(int index, int Index2) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
 		/* ' */
 		/* '*************************************************** */
 
-		int X;
-		int Y;
+		int X = 0;
+		int Y = 0;
 		for (Y = (Declaraciones.UserList[index].Pos.Y - Declaraciones.MinYBorder
 				+ 1); Y <= (Declaraciones.UserList[index].Pos.Y + Declaraciones.MinYBorder - 1); Y++) {
 			for (X = (Declaraciones.UserList[index].Pos.X - Declaraciones.MinXBorder
@@ -760,15 +760,15 @@ public class TCP {
 	}
 
 	static boolean HayPCarea(Declaraciones.WorldPos Pos) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
 		/* ' */
 		/* '*************************************************** */
 
-		int X;
-		int Y;
+		int X = 0;
+		int Y = 0;
 		for (Y = (Pos.Y - Declaraciones.MinYBorder + 1); Y <= (Pos.Y + Declaraciones.MinYBorder - 1); Y++) {
 			for (X = (Pos.X - Declaraciones.MinXBorder + 1); X <= (Pos.X + Declaraciones.MinXBorder - 1); X++) {
 				if (X > 0 && Y > 0 && X < 101 && Y < 101) {
@@ -784,15 +784,15 @@ public class TCP {
 	}
 
 	static boolean HayOBJarea(Declaraciones.WorldPos Pos, int ObjIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
 		/* ' */
 		/* '*************************************************** */
 
-		int X;
-		int Y;
+		int X = 0;
+		int Y = 0;
 		for (Y = (Pos.Y - Declaraciones.MinYBorder + 1); Y <= (Pos.Y + Declaraciones.MinYBorder - 1); Y++) {
 			for (X = (Pos.X - Declaraciones.MinXBorder + 1); X <= (Pos.X + Declaraciones.MinXBorder - 1); X++) {
 				if (Declaraciones.MapData[Pos.Map][X][Y].ObjInfo.ObjIndex == ObjIndex) {
@@ -807,7 +807,7 @@ public class TCP {
 	}
 
 	static boolean ValidateChr(int UserIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -822,7 +822,7 @@ public class TCP {
 
 	static boolean ConnectUser(int UserIndex, String /* FIXME BYREF!! */ Name,
 			String /* FIXME BYREF!! */ Password) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Autor: Unknown (orginal version) */
 		/* 'Last Modification: 24/07/2010 (ZaMa) */
@@ -845,7 +845,7 @@ public class TCP {
 		 * habia definido inicialmente.
 		 */
 		/* '*************************************************** */
-		int N;
+		int N = 0;
 		String tStr;
 
 		if (Declaraciones.UserList[UserIndex].flags.UserLogged) {
@@ -1015,7 +1015,7 @@ public class TCP {
 			Protocol.WriteParalizeOK(UserIndex);
 		}
 
-		int mapa;
+		int mapa = 0;
 		mapa = Declaraciones.UserList[UserIndex].Pos.Map;
 
 		/* 'Posicion de comienzo */
@@ -1031,7 +1031,7 @@ public class TCP {
 			}
 
 			/* ' If map has different initial coords, update it */
-			int StartMap;
+			int StartMap = 0;
 			StartMap = Declaraciones.MapInfo[mapa].StartPos.Map;
 			if (StartMap != 0) {
 				if (General.MapaValido(StartMap)) {
@@ -1053,10 +1053,10 @@ public class TCP {
 		 */
 		if (Declaraciones.MapData[mapa][Declaraciones.UserList[UserIndex].Pos.X][Declaraciones.UserList[UserIndex].Pos.Y].UserIndex != 0
 				|| Declaraciones.MapData[mapa][Declaraciones.UserList[UserIndex].Pos.X][Declaraciones.UserList[UserIndex].Pos.Y].NpcIndex != 0) {
-			boolean FoundPlace;
-			boolean esAgua;
-			int tX;
-			int tY;
+			boolean FoundPlace = false;
+			boolean esAgua = false;
+			int tX = 0;
+			int tY = 0;
 
 			FoundPlace = false;
 			esAgua = General.HayAgua(mapa, Declaraciones.UserList[UserIndex].Pos.X,
@@ -1272,7 +1272,7 @@ public class TCP {
 
 		if (Declaraciones.UserList[UserIndex].NroMascotas > 0
 				&& Declaraciones.MapInfo[Declaraciones.UserList[UserIndex].Pos.Map].Pk) {
-			int i;
+			int i = 0;
 			for (i = (1); i <= (Declaraciones.MAXMASCOTAS); i++) {
 				if (Declaraciones.UserList[UserIndex].MascotasType[i] > 0) {
 					Declaraciones.UserList[UserIndex].MascotasIndex[i] = NPCs.SpawnNpc(
@@ -1372,7 +1372,7 @@ public class TCP {
 		/* ' */
 		/* '*************************************************** */
 
-		int j;
+		int j = 0;
 
 		Protocol.WriteGuildChat(UserIndex, "Mensajes de entrada:");
 		for (j = (1); j <= (Admin.MaxLines); j++) {
@@ -1646,7 +1646,7 @@ public class TCP {
 		/* ' */
 		/* '*************************************************** */
 
-		int LoopC;
+		int LoopC = 0;
 		for (LoopC = (1); LoopC <= (Declaraciones.MAXUSERHECHIZOS); LoopC++) {
 			Declaraciones.UserList[UserIndex].Stats.UserHechizos[LoopC] = 0;
 		}
@@ -1659,7 +1659,7 @@ public class TCP {
 		/* ' */
 		/* '*************************************************** */
 
-		int LoopC;
+		int LoopC = 0;
 
 		Declaraciones.UserList[UserIndex].NroMascotas = 0;
 
@@ -1676,7 +1676,7 @@ public class TCP {
 		/* ' */
 		/* '*************************************************** */
 
-		int LoopC;
+		int LoopC = 0;
 
 		for (LoopC = (1); LoopC <= (Declaraciones.MAX_BANCOINVENTORY_SLOTS); LoopC++) {
 			Declaraciones.UserList[UserIndex].BancoInvent.Object[LoopC].Amount = 0;
@@ -1707,7 +1707,7 @@ public class TCP {
 		/* ' */
 		/* '*************************************************** */
 
-		int i;
+		int i = 0;
 
 		Declaraciones.UserList[UserIndex].ConnIDValida = false;
 		Declaraciones.UserList[UserIndex].ConnID = -1;
@@ -1749,12 +1749,12 @@ public class TCP {
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int N;
-		int Map;
+		int N = 0;
+		int Map = 0;
 		String Name;
-		int i;
+		int i = 0;
 
-		int aN;
+		int aN = 0;
 
 		aN = Declaraciones.UserList[UserIndex].flags.AtacadoPorNpc;
 		if (aN > 0) {
@@ -1924,7 +1924,7 @@ public class TCP {
 		/* ' */
 		/* '*************************************************** */
 
-		int LoopC;
+		int LoopC = 0;
 
 		for (LoopC = (1); LoopC <= (Declaraciones.LastUser); LoopC++) {
 			if (Declaraciones.UserList[LoopC].flags.UserLogged && Declaraciones.UserList[LoopC].ConnID >= 0

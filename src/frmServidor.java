@@ -131,7 +131,7 @@ public class frmServidor {
  /* # ELSEIF UsarQueSocket = 2 THEN */
  /* # END IF */
  
- int LoopC;
+ int LoopC = 0;
  
   for (LoopC = (1); LoopC <= (Declaraciones.MaxUsers); LoopC++) {
   TCP.CloseSocket(LoopC);
@@ -258,8 +258,8 @@ public class frmServidor {
  
  String Fn;
  String cad;
- int N;
- int k;
+ int N = 0;
+ int k = 0;
  
  String sENtrada;
  
@@ -285,8 +285,8 @@ public class frmServidor {
 }
 
 	static void cmdUnbanAllIps_Click() {
- int i;
- int N;
+ int i = 0;
+ int N = 0;
  
  String sENtrada;
  

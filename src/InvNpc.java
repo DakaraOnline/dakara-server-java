@@ -85,11 +85,11 @@ public class InvNpc {
 		/* '*************************************************** */
 		/* FIXME: ON ERROR RESUME NEXT */
 
-		int i;
+		int i = 0;
 		Declaraciones.Obj MiObj;
-		int NroDrop;
-		int Random;
-		int ObjIndex;
+		int NroDrop = 0;
+		int Random = 0;
+		int ObjIndex = 0;
 
 		/* ' Tira todo el inventario */
 		if (IsPretoriano) {
@@ -153,7 +153,7 @@ public class InvNpc {
 	}
 
 	static boolean QuedanItems(int NpcIndex, int ObjIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -162,7 +162,7 @@ public class InvNpc {
 
 		/* FIXME: ON ERROR RESUME NEXT */
 
-		int i;
+		int i = 0;
 		if (Declaraciones.Npclist[NpcIndex].Invent.NroItems > 0) {
 			for (i = (1); i <= (Declaraciones.MAX_INVENTORY_SLOTS); i++) {
 				if (Declaraciones.Npclist[NpcIndex].Invent.Object[i].ObjIndex == ObjIndex) {
@@ -183,7 +183,7 @@ public class InvNpc {
 	/* ' @return The amount of the item that the npc has */
 	/* ' @remarks This function reads the Npc.dat file */
 	static int EncontrarCant(int NpcIndex, int ObjIndex) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 03/09/08 */
@@ -198,7 +198,7 @@ public class InvNpc {
 
 		String ln;
 		String npcfile;
-		int i;
+		int i = 0;
 
 		npcfile = Declaraciones.DatPath + "NPCs.dat";
 
@@ -224,7 +224,7 @@ public class InvNpc {
 
 		/* FIXME: ON ERROR RESUME NEXT */
 
-		int i;
+		int i = 0;
 
 		Declaraciones.Npclist[NpcIndex].Invent.NroItems = 0;
 
@@ -254,8 +254,8 @@ public class InvNpc {
 		 */
 		/* '23/11/2009: ZaMa - Optimizacion de codigo. */
 		/* '*************************************************** */
-		int ObjIndex;
-		int iCant;
+		int ObjIndex = 0;
+		int iCant = 0;
 
 		ObjIndex = Declaraciones.Npclist[NpcIndex].Invent.Object[Slot].ObjIndex;
 
@@ -311,7 +311,7 @@ public class InvNpc {
 		/* '*************************************************** */
 
 		/* 'Vuelve a cargar el inventario del npc NpcIndex */
-		int LoopC;
+		int LoopC = 0;
 		String ln;
 		String npcfile;
 
@@ -339,7 +339,7 @@ public class InvNpc {
 
 		if (Cantidad > 0) {
 			Declaraciones.Obj MiObj;
-			int RemainingGold;
+			int RemainingGold = 0;
 
 			RemainingGold = Cantidad;
 

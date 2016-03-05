@@ -47,7 +47,7 @@ public class modSistemaComercio {
  /* '  - 06/13/08 (NicoNZ) */
  /* '07/06/2010: ZaMa - Los objetos se loguean si superan la cantidad de 1k (antes era solo si eran 1k). */
  /* '************************************************* */
- int Precio;
+ int Precio = 0;
  Declaraciones.Obj Objeto;
  
  if (Cantidad<1 || Slot<1) {
@@ -171,7 +171,7 @@ public class modSistemaComercio {
   Declaraciones.UserList[UserIndex].Stats.GLD = Declaraciones.MAXORO;
   }
   
-  int NpcSlot;
+  int NpcSlot = 0;
   NpcSlot = SlotEnNPCInv(NpcIndex, Objeto.ObjIndex, Objeto.Amount);
   
   /* 'Slot valido */
@@ -217,7 +217,7 @@ public class modSistemaComercio {
 	}
 
 	static int SlotEnNPCInv(int NpcIndex, int Objeto, int Cantidad) {
-		int retval;
+		int retval = 0;
 		/* '************************************************* */
 		/* 'Author: Nacho (Integer) */
 		/* 'Last modified: 2/8/06 */
@@ -257,7 +257,7 @@ public class modSistemaComercio {
 	}
 
 	static float Descuento(int UserIndex) {
-		float retval;
+		float retval = 0.0f;
 		/* '************************************************* */
 		/* 'Author: Nacho (Integer) */
 		/* 'Last modified: 2/8/06 */
@@ -278,8 +278,8 @@ public class modSistemaComercio {
 		/* 'Last Modified: 06/14/08 */
 		/* 'Last Modified By: Nicolás Ezequiel Bouhid (NicoNZ) */
 		/* '************************************************* */
-		int Slot;
-		float val;
+		int Slot = 0;
+		float val = 0.0f;
 
 		for (Slot = (1); Slot <= (Declaraciones.MAX_NORMAL_INVENTORY_SLOTS); Slot++) {
 			if (Declaraciones.Npclist[NpcIndex].Invent.Object[Slot].ObjIndex > 0) {
@@ -307,7 +307,7 @@ public class modSistemaComercio {
 	 */
 
 	static float SalePrice(int ObjIndex) {
-		float retval;
+		float retval = 0.0f;
 		/* '************************************************* */
 		/* 'Author: Nicolás (NicoNZ) */
 		/* ' */

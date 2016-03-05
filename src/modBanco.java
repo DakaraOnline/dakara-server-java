@@ -69,7 +69,7 @@ public class modBanco {
 		/* '*************************************************** */
 
 		Declaraciones.UserOBJ NullObj;
-		int LoopC;
+		int LoopC = 0;
 
 		/* 'Actualiza un solo slot */
 		if (!UpdateAll) {
@@ -102,7 +102,7 @@ public class modBanco {
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int ObjIndex;
+		int ObjIndex = 0;
 
 		if (Cantidad < 1) {
 			return;
@@ -146,8 +146,8 @@ public class modBanco {
 		/* ' */
 		/* '*************************************************** */
 
-		int Slot;
-		int obji;
+		int Slot = 0;
+		int obji = 0;
 
 		if (Declaraciones.UserList[UserIndex].BancoInvent.Object[ObjIndex].Amount <= 0) {
 			return;
@@ -203,7 +203,7 @@ public class modBanco {
 		/* ' */
 		/* '*************************************************** */
 
-		int ObjIndex;
+		int ObjIndex = 0;
 
 		ObjIndex = Declaraciones.UserList[UserIndex].BancoInvent.Object[Slot].ObjIndex;
 
@@ -240,7 +240,7 @@ public class modBanco {
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int ObjIndex;
+		int ObjIndex = 0;
 
 		if (Declaraciones.UserList[UserIndex].Invent.Object[Item].Amount > 0 && Cantidad > 0) {
 
@@ -277,8 +277,8 @@ public class modBanco {
 		/* ' */
 		/* '*************************************************** */
 
-		int Slot;
-		int obji;
+		int Slot = 0;
+		int obji = 0;
 
 		if (Cantidad < 1) {
 			return;
@@ -342,7 +342,7 @@ public class modBanco {
 		/* '*************************************************** */
 
 		/* FIXME: ON ERROR RESUME NEXT */
-		int j;
+		int j = 0;
 
 		Protocol.WriteConsoleMsg(sendIndex, Declaraciones.UserList[UserIndex].Name, FontTypeNames.FONTTYPE_INFO);
 		Protocol.WriteConsoleMsg(sendIndex,
@@ -369,11 +369,11 @@ public class modBanco {
 		/* '*************************************************** */
 
 		/* FIXME: ON ERROR RESUME NEXT */
-		int j;
+		int j = 0;
 		String CharFile;
 		String Tmp;
-		int ObjInd;
-		int ObjCant;
+		int ObjInd = 0;
+		int ObjCant = 0;
 
 		CharFile = Declaraciones.CharPath + charName + ".chr";
 

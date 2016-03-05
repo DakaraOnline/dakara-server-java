@@ -45,8 +45,8 @@ public class frmConID {
 
 		List1.Clear();
 
-		int c;
-		int i;
+		int c = 0;
+		int i = 0;
 
 		for (i = (1); i <= (Declaraciones.MaxUsers); i++) {
 			List1.AddItem("UserIndex " + i + " -- " + Declaraciones.UserList[i].ConnID);
@@ -64,7 +64,7 @@ public class frmConID {
 	}
 
 	static void Command3_Click() {
-		int i;
+		int i = 0;
 
 		for (i = (1); i <= (Declaraciones.MaxUsers); i++) {
 			if (Declaraciones.UserList[i].ConnID != -1 && Declaraciones.UserList[i].ConnIDValida

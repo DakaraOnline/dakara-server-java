@@ -44,10 +44,10 @@ public class SysTray {
 	/* '?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿ */
 
 	static public class CWPSTRUCT {
-		int lParam;
-		int wParam;
-		int message;
-		int hWnd;
+		public int lParam;
+		public int wParam;
+		public int message;
+		public int hWnd;
 	}
 
 	static final int WH_CALLWNDPROC = 4;
@@ -56,7 +56,7 @@ public class SysTray {
 	public static int hHook;
 
 	static int AppHook(int idHook, int wParam, int lParam) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */

@@ -43,7 +43,7 @@ public class SistemaCombate {
 	static final int MAXDISTANCIAMAGIA = 18;
 
 	static int MinimoInt(int a, int b) {
-		int retval;
+		int retval = 0;
 		if (a > b) {
 			retval = b;
 		} else {
@@ -53,7 +53,7 @@ public class SistemaCombate {
 	}
 
 	static int MaximoInt(int a, int b) {
-		int retval;
+		int retval = 0;
 		if (a > b) {
 			retval = a;
 		} else {
@@ -63,7 +63,7 @@ public class SistemaCombate {
 	}
 
 	static int PoderEvasionEscudo(int UserIndex) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -76,13 +76,13 @@ public class SistemaCombate {
 	}
 
 	static int PoderEvasion(int UserIndex) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
 		/* ' */
 		/* '*************************************************** */
-		int lTemp;
+		int lTemp = 0;
 		lTemp = (Declaraciones.UserList[UserIndex].Stats.UserSkills[eSkill.Tacticas]
 				+ Declaraciones.UserList[UserIndex].Stats.UserSkills[eSkill.Tacticas] / 33
 						* Declaraciones.UserList[UserIndex].Stats.UserAtributos[eAtributos.Agilidad])
@@ -93,14 +93,14 @@ public class SistemaCombate {
 	}
 
 	static int PoderAtaqueArma(int UserIndex) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
 		/* ' */
 		/* '*************************************************** */
 
-		int PoderAtaqueTemp;
+		int PoderAtaqueTemp = 0;
 
 		if (Declaraciones.UserList[UserIndex].Stats.UserSkills[eSkill.Armas] < 31) {
 			PoderAtaqueTemp = Declaraciones.UserList[UserIndex].Stats.UserSkills[eSkill.Armas]
@@ -124,15 +124,15 @@ public class SistemaCombate {
 	}
 
 	static int PoderAtaqueProyectil(int UserIndex) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
 		/* ' */
 		/* '*************************************************** */
 
-		int PoderAtaqueTemp;
-		int SkillProyectiles;
+		int PoderAtaqueTemp = 0;
+		int SkillProyectiles = 0;
 
 		SkillProyectiles = Declaraciones.UserList[UserIndex].Stats.UserSkills[eSkill.Proyectiles];
 
@@ -158,15 +158,15 @@ public class SistemaCombate {
 	}
 
 	static int PoderAtaqueWrestling(int UserIndex) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
 		/* ' */
 		/* '*************************************************** */
 
-		int PoderAtaqueTemp;
-		int WrestlingSkill;
+		int PoderAtaqueTemp = 0;
+		int WrestlingSkill = 0;
 
 		WrestlingSkill = Declaraciones.UserList[UserIndex].Stats.UserSkills[eSkill.Wrestling];
 
@@ -192,17 +192,17 @@ public class SistemaCombate {
 	}
 
 	static boolean UserImpactoNpc(int UserIndex, int NpcIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
 		/* ' */
 		/* '*************************************************** */
 
-		int PoderAtaque;
-		int Arma;
+		int PoderAtaque = 0;
+		int Arma = 0;
 		eSkill Skill;
-		int ProbExito;
+		int ProbExito = 0;
 
 		Arma = Declaraciones.UserList[UserIndex].Invent.WeaponEqpObjIndex;
 
@@ -236,7 +236,7 @@ public class SistemaCombate {
 	}
 
 	static boolean NpcImpacto(int NpcIndex, int UserIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '************************************************* */
 		/* 'Author: Unknown */
 		/* 'Last modified: 03/15/2006 */
@@ -245,14 +245,14 @@ public class SistemaCombate {
 		 * '03/15/2006 Maraxus - Evité una división por cero que eliminaba NPCs
 		 */
 		/* '************************************************* */
-		boolean Rechazo;
-		int ProbRechazo;
-		int ProbExito;
-		int UserEvasion;
-		int NpcPoderAtaque;
-		int PoderEvasioEscudo;
-		int SkillTacticas;
-		int SkillDefensa;
+		boolean Rechazo = false;
+		int ProbRechazo = 0;
+		int ProbExito = 0;
+		int UserEvasion = 0;
+		int NpcPoderAtaque = 0;
+		int PoderEvasioEscudo = 0;
+		int SkillTacticas = 0;
+		int SkillDefensa = 0;
 
 		UserEvasion = PoderEvasion(UserIndex);
 		NpcPoderAtaque = Declaraciones.Npclist[NpcIndex].PoderAtaque;
@@ -306,7 +306,7 @@ public class SistemaCombate {
 	}
 
 	static int CalcularDano(int UserIndex, int NpcIndex) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 01/04/2010 (ZaMa) */
@@ -316,17 +316,17 @@ public class SistemaCombate {
 		 * guantes.
 		 */
 		/* '*************************************************** */
-		int DanoArma;
-		int DanoUsuario;
+		int DanoArma = 0;
+		int DanoUsuario = 0;
 		Declaraciones.ObjData Arma;
-		float ModifClase;
+		float ModifClase = 0.0f;
 		Declaraciones.ObjData proyectil;
-		int DanoMaxArma;
-		int DanoMinArma;
-		int ObjIndex;
+		int DanoMaxArma = 0;
+		int DanoMinArma = 0;
+		int ObjIndex = 0;
 
 		/* ''sacar esto si no queremos q la matadracos mate el Dragon si o si */
-		boolean matoDragon;
+		boolean matoDragon = false;
 		matoDragon = false;
 
 		if (Declaraciones.UserList[UserIndex].Invent.WeaponEqpObjIndex > 0) {
@@ -441,14 +441,14 @@ public class SistemaCombate {
  /* '11/07/2010: ZaMa - Ahora la defensa es solo ignorada para asesinos. */
  /* '*************************************************** */
  
- int dano;
- int DanoBase;
- int PI;
+ int dano = 0;
+ int DanoBase = 0;
+ int PI = 0;
  int[] MembersOnline;
  String Text;
- int i;
+ int i = 0;
  
- int BoatIndex;
+ int BoatIndex = 0;
  
  DanoBase = CalcularDano(UserIndex, NpcIndex);
  
@@ -545,18 +545,18 @@ public class SistemaCombate {
 		 */
 		/* '*************************************************** */
 
-		int dano;
-		int Lugar;
+		int dano = 0;
+		int Lugar = 0;
 		Declaraciones.ObjData Obj;
 
-		int BoatDefense;
-		int HeadDefense;
-		int BodyDefense;
+		int BoatDefense = 0;
+		int HeadDefense = 0;
+		int BodyDefense = 0;
 
-		int BoatIndex;
-		int HelmetIndex;
-		int ArmourIndex;
-		int ShieldIndex;
+		int BoatIndex = 0;
+		int HelmetIndex = 0;
+		int ArmourIndex = 0;
+		int ShieldIndex = 0;
 
 		dano = Matematicas.RandomNumber(Declaraciones.Npclist[NpcIndex].Stats.MinHIT,
 				Declaraciones.Npclist[NpcIndex].Stats.MaxHIT);
@@ -588,8 +588,8 @@ public class SistemaCombate {
 
 		default:
 
-			int MinDef;
-			int MaxDef;
+			int MinDef = 0;
+			int MaxDef = 0;
 
 			/* 'Si tiene armadura absorbe el golpe */
 			ArmourIndex = Declaraciones.UserList[UserIndex].Invent.ArmourEqpObjIndex;
@@ -674,7 +674,7 @@ public class SistemaCombate {
 		/* ' */
 		/* '*************************************************** */
 
-		boolean EraCriminal;
+		boolean EraCriminal = false;
 		EraCriminal = ES.criminal(UserIndex);
 
 		if (Declaraciones.UserList[UserIndex].Reputacion.BandidoRep > 0) {
@@ -713,7 +713,7 @@ public class SistemaCombate {
  /* '15/04/2010: ZaMa - Las mascotas no se apropian de npcs. */
  /* '*************************************************** */
  
- int j;
+ int j = 0;
  
  /* ' Si no tengo mascotas, para que cheaquear lo demas? */
  if (Declaraciones.UserList[UserIndex].NroMascotas == 0) {
@@ -746,7 +746,7 @@ public class SistemaCombate {
 		/* ' */
 		/* '*************************************************** */
 
-		int j;
+		int j = 0;
 
 		for (j = (1); j <= (Declaraciones.MAXMASCOTAS); j++) {
 			if (Declaraciones.UserList[UserIndex].MascotasIndex[j] > 0) {
@@ -756,7 +756,7 @@ public class SistemaCombate {
 	}
 
 	static boolean NpcAtacaUser(int NpcIndex, int UserIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '************************************************* */
 		/* 'Author: Unknown */
 		/* 'Last modified: - */
@@ -829,16 +829,16 @@ public class SistemaCombate {
 	}
 
 	static boolean NpcImpactoNpc(int Atacante, int Victima) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
 		/* ' */
 		/* '*************************************************** */
 
-		int PoderAtt;
-		int PoderEva;
-		int ProbExito;
+		int PoderAtt = 0;
+		int PoderEva = 0;
+		int ProbExito = 0;
 
 		PoderAtt = Declaraciones.Npclist[Atacante].PoderAtaque;
 		PoderEva = Declaraciones.Npclist[Victima].PoderEvasion;
@@ -856,8 +856,8 @@ public class SistemaCombate {
 		/* ' */
 		/* '*************************************************** */
 
-		int dano;
-		int MasterIndex;
+		int dano = 0;
+		int MasterIndex = 0;
 
 		dano = Matematicas.RandomNumber(Declaraciones.Npclist[Atacante].Stats.MinHIT,
 				Declaraciones.Npclist[Atacante].Stats.MaxHIT);
@@ -897,7 +897,7 @@ public class SistemaCombate {
 		 */
 		/* '************************************************* */
 
-		int MasterIndex;
+		int MasterIndex = 0;
 
 		/* 'Es el Rey Preatoriano? */
 		if (Declaraciones.Npclist[Victima].NPCtype == eNPCType.Pretoriano) {
@@ -973,7 +973,7 @@ public class SistemaCombate {
 	}
 
 	static boolean UsuarioAtacaNpc(int UserIndex, int NpcIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 13/02/2011 (Amraphen) */
@@ -1053,7 +1053,7 @@ public class SistemaCombate {
 		 */
 		/* '*************************************************** */
 
-		int index;
+		int index = 0;
 		Declaraciones.WorldPos AttackPos;
 
 		/* 'Check bow's interval */
@@ -1139,7 +1139,7 @@ public class SistemaCombate {
 	}
 
 	static boolean UsuarioImpacto(int AtacanteIndex, int VictimaIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 21/05/2010 */
@@ -1148,16 +1148,16 @@ public class SistemaCombate {
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int ProbRechazo;
-		boolean Rechazo;
-		int ProbExito;
-		int PoderAtaque;
-		int UserPoderEvasion;
-		int UserPoderEvasionEscudo;
-		int Arma;
-		int SkillTacticas;
-		int SkillDefensa;
-		int ProbEvadir;
+		int ProbRechazo = 0;
+		boolean Rechazo = false;
+		int ProbExito = 0;
+		int PoderAtaque = 0;
+		int UserPoderEvasion = 0;
+		int UserPoderEvasionEscudo = 0;
+		int Arma = 0;
+		int SkillTacticas = 0;
+		int SkillDefensa = 0;
+		int ProbEvadir = 0;
 		eSkill Skill;
 
 		SkillTacticas = Declaraciones.UserList[VictimaIndex].Stats.UserSkills[eSkill.Tacticas];
@@ -1205,7 +1205,7 @@ public class SistemaCombate {
 			/* 'Fallo ??? */
 			if (!retval) {
 
-				int SumaSkills;
+				int SumaSkills = 0;
 
 				/* ' Para evitar division por 0 */
 				SumaSkills = MaximoInt(1, SkillDefensa + SkillTacticas);
@@ -1256,7 +1256,7 @@ public class SistemaCombate {
 	}
 
 	static boolean UsuarioAtacaUsuario(int AtacanteIndex, int VictimaIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 14/01/2010 (ZaMa) */
@@ -1355,25 +1355,25 @@ public class SistemaCombate {
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int dano;
-		int Lugar;
+		int dano = 0;
+		int Lugar = 0;
 		Declaraciones.ObjData Obj;
 
-		int BoatDefense;
-		int BodyDefense;
-		int HeadDefense;
-		int WeaponBoost;
+		int BoatDefense = 0;
+		int BodyDefense = 0;
+		int HeadDefense = 0;
+		int WeaponBoost = 0;
 
-		int BoatIndex;
-		int WeaponIndex;
-		int HelmetIndex;
-		int ArmourIndex;
-		int ShieldIndex;
+		int BoatIndex = 0;
+		int WeaponIndex = 0;
+		int HelmetIndex = 0;
+		int ArmourIndex = 0;
+		int ShieldIndex = 0;
 
-		int BarcaIndex;
-		int ArmaIndex;
-		int CascoIndex;
-		int ArmaduraIndex;
+		int BarcaIndex = 0;
+		int ArmaIndex = 0;
+		int CascoIndex = 0;
+		int ArmaduraIndex = 0;
 
 		dano = CalcularDano(AtacanteIndex);
 
@@ -1426,8 +1426,8 @@ public class SistemaCombate {
 
 		default:
 
-			int MinDef;
-			int MaxDef;
+			int MinDef = 0;
+			int MaxDef = 0;
 
 			/* 'Si tiene armadura absorbe el golpe */
 			ArmourIndex = Declaraciones.UserList[VictimaIndex].Invent.ArmourEqpObjIndex;
@@ -1503,7 +1503,7 @@ public class SistemaCombate {
 
 			/* ' Para que las mascotas no sigan intentando luchar y */
 			/* ' comiencen a seguir al amo */
-			int j;
+			int j = 0;
 			for (j = (1); j <= (Declaraciones.MAXMASCOTAS); j++) {
 				if (Declaraciones.UserList[AtacanteIndex].MascotasIndex[j] > 0) {
 					if (Declaraciones.Npclist[Declaraciones.UserList[AtacanteIndex].MascotasIndex[j]].Target == VictimaIndex) {
@@ -1562,8 +1562,8 @@ public class SistemaCombate {
 			return;
 		}
 
-		boolean EraCriminal;
-		boolean VictimaEsAtacable;
+		boolean EraCriminal = false;
+		boolean VictimaEsAtacable = false;
 
 		if (!ES.criminal(AttackerIndex)) {
 			if (!ES.criminal(VictimIndex)) {
@@ -1640,7 +1640,7 @@ public class SistemaCombate {
 		/* ' */
 		/* '*************************************************** */
 		/* 'Reaccion de las mascotas */
-		int iCount;
+		int iCount = 0;
 
 		for (iCount = (1); iCount <= (Declaraciones.MAXMASCOTAS); iCount++) {
 			if (Declaraciones.UserList[Maestro].MascotasIndex[iCount] > 0) {
@@ -1652,7 +1652,7 @@ public class SistemaCombate {
 	}
 
 	static boolean PuedeAtacar(int AttackerIndex, int VictimIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Autor: Unknown */
 		/* 'Last Modification: 02/04/2010 */
@@ -1852,7 +1852,7 @@ public class SistemaCombate {
 	}
 
 	static boolean PuedeAtacarNPC(int AttackerIndex, int NpcIndex, boolean Paraliza, boolean IsPet) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Autor: Unknown Author (Original version) */
 		/* 'Returns True if AttackerIndex can attack the NpcIndex */
@@ -1989,7 +1989,7 @@ public class SistemaCombate {
 			}
 		}
 
-		int MasterIndex;
+		int MasterIndex = 0;
 		MasterIndex = Declaraciones.Npclist[NpcIndex].MaestroUser;
 
 		/* 'Es el NPC mascota de alguien? */
@@ -2079,7 +2079,7 @@ public class SistemaCombate {
 			/* ' No es mascota de nadie, le pertenece a alguien? */
 		} else if (Declaraciones.Npclist[NpcIndex].Owner > 0) {
 
-			int OwnerUserIndex;
+			int OwnerUserIndex = 0;
 			OwnerUserIndex = Declaraciones.Npclist[NpcIndex].Owner;
 
 			/* ' Puede atacar a su propia criatura! */
@@ -2438,7 +2438,7 @@ public class SistemaCombate {
 	}
 
 	static boolean SameClan(int UserIndex, int OtherUserIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Autor: ZaMa */
 		/* 'Returns True if both players belong to the same clan. */
@@ -2450,7 +2450,7 @@ public class SistemaCombate {
 	}
 
 	static boolean SameParty(int UserIndex, int OtherUserIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Autor: ZaMa */
 		/* 'Returns True if both players belong to the same party. */
@@ -2468,7 +2468,7 @@ public class SistemaCombate {
 		/* 'Reescribi gran parte del Sub */
 		/* 'Ahora, da toda la experiencia del npc mientras este vivo. */
 		/* '*************************************************** */
-		int ExpaDar;
+		int ExpaDar = 0;
 
 		/*
 		 * '[Nacho] Chekeamos que las variables sean validas para las
@@ -2574,7 +2574,7 @@ public class SistemaCombate {
 		/* ' */
 		/* '*************************************************** */
 
-		int ObjInd;
+		int ObjInd = 0;
 
 		ObjInd = Declaraciones.UserList[AtacanteIndex].Invent.WeaponEqpObjIndex;
 
@@ -2610,17 +2610,17 @@ public class SistemaCombate {
 		/* '*************************************************** */
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int MunicionSlot;
-		int MunicionIndex;
-		int WeaponSlot;
-		int WeaponIndex;
+		int MunicionSlot = 0;
+		int MunicionIndex = 0;
+		int WeaponSlot = 0;
+		int WeaponIndex = 0;
 
-		int TargetUserIndex;
-		int TargetNpcIndex;
+		int TargetUserIndex = 0;
+		int TargetNpcIndex = 0;
 
-		int DummyInt;
+		int DummyInt = 0;
 
-		boolean Threw;
+		boolean Threw = false;
 		Threw = true;
 
 		/* 'Make sure the item is valid and there is ammo equipped. */
@@ -2739,7 +2739,7 @@ public class SistemaCombate {
 		/* ' Solo pierde la munición si pudo atacar al target, o tiro al aire */
 		if (Threw) {
 
-			int Slot;
+			int Slot = 0;
 
 			/* ' Tiene equipado arco y flecha? */
 			if (Declaraciones.ObjData[WeaponIndex].Municion == 1) {

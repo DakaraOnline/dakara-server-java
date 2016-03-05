@@ -36,7 +36,7 @@ public class frmAdmin {
 	}
 
 	static void Command1_Click() {
-		int tIndex;
+		int tIndex = 0;
 
 		tIndex = Extra.NameIndex(cboPjs.Text);
 		if (tIndex > 0) {
@@ -50,7 +50,7 @@ public class frmAdmin {
 	}
 
 	static void ActualizaListaPjs() {
-		int LoopC;
+		int LoopC = 0;
 
 		cboPjs.Clear();
 
@@ -71,7 +71,7 @@ public class frmAdmin {
 	}
 
 	static void ActualizaPjInfo() {
-		int tIndex;
+		int tIndex = 0;
 
 		tIndex = Extra.NameIndex(cboPjs.Text);
 		if (tIndex > 0) {

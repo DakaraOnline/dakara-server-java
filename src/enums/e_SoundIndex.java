@@ -48,4 +48,8 @@ public enum e_SoundIndex {
 		}
 		return 0;
 	}
+
+	public int toInteger() {
+		return toInteger(this);
+	}
 }

@@ -31,22 +31,22 @@ public class ModAreas {
 
 	/* '>>>>>>AREAS>>>>>AREAS>>>>>>>>AREAS>>>>>>>AREAS>>>>>>>>>> */
 	static public class AreaInfo {
-		int AreaPerteneceX;
-		int AreaPerteneceY;
+		public int AreaPerteneceX;
+		public int AreaPerteneceY;
 
-		int AreaReciveX;
-		int AreaReciveY;
+		public int AreaReciveX;
+		public int AreaReciveY;
 
-		int MinX;
-		int MinY;
+		public int MinX;
+		public int MinY;
 
-		int AreaID;
+		public int AreaID;
 	}
 
 	static public class ConnGroup {
-		int CountEntrys;
-		int OptValue;
-		int[] UserEntrys;
+		public int CountEntrys;
+		public int OptValue;
+		public int[] UserEntrys;
 	}
 
 	static final int USER_NUEVO = 255;
@@ -57,11 +57,11 @@ public class ModAreas {
 	private static int CurHour;
 
 private static int[] AreasInfo = new int[[('1', '100'), ('1', '100')]]; /* XXX MULTIDIMENSIONAL [('1', '100'), ('1', '100')] */
-	private static int[] PosToArea = new int[1 + 100]; /* XXX */
+	private static int[] PosToArea = new int[1 + 100];
 
-	private static int[] AreasRecive = new int[0 + 12]; /* XXX */
+	private static int[] AreasRecive = new int[0 + 12];
 
-	public static ConnGroup[] ConnGroups = new ConnGroup[0]; /* XXX */
+	public static ConnGroup[] ConnGroups = new ConnGroup[0];
 
 	static void InitAreas() {
  /* '************************************************************** */
@@ -69,8 +69,8 @@ private static int[] AreasInfo = new int[[('1', '100'), ('1', '100')]]; /* XXX M
  /* 'Last Modify Date: Unknow */
  /* ' */
  /* '************************************************************** */
- int LoopC;
- int loopX;
+ int LoopC = 0;
+ int loopX = 0;
  
  /* ' Setup areas... */
   for (LoopC = (0); LoopC <= (11); LoopC++) {
@@ -117,10 +117,10 @@ private static int[] AreasInfo = new int[[('1', '100'), ('1', '100')]]; /* XXX M
 		 * redimensionando arrays grandes todo el tiempo
 		 */
 		/* '************************************************************** */
-		int LoopC;
-		int tCurDay;
-		int tCurHour;
-		int EntryValue;
+		int LoopC = 0;
+		int tCurDay = 0;
+		int tCurHour = 0;
+		int EntryValue = 0;
 
 		if ((CurDay != vb6.IIf(vb6.Weekday(Date) > 6, 1, 2)) || (CurHour != vb6.Fix(vb6.Hour(vb6.time()) / 3))) {
 
@@ -169,14 +169,14 @@ private static int[] AreasInfo = new int[[('1', '100'), ('1', '100')]]; /* XXX M
  return;
  }
  
- int MinX;
- int MaxX;
- int MinY;
- int MaxY;
- int X;
- int Y;
- int TempInt;
- int Map;
+ int MinX = 0;
+ int MaxX = 0;
+ int MinY = 0;
+ int MaxY = 0;
+ int X = 0;
+ int Y = 0;
+ int TempInt = 0;
+ int Map = 0;
  
   MinX = Declaraciones.UserList[UserIndex].AreasInfo.MinX;
   MinY = Declaraciones.UserList[UserIndex].AreasInfo.MinY;
@@ -332,13 +332,13 @@ private static int[] AreasInfo = new int[[('1', '100'), ('1', '100')]]; /* XXX M
  return;
  }
  
- int MinX;
- int MaxX;
- int MinY;
- int MaxY;
- int X;
- int Y;
- int TempInt;
+ int MinX = 0;
+ int MaxX = 0;
+ int MinY = 0;
+ int MaxY = 0;
+ int X = 0;
+ int Y = 0;
+ int TempInt = 0;
  
   MinX = Declaraciones.Npclist[NpcIndex].AreasInfo.MinX;
   MinY = Declaraciones.Npclist[NpcIndex].AreasInfo.MinY;
@@ -427,8 +427,8 @@ private static int[] AreasInfo = new int[[('1', '100'), ('1', '100')]]; /* XXX M
 		/* '************************************************************** */
 		/* FIXME: ON ERROR GOTO ErrorHandler */
 
-		int TempVal;
-		int LoopC;
+		int TempVal = 0;
+		int LoopC = 0;
 
 		/* 'Search for the user */
 		for (LoopC = (1); LoopC <= (ModAreas.ConnGroups[Map].CountEntrys); LoopC++) {
@@ -487,9 +487,9 @@ private static int[] AreasInfo = new int[[('1', '100'), ('1', '100')]]; /* XXX M
 		/* ' - If the character is new to the map, update it */
 		/* '************************************************************** */
 		/* FIXME: ON ERROR GOTO ErrHandler */
-		int TempVal;
-		boolean EsNuevo;
-		int i;
+		int TempVal = 0;
+		boolean EsNuevo = false;
+		int i = 0;
 
 		if (!General.MapaValido(Map)) {
 			return;

@@ -26,32 +26,32 @@ import enums.*;
 public class Statistics {
 
 	static public class trainningData {
-		int startTick;
-		int trainningTime;
+		public int startTick;
+		public int trainningTime;
 	}
 
 	static public class fragLvlRace {
 		/*
 		 * FIXME: MULTIDIMENSIONAL ARRAY 2: matrix ( 1 TO 50 , 1 TO 5 ) AS Long
 		 */
-		int matrix;
+		public int matrix;
 	}
 
 	static public class fragLvlLvl {
 		/*
 		 * FIXME: MULTIDIMENSIONAL ARRAY 2: matrix ( 1 TO 50 , 1 TO 50 ) AS Long
 		 */
-		int matrix;
+		public int matrix;
 	}
 
-	private static trainningData[] trainningInfo = new trainningData[0]; /* XXX */
+	private static trainningData[] trainningInfo = new trainningData[0];
 
-	private static fragLvlRace[] fragLvlRaceData = new fragLvlRace[1 + 7]; /* XXX */
-	private static fragLvlLvl[] fragLvlLvlData = new fragLvlLvl[1 + 7]; /* XXX */
+	private static fragLvlRace[] fragLvlRaceData = new fragLvlRace[1 + 7];
+	private static fragLvlLvl[] fragLvlLvlData = new fragLvlLvl[1 + 7];
 private static int[] fragAlignmentLvlData = new int[[('1', '50'), ('1', '4')]]; /* XXX MULTIDIMENSIONAL [('1', '50'), ('1', '4')] */
 
 /* 'Currency just in case.... chats are way TOO often... */
-	private static double[] keyOcurrencies = new double[0 + 255]; /* XXX */
+	private static double[] keyOcurrencies = new double[0 + 255];
 
 	static void Initialize() {
 		trainningInfo = new trainningData[0];
@@ -99,7 +99,7 @@ private static int[] fragAlignmentLvlData = new int[[('1', '50'), ('1', '4')]]; 
 		/* ' */
 		/* '*************************************************** */
 
-		int handle;
+		int handle = 0;
 		handle = vb6.FreeFile();
 
 		/* 'Log the data */
@@ -129,9 +129,9 @@ private static int[] fragAlignmentLvlData = new int[[('1', '50'), ('1', '4')]]; 
 		/* ' */
 		/* '*************************************************** */
 
-		int clase;
-		int raza;
-		int alignment;
+		int clase = 0;
+		int raza = 0;
+		int alignment = 0;
 
 		if (Declaraciones.UserList[victim].Stats.ELV > 50 || Declaraciones.UserList[killer].Stats.ELV > 50) {
 			return;
@@ -240,12 +240,12 @@ private static int[] fragAlignmentLvlData = new int[[('1', '50'), ('1', '4')]]; 
 		/* ' */
 		/* '*************************************************** */
 
-		int handle;
+		int handle = 0;
 		handle = vb6.FreeFile();
 
 		String LINE;
-		int i;
-		int j;
+		int i = 0;
+		int j = 0;
 
 		/* FIXME: OPEN App . Path & "\\logs\\frags.txt" FOR OUTPUT AS handle */
 
@@ -618,7 +618,7 @@ private static int[] fragAlignmentLvlData = new int[[('1', '50'), ('1', '4')]]; 
 		 * FIXME: OPEN App . Path & "\\logs\\huffman.log" FOR OUTPUT AS handle
 		 */
 
-		double Total;
+		double Total = 0.0;
 
 		/* 'Compute total characters */
 		for (i = (0); i <= (255); i++) {
@@ -647,8 +647,8 @@ private static int[] fragAlignmentLvlData = new int[[('1', '50'), ('1', '4')]]; 
 		/* ' */
 		/* '*************************************************** */
 
-		int i;
-		int key;
+		int i = 0;
+		int key = 0;
 
 		for (i = (1); i <= (vb6.Len(S)); i++) {
 			key = vb6.Asc(vb6.mid(S, i, 1));

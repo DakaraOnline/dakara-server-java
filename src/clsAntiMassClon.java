@@ -40,8 +40,8 @@ public class clsAntiMassClon {
 	private vb6.Collection m_coleccion;
 
 	boolean MaxPersonajes(String sIp) {
-		boolean retval;
-		int i;
+		boolean retval = false;
+		int i = 0;
 
 		for (i = (1); i <= (m_coleccion.Count); i++) {
 			if (m_coleccion.Item[i].ip == sIp) {
@@ -63,11 +63,11 @@ public class clsAntiMassClon {
 	}
 
 	int VaciarColeccion() {
- int retval;
+ int retval = 0;
  
  /* FIXME: ON ERROR GOTO ErrHandler */
  
- int i;
+ int i = 0;
  
   for (i = (1); i <= (m_coleccion.Count); i++) {
   m_coleccion.Remove[1];

@@ -40,13 +40,13 @@ public class frmMain {
 	public static int ESCUCHADAS;
 
 	static public class NOTIFYICONDATA {
-		int cbSize;
-		int hWnd;
-		int uID;
-		int uFlags;
-		int uCallbackMessage;
-		int hIcon;
-		String szTip;
+		public int cbSize;
+		public int hWnd;
+		public int uID;
+		public int uFlags;
+		public int uCallbackMessage;
+		public int hIcon;
+		public String szTip;
 	}
 
 	private static int iDay;
@@ -78,7 +78,7 @@ public class frmMain {
 	}
 
 	static void CheckIdleUser() {
-		int iUserIndex;
+		int iUserIndex = 0;
 
 		for (iUserIndex = (1); iUserIndex <= (Declaraciones.MaxUsers); iUserIndex++) {
 			/* 'Conexion activa? y es un usuario loggeado? */
@@ -144,7 +144,7 @@ public class frmMain {
 
 	static void UpdateNpcsExp(float Multiplicador) {
 
-		int NpcIndex;
+		int NpcIndex = 0;
 		for (NpcIndex = (1); NpcIndex <= (Declaraciones.LastNPC); NpcIndex++) {
 			Declaraciones.Npclist[NpcIndex].GiveEXP = Declaraciones.Npclist[NpcIndex].GiveEXP * Multiplicador;
 			Declaraciones.Npclist[NpcIndex].flags.ExpCount = Declaraciones.Npclist[NpcIndex].flags.ExpCount
@@ -165,7 +165,7 @@ public class frmMain {
  MinsPjesSave = MinsPjesSave+1;
  MinsSendMotd = MinsSendMotd+1;
  
- double tmpHappyHour;
+ double tmpHappyHour = 0.0;
  
  /* ' HappyHour */
  iDay = vb6.Weekday(Date);
@@ -236,7 +236,7 @@ public class frmMain {
  }
  
   if (MinsSendMotd>=Admin.MinutosMotd) {
-  int i;
+  int i = 0;
    for (i = (1); i <= (Declaraciones.LastUser); i++) {
     if (Declaraciones.UserList[i].flags.UserLogged) {
     TCP.SendMOTD(i);
@@ -249,7 +249,7 @@ public class frmMain {
  CheckIdleUser();
  
  /* '<<<<<-------- Log the number of users online ------>>> */
- int N;
+ int N = 0;
  N = vb6.FreeFile();
  /* FIXME: OPEN App . Path & "\\logs\\numusers.log" FOR OUTPUT Shared AS N */
  /* FIXME: PRINT # N , NumUsers */
@@ -284,7 +284,7 @@ public class frmMain {
 	static void CMDDUMP_Click() {
 		/* FIXME: ON ERROR RESUME NEXT */
 
-		int i;
+		int i = 0;
 		for (i = (1); i <= (Declaraciones.MaxUsers); i++) {
 			General.LogCriticEvent(i + ") ConnID: " + Declaraciones.UserList[i].ConnID + ". ConnidValida: "
 					+ Declaraciones.UserList[i].ConnIDValida + " Name: " + Declaraciones.UserList[i].Name
@@ -333,7 +333,7 @@ public class frmMain {
 			case WM_LBUTTONDBLCLK:
 				WindowState = 0;
 				Visible = true;
-				int hProcess;
+				int hProcess = 0;
 				GetWindowThreadProcessId(hWnd, hProcess);
 				AppActivate(hProcess);
 				break;
@@ -356,7 +356,7 @@ public class frmMain {
 		/* FIXME: ON ERROR RESUME NEXT */
 
 		/* 'Borramos el icono del systray */
-		int i;
+		int i = 0;
 		NOTIFYICONDATA nid;
 
 		nid = setNOTIFYICONDATA(frmMain.hWnd, vbNull, NIF_MESSAGE || NIF_ICON || NIF_TIP, vbNull, frmMain.Icon, "");
@@ -379,7 +379,7 @@ public class frmMain {
  /* # ELSEIF UsarQueSocket = 2 THEN */
  /* # END IF */
  
- int LoopC;
+ int LoopC = 0;
  
   for (LoopC = (1); LoopC <= (Declaraciones.MaxUsers); LoopC++) {
   if (Declaraciones.UserList[LoopC].ConnID != -1) {
@@ -388,7 +388,7 @@ public class frmMain {
  }
  
  /* 'Log */
- int N;
+ int N = 0;
  N = vb6.FreeFile();
  /* FIXME: OPEN App . Path & "\\logs\\Main.log" FOR Append Shared AS # N */
  /* FIXME: PRINT # N , Date & " " & time & " server cerrado." */
@@ -415,9 +415,9 @@ public class frmMain {
 		/* 'Author: Unknown */
 		/* 'Last Modify Date: - */
 		/* '******************************************************** */
-		int iUserIndex;
-		boolean bEnviarStats;
-		boolean bEnviarAyS;
+		int iUserIndex = 0;
+		boolean bEnviarStats = false;
+		boolean bEnviarAyS = false;
 
 		/* FIXME: ON ERROR GOTO hayerror */
 
@@ -640,7 +640,7 @@ public class frmMain {
 
 	static void SetSystray() {
 
-		int i;
+		int i = 0;
 		String S;
 		NOTIFYICONDATA nid;
 
@@ -659,7 +659,7 @@ public class frmMain {
 	static void npcataca_Timer() {
 
 		/* FIXME: ON ERROR RESUME NEXT */
-		int npc;
+		int npc = 0;
 
 		for (npc = (1); npc <= (Declaraciones.LastNPC); npc++) {
 			Declaraciones.Npclist[npc].CanAttack = 1;
@@ -674,7 +674,7 @@ public class frmMain {
 		/* 'Attempts to resend to the user all data that may be enqueued. */
 		/* '*************************************************** */
 		/* FIXME: ON ERROR GOTO ErrHandler */
-		int i;
+		int i = 0;
 
 		for (i = (1); i <= (Declaraciones.MaxUsers); i++) {
 			if (Declaraciones.UserList[i].ConnIDValida) {
@@ -702,9 +702,9 @@ public class frmMain {
 	static void TIMER_AI_Timer() {
 
 		/* FIXME: ON ERROR GOTO ErrorHandler */
-		int NpcIndex;
-		int mapa;
-		int e_p;
+		int NpcIndex = 0;
+		int mapa = 0;
+		int e_p = 0;
 
 		/* 'Barrin 29/9/03 */
 		if (!Declaraciones.haciendoBK && !Declaraciones.EnPausa) {
@@ -761,7 +761,7 @@ public class frmMain {
 		/* ' [TEMPORAL] */
 		return;
 
-		int iCount;
+		int iCount = 0;
 		if (Admin.Lloviendo) {
 			for (iCount = (1); iCount <= (Declaraciones.LastUser); iCount++) {
 				General.EfectoLluvia(iCount);
@@ -814,10 +814,10 @@ public class frmMain {
 	}
 
 	static void tPiqueteC_Timer() {
-		boolean NuevaA;
+		boolean NuevaA = false;
 		/* ' Dim NuevoL As Boolean */
-		int GI;
-		int i;
+		int GI = 0;
+		int i = 0;
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
 		for (i = (1); i <= (Declaraciones.LastUser); i++) {

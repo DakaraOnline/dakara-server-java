@@ -40,21 +40,21 @@ public class modForum {
 	static final String FORO_CAOS_ID = "CAOS";
 
 	static public class tPost {
-		String sTitulo;
-		String sPost;
-		String Autor;
+		public String sTitulo;
+		public String sPost;
+		public String Autor;
 	}
 
 	static public class tForo {
-		tPost[] vsPost;
-		tPost[] vsAnuncio;
-		int CantPosts;
-		int CantAnuncios;
-		String ID;
+		public tPost[] vsPost;
+		public tPost[] vsAnuncio;
+		public int CantPosts;
+		public int CantAnuncios;
+		public String ID;
 	}
 
 	private static int NumForos;
-	private static tForo[] Foros = new tForo[0]; /* XXX */
+	private static tForo[] Foros = new tForo[0];
 
 	static void AddForum(String sForoID) {
 		/* '*************************************************** */
@@ -64,8 +64,8 @@ public class modForum {
 		/* '*************************************************** */
 		String ForumPath;
 		String PostPath;
-		int PostIndex;
-		int FileIndex;
+		int PostIndex = 0;
+		int FileIndex = 0;
 
 		NumForos = NumForos + 1;
 		Foros = (Foros == null) ? new tForo[1 + NumForos] : java.util.Arrays.copyOf(Foros, 1 + NumForos);
@@ -125,14 +125,14 @@ public class modForum {
 	}
 
 	static int GetForumIndex(String /* FIXME BYREF!! */ sForoID) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 22/02/2010 */
 		/* 'Returns the forum index. */
 		/* '*************************************************** */
 
-		int ForumIndex;
+		int ForumIndex = 0;
 
 		for (ForumIndex = (1); ForumIndex <= (NumForos); ForumIndex++) {
 			if (Foros[ForumIndex].ID == sForoID) {
@@ -185,7 +185,7 @@ public class modForum {
 		/* 'Last Modification: 22/02/2010 */
 		/* 'Saves all forums into disk. */
 		/* '*************************************************** */
-		int ForumIndex;
+		int ForumIndex = 0;
 
 		for (ForumIndex = (1); ForumIndex <= (NumForos); ForumIndex++) {
 			SaveForum(ForumIndex);
@@ -199,8 +199,8 @@ public class modForum {
 		/* 'Saves a forum into disk. */
 		/* '*************************************************** */
 
-		int PostIndex;
-		int FileIndex;
+		int PostIndex = 0;
+		int FileIndex = 0;
 		String PostPath;
 
 		CleanForum(ForumIndex);
@@ -249,8 +249,8 @@ public class modForum {
 		/* 'Last Modification: 22/02/2010 */
 		/* 'Cleans a forum from disk. */
 		/* '*************************************************** */
-		int PostIndex;
-		int NumPost;
+		int PostIndex = 0;
+		int NumPost = 0;
 		String ForumPath;
 
 		/* ' Elimino todo */
@@ -285,16 +285,16 @@ public class modForum {
 	}
 
 	static boolean SendPosts(int UserIndex, String /* FIXME BYREF!! */ ForoID) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 22/02/2010 */
 		/* 'Sends all the posts of a required forum */
 		/* '*************************************************** */
 
-		int ForumIndex;
-		int PostIndex;
-		boolean bEsGm;
+		int ForumIndex = 0;
+		int PostIndex = 0;
+		boolean bEsGm = false;
 
 		ForumIndex = GetForumIndex(ForoID);
 
@@ -369,7 +369,7 @@ public class modForum {
 	}
 
 	static boolean EsAnuncio(int ForumType) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 22/02/2010 */
@@ -396,7 +396,7 @@ public class modForum {
 	}
 
 	static int ForumAlignment(int yForumType) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 01/03/2010 */
@@ -437,7 +437,7 @@ public class modForum {
 	}
 
 	static void MoveArray(int ForumIndex, boolean Sticky) {
-		int i;
+		int i = 0;
 
 		if (Sticky) {
 			/* FIXME WEIRD FOR */

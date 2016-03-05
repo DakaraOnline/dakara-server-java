@@ -38,8 +38,8 @@ import enums.*;
 public class frmDebugNpc {
 
 	static void Command1_Click() {
-		int i;
-		int k;
+		int i = 0;
+		int k = 0;
 
 		for (i = (1); i <= (Declaraciones.LastNPC); i++) {
 			if (Declaraciones.Npclist[i].flags.NPCActive) {

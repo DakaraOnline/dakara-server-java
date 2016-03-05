@@ -47,7 +47,7 @@ public class modHexaStrings {
 		/* ' */
 		/* '*************************************************** */
 
-		int i;
+		int i = 0;
 		String L;
 
 		if (vb6.Len(MD5) && 0x1) {
@@ -62,7 +62,7 @@ public class modHexaStrings {
 	}
 
 	static int hexHex2Dec(String hex) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -81,7 +81,7 @@ public class modHexaStrings {
 		/* ' */
 		/* '*************************************************** */
 
-		int i;
+		int i = 0;
 		String L;
 
 		for (i = (1); i <= (vb6.Len(Text)); i++) {

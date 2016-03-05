@@ -28,13 +28,13 @@ import enums.*;
 public class SoundMapInfo {
 
 	static public class p_tSoundMapInfo {
-		int Cantidad;
-		int[] SoundIndex;
-		int[] flags;
-		float[] Probabilidad;
+		public int Cantidad;
+		public int[] SoundIndex;
+		public int[] flags;
+		public float[] Probabilidad;
 	}
 
-	private p_tSoundMapInfo[] p_Mapas = new p_tSoundMapInfo[0]; /* XXX */
+	private p_tSoundMapInfo[] p_Mapas = new p_tSoundMapInfo[0];
 
 	/* 'sonidos conocidos, pasados a enum para intelisense */
 
@@ -47,8 +47,8 @@ public class SoundMapInfo {
 	}
 
 	void LoadSoundMapInfo() {
-		int i;
-		int j;
+		int i = 0;
+		int j = 0;
 		String Temps;
 		String MAPFILE;
 
@@ -88,10 +88,10 @@ public class SoundMapInfo {
 	}
 
 	void ReproducirSonidosDeMapas() {
-		int i;
-		int SonidoMapa;
-		int posX;
-		int posY;
+		int i = 0;
+		int SonidoMapa = 0;
+		int posX = 0;
+		int posY = 0;
 
 		/* 'Sounds are played at a random position */
 		posX = Matematicas.RandomNumber(Declaraciones.XMinMapSize, Declaraciones.XMaxMapSize);

@@ -38,26 +38,26 @@ public class CColaArray {
 
 	private int m_maxelem;
 
-	private String[] m_array = new String[0]; /* XXX */
+	private String[] m_array = new String[0];
 	private int m_lastelem;
 	private int m_firstelem;
 	private int m_size;
 
 	boolean IsEmpty() {
-		boolean retval;
+		boolean retval = false;
 		retval = m_size == 0;
 		return retval;
 	}
 
 	boolean IsFull() {
-		boolean retval;
+		boolean retval = false;
 		/* 'IsFull = m_lastelem = m_maxelem */
 		retval = m_size == m_maxelem;
 		return retval;
 	}
 
 	boolean Push(String aString) {
-		boolean retval;
+		boolean retval = false;
 
 		if (!Me.IsFull) {
 
@@ -117,7 +117,7 @@ public class CColaArray {
 	}
 
 	int MaxElems() {
-		int retval;
+		int retval = 0;
 		retval = m_maxelem;
 		return retval;
 	}

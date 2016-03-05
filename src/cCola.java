@@ -71,7 +71,7 @@ public class cCola {
 	void Reset() {
 		/* FIXME: ON ERROR RESUME NEXT */
 
-		int i;
+		int i = 0;
 		for (i = (1); i <= (Me.Longitud); i++) {
 			Cola.Remove(FRENTE);
 		}
@@ -79,13 +79,13 @@ public class cCola {
 	}
 
 	int Longitud() {
-		int retval;
+		int retval = 0;
 		retval = Cola.Count;
 		return retval;
 	}
 
 	boolean IndexValido(int i) {
-		boolean retval;
+		boolean retval = false;
 		retval = i >= 1 && i <= Me.Longitud;
 		return retval;
 	}
@@ -180,11 +180,11 @@ return retval;
 	}
 
 	boolean Existe(String Nombre) {
-		boolean retval;
+		boolean retval = false;
 		/* FIXME: ON ERROR RESUME NEXT */
 
 		String V;
-		int i;
+		int i = 0;
 		String NombreEnMayusculas;
 		NombreEnMayusculas = vb6.UCase(Nombre);
 
@@ -206,7 +206,7 @@ return retval;
 	void Quitar(String Nombre) {
  /* FIXME: ON ERROR RESUME NEXT */
  String V;
- int i;
+ int i = 0;
  String NombreEnMayusculas;
  
  NombreEnMayusculas = vb6.UCase(Nombre);

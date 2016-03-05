@@ -36,14 +36,14 @@ public class diccionario {
 	static final int MAX_ELEM = 100;
 
 	static public class diccElem {
-		String clave;
-		Object def;
+		public String clave;
+		public Object def;
 	}
 
 	/*
 	 * 'visual basic es una mierda para usar memoria dinamica, asi que uso esto
 	 */
-	private diccElem[] p_elementos = new diccElem[1 + MAX_ELEM]; /* XXX */
+	private diccElem[] p_elementos = new diccElem[1 + MAX_ELEM];
 	private int p_cant;
 
 	void Class_Initialize() {
@@ -57,14 +57,14 @@ public class diccionario {
 	}
 
 	int CantElem() {
-		int retval;
+		int retval = 0;
 		retval = p_cant;
 		return retval;
 	}
 
 	boolean AtPut(String clave, Object /* FIXME BYREF!! */ elem) {
-		boolean retval;
-		int i;
+		boolean retval = false;
+		int i = 0;
 
 		retval = false;
 
@@ -98,7 +98,7 @@ public class diccionario {
 
 	Object At(String clave) {
 		Object retval;
-		int i;
+		int i = 0;
 
 		clave = vb6.UCase(clave);
 
@@ -123,8 +123,8 @@ public class diccionario {
 		String retval;
 		/* 'parchecito para el AO, me da la clave con mayor valor en valor */
 		/* 'y la cantidad de claves con ese valor (por si hay empate) */
-		int i;
-		int max;
+		int i = 0;
+		int max = 0;
 		String clave;
 		max = -1;
 		cant = 0;
@@ -144,7 +144,7 @@ public class diccionario {
 	}
 
 	void DumpAll() {
-		int i;
+		int i = 0;
 
 		for (i = (1); i <= (MAX_ELEM); i++) {
 			p_elementos[i].clave = "";

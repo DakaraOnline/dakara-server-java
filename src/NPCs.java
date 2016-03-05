@@ -53,7 +53,7 @@ public class NPCs {
 		/* ' */
 		/* '*************************************************** */
 
-		int i;
+		int i = 0;
 
 		for (i = (1); i <= (Declaraciones.MAXMASCOTAS); i++) {
 			if (Declaraciones.UserList[UserIndex].MascotasIndex[i] == NpcIndex) {
@@ -100,8 +100,8 @@ public class NPCs {
 
 		Declaraciones.npc MiNPC;
 		MiNPC = Declaraciones.Npclist[NpcIndex];
-		boolean EraCriminal;
-		int PretorianoIndex;
+		boolean EraCriminal = false;
+		int PretorianoIndex = 0;
 
 		/* ' Es pretoriano? */
 		if (MiNPC.NPCtype == eNPCType.Pretoriano) {
@@ -123,7 +123,7 @@ public class NPCs {
 
 			/* 'El user que lo mato tiene mascotas? */
 			if (Declaraciones.UserList[UserIndex].NroMascotas > 0) {
-				int T;
+				int T = 0;
 				for (T = (1); T <= (Declaraciones.MAXMASCOTAS); T++) {
 					if (Declaraciones.UserList[UserIndex].MascotasIndex[T] > 0) {
 						if (Declaraciones.Npclist[Declaraciones.UserList[UserIndex].MascotasIndex[T]].TargetNPC == NpcIndex) {
@@ -204,7 +204,7 @@ public class NPCs {
 				}
 			}
 
-			boolean EsCriminal;
+			boolean EsCriminal = false;
 			EsCriminal = ES.criminal(UserIndex);
 
 			/* ' Cambio de alienacion? */
@@ -319,7 +319,7 @@ public class NPCs {
 		/* ' */
 		/* '*************************************************** */
 
-		int j;
+		int j = 0;
 
 		for (j = (1); j <= (Declaraciones.Npclist[NpcIndex].NroCriaturas); j++) {
 			Declaraciones.Npclist[NpcIndex].Criaturas[j].NpcIndex = 0;
@@ -336,7 +336,7 @@ public class NPCs {
 		/* ' */
 		/* '*************************************************** */
 
-		int j;
+		int j = 0;
 
 		for (j = (1); j <= (Declaraciones.Npclist[NpcIndex].NroExpresiones); j++) {
 			Declaraciones.Npclist[NpcIndex].Expresiones[j] = "";
@@ -396,7 +396,7 @@ public class NPCs {
 
 		Declaraciones.Npclist[NpcIndex].ClanIndex = 0;
 
-		int j;
+		int j = 0;
 		for (j = (1); j <= (Declaraciones.Npclist[NpcIndex].NroSpells); j++) {
 			Declaraciones.Npclist[NpcIndex].Spells[j] = 0;
 		}
@@ -455,8 +455,8 @@ public class NPCs {
 		/* '*************************************************** */
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int i;
-		int PetIndex;
+		int i = 0;
+		int PetIndex = 0;
 
 		/* ' Busco el indice de la mascota */
 		for (i = (1); i <= (Declaraciones.MAXMASCOTAS); i++) {
@@ -490,7 +490,7 @@ public class NPCs {
 	}
 
 	static boolean TestSpawnTrigger(Declaraciones.WorldPos Pos, boolean PuedeAgua) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -511,7 +511,7 @@ public class NPCs {
  }
 
 	static int CrearNPC(int NroNPC, int mapa, Declaraciones.WorldPos OrigPos, int CustomHead) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -523,15 +523,15 @@ public class NPCs {
 		Declaraciones.WorldPos Pos;
 		Declaraciones.WorldPos newpos;
 		Declaraciones.WorldPos altpos;
-		int nIndex;
-		boolean PosicionValida;
-		int Iteraciones;
-		boolean PuedeAgua;
-		boolean PuedeTierra;
+		int nIndex = 0;
+		boolean PosicionValida = false;
+		int Iteraciones = 0;
+		boolean PuedeAgua = false;
+		boolean PuedeTierra = false;
 
-		int Map;
-		int X;
-		int Y;
+		int Map = 0;
+		int X = 0;
+		int Y = 0;
 
 		/* 'Conseguimos un indice */
 		nIndex = OpenNPC(NroNPC);
@@ -659,7 +659,7 @@ public class NPCs {
 		/* ' */
 		/* '*************************************************** */
 
-		int CharIndex;
+		int CharIndex = 0;
 
 		if (Declaraciones.Npclist[NpcIndex].Char.CharIndex == 0) {
 			CharIndex = UsUaRiOs.NextOpenCharIndex();
@@ -732,7 +732,7 @@ public class NPCs {
 	}
 
 	static boolean MoveNPCChar(int NpcIndex, int nHeading) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Autor: Unknown (orginal version) */
 		/* 'Last Modification: 06/04/2009 */
@@ -754,7 +754,7 @@ public class NPCs {
 		/* FIXME: ON ERROR GOTO errh */
 
 		Declaraciones.WorldPos nPos;
-		int UserIndex;
+		int UserIndex = 0;
 
 		nPos = Declaraciones.Npclist[NpcIndex].Pos;
 		Extra.HeadtoPos(nHeading, nPos);
@@ -838,7 +838,7 @@ public class NPCs {
 	}
 
 	static int NextOpenNPC() {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -846,7 +846,7 @@ public class NPCs {
 		/* '*************************************************** */
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
-		int LoopC;
+		int LoopC = 0;
 
 		for (LoopC = (1); LoopC <= (Declaraciones.MAXNPCS + 1); LoopC++) {
 			if (LoopC > Declaraciones.MAXNPCS) {
@@ -872,7 +872,7 @@ public class NPCs {
 		/* '10/07/2010: ZaMa - Now npcs can't poison dead users. */
 		/* '*************************************************** */
 
-		int N;
+		int N = 0;
 
 		if (Declaraciones.UserList[UserIndex].flags.Muerto == 1) {
 			return;
@@ -887,7 +887,7 @@ public class NPCs {
 	}
 
 	static int SpawnNpc(int NpcIndex, Declaraciones.WorldPos Pos, boolean FX, boolean Respawn) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Autor: Unknown (orginal version) */
 		/* 'Last Modification: 06/15/2008 */
@@ -899,14 +899,14 @@ public class NPCs {
 		/* '*************************************************** */
 		Declaraciones.WorldPos newpos;
 		Declaraciones.WorldPos altpos;
-		int nIndex;
-		boolean PosicionValida;
-		boolean PuedeAgua;
-		boolean PuedeTierra;
+		int nIndex = 0;
+		boolean PosicionValida = false;
+		boolean PuedeAgua = false;
+		boolean PuedeTierra = false;
 
-		int Map;
-		int X;
-		int Y;
+		int Map = 0;
+		int X = 0;
+		int Y = 0;
 
 		/* 'Conseguimos un indice */
 		nIndex = OpenNPC(NpcIndex, Respawn);
@@ -993,7 +993,7 @@ public class NPCs {
 		/* 'SI EL NPC TIENE ORO LO TIRAMOS */
 		if (MiNPC.GiveGLD > 0) {
 			Declaraciones.Obj MiObj;
-			int MiAux;
+			int MiAux = 0;
 			MiAux = MiNPC.GiveGLD;
 			while (MiAux > Declaraciones.MAX_INVENTORY_OBJS) {
 				MiObj.Amount = Declaraciones.MAX_INVENTORY_OBJS;
@@ -1014,7 +1014,7 @@ public class NPCs {
 	}
 
 	static int OpenNPC(int NpcNumber, Object Respawn) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1034,9 +1034,9 @@ public class NPCs {
 		/* 'Alejo */
 		/* ' */
 		/* '################################################### */
-		int NpcIndex;
+		int NpcIndex = 0;
 		clsIniManager Leer;
-		int LoopC;
+		int LoopC = 0;
 		String ln;
 
 		Leer = General.LeerNPCs;

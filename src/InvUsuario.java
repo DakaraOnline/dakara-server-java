@@ -34,7 +34,7 @@ import enums.*;
 public class InvUsuario {
 
 	static boolean TieneObjetosRobables(int UserIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -46,8 +46,8 @@ public class InvUsuario {
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int i;
-		int ObjIndex;
+		int i = 0;
+		int ObjIndex = 0;
 
 		for (i = (1); i <= (Declaraciones.UserList[UserIndex].CurrentInventorySlots); i++) {
 			ObjIndex = Declaraciones.UserList[UserIndex].Invent.Object[i].ObjIndex;
@@ -72,7 +72,7 @@ public class InvUsuario {
 	}
 
 	static boolean ClasePuedeUsarItem(int UserIndex, int ObjIndex, String sMotivo) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 14/01/2010 (ZaMa) */
@@ -87,7 +87,7 @@ public class InvUsuario {
 		/* 'Admins can use ANYTHING! */
 		if (Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.User) {
 			if (Declaraciones.ObjData[ObjIndex].ClaseProhibida[1] != 0) {
-				int i;
+				int i = 0;
 				for (i = (1); i <= (Declaraciones.NUMCLASES); i++) {
 					if (Declaraciones.ObjData[ObjIndex].ClaseProhibida[i] == Declaraciones.UserList[UserIndex].clase) {
 						retval = false;
@@ -114,7 +114,7 @@ public class InvUsuario {
 		/* ' */
 		/* '*************************************************** */
 
-		int j;
+		int j = 0;
 
 		for (j = (1); j <= (Declaraciones.UserList[UserIndex].CurrentInventorySlots); j++) {
 			if (Declaraciones.UserList[UserIndex].Invent.Object[j].ObjIndex > 0) {
@@ -169,7 +169,7 @@ public class InvUsuario {
 		/* ' */
 		/* '*************************************************** */
 
-		int j;
+		int j = 0;
 
 		for (j = (1); j <= (Declaraciones.UserList[UserIndex].CurrentInventorySlots); j++) {
 			Declaraciones.UserList[UserIndex].Invent.Object[j].ObjIndex = 0;
@@ -222,13 +222,13 @@ public class InvUsuario {
 		if ((Cantidad > 0) && (Cantidad <= Declaraciones.UserList[UserIndex].Stats.GLD)) {
 			Declaraciones.Obj MiObj;
 			/* 'info debug */
-			int loops;
+			int loops = 0;
 
 			/* 'Seguridad Alkon (guardo el oro tirado si supera los 50k) */
 			if (Cantidad >= Declaraciones.MIN_GOLD_AMOUNT_LOG) {
-				int j;
-				int k;
-				int M;
+				int j = 0;
+				int k = 0;
+				int M = 0;
 				String Cercanos;
 				M = Declaraciones.UserList[UserIndex].Pos.Map;
 				for (j = (Declaraciones.UserList[UserIndex].Pos.X - 10); j <= (Declaraciones.UserList[UserIndex].Pos.X
@@ -251,8 +251,8 @@ public class InvUsuario {
 						+ ". Cercanos: " + Cercanos);
 			}
 			/* '/Seguridad */
-			int Extra;
-			int TeniaOro;
+			int Extra = 0;
+			int TeniaOro = 0;
 			TeniaOro = Declaraciones.UserList[UserIndex].Stats.GLD;
 			/* 'Para evitar explotar demasiado */
 			if (Cantidad > 500000) {
@@ -362,7 +362,7 @@ public class InvUsuario {
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
 		Declaraciones.UserOBJ NullObj;
-		int LoopC;
+		int LoopC = 0;
 
 		/* 'Actualiza un solo slot */
 		if (!UpdateAll) {
@@ -545,7 +545,7 @@ public class InvUsuario {
 
 	static boolean MeterItemEnInventario(int UserIndex,
 			Declaraciones.Obj /* FIXME BYREF!! */ MiObj) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -553,7 +553,7 @@ public class InvUsuario {
 		/* '*************************************************** */
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
-		int Slot;
+		int Slot = 0;
 
 		/* '¿el user ya tiene un objeto del mismo tipo? */
 		Slot = 1;
@@ -628,8 +628,8 @@ public class InvUsuario {
 		if (Declaraciones.MapData[Declaraciones.UserList[UserIndex].Pos.Map][Declaraciones.UserList[UserIndex].Pos.X][Declaraciones.UserList[UserIndex].Pos.Y].ObjInfo.ObjIndex > 0) {
 			/* '¿Esta permitido agarrar este obj? */
 			if (Declaraciones.ObjData[Declaraciones.MapData[Declaraciones.UserList[UserIndex].Pos.Map][Declaraciones.UserList[UserIndex].Pos.X][Declaraciones.UserList[UserIndex].Pos.Y].ObjInfo.ObjIndex].Agarrable != 1) {
-				int X;
-				int Y;
+				int X = 0;
+				int Y = 0;
 
 				X = Declaraciones.UserList[UserIndex].Pos.X;
 				Y = Declaraciones.UserList[UserIndex].Pos.Y;
@@ -859,7 +859,7 @@ public class InvUsuario {
 	}
 
 	static boolean SexoPuedeUsarItem(int UserIndex, int ObjIndex, String sMotivo) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 14/01/2010 (ZaMa) */
@@ -894,7 +894,7 @@ public class InvUsuario {
 	}
 
 	static boolean FaccionPuedeUsarItem(int UserIndex, int ObjIndex, String sMotivo) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 14/01/2010 (ZaMa) */
@@ -945,7 +945,7 @@ public class InvUsuario {
 
 		/* 'Equipa un item del inventario */
 		Declaraciones.ObjData Obj;
-		int ObjIndex;
+		int ObjIndex = 0;
 		String sMotivo;
 
 		ObjIndex = Declaraciones.UserList[UserIndex].Invent.Object[Slot].ObjIndex;
@@ -1268,7 +1268,7 @@ public class InvUsuario {
 	}
 
 	static boolean CheckRazaUsaRopa(int UserIndex, int ItemIndex, String sMotivo) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 14/01/2010 (ZaMa) */
@@ -1342,7 +1342,7 @@ public class InvUsuario {
 		/* '************************************************* */
 
 		Declaraciones.ObjData Obj;
-		int ObjIndex;
+		int ObjIndex = 0;
 		Declaraciones.ObjData TargObj;
 		Declaraciones.Obj MiObj;
 
@@ -2073,7 +2073,7 @@ public class InvUsuario {
 
 		TirarTodosLosItems(UserIndex);
 
-		int Cantidad;
+		int Cantidad = 0;
 		Cantidad = Declaraciones.UserList[UserIndex].Stats.GLD
 				- vb6.CLng(Declaraciones.UserList[UserIndex].Stats.ELV) * 10000;
 
@@ -2088,7 +2088,7 @@ public class InvUsuario {
 	}
 
 	static boolean ItemSeCae(int index) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -2115,11 +2115,11 @@ public class InvUsuario {
 		/* '*************************************************** */
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int i;
+		int i = 0;
 		Declaraciones.WorldPos NuevaPos;
 		Declaraciones.Obj MiObj;
-		int ItemIndex;
-		boolean DropAgua;
+		int ItemIndex = 0;
+		boolean DropAgua = false;
 
 		for (i = (1); i <= (Declaraciones.UserList[UserIndex].CurrentInventorySlots); i++) {
 			ItemIndex = Declaraciones.UserList[UserIndex].Invent.Object[i].ObjIndex;
@@ -2164,7 +2164,7 @@ public class InvUsuario {
 	}
 
 	static boolean ItemNewbie(int ItemIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -2186,10 +2186,10 @@ public class InvUsuario {
  /* '07/11/09: Pato - Fix bug #2819911 */
  /* '23/11/2009: ZaMa - Optimizacion de codigo. */
  /* '*************************************************** */
- int i;
+ int i = 0;
  Declaraciones.WorldPos NuevaPos;
  Declaraciones.Obj MiObj;
- int ItemIndex;
+ int ItemIndex = 0;
  
   if (Declaraciones.MapData[Declaraciones.UserList[UserIndex].Pos.Map][Declaraciones.UserList[UserIndex].Pos.X][Declaraciones.UserList[UserIndex].Pos.Y].trigger == 6) {
   return;
@@ -2222,10 +2222,10 @@ public class InvUsuario {
  /* 'Author: Unknown */
  /* 'Last Modification: 12/01/09 (Budi) */
  /* '*************************************************** */
- int i;
+ int i = 0;
  Declaraciones.WorldPos NuevaPos;
  Declaraciones.Obj MiObj;
- int ItemIndex;
+ int ItemIndex = 0;
  
   if (Declaraciones.MapData[Declaraciones.UserList[UserIndex].Pos.Map][Declaraciones.UserList[UserIndex].Pos.X][Declaraciones.UserList[UserIndex].Pos.Y].trigger == 6) {
   return;
@@ -2269,8 +2269,8 @@ public class InvUsuario {
 	static void moveItem(int UserIndex, int originalSlot, int newSlot) {
 
 		Declaraciones.UserOBJ tmpObj;
-		int newObjIndex;
-		int originalObjIndex;
+		int newObjIndex = 0;
+		int originalObjIndex = 0;
 		if ((originalSlot <= 0) || (newSlot <= 0)) {
 			return;
 		}

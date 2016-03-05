@@ -34,7 +34,7 @@ import enums.*;
 public class Matematicas {
 
 	static int Porcentaje(int Total, int Porc) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -47,7 +47,7 @@ public class Matematicas {
 
 	static int Distancia(Declaraciones.WorldPos /* FIXME BYREF!! */ wp1,
 			Declaraciones.WorldPos /* FIXME BYREF!! */ wp2) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -60,7 +60,7 @@ public class Matematicas {
 	}
 
 	static double Distance(int X1, int Y1, int X2, int Y2) {
- double retval;
+ double retval = 0.0;
  /* '*************************************************** */
  /* 'Author: Unknown */
  /* 'Last Modification: - */
@@ -75,7 +75,7 @@ return retval;
 }
 
 	static int RandomNumber(int LowerBound, int UpperBound) {
-		int retval;
+		int retval = 0;
 		/* '************************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero */
 		/* 'Last Modify Date: 3/06/2006 */

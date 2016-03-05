@@ -34,7 +34,7 @@ import enums.*;
 public class Extra {
 
 	static boolean EsNewbie(int UserIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -46,7 +46,7 @@ public class Extra {
 	}
 
 	static boolean esArmada(int UserIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Autor: Pablo (ToxicWaste) */
 		/* 'Last Modification: 23/01/2007 */
@@ -57,7 +57,7 @@ public class Extra {
 	}
 
 	static boolean esCaos(int UserIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Autor: Pablo (ToxicWaste) */
 		/* 'Last Modification: 23/01/2007 */
@@ -68,7 +68,7 @@ public class Extra {
 	}
 
 	static boolean EsGm(int UserIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Autor: Pablo (ToxicWaste) */
 		/* 'Last Modification: 23/01/2007 */
@@ -97,8 +97,8 @@ public class Extra {
 		/* '*************************************************** */
 
 		Declaraciones.WorldPos nPos;
-		boolean FxFlag;
-		int TelepRadio;
+		boolean FxFlag = false;
+		int TelepRadio = 0;
 		Declaraciones.WorldPos DestPos;
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
@@ -122,8 +122,8 @@ public class Extra {
 				 */
 				/* ' the teleport will act as if its radius = 0. */
 				if (FxFlag && TelepRadio > 0) {
-					int attemps;
-					boolean exitMap;
+					int attemps = 0;
+					boolean exitMap = false;
 					do {
 						DestPos.X = Declaraciones.MapData[Map][X][Y].TileExit.X
 								+ Matematicas.RandomNumber(TelepRadio * (-1), TelepRadio);
@@ -277,7 +277,7 @@ public class Extra {
 				 * 'Te fusite del mapa. La criatura ya no es más tuya ni te
 				 * reconoce como que vos la atacaste.
 				 */
-				int aN;
+				int aN = 0;
 
 				aN = Declaraciones.UserList[UserIndex].flags.AtacadoPorNpc;
 				if (aN > 0) {
@@ -303,7 +303,7 @@ public class Extra {
 	}
 
 	static boolean InRangoVision(int UserIndex, int X, int Y) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -325,7 +325,7 @@ public class Extra {
 
 	static boolean InVisionRangeAndMap(int UserIndex,
 			Declaraciones.WorldPos /* FIXME BYREF!! */ OtherUserPos) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 20/11/2010 */
@@ -355,7 +355,7 @@ public class Extra {
 	}
 
 	static boolean InRangoVisionNPC(int NpcIndex, int X, int Y) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -376,7 +376,7 @@ public class Extra {
 	}
 
 	static boolean InMapBounds(int Map, int X, int Y) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -401,7 +401,7 @@ public class Extra {
 	static boolean RhombLegalPos(Declaraciones.WorldPos /* FIXME BYREF!! */ Pos,
 			int /* FIXME BYREF!! */ vX, int /* FIXME BYREF!! */ vY, int Distance, boolean PuedeAgua,
 			boolean PuedeTierra, boolean CheckExitTile) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Marco Vanotti (Marco) */
 		/* 'Last Modification: - */
@@ -409,7 +409,7 @@ public class Extra {
 		/* ' which starts at Pos.x - Distance and Pos.y */
 		/* '*************************************************** */
 
-		int i;
+		int i = 0;
 
 		vX = Pos.X - Distance;
 		vY = Pos.Y;
@@ -467,7 +467,7 @@ public class Extra {
 	static boolean RhombLegalTilePos(Declaraciones.WorldPos /* FIXME BYREF!! */ Pos,
 			int /* FIXME BYREF!! */ vX, int /* FIXME BYREF!! */ vY, int Distance, int ObjIndex, int ObjAmount,
 			boolean PuedeAgua, boolean PuedeTierra) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: - */
@@ -477,12 +477,12 @@ public class Extra {
 		/* '*************************************************** */
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int i;
-		boolean HayObj;
+		int i = 0;
+		boolean HayObj = false;
 
-		int X;
-		int Y;
-		int MapObjIndex;
+		int X = 0;
+		int Y = 0;
+		int MapObjIndex = 0;
 
 		vX = Pos.X - Distance;
 		vY = Pos.Y;
@@ -586,13 +586,13 @@ public class Extra {
 	}
 
 	static boolean HayObjeto(int mapa, int X, int Y, int ObjIndex, int ObjAmount) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: - */
 		/* 'Checks if there's space in a tile to add an itemAmount */
 		/* '*************************************************** */
-		int MapObjIndex;
+		int MapObjIndex = 0;
 		MapObjIndex = Declaraciones.MapData[mapa][X][Y].ObjInfo.ObjIndex;
 
 		/* ' Hay un objeto tirado? */
@@ -628,10 +628,10 @@ public class Extra {
 		/* 'Encuentra la posicion legal mas cercana y la guarda en nPos */
 		/* '***************************************************************** */
 
-		boolean Found;
-		int LoopC;
-		int tX;
-		int tY;
+		boolean Found = false;
+		int LoopC = 0;
+		int tX = 0;
+		int tY = 0;
 
 		nPos = Pos;
 		tX = Pos.X;
@@ -676,14 +676,14 @@ public class Extra {
 }
 
 	static int NameIndex(String Name) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
 		/* ' */
 		/* '*************************************************** */
 
-		int UserIndex;
+		int UserIndex = 0;
 
 		/* '¿Nombre valido? */
 		if (vb6.LenB(Name) == 0) {
@@ -711,14 +711,14 @@ public class Extra {
 	}
 
 	static boolean CheckForSameIP(int UserIndex, String UserIP) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
 		/* ' */
 		/* '*************************************************** */
 
-		int LoopC;
+		int LoopC = 0;
 
 		for (LoopC = (1); LoopC <= (Declaraciones.MaxUsers); LoopC++) {
 			if (Declaraciones.UserList[LoopC].flags.UserLogged == true) {
@@ -734,7 +734,7 @@ public class Extra {
 	}
 
 	static boolean CheckForSameName(String Name) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -742,7 +742,7 @@ public class Extra {
 		/* '*************************************************** */
 
 		/* 'Controlo que no existan usuarios con el mismo nombre */
-		int LoopC;
+		int LoopC = 0;
 
 		for (LoopC = (1); LoopC <= (Declaraciones.LastUser); LoopC++) {
 			if (Declaraciones.UserList[LoopC].flags.UserLogged) {
@@ -814,7 +814,7 @@ public class Extra {
 	}
 
 	static boolean LegalPos(int Map, int X, int Y, boolean PuedeAgua, boolean PuedeTierra, boolean CheckExitTile) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Autor: Pablo (ToxicWaste) & Unknown (orginal version) */
 		/* 'Last Modification: 23/01/2007 */
@@ -856,7 +856,7 @@ public class Extra {
 	}
 
 	static boolean MoveToLegalPos(int Map, int X, int Y, boolean PuedeAgua, boolean PuedeTierra) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Autor: ZaMa */
 		/* 'Last Modification: 13/07/2009 */
@@ -870,9 +870,9 @@ public class Extra {
 		 */
 		/* '*************************************************** */
 
-		int UserIndex;
-		boolean IsDeadChar;
-		boolean IsAdminInvisible;
+		int UserIndex = 0;
+		boolean IsDeadChar = false;
+		boolean IsAdminInvisible = false;
 
 		/* '¿Es un mapa valido? */
 		if ((Map <= 0 || Map > Declaraciones.NumMaps) || (X < Declaraciones.MinXBorder || X > Declaraciones.MaxXBorder
@@ -924,11 +924,11 @@ public class Extra {
 				return;
 			}
 
-			boolean FoundPlace;
-			int tX;
-			int tY;
-			int Rango;
-			int OtherUserIndex;
+			boolean FoundPlace = false;
+			int tX = 0;
+			int tY = 0;
+			int Rango = 0;
+			int OtherUserIndex = 0;
 
 			for (Rango = (1); Rango <= (5); Rango++) {
 				for (tY = (Y - Rango); tY <= (Y + Rango); tY++) {
@@ -1006,7 +1006,7 @@ public class Extra {
 	}
 
 	static boolean LegalPosNPC(int Map, int X, int Y, int AguaValida, boolean IsPet) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Autor: Unkwnown */
 		/* 'Last Modification: 09/23/2009 */
@@ -1016,9 +1016,9 @@ public class Extra {
 		 * pos.
 		 */
 		/* '*************************************************** */
-		boolean IsDeadChar;
-		int UserIndex;
-		boolean IsAdminInvisible;
+		boolean IsDeadChar = false;
+		int UserIndex = 0;
+		boolean IsAdminInvisible = false;
 
 		if ((Map <= 0 || Map > Declaraciones.NumMaps) || (X < Declaraciones.MinXBorder || X > Declaraciones.MaxXBorder
 				|| Y < Declaraciones.MinYBorder || Y > Declaraciones.MaxYBorder)) {
@@ -1057,8 +1057,8 @@ public class Extra {
 		/* ' */
 		/* '*************************************************** */
 
-		int NumHelpLines;
-		int LoopC;
+		int NumHelpLines = 0;
+		int LoopC = 0;
 
 		NumHelpLines = vb6.val(ES.GetVar(Declaraciones.DatPath + "Help.dat", "INIT", "NumLines"));
 
@@ -1102,9 +1102,9 @@ public class Extra {
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
 		/* 'Responde al click del usuario sobre el mapa */
-		int FoundChar;
-		int FoundSomething;
-		int TempCharIndex;
+		int FoundChar = 0;
+		int FoundSomething = 0;
+		int TempCharIndex = 0;
 		String Stat;
 		FontTypeNames ft;
 
@@ -1279,9 +1279,9 @@ public class Extra {
 			/* '¿Encontro un NPC? */
 			if (FoundChar == 2) {
 				String estatus;
-				int MinHp;
-				int MaxHp;
-				int SupervivenciaSkill;
+				int MinHp = 0;
+				int MaxHp = 0;
+				int SupervivenciaSkill = 0;
 				String sDesc;
 
 				MinHp = Declaraciones.Npclist[TempCharIndex].Stats.MinHp;
@@ -1416,7 +1416,7 @@ public class Extra {
 							0x00ffffff);
 				} else {
 
-					int CentinelaIndex;
+					int CentinelaIndex = 0;
 					CentinelaIndex = modCentinela.EsCentinela(TempCharIndex);
 
 					if (CentinelaIndex != 0) {
@@ -1507,8 +1507,8 @@ public class Extra {
 		/* 'desde pos, 0 si la direc es igual */
 		/* '***************************************************************** */
 
-		int X;
-		int Y;
+		int X = 0;
+		int Y = 0;
 
 		X = Pos.X - Target.X;
 		Y = Pos.Y - Target.Y;
@@ -1571,7 +1571,7 @@ public class Extra {
 	}
 
 	static boolean ItemNoEsDeMapa(int index, boolean bIsExit) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1589,7 +1589,7 @@ public class Extra {
 	}
 
 	static boolean MostrarCantidad(int index) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1607,7 +1607,7 @@ public class Extra {
 	}
 
 	static boolean EsObjetoFijo(eOBJType OBJType) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1620,7 +1620,7 @@ public class Extra {
 	}
 
 	static int RestrictStringToByte(String /* FIXME BYREF!! */ restrict) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Torres Patricio (Pato) */
 		/* 'Last Modification: 04/18/2011 */
@@ -1692,7 +1692,7 @@ public class Extra {
 	}
 
 	static int TerrainStringToByte(String /* FIXME BYREF!! */ restrict) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Torres Patricio (Pato) */
 		/* 'Last Modification: 04/18/2011 */

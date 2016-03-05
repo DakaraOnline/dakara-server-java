@@ -40,8 +40,8 @@ public class ES {
 		/* ' */
 		/* '*************************************************** */
 
-		int N;
-		int LoopC;
+		int N = 0;
+		int LoopC = 0;
 		N = vb6.val(GetVar(vb6.App.Instance().Path + "\\Dat\\Invokar.dat", "INIT", "NumNPCs"));
 		Declaraciones.SpawnList = new tCriaturasEntrenador[0];
 		Declaraciones.SpawnList = (Declaraciones.SpawnList == null) ? new tCriaturasEntrenador[N]
@@ -56,7 +56,7 @@ public class ES {
 	}
 
 	static boolean EsAdmin(String /* FIXME BYREF!! */ Name) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 27/03/2011 */
@@ -67,7 +67,7 @@ public class ES {
 	}
 
 	static boolean EsDios(String /* FIXME BYREF!! */ Name) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 27/03/2011 */
@@ -78,7 +78,7 @@ public class ES {
 	}
 
 	static boolean EsSemiDios(String /* FIXME BYREF!! */ Name) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 27/03/2011 */
@@ -89,7 +89,7 @@ public class ES {
 	}
 
 	static boolean EsGmEspecial(String /* FIXME BYREF!! */ Name) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 27/03/2011 */
@@ -100,7 +100,7 @@ public class ES {
 	}
 
 	static boolean EsConsejero(String /* FIXME BYREF!! */ Name) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 27/03/2011 */
@@ -111,7 +111,7 @@ public class ES {
 	}
 
 	static boolean EsRolesMaster(String /* FIXME BYREF!! */ Name) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 27/03/2011 */
@@ -122,14 +122,14 @@ public class ES {
 	}
 
 	static boolean EsGmChar(String /* FIXME BYREF!! */ Name) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 27/03/2011 */
 		/* 'Returns true if char is administrative user. */
 		/* '*************************************************** */
 
-		boolean EsGm;
+		boolean EsGm = false;
 
 		/* ' Admin? */
 		EsGm = EsAdmin(Name);
@@ -162,8 +162,8 @@ public class ES {
 		/*
 		 * 'Si esta mierda tuviese array asociativos el código sería tan lindo.
 		 */
-		int buf;
-		int i;
+		int buf = 0;
+		int i = 0;
 		String Name;
 
 		/* ' Public container */
@@ -300,16 +300,16 @@ public class ES {
 	}
 
 	static int TxtDimension(String Name) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
 		/* ' */
 		/* '*************************************************** */
 
-		int N;
+		int N = 0;
 		String cad;
-		int Tam;
+		int Tam = 0;
 		N = vb6.FreeFile(1);
 		/* FIXME: OPEN Name FOR INPUT AS # N */
 		Tam = 0;
@@ -334,8 +334,8 @@ public class ES {
 				? new None[1 + TxtDimension(Declaraciones.DatPath + "NombresInvalidos.txt")]
 				: java.util.Arrays.copyOf(Declaraciones.ForbidenNames,
 						1 + TxtDimension(Declaraciones.DatPath + "NombresInvalidos.txt"));
-		int N;
-		int i;
+		int N = 0;
+		int i = 0;
 		N = vb6.FreeFile(1);
 		/* FIXME: OPEN DatPath & "NombresInvalidos.txt" FOR INPUT AS # N */
 
@@ -374,7 +374,7 @@ public class ES {
 			frmMain.txStatus.Caption = "Cargando Hechizos.";
 		}
 
-		int Hechizo;
+		int Hechizo = 0;
 		clsIniManager Leer;
 		Leer = new clsIniManager();
 
@@ -510,7 +510,7 @@ public class ES {
 		/* ' */
 		/* '*************************************************** */
 
-		int i;
+		int i = 0;
 
 		Admin.MaxLines = vb6.val(GetVar(vb6.App.Instance().Path + "\\Dat\\Motd.ini", "INIT", "NumLines"));
 
@@ -559,7 +559,7 @@ public class ES {
  
  /* 'Log */
  /* FIXME: ON ERROR RESUME NEXT */
- int nfile;
+ int nfile = 0;
  /* ' obtenemos un canal */
  nfile = vb6.FreeFile();
  /* FIXME: OPEN App . Path & "\\logs\\BackUps.log" FOR Append Shared AS # nfile */
@@ -583,16 +583,16 @@ public class ES {
 		/* '*************************************************** */
 
 		/* FIXME: ON ERROR RESUME NEXT */
-		int FreeFileMap;
-		int FreeFileInf;
-		int Y;
-		int X;
-		int ByFlags;
-		int LoopC;
+		int FreeFileMap = 0;
+		int FreeFileInf = 0;
+		int Y = 0;
+		int X = 0;
+		int ByFlags = 0;
+		int LoopC = 0;
 		clsByteBuffer MapWriter;
 		clsByteBuffer InfWriter;
 		clsIniManager IniManager;
-		boolean NpcInvalido;
+		boolean NpcInvalido = false;
 
 		MapWriter = new clsByteBuffer();
 		InfWriter = new clsByteBuffer();
@@ -771,8 +771,8 @@ public class ES {
 		/* ' */
 		/* '*************************************************** */
 
-		int N;
-		int lc;
+		int N = 0;
+		int lc = 0;
 
 		N = vb6.val(GetVar(Declaraciones.DatPath + "ArmasHerrero.dat", "INIT", "NumArmas"));
 
@@ -793,8 +793,8 @@ public class ES {
 		/* ' */
 		/* '*************************************************** */
 
-		int N;
-		int lc;
+		int N = 0;
+		int lc = 0;
 
 		N = vb6.val(GetVar(Declaraciones.DatPath + "ArmadurasHerrero.dat", "INIT", "NumArmaduras"));
 
@@ -815,7 +815,7 @@ public class ES {
 		/* '15/04/2010: ZaMa - Agrego recompensas faccionarias. */
 		/* '*************************************************** */
 
-		int i;
+		int i = 0;
 
 		/* 'Modificadores de Clase */
 		for (i = (1); i <= (Declaraciones.NUMCLASES); i++) {
@@ -890,8 +890,8 @@ public class ES {
 		/* ' */
 		/* '*************************************************** */
 
-		int N;
-		int lc;
+		int N = 0;
+		int lc = 0;
 
 		N = vb6.val(GetVar(Declaraciones.DatPath + "ObjCarpintero.dat", "INIT", "NumObjs"));
 
@@ -937,7 +937,7 @@ public class ES {
 		/* '***************************************************************** */
 		/* 'Carga la lista de objetos */
 		/* '***************************************************************** */
-		int Object;
+		int Object = 0;
 		clsIniManager Leer;
 		Leer = new clsIniManager();
 
@@ -1158,8 +1158,8 @@ public class ES {
 			 * 'CHECK: !!! Esto es provisorio hasta que los de Dateo cambien los
 			 * valores de string a numerico
 			 */
-			int i;
-			int N;
+			int i = 0;
+			int N = 0;
 			String S;
 			for (i = (1); i <= (Declaraciones.NUMCLASES); i++) {
 				S = vb6.UCase(Leer.GetValue("OBJ" + Object, "CP" + i));
@@ -1222,7 +1222,7 @@ public class ES {
 		/* 'Last modified: 11/19/2009 */
 		/* '11/19/2009: Pato - Load the EluSkills and ExpSkills */
 		/* '************************************************* */
-		int LoopC;
+		int LoopC = 0;
 
 		for (LoopC = (1); LoopC <= (Declaraciones.NUMATRIBUTOS); LoopC++) {
 			Declaraciones.UserList[UserIndex].Stats.UserAtributos[LoopC] = vb6
@@ -1317,7 +1317,7 @@ public class ES {
 		 * porque era redundante.
 		 */
 		/* '************************************************* */
-		int LoopC;
+		int LoopC = 0;
 		String ln;
 
 		Declaraciones.UserList[UserIndex].Faccion.ArmadaReal = vb6
@@ -1558,7 +1558,7 @@ public class ES {
 			frmMain.txStatus.Caption = "Cargando backup.";
 		}
 
-		int Map;
+		int Map = 0;
 		String tFileName;
 
 		/* FIXME: ON ERROR GOTO man */
@@ -1622,7 +1622,7 @@ public class ES {
 			frmMain.txStatus.Caption = "Cargando mapas...";
 		}
 
-		int Map;
+		int Map = 0;
 		String tFileName;
 
 		/* FIXME: ON ERROR GOTO man */
@@ -1673,10 +1673,10 @@ public class ES {
 		/* '*************************************************** */
 
 		/* FIXME: ON ERROR GOTO errh */
-		int hFile;
-		int X;
-		int Y;
-		int ByFlags;
+		int hFile = 0;
+		int X = 0;
+		int Y = 0;
+		int ByFlags = 0;
 		String npcfile;
 		clsIniManager Leer;
 		clsByteBuffer MapReader;
@@ -1863,7 +1863,7 @@ public class ES {
 		/* ' */
 		/* '*************************************************** */
 
-		int Temporal;
+		int Temporal = 0;
 
 		if (frmMain.Visible) {
 			frmMain.txStatus.Caption = "Cargando info de inicio del server.";
@@ -1893,7 +1893,7 @@ public class ES {
 		Declaraciones.ServerSoloGMs = vb6.val(GetVar(Declaraciones.IniPath + "Server.ini", "init", "ServerSoloGMs"));
 
 		/* ' HappyHour */
-		int lDay;
+		int lDay = 0;
 		for (lDay = (1); lDay <= (7); lDay++) {
 			Declaraciones.HappyHourDays[lDay] = vb6
 					.val(GetVar(Declaraciones.IniPath + "Server.ini", "HappyHour", "Day" + lDay));
@@ -2174,7 +2174,7 @@ public class ES {
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
 		clsIniManager Manager;
-		boolean Existe;
+		boolean Existe = false;
 
 		/*
 		 * 'ESTO TIENE QUE EVITAR ESE BUGAZO QUE NO SE POR QUE GRABA USUARIOS
@@ -2212,7 +2212,7 @@ public class ES {
 			Declaraciones.UserList[UserIndex].flags.Ignorado = false;
 		}
 
-		int LoopC;
+		int LoopC = 0;
 
 		Manager.ChangeValue("FLAGS", "Muerto", vb6.CStr(Declaraciones.UserList[UserIndex].flags.Muerto));
 		Manager.ChangeValue("FLAGS", "Escondido", vb6.CStr(Declaraciones.UserList[UserIndex].flags.Escondido));
@@ -2333,7 +2333,7 @@ public class ES {
 			/* 'Is it a different ip from last time? */
 		} else if (Declaraciones.UserList[UserIndex].ip != vb6.Left(Manager.GetValue("INIT", "LastIP1"),
 				vb6.InStr(1, Manager.GetValue("INIT", "LastIP1"), " ") - 1)) {
-			int i;
+			int i = 0;
 			/* FIXME WEIRD FOR */
 			for (i = (5); ((-1) > 0) ? (i <= (2)) : (i >= (2)); i = i + (-1)) {
 				Manager.ChangeValue("INIT", "LastIP" + i, Manager.GetValue("INIT", "LastIP" + vb6.CStr(i - 1)));
@@ -2394,7 +2394,7 @@ public class ES {
 		 */
 		Manager.ChangeValue("BancoInventory", "CantidadItems",
 				vb6.val(Declaraciones.UserList[UserIndex].BancoInvent.NroItems));
-		int loopd;
+		int loopd = 0;
 		for (loopd = (1); loopd <= (Declaraciones.MAX_BANCOINVENTORY_SLOTS); loopd++) {
 			Manager.ChangeValue("BancoInventory", "Obj" + loopd,
 					Declaraciones.UserList[UserIndex].BancoInvent.Object[loopd].ObjIndex + "-"
@@ -2442,7 +2442,7 @@ public class ES {
 		Manager.ChangeValue("REP", "Nobles", vb6.CStr(Declaraciones.UserList[UserIndex].Reputacion.NobleRep));
 		Manager.ChangeValue("REP", "Plebe", vb6.CStr(Declaraciones.UserList[UserIndex].Reputacion.PlebeRep));
 
-		int L;
+		int L = 0;
 		L = (-Declaraciones.UserList[UserIndex].Reputacion.AsesinoRep)
 				+ (-Declaraciones.UserList[UserIndex].Reputacion.BandidoRep)
 				+ Declaraciones.UserList[UserIndex].Reputacion.BurguesRep
@@ -2459,7 +2459,7 @@ public class ES {
 			Manager.ChangeValue("HECHIZOS", "H" + LoopC, cad);
 		}
 
-		int NroMascotas;
+		int NroMascotas = 0;
 		NroMascotas = Declaraciones.UserList[UserIndex].NroMascotas;
 
 		for (LoopC = (1); LoopC <= (Declaraciones.MAXMASCOTAS); LoopC++) {
@@ -2505,14 +2505,14 @@ public class ES {
 	}
 
 	static boolean criminal(int UserIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
 		/* ' */
 		/* '*************************************************** */
 
-		int L;
+		int L = 0;
 
 		L = (-Declaraciones.UserList[UserIndex].Reputacion.AsesinoRep)
 				+ (-Declaraciones.UserList[UserIndex].Reputacion.BandidoRep)
@@ -2533,7 +2533,7 @@ public class ES {
 		/* '10/09/2010 - Pato: Optimice el BackUp de NPCs */
 		/* '*************************************************** */
 
-		int LoopC;
+		int LoopC = 0;
 
 		/*
 		 * FIXME: PRINT # hFile , "[NPC" & Npclist ( NpcIndex ) . Numero & "]"
@@ -2632,7 +2632,7 @@ public class ES {
 		Declaraciones.Npclist[NpcIndex].Stats.def = vb6.val(GetVar(npcfile, "NPC" + NpcNumber, "DEF"));
 		Declaraciones.Npclist[NpcIndex].Stats.Alineacion = vb6.val(GetVar(npcfile, "NPC" + NpcNumber, "Alineacion"));
 
-		int LoopC;
+		int LoopC = 0;
 		String ln;
 		Declaraciones.Npclist[NpcIndex].Invent.NroItems = vb6.val(GetVar(npcfile, "NPC" + NpcNumber, "NROITEMS"));
 		if (Declaraciones.Npclist[NpcIndex].Invent.NroItems > 0) {
@@ -2682,7 +2682,7 @@ public class ES {
 		 * 'Log interno del servidor, lo usa para hacer un UNBAN general de toda
 		 * la gente banned
 		 */
-		int mifile;
+		int mifile = 0;
 		mifile = vb6.FreeFile();
 		/*
 		 * FIXME: OPEN App . Path & "\\logs\\GenteBanned.log" FOR Append Shared
@@ -2708,7 +2708,7 @@ public class ES {
 		 * 'Log interno del servidor, lo usa para hacer un UNBAN general de toda
 		 * la gente banned
 		 */
-		int mifile;
+		int mifile = 0;
 		mifile = vb6.FreeFile();
 		/*
 		 * FIXME: OPEN App . Path & "\\logs\\GenteBanned.log" FOR Append Shared
@@ -2733,7 +2733,7 @@ public class ES {
 		 * 'Log interno del servidor, lo usa para hacer un UNBAN general de toda
 		 * la gente banned
 		 */
-		int mifile;
+		int mifile = 0;
 		mifile = vb6.FreeFile();
 		/*
 		 * FIXME: OPEN App . Path & "\\logs\\GenteBanned.log" FOR Append Shared
@@ -2764,8 +2764,8 @@ public class ES {
 		/* ' */
 		/* '*************************************************** */
 
-		int i;
-		int j;
+		int i = 0;
+		int j = 0;
 
 		Declaraciones.distanceToCities = new HomeDistance[0];
 		Declaraciones.distanceToCities = (Declaraciones.distanceToCities == null)
@@ -2813,8 +2813,8 @@ public class ES {
 		/* ' */
 		/* '*************************************************** */
 
-		int i;
-		int lim;
+		int i = 0;
+		int lim = 0;
 
 		if (mapa <= 0 || mapa > Declaraciones.NumMaps) {
 			return;
@@ -2855,15 +2855,15 @@ public class ES {
 	}
 
 	static int getLimit(int mapa, int side) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Budi */
 		/* 'Last Modification: 31/01/2010 */
 		/* 'Retrieves the limit in the given side in the given map. */
 		/* 'TODO: This should be set in the .inf map file. */
 		/* '*************************************************** */
-		int X;
-		int Y;
+		int X = 0;
+		int Y = 0;
 
 		if (mapa <= 0) {
 			return retval;
@@ -2902,9 +2902,9 @@ public class ES {
 		/* 'Last Modification: 15/04/2010 */
 		/* ' */
 		/* '*************************************************** */
-		int ClassIndex;
+		int ClassIndex = 0;
 
-		int ArmaduraIndex;
+		int ArmaduraIndex = 0;
 
 		for (ClassIndex = (1); ClassIndex <= (Declaraciones.NUMCLASES); ClassIndex++) {
 

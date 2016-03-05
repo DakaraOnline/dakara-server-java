@@ -39,9 +39,9 @@ public class clsEstadisticasIPC {
 	/* '************************************************* */
 
 	int BuscaVentana(int Wnd, String str) {
-		int retval;
-		int W;
-		int L;
+		int retval = 0;
+		int W = 0;
+		int L = 0;
 		String T;
 
 		W = GetWindow(Wnd, GW_HWNDFIRST);
@@ -68,7 +68,7 @@ public class clsEstadisticasIPC {
 	}
 
 	int Informar(EstaNotificaciones QueCosa, int Parametro) {
-		int retval;
+		int retval = 0;
 		BuscaWndEstadisticas();
 		if (hVentana != 0) {
 			retval = SendMessageLong(hVentana, sMensaje, QueCosa, Parametro);
@@ -78,7 +78,7 @@ public class clsEstadisticasIPC {
 	}
 
 	boolean EstadisticasAndando() {
-		boolean retval;
+		boolean retval = false;
 
 		BuscaWndEstadisticas();
 		/* 'Ret = SendNotifyMessage(hVentana, sMensaje, 0, 0) */

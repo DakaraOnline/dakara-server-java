@@ -24,4 +24,8 @@ public enum p_eSoundFlags {
 		}
 		return 0;
 	}
+
+	public int toInteger() {
+		return toInteger(this);
+	}
 }

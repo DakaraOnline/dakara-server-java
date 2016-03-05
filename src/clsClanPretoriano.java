@@ -75,22 +75,22 @@ public class clsClanPretoriano {
 	private int ClanMembersAlive;
 
 	static public class tPretorianData {
-		int NpcIndex;
-		ePretorianAI NPCAI;
+		public int NpcIndex;
+		public ePretorianAI NPCAI;
 	}
 
 	/* ' Indice del clan pretoriano */
 	private int ClanIndex;
 
 	/* ' Contiene los index de los miembros del clan. */
-	private tPretorianData[] Pretorianos = new tPretorianData[0]; /* XXX */
+	private tPretorianData[] Pretorianos = new tPretorianData[0];
 
 	boolean SpawnClan(int mapa, int X, int Y, int PretoClanIndex) {
 		return SpawnClan(mapa, X, Y, PretoClanIndex, false);
 	}
 
 	boolean SpawnClan(int mapa, int X, int Y, int PretoClanIndex, boolean Respawning) {
-		boolean retval;
+		boolean retval = false;
 		/* '******************************************************** */
 		/* 'Author: EL OSO */
 		/* 'Inicializa el clan Pretoriano. */
@@ -104,7 +104,7 @@ public class clsClanPretoriano {
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
 		Declaraciones.WorldPos nPos;
-		int PretoIndex;
+		int PretoIndex = 0;
 
 		/* ' Initial pos */
 		CenterPos.Map = mapa;
@@ -198,7 +198,7 @@ public class clsClanPretoriano {
 	}
 
 	boolean IsValidSpawnArea() {
-		boolean retval;
+		boolean retval = false;
 		/* '******************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Checks if it's a clean area to respawn the clan. */
@@ -208,8 +208,8 @@ public class clsClanPretoriano {
 		/* 'Last Modify Date: 21/09/2010 */
 		/* '******************************************************** */
 
-		int loopX;
-		int LoopY;
+		int loopX = 0;
+		int LoopY = 0;
 
 		for (loopX = (CenterPos.X - 6); loopX <= (CenterPos.X + 6); loopX++) {
 			for (LoopY = (CenterPos.Y - 6); LoopY <= (CenterPos.Y + 6); LoopY++) {
@@ -260,10 +260,10 @@ public class clsClanPretoriano {
 		/* '******************************************************** */
 
 		Declaraciones.WorldPos FinalPos;
-		int NpcIndex;
-		int Head;
+		int NpcIndex = 0;
+		int Head = 0;
 
-		int PretoDatNumber;
+		int PretoDatNumber = 0;
 		PretoDatNumber = Matematicas.RandomNumber(PraetoriansCoopNPC.PretorianAIOffset[PretorianAI],
 				PraetoriansCoopNPC.PretorianAIOffset[PretorianAI + 1] - 1);
 
@@ -278,7 +278,7 @@ public class clsClanPretoriano {
 		if (IsKing) {
 
 			/* ' Check if there's any npc in the king's position */
-			int OtherNpcIndex;
+			int OtherNpcIndex = 0;
 			OtherNpcIndex = Declaraciones.MapData[SpawnPos.Map][SpawnPos.X][SpawnPos.Y].NpcIndex;
 
 			/* ' Found one */
@@ -324,7 +324,7 @@ public class clsClanPretoriano {
 	}
 
 	int RandomTallHead() {
-		int retval;
+		int retval = 0;
 		/* '******************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Gets a random tall race's Head. */
@@ -332,7 +332,7 @@ public class clsClanPretoriano {
 		/* '******************************************************** */
 
 		/* ' 3 tall races */
-		int raza;
+		int raza = 0;
 		raza = Matematicas.RandomNumber(1, 3);
 
 		/* ' Male */
@@ -375,7 +375,7 @@ public class clsClanPretoriano {
 	}
 
 	int RandomShortHead() {
-		int retval;
+		int retval = 0;
 		/* '******************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Gets a random short race's Head. */
@@ -383,7 +383,7 @@ public class clsClanPretoriano {
 		/* '******************************************************** */
 
 		/* ' 2 short races */
-		int raza;
+		int raza = 0;
 		raza = Matematicas.RandomNumber(1, 2);
 
 		/* ' Male */
@@ -424,7 +424,7 @@ public class clsClanPretoriano {
 		/* 'Last Modify Date: 21/09/2010 */
 		/* '******************************************************** */
 
-		int PretorianAI;
+		int PretorianAI = 0;
 		PretorianAI = GetPretorianAI(NpcIndex);
 
 		switch (PretorianAI) {
@@ -463,14 +463,14 @@ public class clsClanPretoriano {
 	}
 
 	int GetPretorianAI(int NpcIndex) {
-		int retval;
+		int retval = 0;
 		/* '******************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Returns the Pretorian's AI for the given Npc. */
 		/* 'Last Modify Date: 21/09/2010 */
 		/* '******************************************************** */
 
-		int Counter;
+		int Counter = 0;
 
 		for (Counter = (1); Counter <= (NRO_PRETORIANOS); Counter++) {
 			if (Pretorianos[Counter].NpcIndex == NpcIndex) {
@@ -489,8 +489,8 @@ public class clsClanPretoriano {
 		/* '*************************************************** */
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int BestTarget;
-		int Action;
+		int BestTarget = 0;
+		int Action = 0;
 
 		BestTarget = KingBestTarget(NpcIndex, Action);
 
@@ -503,7 +503,7 @@ public class clsClanPretoriano {
 	}
 
 	int KingBestTarget(int NpcIndex, int /* FIXME BYREF!! */ Accion) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 05/07/2010 */
@@ -518,7 +518,7 @@ public class clsClanPretoriano {
 		/* '*************************************************** */
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int BestTarget;
+		int BestTarget = 0;
 
 		/* ' There should be more than one in order to support */
 		if (ClanMembersAlive != 1) {
@@ -558,23 +558,23 @@ public class clsClanPretoriano {
 			/* ' King's alone */
 		} else {
 
-			int mapa;
-			int NPCPosX;
-			int NPCPosY;
+			int mapa = 0;
+			int NPCPosX = 0;
+			int NPCPosY = 0;
 
-			int UserIndex;
-			int Counter;
+			int UserIndex = 0;
+			int Counter = 0;
 
-			int BestTargetDistance;
-			int Distance;
+			int BestTargetDistance = 0;
+			int Distance = 0;
 
 			mapa = Declaraciones.Npclist[NpcIndex].Pos.Map;
 			NPCPosX = Declaraciones.Npclist[NpcIndex].Pos.X;
 			NPCPosY = Declaraciones.Npclist[NpcIndex].Pos.Y;
 
-			int CounterStart;
-			int CounterEnd;
-			int CounterStep;
+			int CounterStart = 0;
+			int CounterEnd = 0;
+			int CounterStep = 0;
 
 			/* ' To avoid that all attack the same target */
 			CounterStep = Matematicas.RandomNumber(0, 1);
@@ -654,7 +654,7 @@ public class clsClanPretoriano {
 		/* '*************************************************** */
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int IdleTime;
+		int IdleTime = 0;
 
 		switch (Accion) {
 
@@ -743,10 +743,10 @@ public class clsClanPretoriano {
 		/* '*************************************************** */
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int headingloop;
+		int headingloop = 0;
 		Declaraciones.WorldPos nPos;
 
-		int UserIndex;
+		int UserIndex = 0;
 
 		/* ' Check the four directions */
 		for (headingloop = (eHeading.NORTH); headingloop <= (eHeading.WEST); headingloop++) {
@@ -789,7 +789,7 @@ public class clsClanPretoriano {
 		/* 'King tries to revive an ally. */
 		/* '*************************************************** */
 
-		int AllyIndex;
+		int AllyIndex = 0;
 		Declaraciones.WorldPos nPos;
 
 		/* ' Has to be in the center to revive */
@@ -820,8 +820,8 @@ public class clsClanPretoriano {
 		/* '*************************************************** */
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int BestTarget;
-		int Accion;
+		int BestTarget = 0;
+		int Accion = 0;
 
 		/* ' Chooses target only if can attack */
 		if (Declaraciones.Npclist[NpcIndex].CanAttack == 1) {
@@ -864,7 +864,7 @@ public class clsClanPretoriano {
 
 		}
 
-		boolean CanMove;
+		boolean CanMove = false;
 
 		/* ' Performes the best action acording to the chosen target */
 		HealerPerformAction(NpcIndex, BestTarget, Accion, CanMove);
@@ -881,7 +881,7 @@ public class clsClanPretoriano {
 	}
 
 	int HealerBestTarget(int NpcIndex, int /* FIXME BYREF!! */ Accion) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 09/07/2010 */
@@ -893,23 +893,23 @@ public class clsClanPretoriano {
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int UserIndex;
-		int Counter;
+		int UserIndex = 0;
+		int Counter = 0;
 
-		int PetIndex;
+		int PetIndex = 0;
 
-		int BestTarget;
-		boolean BestTargetInvisible;
+		int BestTarget = 0;
+		boolean BestTargetInvisible = false;
 
-		int NpcX;
-		int NpcY;
+		int NpcX = 0;
+		int NpcY = 0;
 
 		NpcX = Declaraciones.Npclist[NpcIndex].Pos.X;
 		NpcY = Declaraciones.Npclist[NpcIndex].Pos.Y;
 
-		int CounterStart;
-		int CounterEnd;
-		int CounterStep;
+		int CounterStart = 0;
+		int CounterEnd = 0;
+		int CounterStep = 0;
 
 		/* ' To avoid that all attack the same target */
 		CounterStep = Matematicas.RandomNumber(0, 1);
@@ -1086,8 +1086,8 @@ public class clsClanPretoriano {
 		/* '*************************************************** */
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int BestTarget;
-		int Accion;
+		int BestTarget = 0;
+		int Accion = 0;
 
 		/* ' It sacrifices itself giving a fatal blow if close to death */
 		if (SpellCasterSacrifice(NpcIndex)) {
@@ -1112,7 +1112,7 @@ public class clsClanPretoriano {
 	}
 
 	boolean SpellCasterSacrifice(int NpcIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 05/07/2010 */
@@ -1160,7 +1160,7 @@ public class clsClanPretoriano {
 	}
 
 	int SpellCasterBestTarget(int NpcIndex, int /* FIXME BYREF!! */ Accion) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 05/07/2010 */
@@ -1171,20 +1171,20 @@ public class clsClanPretoriano {
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int UserIndex;
-		int Counter;
+		int UserIndex = 0;
+		int Counter = 0;
 
-		int BestTarget;
-		int NpcX;
-		int NpcY;
-		boolean BestTargetInvisible;
+		int BestTarget = 0;
+		int NpcX = 0;
+		int NpcY = 0;
+		boolean BestTargetInvisible = false;
 
 		NpcX = Declaraciones.Npclist[NpcIndex].Pos.X;
 		NpcY = Declaraciones.Npclist[NpcIndex].Pos.Y;
 
-		int CounterStart;
-		int CounterEnd;
-		int CounterStep;
+		int CounterStart = 0;
+		int CounterEnd = 0;
+		int CounterStep = 0;
 
 		/* ' To avoid that all attack the same target */
 		CounterStep = Matematicas.RandomNumber(0, 1);
@@ -1397,14 +1397,14 @@ public class clsClanPretoriano {
  /* '*************************************************** */
  /* FIXME: ON ERROR GOTO ErrHandler */
  
- int UserIndex;
- int Counter;
+ int UserIndex = 0;
+ int Counter = 0;
  
- int Distancia;
- int Danio;
+ int Distancia = 0;
+ int Danio = 0;
  
- int X;
- int Y;
+ int X = 0;
+ int Y = 0;
  
   X = Declaraciones.Npclist[NpcIndex].Pos.X;
   Y = Declaraciones.Npclist[NpcIndex].Pos.Y;
@@ -1459,14 +1459,14 @@ public class clsClanPretoriano {
  /* '*************************************************** */
  /* FIXME: ON ERROR GOTO ErrHandler */
  
- int PetIndex;
- int PetCounter;
+ int PetIndex = 0;
+ int PetCounter = 0;
  
- int Distancia;
- int Danio;
+ int Distancia = 0;
+ int Danio = 0;
  
- int NpcX;
- int NpcY;
+ int NpcX = 0;
+ int NpcY = 0;
  
  NpcX = Declaraciones.Npclist[NpcIndex].Pos.X;
  NpcY = Declaraciones.Npclist[NpcIndex].Pos.Y;
@@ -1506,7 +1506,7 @@ public class clsClanPretoriano {
 		/* '*************************************************** */
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int BestTarget;
+		int BestTarget = 0;
 
 		/* ' First choose best target */
 		BestTarget = SwordMasterBestTarget(NpcIndex);
@@ -1524,7 +1524,7 @@ public class clsClanPretoriano {
 	}
 
 	int SwordMasterBestTarget(int NpcIndex) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 26/06/2010 */
@@ -1534,22 +1534,22 @@ public class clsClanPretoriano {
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int UserIndex;
-		int Counter;
+		int UserIndex = 0;
+		int Counter = 0;
 
-		int BestTarget;
-		int BestTargetDistance;
+		int BestTarget = 0;
+		int BestTargetDistance = 0;
 
-		int NpcX;
-		int NpcY;
-		int Distance;
+		int NpcX = 0;
+		int NpcY = 0;
+		int Distance = 0;
 
 		NpcX = Declaraciones.Npclist[NpcIndex].Pos.X;
 		NpcY = Declaraciones.Npclist[NpcIndex].Pos.Y;
 
-		int CounterStart;
-		int CounterEnd;
-		int CounterStep;
+		int CounterStart = 0;
+		int CounterEnd = 0;
+		int CounterStep = 0;
 
 		/* ' To avoid that all attack the same target */
 		CounterStep = Matematicas.RandomNumber(0, 1);
@@ -1664,9 +1664,9 @@ public class clsClanPretoriano {
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int headingloop;
+		int headingloop = 0;
 		Declaraciones.WorldPos NpcPos;
-		int UserIndex;
+		int UserIndex = 0;
 
 		/* ' Check the four directions */
 		for (headingloop = (eHeading.NORTH); headingloop <= (eHeading.WEST); headingloop++) {
@@ -1699,7 +1699,7 @@ public class clsClanPretoriano {
 		/* 'Author: ZaMa */
 		/* 'Last Modification: - */
 		/* '*************************************************** */
-		int BestTarget;
+		int BestTarget = 0;
 
 		/* ' First choose best target */
 		BestTarget = ShooterBestTarget(NpcIndex);
@@ -1720,7 +1720,7 @@ public class clsClanPretoriano {
 	}
 
 	int ShooterBestTarget(int NpcIndex) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 24/06/2010 */
@@ -1732,22 +1732,22 @@ public class clsClanPretoriano {
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int UserIndex;
-		int Counter;
+		int UserIndex = 0;
+		int Counter = 0;
 
-		int BestTarget;
-		int BestTargetDistance;
+		int BestTarget = 0;
+		int BestTargetDistance = 0;
 
-		int NpcX;
-		int NpcY;
-		int Distance;
+		int NpcX = 0;
+		int NpcY = 0;
+		int Distance = 0;
 
 		NpcX = Declaraciones.Npclist[NpcIndex].Pos.X;
 		NpcY = Declaraciones.Npclist[NpcIndex].Pos.Y;
 
-		int CounterStart;
-		int CounterEnd;
-		int CounterStep;
+		int CounterStart = 0;
+		int CounterEnd = 0;
+		int CounterStep = 0;
 
 		/* ' To avoid that all attack the same target */
 		CounterStep = Matematicas.RandomNumber(0, 1);
@@ -1856,8 +1856,8 @@ public class clsClanPretoriano {
 		} else {
 
 			/* ' Search for aproaching enemies */
-			int Counter;
-			int UserIndex;
+			int Counter = 0;
+			int UserIndex = 0;
 
 			for (Counter = (1); Counter <= (ModAreas.ConnGroups[CenterPos.Map].CountEntrys); Counter++) {
 
@@ -1897,8 +1897,8 @@ public class clsClanPretoriano {
 		/* '*************************************************** */
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int BestTarget;
-		int Action;
+		int BestTarget = 0;
+		int Action = 0;
 
 		/* ' First choose best target */
 		BestTarget = ThiefBestTarget(NpcIndex, Action);
@@ -1913,7 +1913,7 @@ public class clsClanPretoriano {
 	}
 
 	int ThiefBestTarget(int NpcIndex, int /* FIXME BYREF!! */ Action) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 26/06/2010 */
@@ -1924,22 +1924,22 @@ public class clsClanPretoriano {
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int UserIndex;
-		int Counter;
+		int UserIndex = 0;
+		int Counter = 0;
 
-		int BestTarget;
-		int BestTargetDistance;
+		int BestTarget = 0;
+		int BestTargetDistance = 0;
 
-		int NpcX;
-		int NpcY;
-		int Distance;
+		int NpcX = 0;
+		int NpcY = 0;
+		int Distance = 0;
 
 		NpcX = Declaraciones.Npclist[NpcIndex].Pos.X;
 		NpcY = Declaraciones.Npclist[NpcIndex].Pos.Y;
 
-		int CounterStart;
-		int CounterEnd;
-		int CounterStep;
+		int CounterStart = 0;
+		int CounterEnd = 0;
+		int CounterStep = 0;
 
 		/* ' To avoid that all attack the same target */
 		CounterStep = Matematicas.RandomNumber(0, 1);
@@ -2030,8 +2030,8 @@ public class clsClanPretoriano {
 		/* '*************************************************** */
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int WeaponEqpSlot;
-		int MunicionEqpSlot;
+		int WeaponEqpSlot = 0;
+		int MunicionEqpSlot = 0;
 
 		switch (Action) {
 
@@ -2096,7 +2096,7 @@ public class clsClanPretoriano {
 						/* ' Can steal the items of a slot */
 					} else if (Matematicas.RandomNumber(1, 100) < 16) {
 
-						int Slot;
+						int Slot = 0;
 						Slot = Matematicas.RandomNumber(1, Declaraciones.UserList[BestTarget].CurrentInventorySlots);
 
 						if (ThiefStealITem(NpcIndex, BestTarget, Slot)) {
@@ -2149,7 +2149,7 @@ public class clsClanPretoriano {
 	}
 
 	boolean SnatchItem(int NpcIndex, int TargetIndex, int Slot) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 25/09/2010 */
@@ -2188,7 +2188,7 @@ public class clsClanPretoriano {
 	}
 
 	boolean ThiefStealITem(int NpcIndex, int TargetIndex, int Slot) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 25/09/2010 */
@@ -2202,7 +2202,7 @@ public class clsClanPretoriano {
 		 */
 		/* '*************************************************** */
 		Declaraciones.Obj StolenObj;
-		int NroItems;
+		int NroItems = 0;
 
 		/* ' If doesn't have any item, the doesn't do anything */
 		if (Declaraciones.UserList[TargetIndex].Invent.Object[Slot].ObjIndex == 0) {
@@ -2262,7 +2262,7 @@ public class clsClanPretoriano {
 	}
 
 	boolean TargetClose(Declaraciones.WorldPos /* FIXME BYREF!! */ Pos) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 05/07/2010 */
@@ -2271,10 +2271,10 @@ public class clsClanPretoriano {
 		 * position.
 		 */
 		/* '*************************************************** */
-		int UserIndex;
+		int UserIndex = 0;
 
 		Declaraciones.WorldPos nPos;
-		int headingloop;
+		int headingloop = 0;
 
 		for (headingloop = (eHeading.NORTH); headingloop <= (eHeading.WEST); headingloop++) {
 
@@ -2295,7 +2295,7 @@ public class clsClanPretoriano {
 	}
 
 	int CheckNearUserPets(int NpcIndex, int UserIndex) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 09/07/2010 */
@@ -2303,8 +2303,8 @@ public class clsClanPretoriano {
 		 * 'Checks if there is a non-paralized user pet in cleric vision range.
 		 */
 		/* '*************************************************** */
-		int PetCounter;
-		int PetIndex;
+		int PetCounter = 0;
+		int PetIndex = 0;
 
 		if (Declaraciones.UserList[UserIndex].NroMascotas == 0) {
 			return retval;
@@ -2335,7 +2335,7 @@ public class clsClanPretoriano {
 	}
 
 	boolean EsClaseMagica(int UserIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unkown */
 		/* 'Last Modification: - */
@@ -2379,9 +2379,9 @@ public class clsClanPretoriano {
 		/* '*************************************************** */
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int NpcX;
-		int NpcY;
-		int RandomDir;
+		int NpcX = 0;
+		int NpcY = 0;
+		int RandomDir = 0;
 
 		if (Declaraciones.Npclist[NpcIndex].Pos.Map != TargetMap) {
 			return;
@@ -2639,7 +2639,7 @@ public class clsClanPretoriano {
 	}
 
 	boolean FarFromTeam(Object NpcIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown & ZaMa */
 		/* 'Last Modification: 19/09/2010 */
@@ -2661,7 +2661,7 @@ public class clsClanPretoriano {
 	}
 
 	boolean UserReachable(int NpcIndex, int UserIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 19/09/2010 */
@@ -2691,14 +2691,14 @@ public class clsClanPretoriano {
 	}
 
 	boolean InVisionRange(int UserIndex, int X, int Y, boolean ExtendedRange) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 24/06/2010 */
 		/* 'Checks whether user is in vision range or not */
 		/* '*************************************************** */
 
-		int Rango;
+		int Rango = 0;
 		Rango = vb6.val(vb6.IIf(ExtendedRange, 2, 1));
 
 		retval = vb6.Abs(Declaraciones.UserList[UserIndex].Pos.X - X) <= AI.RANGO_VISION_X * Rango
@@ -2712,14 +2712,14 @@ public class clsClanPretoriano {
 	}
 
 	boolean InVisionRangeNpc(int NpcIndex, int X, int Y, boolean ExtendedRange) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 24/06/2010 */
 		/* 'Checks whether npc is in vision range or not */
 		/* '*************************************************** */
 
-		int Rango;
+		int Rango = 0;
 		Rango = vb6.val(vb6.IIf(ExtendedRange, 2, 1));
 
 		retval = vb6.Abs(Declaraciones.Npclist[NpcIndex].Pos.X - X) <= AI.RANGO_VISION_X * Rango
@@ -2733,7 +2733,7 @@ public class clsClanPretoriano {
 	}
 
 	boolean UserAtacable(int UserIndex, boolean CheckVisibility, boolean AttackAdmin) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 05/10/2010 */
@@ -2759,7 +2759,7 @@ public class clsClanPretoriano {
 	}
 
 	int UserDistance(int UserIndex, int X, int Y) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 24/06/2010 */
@@ -2773,7 +2773,7 @@ public class clsClanPretoriano {
 	}
 
 	int NpcDistance(int NpcIndex, int X, int Y) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 24/06/2010 */
@@ -2796,7 +2796,7 @@ public class clsClanPretoriano {
 		 */
 		/* '*************************************************** */
 
-		int PretoIndex;
+		int PretoIndex = 0;
 
 		for (PretoIndex = (1); PretoIndex <= (NRO_PRETORIANOS); PretoIndex++) {
 			/* ' Remove npc index */
@@ -2834,15 +2834,15 @@ public class clsClanPretoriano {
 	}
 
 	int AllyParalyzed(int NpcIndex, boolean ExtendedRange) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 27/06/2010 */
 		/* 'Returns the index of the paralized ally if exists one. */
 		/* '*************************************************** */
 
-		int PretoIndex;
-		int AllyIndex;
+		int PretoIndex = 0;
+		int AllyIndex = 0;
 
 		for (PretoIndex = (1); PretoIndex <= (NRO_PRETORIANOS); PretoIndex++) {
 
@@ -2863,15 +2863,15 @@ public class clsClanPretoriano {
 	}
 
 	int AllyInjured(int NpcIndex) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 09/07/2010 */
 		/* 'Returns the index of the first found injured ally if exists one. */
 		/* '*************************************************** */
 
-		int PretoIndex;
-		int AllyIndex;
+		int PretoIndex = 0;
+		int AllyIndex = 0;
 
 		for (PretoIndex = (1); PretoIndex <= (NRO_PRETORIANOS); PretoIndex++) {
 
@@ -2892,15 +2892,15 @@ public class clsClanPretoriano {
 	}
 
 	int AllyPoisoned(int NpcIndex) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 19/09/2010 */
 		/* 'Returns the index of the poisoned ally if exists one. */
 		/* '*************************************************** */
 
-		int PretoIndex;
-		int AllyIndex;
+		int PretoIndex = 0;
+		int AllyIndex = 0;
 
 		for (PretoIndex = (1); PretoIndex <= (NRO_PRETORIANOS); PretoIndex++) {
 
@@ -2921,15 +2921,15 @@ public class clsClanPretoriano {
 	}
 
 	int AllyDead() {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 19/09/2010 */
 		/* 'Returns the Index of the first dead member found, if exists. */
 		/* '*************************************************** */
 
-		int PretoIndex;
-		int AllyIndex;
+		int PretoIndex = 0;
+		int AllyIndex = 0;
 
 		for (PretoIndex = (1); PretoIndex <= (NRO_PRETORIANOS); PretoIndex++) {
 
@@ -2944,7 +2944,7 @@ public class clsClanPretoriano {
 	}
 
 	boolean CanAtackMember(int NpcIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 26/09/2010 */
@@ -2968,7 +2968,7 @@ public class clsClanPretoriano {
 	}
 
 	int ClanMap() {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 29/10/2010 */
@@ -2979,7 +2979,7 @@ public class clsClanPretoriano {
 	}
 
 	boolean Active() {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 29/10/2010 */
@@ -2996,8 +2996,8 @@ public class clsClanPretoriano {
 		/* 'Kill all alive members. */
 		/* '*************************************************** */
 
-		int PretoIndex;
-		int NpcIndex;
+		int PretoIndex = 0;
+		int NpcIndex = 0;
 
 		for (PretoIndex = (1); PretoIndex <= (NRO_PRETORIANOS); PretoIndex++) {
 

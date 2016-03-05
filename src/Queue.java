@@ -34,31 +34,31 @@ import enums.*;
 public class Queue {
 
 	static public class tVertice {
-		int X;
-		int Y;
+		public int X;
+		public int Y;
 	}
 
 	static final int MAXELEM = 1000;
 
-	private static tVertice[] m_array = new tVertice[0]; /* XXX */
+	private static tVertice[] m_array = new tVertice[0];
 	private static int m_lastelem;
 	private static int m_firstelem;
 	private static int m_size;
 
 	static boolean IsEmpty() {
-		boolean retval;
+		boolean retval = false;
 		retval = m_size == 0;
 		return retval;
 	}
 
 	static boolean IsFull() {
-		boolean retval;
+		boolean retval = false;
 		retval = m_lastelem == Queue.MAXELEM;
 		return retval;
 	}
 
 	static boolean Push(tVertice /* FIXME BYREF!! */ Vertice) {
-		boolean retval;
+		boolean retval = false;
 
 		if (!IsFull()) {
 

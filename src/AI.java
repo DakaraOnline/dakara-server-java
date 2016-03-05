@@ -90,9 +90,9 @@ public class AI {
 		 */
 		/* '*************************************************** */
 		Declaraciones.WorldPos nPos;
-		int headingloop;
-		int UI;
-		boolean UserProtected;
+		int headingloop = 0;
+		int UI = 0;
+		boolean UserProtected = false;
 
 		for (headingloop = (eHeading.NORTH); headingloop <= (eHeading.WEST); headingloop++) {
 			nPos = Declaraciones.Npclist[NpcIndex].Pos;
@@ -171,11 +171,11 @@ public class AI {
 		 */
 		/* '************************************************************** */
 		Declaraciones.WorldPos nPos;
-		int headingloop;
-		int UI;
-		int NPCI;
-		boolean atacoPJ;
-		boolean UserProtected;
+		int headingloop = 0;
+		int UI = 0;
+		int NPCI = 0;
+		boolean atacoPJ = false;
+		boolean UserProtected = false;
 
 		atacoPJ = false;
 
@@ -259,8 +259,8 @@ public class AI {
 		/* '*************************************************** */
 		Declaraciones.WorldPos nPos;
 		eHeading headingloop;
-		int UI;
-		boolean UserProtected;
+		int UI = 0;
+		boolean UserProtected = false;
 
 		for (headingloop = (eHeading.NORTH); headingloop <= (eHeading.WEST); headingloop++) {
 			nPos = Declaraciones.Npclist[NpcIndex].Pos;
@@ -311,12 +311,12 @@ public class AI {
 		 * los npcs ataquen a usuarios de mapas difernetes.
 		 */
 		/* '*************************************************** */
-		int tHeading;
-		int UserIndex;
-		int SignoNS;
-		int SignoEO;
-		int i;
-		boolean UserProtected;
+		int tHeading = 0;
+		int UserIndex = 0;
+		int SignoNS = 0;
+		int SignoEO = 0;
+		int i = 0;
+		boolean UserProtected = false;
 
 		if (Declaraciones.Npclist[NpcIndex].flags.Inmovilizado == 1) {
 			switch (Declaraciones.Npclist[NpcIndex].Char.heading) {
@@ -382,7 +382,7 @@ public class AI {
 			 * ' Tiene prioridad de seguir al usuario al que le pertenece si
 			 * esta en el rango de vision
 			 */
-			int OwnerIndex;
+			int OwnerIndex = 0;
 
 			OwnerIndex = Declaraciones.Npclist[NpcIndex].Owner;
 			if (OwnerIndex > 0) {
@@ -492,13 +492,13 @@ public class AI {
 		 * near the enemy to attack.
 		 */
 		/* '************************************************************** */
-		int tHeading;
-		int UI;
+		int tHeading = 0;
+		int UI = 0;
 
-		int i;
+		int i = 0;
 
-		int SignoNS;
-		int SignoEO;
+		int SignoNS = 0;
+		int SignoEO = 0;
 
 		if (Declaraciones.Npclist[NpcIndex].flags.Paralizado == 1
 				|| Declaraciones.Npclist[NpcIndex].flags.Inmovilizado == 1) {
@@ -656,10 +656,10 @@ public class AI {
 		 * '12/01/2010: ZaMa - Los npcs no atacan druidas mimetizados con npcs.
 		 */
 		/* '*************************************************** */
-		int UserIndex;
-		int tHeading;
-		int i;
-		boolean UserProtected;
+		int UserIndex = 0;
+		int tHeading = 0;
+		int i = 0;
+		boolean UserProtected = false;
 
 		for (i = (1); i <= (ModAreas.ConnGroups[Declaraciones.Npclist[NpcIndex].Pos.Map].CountEntrys); i++) {
 			UserIndex = ModAreas.ConnGroups[Declaraciones.Npclist[NpcIndex].Pos.Map].UserEntrys[i];
@@ -709,12 +709,12 @@ public class AI {
 		 * '12/01/2010: ZaMa - Los npcs no atacan druidas mimetizados con npcs.
 		 */
 		/* '*************************************************** */
-		int UserIndex;
-		int tHeading;
-		int i;
-		int SignoNS;
-		int SignoEO;
-		boolean UserProtected;
+		int UserIndex = 0;
+		int tHeading = 0;
+		int i = 0;
+		int SignoNS = 0;
+		int SignoEO = 0;
+		boolean UserProtected = false;
 
 		if (Declaraciones.Npclist[NpcIndex].flags.Inmovilizado == 1) {
 			switch (Declaraciones.Npclist[NpcIndex].Char.heading) {
@@ -826,8 +826,8 @@ public class AI {
 		/* ' */
 		/* '*************************************************** */
 
-		int tHeading;
-		int UI;
+		int tHeading = 0;
+		int UI = 0;
 
 		if (Declaraciones.Npclist[NpcIndex].Target == 0 && Declaraciones.Npclist[NpcIndex].TargetNPC == 0) {
 			UI = Declaraciones.Npclist[NpcIndex].MaestroUser;
@@ -863,14 +863,14 @@ public class AI {
 		/* ' */
 		/* '*************************************************** */
 
-		int tHeading;
-		int X;
-		int Y;
-		int NI;
-		boolean bNoEsta;
+		int tHeading = 0;
+		int X = 0;
+		int Y = 0;
+		int NI = 0;
+		boolean bNoEsta = false;
 
-		int SignoNS;
-		int SignoEO;
+		int SignoNS = 0;
+		int SignoEO = 0;
 
 		if (Declaraciones.Npclist[NpcIndex].flags.Inmovilizado == 1) {
 			switch (Declaraciones.Npclist[NpcIndex].Char.heading) {
@@ -994,9 +994,9 @@ public class AI {
 		/* 'Last Modification: 14/09/2009 (ZaMa) */
 		/* '14/09/2009: ZaMa - Now npcs don't follow protected users. */
 		/* '*************************************************** */
-		int UserIndex;
-		int i;
-		boolean UserProtected;
+		int UserIndex = 0;
+		int i = 0;
+		boolean UserProtected = false;
 
 		for (i = (1); i <= (ModAreas.ConnGroups[Declaraciones.Npclist[NpcIndex].Pos.Map].CountEntrys); i++) {
 			UserIndex = ModAreas.ConnGroups[Declaraciones.Npclist[NpcIndex].Pos.Map].UserEntrys[i];
@@ -1170,7 +1170,7 @@ public class AI {
 	}
 
 	static boolean UserNear(int NpcIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1185,7 +1185,7 @@ public class AI {
 	}
 
 	static boolean ReCalculatePath(int NpcIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1203,7 +1203,7 @@ public class AI {
 	}
 
 	static boolean PathEnd(int NpcIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Gulfas Morgolock */
 		/* 'Last Modification: - */
@@ -1214,14 +1214,14 @@ public class AI {
 	}
 
 	static boolean FollowPath(int NpcIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Gulfas Morgolock */
 		/* 'Last Modification: - */
 		/* 'Moves the npc. */
 		/* '*************************************************** */
 		Declaraciones.WorldPos tmpPos;
-		int tHeading;
+		int tHeading = 0;
 
 		tmpPos.Map = Declaraciones.Npclist[NpcIndex].Pos.Map;
 		/* ' invertï¿½ las coordenadas */
@@ -1239,15 +1239,15 @@ public class AI {
 	}
 
 	static boolean PathFindingAI(int NpcIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Gulfas Morgolock */
 		/* 'Last Modification: - */
 		/* 'This function seeks the shortest path from the Npc */
 		/* 'to the user's location. */
 		/* '*************************************************** */
-		int Y;
-		int X;
+		int Y = 0;
+		int X = 0;
 
 		/* 'Makes a loop that looks at */
 		for (Y = (Declaraciones.Npclist[NpcIndex].Pos.Y - 10); Y <= (Declaraciones.Npclist[NpcIndex].Pos.Y + 10); Y++) {
@@ -1262,7 +1262,7 @@ public class AI {
 					/* 'look for a user */
 					if (Declaraciones.MapData[Declaraciones.Npclist[NpcIndex].Pos.Map][X][Y].UserIndex > 0) {
 						/* 'Move towards user */
-						int tmpUserIndex;
+						int tmpUserIndex = 0;
 						tmpUserIndex = Declaraciones.MapData[Declaraciones.Npclist[NpcIndex].Pos.Map][X][Y].UserIndex;
 						if (Declaraciones.UserList[tmpUserIndex].flags.Muerto == 0
 								&& Declaraciones.UserList[tmpUserIndex].flags.invisible == 0
@@ -1302,7 +1302,7 @@ public class AI {
 			return;
 		}
 
-		int k;
+		int k = 0;
 		k = Matematicas.RandomNumber(1, Declaraciones.Npclist[NpcIndex].flags.LanzaSpells);
 		modHechizos.NpcLanzaSpellSobreUser(NpcIndex, UserIndex, Declaraciones.Npclist[NpcIndex].Spells[k]);
 	}
@@ -1314,7 +1314,7 @@ public class AI {
 		/* ' */
 		/* '*************************************************** */
 
-		int k;
+		int k = 0;
 		k = Matematicas.RandomNumber(1, Declaraciones.Npclist[NpcIndex].flags.LanzaSpells);
 		modHechizos.NpcLanzaSpellSobreNpc(NpcIndex, TargetNPC, Declaraciones.Npclist[NpcIndex].Spells[k]);
 	}

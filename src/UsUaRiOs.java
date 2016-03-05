@@ -48,8 +48,8 @@ public class UsUaRiOs {
 		 */
 		/* '*************************************************** */
 
-		int DaExp;
-		boolean EraCriminal;
+		int DaExp = 0;
+		boolean EraCriminal = false;
 
 		DaExp = vb6.CInt(Declaraciones.UserList[VictimIndex].Stats.ELV) * 2;
 
@@ -81,7 +81,7 @@ public class UsUaRiOs {
 					}
 				}
 
-				boolean EsCriminal;
+				boolean EsCriminal = false;
 				EsCriminal = ES.criminal(AttackerIndex);
 
 				if (EraCriminal != EsCriminal) {
@@ -148,9 +148,9 @@ public class UsUaRiOs {
 		 */
 		/* '*************************************************** */
 
-		int Ropaje;
-		boolean EsFaccionario;
-		int NewBody;
+		int Ropaje = 0;
+		boolean EsFaccionario = false;
+		int NewBody = 0;
 
 		Declaraciones.UserList[UserIndex].Char.Head = 0;
 		if (Declaraciones.UserList[UserIndex].Invent.BarcoObjIndex == 0) {
@@ -289,13 +289,13 @@ public class UsUaRiOs {
 	}
 
 	static int GetWeaponAnim(int UserIndex, int ObjIndex) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Torres Patricio (Pato) */
 		/* 'Last Modification: 03/29/10 */
 		/* ' */
 		/* '*************************************************** */
-		int Tmp;
+		int Tmp = 0;
 
 		Tmp = Declaraciones.ObjData[ObjIndex].WeaponRazaEnanaAnim;
 
@@ -318,7 +318,7 @@ public class UsUaRiOs {
 		/* ' */
 		/* '*************************************************** */
 
-		int L;
+		int L = 0;
 
 		L = (-Declaraciones.UserList[UserIndex].Reputacion.AsesinoRep)
 				+ (-Declaraciones.UserList[UserIndex].Reputacion.BandidoRep)
@@ -390,7 +390,7 @@ public class UsUaRiOs {
 		/* FIXME: ErrorHandler : */
 
 		String UserName;
-		int CharIndex;
+		int CharIndex = 0;
 
 		if (UserIndex > 0) {
 			UserName = Declaraciones.UserList[UserIndex].Name;
@@ -412,7 +412,7 @@ public class UsUaRiOs {
 		 */
 		/* '************************************************* */
 		String ClanTag;
-		int NickColor;
+		int NickColor = 0;
 
 		if (Declaraciones.UserList[UserIndex].GuildIndex > 0) {
 			ClanTag = modGuilds.GuildName(Declaraciones.UserList[UserIndex].GuildIndex);
@@ -446,7 +446,7 @@ public class UsUaRiOs {
 	}
 
 	static int GetNickColor(int UserIndex) {
-		int retval;
+		int retval = 0;
 		/* '************************************************* */
 		/* 'Author: ZaMa */
 		/* 'Last modified: 15/01/2010 */
@@ -471,7 +471,7 @@ public class UsUaRiOs {
 	}
 
 	static boolean MakeUserChar(boolean toMap, int sndIndex, int UserIndex, int Map, int X, int Y, boolean ButIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '************************************************* */
 		/* 'Author: Unknown */
 		/* 'Last modified: 15/01/2010 */
@@ -481,11 +481,11 @@ public class UsUaRiOs {
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int CharIndex;
+		int CharIndex = 0;
 		String ClanTag;
-		int NickColor;
+		int NickColor = 0;
 		String UserName;
-		int Privileges;
+		int Privileges = 0;
 
 		if (Extra.InMapBounds(Map, X, Y)) {
 			/* 'If needed make a new character in list */
@@ -554,7 +554,7 @@ public class UsUaRiOs {
 		/* FIXME: ErrHandler : */
 
 		String UserErrName;
-		int UserMap;
+		int UserMap = 0;
 		if (UserIndex > 0) {
 			UserErrName = Declaraciones.UserList[UserIndex].Name;
 			UserMap = Declaraciones.UserList[UserIndex].Pos.Map;
@@ -624,17 +624,17 @@ public class UsUaRiOs {
 		 * para la vida en el caso de promedio entero.
 		 */
 		/* '************************************************* */
-		int Pts;
-		int AumentoHIT;
-		int AumentoMANA;
-		int AumentoSTA;
-		int AumentoHP;
-		boolean WasNewbie;
-		double Promedio;
-		int aux;
+		int Pts = 0;
+		int AumentoHIT = 0;
+		int AumentoMANA = 0;
+		int AumentoSTA = 0;
+		int AumentoHP = 0;
+		boolean WasNewbie = false;
+		double Promedio = 0.0;
+		int aux = 0;
 		int[] DistVida;
 		/* 'Guild Index */
-		int GI;
+		int GI = 0;
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
@@ -944,7 +944,7 @@ public class UsUaRiOs {
 
 		/* FIXME: ErrHandler : */
 		String UserName;
-		int UserMap;
+		int UserMap = 0;
 
 		if (UserIndex > 0) {
 			UserName = Declaraciones.UserList[UserIndex].Name;
@@ -957,7 +957,7 @@ public class UsUaRiOs {
 	}
 
 	static boolean PuedeAtravesarAgua(int UserIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -992,10 +992,10 @@ public class UsUaRiOs {
 		 */
 		/* '************************************************* */
 		Declaraciones.WorldPos nPos;
-		boolean sailing;
-		int CasperIndex;
+		boolean sailing = false;
+		int CasperIndex = 0;
 		eHeading CasperHeading;
-		boolean isAdminInvi;
+		boolean isAdminInvi = false;
 
 		sailing = PuedeAtravesarAgua(UserIndex);
 		nPos = Declaraciones.UserList[UserIndex].Pos;
@@ -1061,7 +1061,7 @@ public class UsUaRiOs {
 
 			/* ' Los admins invisibles no pueden patear caspers */
 			if (!(isAdminInvi && (CasperIndex != 0))) {
-				int oldUserIndex;
+				int oldUserIndex = 0;
 
 				oldUserIndex = Declaraciones.MapData[Declaraciones.UserList[UserIndex].Pos.Map][Declaraciones.UserList[UserIndex].Pos.X][Declaraciones.UserList[UserIndex].Pos.Y].UserIndex;
 
@@ -1137,14 +1137,14 @@ public class UsUaRiOs {
 	}
 
 	static int NextOpenCharIndex() {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
 		/* ' */
 		/* '*************************************************** */
 
-		int LoopC;
+		int LoopC = 0;
 
 		for (LoopC = (1); LoopC <= (Declaraciones.MAXCHARS); LoopC++) {
 			if (Declaraciones.CharList[LoopC] == 0) {
@@ -1162,14 +1162,14 @@ public class UsUaRiOs {
 	}
 
 	static int NextOpenUser() {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
 		/* ' */
 		/* '*************************************************** */
 
-		int LoopC;
+		int LoopC = 0;
 
 		for (LoopC = (1); LoopC <= (Declaraciones.MaxUsers + 1); LoopC++) {
 			if (LoopC > Declaraciones.MaxUsers) {
@@ -1192,7 +1192,7 @@ public class UsUaRiOs {
 		/* ' */
 		/* '*************************************************** */
 
-		int GuildI;
+		int GuildI = 0;
 
 		Protocol.WriteConsoleMsg(sendIndex, "Estadísticas de: " + Declaraciones.UserList[UserIndex].Name,
 				FontTypeNames.FONTTYPE_INFO);
@@ -1261,7 +1261,7 @@ public class UsUaRiOs {
 
 		/* # IF ConUpTime THEN */
 		vb6.Date TempDate;
-		int TempSecs;
+		int TempSecs = 0;
 		String TempStr;
 		TempDate = vb6.Now() - Declaraciones.UserList[UserIndex].LogOnTime;
 		TempSecs = (Declaraciones.UserList[UserIndex].UpTime + (vb6.Abs(vb6.Day(TempDate) - 30) * 24 * 3600)
@@ -1470,7 +1470,7 @@ public class UsUaRiOs {
 
 		/* FIXME: ON ERROR RESUME NEXT */
 
-		int j;
+		int j = 0;
 
 		Protocol.WriteConsoleMsg(sendIndex, Declaraciones.UserList[UserIndex].Name, FontTypeNames.FONTTYPE_INFO);
 		Protocol.WriteConsoleMsg(sendIndex, "Tiene " + Declaraciones.UserList[UserIndex].Invent.NroItems + " objetos.",
@@ -1496,11 +1496,11 @@ public class UsUaRiOs {
 
 		/* FIXME: ON ERROR RESUME NEXT */
 
-		int j;
+		int j = 0;
 		String CharFile;
 		String Tmp;
-		int ObjInd;
-		int ObjCant;
+		int ObjInd = 0;
+		int ObjCant = 0;
 
 		CharFile = Declaraciones.CharPath + charName + ".chr";
 
@@ -1533,7 +1533,7 @@ public class UsUaRiOs {
 		/* '*************************************************** */
 
 		/* FIXME: ON ERROR RESUME NEXT */
-		int j;
+		int j = 0;
 
 		Protocol.WriteConsoleMsg(sendIndex, Declaraciones.UserList[UserIndex].Name, FontTypeNames.FONTTYPE_INFO);
 
@@ -1548,7 +1548,7 @@ public class UsUaRiOs {
 	}
 
 	static boolean EsMascotaCiudadano(int NpcIndex, int UserIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1587,13 +1587,13 @@ public class UsUaRiOs {
 		 * npc no hostil.
 		 */
 		/* '********************************************** */
-		boolean EraCriminal;
+		boolean EraCriminal = false;
 
 		/* 'Guardamos el usuario que ataco el npc. */
 		Declaraciones.Npclist[NpcIndex].flags.AttackedBy = Declaraciones.UserList[UserIndex].Name;
 
 		/* 'Npc que estabas atacando. */
-		int LastNpcHit;
+		int LastNpcHit = 0;
 		LastNpcHit = Declaraciones.UserList[UserIndex].flags.retval;
 		/* 'Guarda el NPC que estas atacando ahora. */
 		Declaraciones.UserList[UserIndex].flags.retval = NpcIndex;
@@ -1658,14 +1658,14 @@ public class UsUaRiOs {
 	}
 
 	static boolean PuedeApunalar(int UserIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
 		/* ' */
 		/* '*************************************************** */
 
-		int WeaponIndex;
+		int WeaponIndex = 0;
 
 		WeaponIndex = Declaraciones.UserList[UserIndex].Invent.WeaponEqpObjIndex;
 
@@ -1680,14 +1680,14 @@ public class UsUaRiOs {
 	}
 
 	static boolean PuedeAcuchillar(int UserIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 25/01/2010 (ZaMa) */
 		/* ' */
 		/* '*************************************************** */
 
-		int WeaponIndex;
+		int WeaponIndex = 0;
 
 		if (Declaraciones.UserList[UserIndex].clase == eClass.Pirat) {
 
@@ -1722,7 +1722,7 @@ public class UsUaRiOs {
 				return;
 			}
 
-			int Lvl;
+			int Lvl = 0;
 			Lvl = Declaraciones.UserList[UserIndex].Stats.ELV;
 
 			if (Lvl > vb6.UBound(Declaraciones.LevelSkill)) {
@@ -1792,10 +1792,10 @@ public class UsUaRiOs {
 		 */
 		/* '************************************************ */
 		/* FIXME: ON ERROR GOTO ErrorHandler */
-		int i;
-		int aN;
+		int i = 0;
+		int aN = 0;
 
-		int iSoundDeath;
+		int iSoundDeath = 0;
 
 		/* 'Sonido */
 		if (Declaraciones.UserList[UserIndex].Genero == eGenero.Mujer) {
@@ -2008,9 +2008,9 @@ public class UsUaRiOs {
 		TCP.LimpiarComercioSeguro(UserIndex);
 
 		/* ' Hay que teletransportar? */
-		int mapa;
+		int mapa = 0;
 		mapa = Declaraciones.UserList[UserIndex].Pos.Map;
-		int MapaTelep;
+		int MapaTelep = 0;
 		MapaTelep = Declaraciones.MapInfo[mapa].OnDeathGoTo.Map;
 
 		if (MapaTelep != 0) {
@@ -2093,10 +2093,10 @@ public class UsUaRiOs {
 		/* '************************************************************** */
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		boolean Found;
-		int LoopC;
-		int tX;
-		int tY;
+		boolean Found = false;
+		int LoopC = 0;
+		int tX = 0;
+		int tY = 0;
 
 		nPos = Pos;
 		tX = Pos.X;
@@ -2162,9 +2162,9 @@ public class UsUaRiOs {
 		 * mapa al que cambias, te lo saca
 		 */
 		/* '************************************************************** */
-		int OldMap;
-		int OldX;
-		int OldY;
+		int OldMap = 0;
+		int OldX = 0;
+		int OldY = 0;
 
 		/* 'Quitar el dialogo */
 		modSendData.SendData(SendTarget.ToPCArea, UserIndex,
@@ -2183,8 +2183,8 @@ public class UsUaRiOs {
 			/* 'El chequeo de invi/ocultar solo afecta a Usuarios (C4b3z0n) */
 			if (Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.User) {
 				/* 'Para enviar el mensaje de invi y hacer visible (C4b3z0n) */
-				boolean AhoraVisible;
-				boolean WasInvi;
+				boolean AhoraVisible = false;
+				boolean WasInvi = false;
 				/* 'Chequeo de flags de mapa por invisibilidad (C4b3z0n) */
 				if (Declaraciones.MapInfo[Map].InviSinEfecto > 0
 						&& Declaraciones.UserList[UserIndex].flags.invisible == 1) {
@@ -2234,8 +2234,8 @@ public class UsUaRiOs {
 			 * 'Si el mapa al que entro NO ES superficial AND en el que estaba
 			 * TAMPOCO ES superficial, ENTONCES
 			 */
-			boolean nextMap;
-			boolean previousMap;
+			boolean nextMap = false;
+			boolean previousMap = false;
 
 			nextMap = vb6.IIf(
 					Declaraciones.distanceToCities[Map].distanceToCity[Declaraciones.UserList[UserIndex].Hogar] >= 0,
@@ -2366,15 +2366,15 @@ public class UsUaRiOs {
 		 * '26/10/2010: ZaMa - Ahora las mascotas rapswnean de forma aleatoria.
 		 */
 		/* '************************************************ */
-		int i;
-		int petType;
-		boolean PetRespawn;
-		int PetTiempoDeVida;
-		int NroPets;
-		int InvocadosMatados;
-		boolean canWarp;
-		int index;
-		int iMinHP;
+		int i = 0;
+		int petType = 0;
+		boolean PetRespawn = false;
+		int PetTiempoDeVida = 0;
+		int NroPets = 0;
+		int InvocadosMatados = 0;
+		boolean canWarp = false;
+		int index = 0;
+		int iMinHP = 0;
 
 		NroPets = Declaraciones.UserList[UserIndex].NroMascotas;
 		canWarp = (Declaraciones.MapInfo[Declaraciones.UserList[UserIndex].Pos.Map].Pk == true);
@@ -2476,9 +2476,9 @@ public class UsUaRiOs {
 		/* 'Last Modified: 18/11/2009 */
 		/* 'Warps a pet without changing its stats */
 		/* '************************************************ */
-		int petType;
-		int NpcIndex;
-		int iMinHP;
+		int petType = 0;
+		int NpcIndex = 0;
+		int iMinHP = 0;
 		Declaraciones.WorldPos TargetPos;
 
 		TargetPos.Map = Declaraciones.UserList[UserIndex].flags.TargetMap;
@@ -2539,8 +2539,8 @@ public class UsUaRiOs {
 		 * saca el invi (ya esta visible).
 		 */
 		/* '*************************************************** */
-		boolean isNotVisible;
-		boolean HiddenPirat;
+		boolean isNotVisible = false;
+		boolean HiddenPirat = false;
 
 		if (Declaraciones.UserList[UserIndex].flags.UserLogged
 				&& !Declaraciones.UserList[UserIndex].Counters.Saliendo) {
@@ -2686,7 +2686,7 @@ public class UsUaRiOs {
 					FontTypeNames.FONTTYPE_INFO);
 
 			/* # IF ConUpTime THEN */
-			int TempSecs;
+			int TempSecs = 0;
 			String TempStr;
 			TempSecs = ES.GetVar(Declaraciones.CharPath + Nombre + ".chr", "INIT", "UpTime");
 			TempStr = (TempSecs / 86400) + " Días, " + ((TempSecs % 86400) / 3600) + " Horas, "
@@ -2790,7 +2790,7 @@ public class UsUaRiOs {
 	/* '@return True if the body is a boat, false otherwise. */
 
 	static boolean BodyIsBoat(int body) {
-		boolean retval;
+		boolean retval = false;
 		/* '************************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modify Date: 10/07/2008 */
@@ -2856,7 +2856,7 @@ public class UsUaRiOs {
 	}
 
 	static boolean IsArena(int UserIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '************************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modify Date: 10/11/2009 */
@@ -2889,9 +2889,9 @@ public class UsUaRiOs {
 		 */
 		/* '************************************************************** */
 
-		int PetCounter;
-		int PetIndex;
-		int NpcIndex;
+		int PetCounter = 0;
+		int PetIndex = 0;
+		int NpcIndex = 0;
 
 		NpcIndex = Declaraciones.UserList[UserIndex].flags.OwnedNpc;
 		if (NpcIndex > 0) {
@@ -2938,7 +2938,7 @@ public class UsUaRiOs {
 			return;
 		}
 
-		int mapa;
+		int mapa = 0;
 		mapa = Declaraciones.UserList[UserIndex].Pos.Map;
 
 		/* ' No aplica a triggers seguras */
@@ -2976,8 +2976,8 @@ public class UsUaRiOs {
 		/* 'Last Modify Date: 17/11/2009 */
 		/* 'Devuelve la direccion hacia donde esta el usuario */
 		/* '************************************************************** */
-		int X;
-		int Y;
+		int X = 0;
+		int Y = 0;
 
 		X = Declaraciones.UserList[UserIndex].Pos.X - Declaraciones.UserList[OtherUserIndex].Pos.X;
 		Y = Declaraciones.UserList[UserIndex].Pos.Y - Declaraciones.UserList[OtherUserIndex].Pos.Y;
@@ -3004,7 +3004,7 @@ public class UsUaRiOs {
 	}
 
 	static boolean SameFaccion(int UserIndex, int OtherUserIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '************************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modify Date: 17/11/2009 */
@@ -3016,7 +3016,7 @@ public class UsUaRiOs {
 	}
 
 	static int FarthestPet(int UserIndex) {
-		int retval;
+		int retval = 0;
 		/* '************************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modify Date: 18/11/2009 */
@@ -3024,9 +3024,9 @@ public class UsUaRiOs {
 		/* '************************************************************** */
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int PetIndex;
-		int Distancia;
-		int OtraDistancia;
+		int PetIndex = 0;
+		int Distancia = 0;
+		int OtraDistancia = 0;
 
 		if (Declaraciones.UserList[UserIndex].NroMascotas == 0) {
 			return retval;
@@ -3102,7 +3102,7 @@ public class UsUaRiOs {
 }
 
 	static boolean HasEnoughItems(int UserIndex, int ObjIndex, int Amount) {
-		boolean retval;
+		boolean retval = false;
 		/* '************************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modify Date: 25/11/2009 */
@@ -3112,8 +3112,8 @@ public class UsUaRiOs {
 		 */
 		/* '************************************************************** */
 
-		int Slot;
-		int ItemInvAmount;
+		int Slot = 0;
+		int ItemInvAmount = 0;
 
 		for (Slot = (1); Slot <= (Declaraciones.UserList[UserIndex].CurrentInventorySlots); Slot++) {
 			/* ' Si es el item que busco */
@@ -3128,13 +3128,13 @@ public class UsUaRiOs {
 	}
 
 	static int TotalOfferItems(int ObjIndex, int UserIndex) {
-		int retval;
+		int retval = 0;
 		/* '************************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modify Date: 25/11/2009 */
 		/* 'Cheks the amount of items the user has in offerSlots. */
 		/* '************************************************************** */
-		int Slot;
+		int Slot = 0;
 
 		for (Slot = (1); Slot <= (mdlCOmercioConUsuario.MAX_OFFER_SLOTS); Slot++) {
 			/* ' Si es el item que busco */
@@ -3148,7 +3148,7 @@ public class UsUaRiOs {
 	}
 
 	static int getMaxInventorySlots(int UserIndex) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -3173,8 +3173,8 @@ public class UsUaRiOs {
  /* '01/06/2010: ZaMa - Ahora usa otro tipo de intervalo (lo saque de tPiquetec) */
  /* '*************************************************** */
  
- int Distance;
- int Tiempo;
+ int Distance = 0;
+ int Tiempo = 0;
  
    if (Declaraciones.UserList[UserIndex].flags.Muerto == 1) {
     if (Declaraciones.UserList[UserIndex].flags.lastMap == 0) {
@@ -3200,14 +3200,14 @@ public class UsUaRiOs {
 	}
 
 	static boolean ToogleToAtackable(int UserIndex, int OwnerIndex, boolean StealingNpc) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 15/01/2010 */
 		/* 'Change to Atackable mode. */
 		/* '*************************************************** */
 
-		int AtacablePor;
+		int AtacablePor = 0;
 
 		if (Declaraciones.MapInfo[Declaraciones.UserList[UserIndex].Pos.Map].Pk == false) {
 			Protocol.WriteConsoleMsg(UserIndex, "No puedes robar npcs en zonas seguras.", FontTypeNames.FONTTYPE_INFO);
@@ -3279,14 +3279,14 @@ public class UsUaRiOs {
 	}
 
 	static int GetHomeArrivalTime(int UserIndex) {
-		int retval;
+		int retval = 0;
 		/* '************************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modify by: ZaMa */
 		/* 'Last Modify Date: 01/06/2010 */
 		/* 'Calculates the time left to arrive home. */
 		/* '************************************************************** */
-		int TActual;
+		int TActual = 0;
 
 		TActual = Declaraciones.GetTickCount() && 0x7FFFFFFF;
 
@@ -3303,9 +3303,9 @@ public class UsUaRiOs {
 		/* 'Teleports user to its home. */
 		/* '************************************************************** */
 
-		int tX;
-		int tY;
-		int tMap;
+		int tX = 0;
+		int tY = 0;
+		int tMap = 0;
 
 		/*
 		 * 'Antes de que el pj llegue a la ciudad, lo hacemos dejar de navegar

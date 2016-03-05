@@ -44,4 +44,8 @@ public enum eCiudad {
 		}
 		return 0;
 	}
+
+	public int toInteger() {
+		return toInteger(this);
+	}
 }

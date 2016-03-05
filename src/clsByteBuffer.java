@@ -9,7 +9,7 @@ import enums.*;
 
 public class clsByteBuffer {
 
-	private int[] data = new int[0]; /* XXX */
+	private int[] data = new int[0];
 
 	private int CurrentPos;
 	private int lastPos;
@@ -57,42 +57,42 @@ public class clsByteBuffer {
 	}
 
 	int getByte() {
-		int retval;
+		int retval = 0;
 		retval = data[CurrentPos];
 		CurrentPos = CurrentPos + BYTE_SIZE;
 		return retval;
 	}
 
 	boolean getBoolean() {
-		boolean retval;
+		boolean retval = false;
 		SysTray.CopyMemory(retval, data[CurrentPos], BOOL_SIZE);
 		CurrentPos = CurrentPos + BOOL_SIZE;
 		return retval;
 	}
 
 	int getInteger() {
-		int retval;
+		int retval = 0;
 		SysTray.CopyMemory(retval, data[CurrentPos], INTEGER_SIZE);
 		CurrentPos = CurrentPos + INTEGER_SIZE;
 		return retval;
 	}
 
 	int getLong() {
-		int retval;
+		int retval = 0;
 		SysTray.CopyMemory(retval, data[CurrentPos], LONG_SIZE);
 		CurrentPos = CurrentPos + LONG_SIZE;
 		return retval;
 	}
 
 	float getSingle() {
-		float retval;
+		float retval = 0.0f;
 		SysTray.CopyMemory(retval, data[CurrentPos], SINGLE_SIZE);
 		CurrentPos = CurrentPos + SINGLE_SIZE;
 		return retval;
 	}
 
 	double getDouble() {
-		double retval;
+		double retval = 0.0;
 		SysTray.CopyMemory(retval, data[CurrentPos], DOUBLE_SIZE);
 		CurrentPos = CurrentPos + DOUBLE_SIZE;
 		return retval;
@@ -159,7 +159,7 @@ public class clsByteBuffer {
 	}
 
 	void putString(String /* FIXME BYREF!! */ str, boolean withLength) {
-		int length;
+		int length = 0;
 
 		length = vb6.Len(str);
 
@@ -193,19 +193,19 @@ public class clsByteBuffer {
 	}
 
 	int getLastPos() {
-		int retval;
+		int retval = 0;
 		retval = lastPos;
 		return retval;
 	}
 
 	int getCurrentPos() {
-		int retval;
+		int retval = 0;
 		retval = CurrentPos;
 		return retval;
 	}
 
 	boolean Eof() {
-		boolean retval;
+		boolean retval = false;
 		retval = (CurrentPos > vb6.UBound(data));
 		return retval;
 	}

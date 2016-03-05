@@ -55,8 +55,8 @@ public class wskapiAO {
 	/* ' @param slot slot */
 	/* ' */
 	static public class tSockCache {
-		int Sock;
-		int Slot;
+		public int Sock;
+		public int Slot;
 	}
 
 	public static vb6.Collection WSAPISock2Usr;
@@ -144,7 +144,7 @@ public class wskapiAO {
 }
 
 	static int BuscaSlotSock(int S) {
-		int retval;
+		int retval = 0;
 		/* # IF UsarQueSocket = 1 THEN */
 
 		/* FIXME: ON ERROR GOTO hayerror */
@@ -205,7 +205,7 @@ public class wskapiAO {
 
 	static void BorraSlotSock(int Sock) {
  /* # IF ( UsarQueSocket = 1 ) THEN */
- int cant;
+ int cant = 0;
  
  cant = wskapiAO.WSAPISock2Usr.Count;
  /* FIXME: ON ERROR RESUME NEXT */
@@ -217,17 +217,17 @@ public class wskapiAO {
 }
 
 	static int WndProc(int hWnd, int msg, int wParam, int lParam) {
- int retval;
+ int retval = 0;
  /* # IF UsarQueSocket = 1 THEN */
  
  /* FIXME: ON ERROR RESUME NEXT */
  
- int ret;
+ int ret = 0;
  int[] Tmp;
- int S;
- int E;
- int N;
- int UltError;
+ int S = 0;
+ int E = 0;
+ int N = 0;
+ int UltError = 0;
  
  switch (msg) {
   case 1025:
@@ -338,10 +338,10 @@ return retval;
 	/* 'Retorna 0 cuando se envió o se metio en la cola, */
 	/* 'retorna <> 0 cuando no se pudo enviar o no se pudo meter en la cola */
 	static int WsApiEnviar(int Slot, String /* FIXME BYREF!! */ str) {
- int retval;
+ int retval = 0;
  /* # IF UsarQueSocket = 1 THEN */
  String ret;
- int Retorno;
+ int Retorno = 0;
  int[] data;
  
  data = (data == null) ? new Byte[vb6.Len(str)-1] : java.util.Arrays.copyOf(data, vb6.Len(str)-1);
@@ -382,7 +382,7 @@ return retval;
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int nfile;
+		int nfile = 0;
 		/* ' obtenemos un canal */
 		nfile = vb6.FreeFile();
 		/*
@@ -405,12 +405,12 @@ return retval;
  /* 'USO DE LA API DE WINSOCK */
  /* '======================== */
  
- int NewIndex;
- int ret;
- int Tam;
+ int NewIndex = 0;
+ int ret = 0;
+ int Tam = 0;
  sockaddr sa;
- int NuevoSock;
- int i;
+ int NuevoSock = 0;
+ int i = 0;
  String str;
  int[] data;
  
@@ -564,7 +564,7 @@ return retval;
 		 * 'Si estamos acá es porque se cerró la conexión, no es un /salir, y no
 		 * queremos banearlo....
 		 */
-		int CentinelaIndex;
+		int CentinelaIndex = 0;
 		CentinelaIndex = Declaraciones.UserList[Slot].flags.CentinelaIndex;
 
 		if (CentinelaIndex != 0) {
@@ -585,7 +585,7 @@ return retval;
 
 	static void WSApiReiniciarSockets() {
  /* # IF UsarQueSocket = 1 THEN */
- int i;
+ int i = 0;
  /* 'Cierra el socket de escucha */
  if (wskapiAO.SockListen>=0) {
  apiclosesocket[wskapiAO.SockListen];
@@ -639,7 +639,7 @@ return retval;
 			FLOWSPEC /* FIXME BYREF!! */ lpSQOS, int Reserved,
 			WSABUF /* FIXME BYREF!! */ lpCalleeId, WSABUF /* FIXME BYREF!! */ lpCalleeData,
 			int /* FIXME BYREF!! */ Group, int dwCallbackData) {
-		int retval;
+		int retval = 0;
 		/* # IF UsarQueSocket = 1 THEN */
 		sockaddr sa;
 

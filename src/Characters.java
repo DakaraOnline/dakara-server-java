@@ -42,7 +42,7 @@ public class Characters {
 	/* ' @see INVALID_INDEX */
 
 	static int CharIndexToUserIndex(int CharIndex) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */

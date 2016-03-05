@@ -44,7 +44,7 @@ public class SecurityIp {
 	/* '************************************************* ************* */
 
 	/* 'USAMOS 2 LONGS: UNO DE LA IP, SEGUIDO DE UNO DE LA INFO */
-	private static int[] IpTables = new int[0]; /* XXX */
+	private static int[] IpTables = new int[0];
 	private static int EntrysCounter;
 	private static int MaxValue;
 	/* 'Cuantas veces multiplike el EntrysCounter para que me entren? */
@@ -54,7 +54,7 @@ public class SecurityIp {
 	/* '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''' */
 	/* 'Declaraciones para maximas conexiones por usuario */
 	/* 'Agregado por EL OSO */
-	private static int[] MaxConTables = new int[0]; /* XXX */
+	private static int[] MaxConTables = new int[0];
 	/* 'puntero a la ultima insertada */
 	private static int MaxConTablesEntry;
 
@@ -118,14 +118,14 @@ public class SecurityIp {
 	}
 
 	static boolean IpSecurityAceptarNuevaConexion(int ip) {
- boolean retval;
+ boolean retval = false;
  /* '*************************************************  ************* */
  /* 'Author: Lucio N. Tourrilhes (DuNga) */
  /* 'Last Modify Date: Unknow */
  /* ' */
  /* '*************************************************  ************* */
- int IpTableIndex;
- int tmpTime;
+ int IpTableIndex = 0;
+ int tmpTime = 0;
  
  IpTableIndex = FindTableIp(ip, IP_INTERVALOS);
  
@@ -208,8 +208,8 @@ return retval;
 	 */
 
 	static boolean IPSecuritySuperaLimiteConexiones(int ip) {
- boolean retval;
- int IpTableIndex;
+ boolean retval = false;
+ int IpTableIndex = 0;
  
  IpTableIndex = FindTableIp(ip, IP_LIMITECONEXIONES);
  
@@ -270,7 +270,7 @@ return retval;
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		int key;
+		int key = 0;
 		/* 'Debug.Print "resta conexion a " & ip */
 
 		key = FindTableIp(ip, IP_LIMITECONEXIONES);
@@ -334,7 +334,7 @@ return retval;
 	 */
 
 	static int FindTableIp(int ip, e_SecurityIpTabla Tabla) {
-		int retval;
+		int retval = 0;
 		/* '************************************************* ************* */
 		/* 'Author: Lucio N. Tourrilhes (DuNga) */
 		/* 'Last Modify Date: Unknow */
@@ -343,9 +343,9 @@ return retval;
 		 * Insertion
 		 */
 		/* '************************************************* ************* */
-		int First;
-		int Last;
-		int Middle;
+		int First = 0;
+		int Last = 0;
+		int Middle = 0;
 
 		switch (Tabla) {
 		case IP_INTERVALOS:
@@ -391,14 +391,14 @@ return retval;
 	}
 
 	static int DumpTables() {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
 		/* ' */
 		/* '*************************************************** */
 
-		int i;
+		int i = 0;
 
 		/* FIXME WEIRD FOR */
 		for (i = (0); ((2) > 0) ? (i <= (MaxConTablesEntry * 2 - 1))

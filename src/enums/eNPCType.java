@@ -64,4 +64,8 @@ public enum eNPCType {
 		}
 		return 0;
 	}
+
+	public int toInteger() {
+		return toInteger(this);
+	}
 }

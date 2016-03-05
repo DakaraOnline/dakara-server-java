@@ -79,19 +79,19 @@ public class mdParty {
 	/* ' @param Experiencia Experiencia */
 	/* ' */
 	static public class tPartyMember {
-		int UserIndex;
-		double Experiencia;
+		public int UserIndex;
+		public double Experiencia;
 	}
 
 	static int NextParty() {
- int retval;
+ int retval = 0;
  /* '*************************************************** */
  /* 'Author: Unknown */
  /* 'Last Modification: - */
  /* ' */
  /* '*************************************************** */
  
- int i;
+ int i = 0;
  retval = -1;
   for (i = (1); i <= (mdParty.MAX_PARTIES); i++) {
    if (Declaraciones.Parties[i]Is null ) {
@@ -103,7 +103,7 @@ return retval;
 }
 
 	static boolean PuedeCrearParty(int UserIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 05/22/2010 (Marco) */
@@ -139,7 +139,7 @@ return retval;
 		/* ' */
 		/* '*************************************************** */
 
-		int tInt;
+		int tInt = 0;
 
 		if (Declaraciones.UserList[UserIndex].PartyIndex == 0) {
 			if (Declaraciones.UserList[UserIndex].flags.Muerto == 0) {
@@ -202,8 +202,8 @@ return retval;
 		/* '*************************************************** */
 
 		/* 'ESTO ES enviado por el PJ para solicitar el ingreso a la party */
-		int TargetUserIndex;
-		int PartyIndex;
+		int TargetUserIndex = 0;
+		int PartyIndex = 0;
 
 		/* 'staff members aren't allowed to party anyone */
 		if ((Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.User) == 0) {
@@ -277,7 +277,7 @@ return retval;
 		/* ' */
 		/* '*************************************************** */
 
-		int PI;
+		int PI = 0;
 		PI = Declaraciones.UserList[UserIndex].PartyIndex;
 		if (PI > 0) {
 			if (Declaraciones.Parties[PI].SaleMiembro(UserIndex)) {
@@ -299,7 +299,7 @@ return retval;
 		/* ' */
 		/* '*************************************************** */
 
-		int PI;
+		int PI = 0;
 		PI = Declaraciones.UserList[leader].PartyIndex;
 
 		if (PI == Declaraciones.UserList[OldMember].PartyIndex) {
@@ -326,13 +326,13 @@ return retval;
 	/* ' @param User Specifies reference to user */
 	/* ' @return True if the user can use party commands, false if not. */
 	static boolean UserPuedeEjecutarComandos(int User) {
-		boolean retval;
+		boolean retval = false;
 		/* '************************************************* */
 		/* 'Author: Marco Vanotti(Marco) */
 		/* 'Last modified: 05/05/09 */
 		/* ' */
 		/* '************************************************* */
-		int PI;
+		int PI = 0;
 
 		PI = Declaraciones.UserList[User].PartyIndex;
 
@@ -361,7 +361,7 @@ return retval;
 		/* '*************************************************** */
 
 		/* 'el UI es el leader */
-		int PI;
+		int PI = 0;
 		String razon;
 
 		PI = Declaraciones.UserList[leader].PartyIndex;
@@ -427,8 +427,8 @@ return retval;
 	}
 
 	static int IsPartyMember(int UserIndex, int PartyIndex) {
-		int retval;
-		int MemberIndex;
+		int retval = 0;
+		int MemberIndex = 0;
 
 		for (MemberIndex = (1); MemberIndex <= (mdParty.PARTY_MAXMEMBERS); MemberIndex++) {
 
@@ -443,7 +443,7 @@ return retval;
 		/* ' */
 		/* '*************************************************** */
 
-		int PI;
+		int PI = 0;
 
 		PI = Declaraciones.UserList[UserIndex].PartyIndex;
 
@@ -459,8 +459,8 @@ return retval;
  /* 'Last modified: 11/27/09 (Budi) */
  /* 'Adapte la función a los nuevos métodos de clsParty */
  /* '************************************************* */
- int i;
- int PI;
+ int i = 0;
+ int PI = 0;
  String Text;
  int[] MembersOnline;
  
@@ -487,7 +487,7 @@ return retval;
 		/* ' */
 		/* '*************************************************** */
 
-		int PI;
+		int PI = 0;
 
 		if (OldLeader == NewLeader) {
 			return;
@@ -526,7 +526,7 @@ return retval;
  /* 'esta funcion se invoca antes de worlsaves, y apagar servidores */
  /* 'en caso que la experiencia sea acumulada y no por golpe */
  /* 'para que grabe los datos en los charfiles */
- int i;
+ int i = 0;
  
   if (!mdParty.PARTY_EXPERIENCIAPORGOLPE) {
   
@@ -565,7 +565,7 @@ return retval;
 	}
 
 	static int CantMiembros(int UserIndex) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */

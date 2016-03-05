@@ -28,7 +28,7 @@ import enums.*;
 public class frmUserList {
 
 	static void Command1_Click() {
-		int LoopC;
+		int LoopC = 0;
 
 		Text2.Text = "MaxUsers: " + Declaraciones.MaxUsers + vbCrLf;
 		Text2.Text = Text2.Text + "LastUser: " + Declaraciones.LastUser + vbCrLf;
@@ -46,7 +46,7 @@ public class frmUserList {
 	}
 
 	static void Command2_Click() {
-		int LoopC;
+		int LoopC = 0;
 
 		for (LoopC = (1); LoopC <= (Declaraciones.MaxUsers); LoopC++) {
 			if (Declaraciones.UserList[LoopC].ConnID != -1 && !Declaraciones.UserList[LoopC].flags.UserLogged) {
@@ -57,7 +57,7 @@ public class frmUserList {
 	}
 
 	static void List1_Click() {
-		int UserIndex;
+		int UserIndex = 0;
 		if (List1.ListIndex != -1) {
 			UserIndex = List1.ItemData[List1.ListIndex];
 			if (UserIndex > 0 && UserIndex <= Declaraciones.MaxUsers) {

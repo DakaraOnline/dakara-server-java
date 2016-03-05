@@ -41,8 +41,8 @@ public class modUserRecords {
 		/* '************************************************************** */
 		clsIniManager Reader;
 		String tmpStr;
-		int i;
-		int j;
+		int i = 0;
+		int j = 0;
 
 		Reader = new clsIniManager();
 
@@ -91,8 +91,8 @@ public class modUserRecords {
 		/* '************************************************************** */
 		clsIniManager Writer;
 		String tmpStr;
-		int i;
-		int j;
+		int i = 0;
+		int j = 0;
 
 		Writer = new clsIniManager();
 
@@ -157,7 +157,7 @@ public class modUserRecords {
 		/* 'Last Modify Date: 29/11/2010 */
 		/* 'Elimina un seguimiento. */
 		/* '************************************************************** */
-		int i;
+		int i = 0;
 
 		if (RecordIndex == Declaraciones.NumRecords) {
 			Declaraciones.NumRecords = Declaraciones.NumRecords - 1;
@@ -182,7 +182,7 @@ public class modUserRecords {
 		/* 'Last Modify Date: 29/11/2010 */
 		/* 'Crea el archivo de seguimientos. */
 		/* '************************************************************** */
-		int intFile;
+		int intFile = 0;
 
 		intFile = vb6.FreeFile();
 

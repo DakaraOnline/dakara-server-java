@@ -27,7 +27,7 @@ import enums.*;
 
 public class clsParty {
 
-	private mdParty.tPartyMember[] p_members = new mdParty.tPartyMember[1 + mdParty.PARTY_MAXMEMBERS]; /* XXX */
+	private mdParty.tPartyMember[] p_members = new mdParty.tPartyMember[1 + mdParty.PARTY_MAXMEMBERS];
 	/* 'miembros */
 
 	private int p_expTotal;
@@ -88,7 +88,7 @@ public class clsParty {
 }
 
 	int MiExperiencia(int UserIndex) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 11/27/09 */
@@ -101,7 +101,7 @@ public class clsParty {
 		/* ' - 11/27/09 Arreglé el Out of Range. */
 		/* '*************************************************** */
 		/* 'Me dice cuanta experiencia tengo colectada ya en la party */
-		int i;
+		int i = 0;
 		i = 1;
 
 		while (i <= mdParty.PARTY_MAXMEMBERS && p_members[i].UserIndex != UserIndex) {
@@ -130,9 +130,9 @@ public class clsParty {
  /* ' - 07/04/08 New formula to calculate Experience for each user. (MarKoxX) */
  /* '*************************************************** */
  /* 'Se produjo un evento que da experiencia en la wp referenciada */
- int i;
- int UI;
- double expThisUser;
+ int i = 0;
+ int UI = 0;
+ double expThisUser = 0.0;
  
  p_expTotal = p_expTotal+ExpGanada;
  
@@ -167,7 +167,7 @@ public class clsParty {
 		/*
 		 * 'feo feo, muy feo acceder a senddata desde aca, pero BUEEEEEEEEEEE...
 		 */
-		int i;
+		int i = 0;
 
 		for (i = (1); i <= (mdParty.PARTY_MAXMEMBERS); i++) {
 			if (p_members[i].UserIndex > 0) {
@@ -179,13 +179,13 @@ public class clsParty {
 	}
 
 	boolean EsPartyLeader(int UserIndex) {
-		boolean retval;
+		boolean retval = false;
 		retval = (UserIndex == p_Fundador);
 		return retval;
 	}
 
 	boolean NuevoMiembro(int UserIndex) {
- boolean retval;
+ boolean retval = false;
  /* '*************************************************** */
  /* 'Author: Unknown */
  /* 'Last Modification: 07/04/08 */
@@ -194,7 +194,7 @@ public class clsParty {
  /* ' - 07/04/08 Added const ExponenteNivelParty. (MarKoxX) */
  /* '*************************************************** */
  
- int i;
+ int i = 0;
  i = 1;
   while (i<=mdParty.PARTY_MAXMEMBERS && p_members[i].UserIndex>0) {
   i = i+1;
@@ -214,7 +214,7 @@ return retval;
 }
 
 	boolean SaleMiembro(int UserIndex) {
- boolean retval;
+ boolean retval = false;
  /* '*************************************************** */
  /* 'Author: Unknown */
  /* 'Last Modification: 07/04/08 */
@@ -225,9 +225,9 @@ return retval;
  /* '11/03/2010: ZaMa - Ahora no le dice al lider que salio de su propia party, y optimice con with. */
  /* '*************************************************** */
  /* 'el valor de retorno representa si se disuelve la party */
- int i;
- int j;
- int MemberIndex;
+ int i = 0;
+ int j = 0;
+ int MemberIndex = 0;
  
  i = 1;
  retval = false;
@@ -304,17 +304,17 @@ return retval;
 }
 
 	boolean HacerLeader(int UserIndex) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 09/29/07 */
 		/* 'Last Modification By: Lucas Tavolaro Ortiz (Tavo) */
 		/* ' - 09/29/07 There is no level prohibition */
 		/* '*************************************************** */
-		int i;
-		int OldLeader;
-		double oldExp;
-		int UserIndexIndex;
+		int i = 0;
+		int OldLeader = 0;
+		double oldExp = 0.0;
+		int UserIndexIndex = 0;
 
 		UserIndexIndex = 0;
 		retval = true;
@@ -381,7 +381,7 @@ return retval;
 		 */
 		/* '*************************************************** */
 
-		int i;
+		int i = 0;
 
 		for (i = (1); i <= (mdParty.PARTY_MAXMEMBERS); i++) {
 			if (p_members[i].UserIndex > 0) {
@@ -392,7 +392,7 @@ return retval;
 	}
 
 	int ObtenerExperienciaTotal() {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Budi */
 		/* 'Last Modification: 11/27/09 */
@@ -403,7 +403,7 @@ return retval;
 	}
 
 	boolean PuedeEntrar(int UserIndex, String /* FIXME BYREF!! */ razon) {
-		boolean retval;
+		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 09/29/07 */
@@ -411,12 +411,12 @@ return retval;
 		/* ' - 09/29/07 There is no level prohibition */
 		/* '*************************************************** */
 		/* 'DEFINE LAS REGLAS DEL JUEGO PARA DEJAR ENTRAR A MIEMBROS */
-		boolean esArmada;
-		boolean esCaos;
-		int MyLevel;
-		int i;
-		boolean rv;
-		int UI;
+		boolean esArmada = false;
+		boolean esCaos = false;
+		int MyLevel = 0;
+		int i = 0;
+		boolean rv = false;
+		int UI = 0;
 
 		rv = true;
 		esArmada = (Declaraciones.UserList[UserIndex].Faccion.ArmadaReal == 1);
@@ -489,7 +489,7 @@ return retval;
 		 */
 		/* 'acumulada a los usuarios. */
 
-		int i;
+		int i = 0;
 		/* 'esto sirve SOLO cuando acumulamos la experiencia! */
 		if (!mdParty.PARTY_EXPERIENCIAPORGOLPE) {
 			for (i = (1); i <= (mdParty.PARTY_MAXMEMBERS); i++) {
@@ -519,8 +519,8 @@ return retval;
 	}
 
 	void CompactMemberList() {
-		int i;
-		int freeIndex;
+		int i = 0;
+		int freeIndex = 0;
 		i = 1;
 		while (i <= mdParty.PARTY_MAXMEMBERS) {
 			if (p_members[i].UserIndex == 0 && freeIndex == 0) {
@@ -540,7 +540,7 @@ return retval;
 	}
 
 	int CantMiembros() {
-		int retval;
+		int retval = 0;
 		retval = p_CantMiembros;
 		return retval;
 	}

@@ -64,8 +64,8 @@ public class ModFacciones {
 	static final int NUM_DEF_FACCION_ARMOURS = 3;
 
 	static public class tFaccionArmaduras {
-		int[] Armada;
-		int[] Caos;
+		public int[] Armada;
+		public int[] Caos;
 	}
 
 	/*
@@ -75,10 +75,10 @@ public class ModFacciones {
 public static tFaccionArmaduras[] ArmadurasFaccion = new tFaccionArmaduras[[('1', 'Declaraciones.NUMCLASES'), ('1', 'Declaraciones.NUMRAZAS')]]; /* XXX MULTIDIMENSIONAL [('1', 'Declaraciones.NUMCLASES'), ('1', 'Declaraciones.NUMRAZAS')] */
 
 /* ' Contiene la cantidad de exp otorgada cada vez que aumenta el rango */
-	public static int[] RecompensaFacciones = new int[0 + ModFacciones.NUM_RANGOS_FACCION]; /* XXX */
+	public static int[] RecompensaFacciones = new int[0 + ModFacciones.NUM_RANGOS_FACCION];
 
 	static int GetArmourAmount(int Rango, eTipoDefArmors TipoDef) {
-		int retval;
+		int retval = 0;
 		/* '*************************************************** */
 		/* 'Autor: ZaMa */
 		/* 'Last Modification: 15/04/2010 */
@@ -117,7 +117,7 @@ public static tFaccionArmaduras[] ArmadurasFaccion = new tFaccionArmaduras[[('1'
 		/* '*************************************************** */
 
 		Declaraciones.Obj ObjArmour;
-		int Rango;
+		int Rango = 0;
 
 		Rango = vb6.val(vb6.IIf(IsCaos, Declaraciones.UserList[UserIndex].Faccion.RecompensasCaos,
 				Declaraciones.UserList[UserIndex].Faccion.RecompensasReal)) + 1;
@@ -170,7 +170,7 @@ public static tFaccionArmaduras[] ArmadurasFaccion = new tFaccionArmaduras[[('1'
 		/* 'Gives reward exp to user */
 		/* '*************************************************** */
 
-		int GivenExp;
+		int GivenExp = 0;
 
 		GivenExp = ModFacciones.RecompensaFacciones[Rango];
 
@@ -324,10 +324,10 @@ public static tFaccionArmaduras[] ArmadurasFaccion = new tFaccionArmaduras[[('1'
 		/* 'Handles the way of gaining new ranks in the "Armada Real" */
 		/* '15/04/2010: ZaMa - Agrego recompensas de oro y armaduras */
 		/* '*************************************************** */
-		int Crimis;
-		int Lvl;
-		int NextRecom;
-		int Nobleza;
+		int Crimis = 0;
+		int Lvl = 0;
+		int NextRecom = 0;
+		int Nobleza = 0;
 
 		Lvl = Declaraciones.UserList[UserIndex].Stats.ELV;
 		Crimis = Declaraciones.UserList[UserIndex].Faccion.CriminalesMatados;
@@ -556,7 +556,7 @@ public static tFaccionArmaduras[] ArmadurasFaccion = new tFaccionArmaduras[[('1'
 					FontTypeNames.FONTTYPE_FIGHT);
 		}
 
-		boolean bRefresh;
+		boolean bRefresh = false;
 
 		if (Declaraciones.UserList[UserIndex].Invent.ArmourEqpObjIndex != 0) {
 			/* 'Desequipamos la armadura real si está equipada */
@@ -614,7 +614,7 @@ public static tFaccionArmaduras[] ArmadurasFaccion = new tFaccionArmaduras[[('1'
 					FontTypeNames.FONTTYPE_FIGHT);
 		}
 
-		boolean bRefresh;
+		boolean bRefresh = false;
 
 		if (Declaraciones.UserList[UserIndex].Invent.ArmourEqpObjIndex != 0) {
 			/* 'Desequipamos la armadura de caos si está equipada */
@@ -885,9 +885,9 @@ public static tFaccionArmaduras[] ArmadurasFaccion = new tFaccionArmaduras[[('1'
 		/* 'Handles the way of gaining new ranks in the "Legión Oscura" */
 		/* '15/04/2010: ZaMa - Agrego recompensas de oro y armaduras */
 		/* '*************************************************** */
-		int Ciudas;
-		int Lvl;
-		int NextRecom;
+		int Ciudas = 0;
+		int Lvl = 0;
+		int NextRecom = 0;
 
 		Lvl = Declaraciones.UserList[UserIndex].Stats.ELV;
 		Ciudas = Declaraciones.UserList[UserIndex].Faccion.CiudadanosMatados;

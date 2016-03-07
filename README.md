@@ -2,7 +2,9 @@
 
 Prueba de concepto de la migración del servidor a JAVA.
 
-NO TRABAJAR SOBRE ESTE CÓDIGO, ES UN PROTOTIPO, HACERLO SOBRE EL REPO DEFINITIVO (PROXIMAMENTE).
+Este codigo fue convertido desde el codigo de VB6 con un script, todavía quedan cosas por pulirle.
 
-Todavía quedan algunas cosas a pulirle al script de conversión de código.
+Hablar con ALEJOLP para ver en qué se puede ayudar.
+
+Gracias!
 

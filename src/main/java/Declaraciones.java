@@ -1346,7 +1346,7 @@ public class Declaraciones {
 	public static User[] UserList = new User[0];
 	/* 'NPCS */
 	public static npc[] Npclist = new npc[1 + Declaraciones.MAXNPCS];
-	public static MapBlock[] MapData = new MapBlock[0];
+	public static MapBlock[][][] MapData = new MapBlock[0][0][0];
 	public static MapInfo[] MapInfo = new MapInfo[0];
 	public static tHechizo[] Hechizos = new tHechizo[0];
 	public static int[] CharList = new int[1 + Declaraciones.MAXCHARS];

@@ -1,5 +1,4 @@
 
-
 /*  AUTOMATICALLY CONVERTED FILE  */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"General"')] */
 /* 'Argentum Online 0.12.2 */
@@ -552,9 +551,18 @@ public class General {
 		/* 'Last Modify Date: 15/03/2011 */
 		/* 'Initializes Main Timers. */
 		/* '***************************************************************** */
-		/* FIXME: ON ERRORfrmMain.nline.dakaraserver.AutoSave.Enabled = true;
-		/* '.tLluvia.Enabled = TruefrmMain.nline.dakaraserver.tPiqueteCfrmMain.nline.dakaraserver.GameTimer.Enabled = true;
-		/* '.tLluviaEvent.Enabled = TruefrmMain.nline.dakaraserver.FXfrmMain.nline.dakaraserver.AuditoriafrmMain.nline.dakaraserver.KillLogfrmMain.nline.dakaraserver.TIMER_AIfrmMain.nline.dakaraserver.npcataca.Enabled = true;
+		/* FIXME: ON ERROR RESUME NEXT */
+
+		frmMain.AutoSave.Enabled = true;
+		/* '.tLluvia.Enabled = True ' [TEMPORAL] */
+		frmMain.tPiqueteC.Enabled = true;
+		frmMain.GameTimer.Enabled = true;
+		/* '.tLluviaEvent.Enabled = True ' [TEMPORAL] */
+		frmMain.FX.Enabled = true;
+		frmMain.Auditoria.Enabled = true;
+		frmMain.KillLog.Enabled = true;
+		frmMain.TIMER_AI.Enabled = true;
+		frmMain.npcataca.Enabled = true;
 
 		/* # IF SeguridadAlkon THEN */
 		/* # END IF */
@@ -584,7 +592,8 @@ public class General {
 
 		/* # END IF */
 
-		if (frmfrmMain.nline.dakaraserver.txStatus.Caption = "Escuchando conexiones entrantes ...";
+		if (frmMain.Visible) {
+			frmMain.txStatus.Caption = "Escuchando conexiones entrantes ...";
 		}
 
 	}
@@ -667,7 +676,9 @@ public class General {
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
 		/* ' */
-		/* '***************************************frmMain.nline.dakaraserver.txtNumUsers.Text = Declaraciones.NumUsers;
+		/* '*************************************************** */
+
+		frmMain.txtNumUsers.Text = Declaraciones.NumUsers;
 
 	}
 
@@ -1142,7 +1153,8 @@ public class General {
  /* 'Se asegura de que los sockets estan cerrados e ignora cualquier err */
  /* FIXME: ON ERROR RESUME NEXT */
  
- if (ffrmMain.nline.dakaraserver.txStatus.Caption = "Reiniciando.";
+ if (frmMain.Visible) {
+ frmMain.txStatus.Caption = "Reiniciando.";
  }
  
  int LoopC = 0;

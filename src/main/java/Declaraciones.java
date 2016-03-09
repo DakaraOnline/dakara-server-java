@@ -1,5 +1,4 @@
 
-
 /*  AUTOMATICALLY CONVERTED FILE  */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"Declaraciones"')] */
 /* 'Argentum Online 0.12.2 */
@@ -1346,7 +1345,7 @@ public class Declaraciones {
 	public static User[] UserList = new User[0];
 	/* 'NPCS */
 	public static npc[] Npclist = new npc[1 + Declaraciones.MAXNPCS];
-	public static MapBlock[][][] MapData = new MapBlock[0][0][0];
+	public static MapBlock[] MapData = new MapBlock[0];
 	public static MapInfo[] MapInfo = new MapInfo[0];
 	public static tHechizo[] Hechizos = new tHechizo[0];
 	public static int[] CharList = new int[1 + Declaraciones.MAXCHARS];
@@ -1358,7 +1357,8 @@ public class Declaraciones {
 	public static int[] ArmasHerrero = new int[0];
 	public static int[] ArmadurasHerrero = new int[0];
 	public static int[] ObjCarpintero = new int[0];
-	public static String[] MD5s = new String[vb6.nline.dakaraserver.Collection BanIps;
+	public static String[] MD5s = new String[0];
+	public static vb6.Collection BanIps;
 	public static clsParty[] Parties = new clsParty[1 + mdParty.MAX_PARTIES];
 	public static ModClase[] ModClase = new ModClase[1 + Declaraciones.NUMCLASES];
 	public static ModRaza[] ModRaza = new ModRaza[1 + Declaraciones.NUMRAZAS];

@@ -1,4 +1,3 @@
-
 /*  AUTOMATICALLY CONVERTED FILE  */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"Protocol"')] */
 /* '************************************************************** */
@@ -1684,7 +1683,10 @@ public class Protocol {
 		case ToggleCentinelActivated:
 			HandleToggleCentinelActivated(UserIndex);
 
-			/* '/DOBACKUP */Declaraciones.nline.dakaraserver.eGMCommands.DoBackUp:
+			/* '/DOBACKUP */
+			break;
+
+		case Declaraciones.eGMCommands.DoBackUp:
 			HandleDoBackUp(UserIndex);
 
 			/* '/SHOWCMSG */
@@ -13953,8 +13955,8 @@ public class Protocol {
 
 		General.LogGM(Declaraciones.UserList[UserIndex].Name, "/BANIPLIST");
 
-		for (LoopDeclaraciones.nline.dakaraserver.BanIps.Count); LoopC++) {
-Declaraciones.nline.dakaraserver.BanIps.Item[LoopC] + ", ";
+		for (LoopC = (1); LoopC <= (Declaraciones.BanIps.Count); LoopC++) {
+			lista = lista + Declaraciones.BanIps.Item[LoopC] + ", ";
 		}
 
 		if (vb6.LenB(lista) != 0) {
@@ -16533,10 +16535,12 @@ Declaraciones.nline.dakaraserver.BanIps.Item[LoopC] + ", ";
 
 		if (Declaraciones.ServerSoloGMs > 0) {
 			WriteConsoleMsg(UserIndex, "Servidor habilitado para todos.", FontTypeNames.FONTTYPE_INFO);
-			Declaraciones.SerfrmMain.nline.dakaraserver.chkServerHabilitado.value = vbUnchecked;
+			Declaraciones.ServerSoloGMs = 0;
+			frmMain.chkServerHabilitado.value = vbUnchecked;
 		} else {
 			WriteConsoleMsg(UserIndex, "Servidor restringido a administradores.", FontTypeNames.FONTTYPE_INFO);
-			Declaraciones.SerfrmMain.nline.dakaraserver.chkServerHabilitado.value = vbChecked;
+			Declaraciones.ServerSoloGMs = 1;
+			frmMain.chkServerHabilitado.value = vbChecked;
 		}
 	}
 

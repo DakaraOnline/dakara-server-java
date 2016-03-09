@@ -1,5 +1,4 @@
 
-
 /*  AUTOMATICALLY CONVERTED FILE  */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"FrmInterv"')] */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_GlobalNameSpace'), (5, '='), (1, 'False')] */
@@ -57,9 +56,12 @@ public class FrmInterv {
 
 		/* '///////////////// TIMERS \\\\\\\\\\\\\\\\\\\ */
 
-		Admin.IntervaloUserPuedeCastear = vb6.val(txtIntervaloLanfrmMain.nline.dakaraserver.npcataca.Interval = vb6.val(txtNPCPufrmMain.nline.dakaraserver.TIMER_AI.Interval = vb6.val(txtAI.Text);
+		Admin.IntervaloUserPuedeCastear = vb6.val(txtIntervaloLanzaHechizo.Text);
+		frmMain.npcataca.Interval = vb6.val(txtNPCPuedeAtacar.Text);
+		frmMain.TIMER_AI.Interval = vb6.val(txtAI.Text);
 		Admin.IntervaloUserPuedeTrabajar = vb6.val(txtTrabajo.Text);
-		Admin.IntervaloUserPuedeAtacar = vb6.val(txtPufrmMain.nline.dakaraserver.tLluvia.Interval = vb6.val(txtIntervaloPerdidaStaminaLluvia.Text);
+		Admin.IntervaloUserPuedeAtacar = vb6.val(txtPuedeAtacar.Text);
+		frmMain.tLluvia.Interval = vb6.val(txtIntervaloPerdidaStaminaLluvia.Text);
 
 	}
 
@@ -103,13 +105,15 @@ public class FrmInterv {
 
 		ES.WriteVar(Declaraciones.IniPath + "Server.ini", "INTERVALOS", "IntervaloLanzaHechizo",
 				vb6.str(Admin.IntervaloUserPuedeCastear));
-		ES.WriteVar(Declaraciones.IniPath + "Server.ini", "INTERVALOS",frmMain.nline.dakaraserver.TIMER_AI.Interval);
-		ES.WriteVar(Declaraciones.IniPath + "Server.ini", "INTERVALOS", "IntervaloNpfrmMain.nline.dakaraserver.npcataca.Interval);
+		ES.WriteVar(Declaraciones.IniPath + "Server.ini", "INTERVALOS", "IntervaloNpcAI", frmMain.TIMER_AI.Interval);
+		ES.WriteVar(Declaraciones.IniPath + "Server.ini", "INTERVALOS", "IntervaloNpcPuedeAtacar",
+				frmMain.npcataca.Interval);
 		ES.WriteVar(Declaraciones.IniPath + "Server.ini", "INTERVALOS", "IntervaloTrabajo",
 				vb6.str(Admin.IntervaloUserPuedeTrabajar));
 		ES.WriteVar(Declaraciones.IniPath + "Server.ini", "INTERVALOS", "IntervaloUserPuedeAtacar",
 				vb6.str(Admin.IntervaloUserPuedeAtacar));
-		ES.WriteVar(Declaraciones.IniPath + "Server.ini", "INTERVALOS", "IntervaloPerdidaSfrmMain.nline.dakaraserver.tLluvia.Interval);
+		ES.WriteVar(Declaraciones.IniPath + "Server.ini", "INTERVALOS", "IntervaloPerdidaStaminaLluvia",
+				frmMain.tLluvia.Interval);
 
 		vb6.MsgBox("Los intervalos se han guardado sin problemas.");
 

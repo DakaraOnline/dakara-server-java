@@ -1,5 +1,4 @@
 
-
 /*  AUTOMATICALLY CONVERTED FILE  */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"Admin"')] */
 /* 'Argentum Online 0.12.2 */
@@ -405,7 +404,9 @@ public class Admin {
 		int LoopC = 0;
 
 		Dale = true;
-		LoopC = 1;Declaraciones.nline.dakaraserver.BanIps.Count && Declaraciones.nline.dakaraserver.BanIps.Item[LoopC] != ip);
+		LoopC = 1;
+		while (LoopC <= Declaraciones.BanIps.Count && Dale) {
+			Dale = (Declaraciones.BanIps.Item[LoopC] != ip);
 			LoopC = LoopC + 1;
 		}
 
@@ -457,7 +458,7 @@ public class Admin {
 		ArchN = vb6.FreeFile();
 		/* FIXME: OPEN ArchivoBanIp FOR OUTPUT AS # ArchN */
 
-		for (LoopDeclaraciones.nline.dakaraserver.BanIps.Count); LoopC++) {
+		for (LoopC = (1); LoopC <= (Declaraciones.BanIps.Count); LoopC++) {
 			/* FIXME: PRINT # ArchN , BanIps . Item ( LoopC ) */
 		}
 
@@ -526,7 +527,8 @@ public class Admin {
 		/* 'Last Modified By: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* '*************************************************** */
 
-		if (ES.EsAdmin(NaPlayerType.nline.dakaraserver.Admin;
+		if (ES.EsAdmin(Name)) {
+			retval = PlayerType.Admin;
 		} else if (ES.EsDios(Name)) {
 			retval = PlayerType.Dios;
 		} else if (ES.EsSemiDios(Name)) {
@@ -558,7 +560,9 @@ public class Admin {
 			UserName = vb6.Replace(UserName, "+", " ");
 		}
 
-		tUser = Extra.NameIndex(UsPlayerType.nline.dakaraserver.Admin || PlayerType.Dios || PlayerType.SemiDios || PlayerType.Consejero;
+		tUser = Extra.NameIndex(UserName);
+
+		rank = PlayerType.Admin || PlayerType.Dios || PlayerType.SemiDios || PlayerType.Consejero;
 
 		if (tUser <= 0) {
 			Protocol.WriteConsoleMsg(bannerUserIndex, "El usuario no está online.", FontTypeNames.FONTTYPE_TALK);

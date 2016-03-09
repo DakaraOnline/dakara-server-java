@@ -1,5 +1,4 @@
 
-
 /*  AUTOMATICALLY CONVERTED FILE  */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"ES"')] */
 /* 'Argentum Online 0.12.2 */
@@ -371,7 +370,8 @@ public class ES {
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		if (frmfrmMain.nline.dakaraserver.txStatus.Caption = "Cargando Hechizos.";
+		if (frmMain.Visible) {
+			frmMain.txStatus.Caption = "Cargando Hechizos.";
 		}
 
 		int Hechizo = 0;
@@ -930,7 +930,8 @@ public class ES {
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		if (frmfrmMain.nline.dakaraserver.txStatus.Caption = "Cargando base de datos de los objetos.";
+		if (frmMain.Visible) {
+			frmMain.txStatus.Caption = "Cargando base de datos de los objetos.";
 		}
 
 		/* '***************************************************************** */
@@ -1553,7 +1554,8 @@ public class ES {
 		/* ' */
 		/* '*************************************************** */
 
-		if (frmfrmMain.nline.dakaraserver.txStatus.Caption = "Cargando backup.";
+		if (frmMain.Visible) {
+			frmMain.txStatus.Caption = "Cargando backup.";
 		}
 
 		int Map = 0;
@@ -1616,7 +1618,8 @@ public class ES {
 		/* ' */
 		/* '*************************************************** */
 
-		if (frmfrmMain.nline.dakaraserver.txStatus.Caption = "Cargando mapas...";
+		if (frmMain.Visible) {
+			frmMain.txStatus.Caption = "Cargando mapas...";
 		}
 
 		int Map = 0;
@@ -1862,7 +1865,8 @@ public class ES {
 
 		int Temporal = 0;
 
-		if (frmfrmMain.nline.dakaraserver.txStatus.Caption = "Cargando info de inicio del server.";
+		if (frmMain.Visible) {
+			frmMain.txStatus.Caption = "Cargando info de inicio del server.";
 		}
 
 		Admin.BootDelBackUp = vb6.val(GetVar(Declaraciones.IniPath + "Server.ini", "INIT", "IniciarDesdeBackUp"));
@@ -2009,11 +2013,15 @@ public class ES {
 
 		Admin.IntervaloUserPuedeCastear = vb6
 				.val(GetVar(Declaraciones.IniPath + "Server.ini", "INTERVALOS", "IntervaloLanzaHechizo"));
-		FrmInterv.txtIntervaloLanzaHechizo.Text = Admin.IntervaloUsfrmMain.nline.dakaraserver.TIMER_AI.interval = vb6
+		FrmInterv.txtIntervaloLanzaHechizo.Text = Admin.IntervaloUserPuedeCastear;
+
+		frmMain.TIMER_AI.interval = vb6
 				.val(GetVar(Declaraciones.IniPath + "Server.ini", "INTERVALOS", "IntervaloNpcAI"));
-		FrmIfrmMain.nline.dakaraserver.TIMfrmMain.nline.dakaraserver.npcataca.interval = vb6
+		FrmInterv.txtAI.Text = frmMain.TIMER_AI.interval;
+
+		frmMain.npcataca.interval = vb6
 				.val(GetVar(Declaraciones.IniPath + "Server.ini", "INTERVALOS", "IntervaloNpcPuedeAtacar"));
-		FrmInterv.txtNPCfrmMain.nline.dakaraserver.npcataca.interval;
+		FrmInterv.txtNPCPuedeAtacar.Text = frmMain.npcataca.interval;
 
 		Admin.IntervaloUserPuedeTrabajar = vb6
 				.val(GetVar(Declaraciones.IniPath + "Server.ini", "INTERVALOS", "IntervaloTrabajo"));
@@ -2029,9 +2037,11 @@ public class ES {
 		Admin.IntervaloGolpeMagia = vb6
 				.val(GetVar(Declaraciones.IniPath + "Server.ini", "INTERVALOS", "IntervaloGolpeMagia"));
 		Admin.IntervaloGolpeUsar = vb6
-				.val(GetVar(Declaraciones.IniPath + "Server.ini", "INTERVALOS", "IntervafrmMain.nline.dakaraserver.tLluvia.interval = vb6
+				.val(GetVar(Declaraciones.IniPath + "Server.ini", "INTERVALOS", "IntervaloGolpeUsar"));
+
+		frmMain.tLluvia.interval = vb6
 				.val(GetVar(Declaraciones.IniPath + "Server.ini", "INTERVALOS", "IntervaloPerdidaStaminaLluvia"));
-		FrmInterv.txtIntervaloPerdidaStfrmMain.nline.dakaraserver.tLluvia.interval;
+		FrmInterv.txtIntervaloPerdidaStaminaLluvia.Text = frmMain.tLluvia.interval;
 
 		Admin.MinutosWs = vb6.val(GetVar(Declaraciones.IniPath + "Server.ini", "INTERVALOS", "IntervaloWS"));
 		if (Admin.MinutosWs < 60) {
@@ -2584,7 +2594,8 @@ public class ES {
 		/* '*************************************************** */
 
 		/* 'Status */
-		if (frmfrmMain.nline.dakaraserver.txStatus.Caption = "Cargando backup Npc";
+		if (frmMain.Visible) {
+			frmMain.txStatus.Caption = "Cargando backup Npc";
 		}
 
 		String npcfile;

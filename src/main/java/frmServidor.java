@@ -1,5 +1,4 @@
 
-
 /*  AUTOMATICALLY CONVERTED FILE  */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"frmServidor"')] */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_GlobalNameSpace'), (5, '='), (1, 'False')] */
@@ -101,7 +100,8 @@ public class frmServidor {
  /* 'Se asegura de que los sockets estan cerrados e ignora cualquier err */
  /* FIXME: ON ERROR RESUME NEXT */
  
- if (ffrmMain.nline.dakaraserver.txStatus.Caption = "Reiniciando.";
+ if (frmMain.Visible) {
+ frmMain.txStatus.Caption = "Reiniciando.";
  }
  
  FrmStat.Show();
@@ -154,7 +154,8 @@ public class frmServidor {
  
  /* # END IF */
  
- if (ffrmMain.nline.dakaraserver.txStatus.Caption = "Escuchando conexiones entrantes ...";
+ if (frmMain.Visible) {
+ frmMain.txStatus.Caption = "Escuchando conexiones entrantes ...";
  }
  
 }
@@ -290,8 +291,10 @@ public class frmServidor {
  String sENtrada;
  
  sENtrada = InputBox["Escribe ""estoy DE acuerdo"" sin comillas y con distinción de mayúsculas minúsculas para desbanear a todos los personajes"]["UnBan"]["hola"];
-  if (sENtrada == "estoy DE acDeclaraciones.nline.dakaraserver.BanIps.Count;
-   fDeclaraciones.nline.dakaraserver.BanIps.Count); i++) {
+  if (sENtrada == "estoy DE acuerdo") {
+  
+  N = Declaraciones.BanIps.Count;
+   for (i = (1); i <= (Declaraciones.BanIps.Count); i++) {
    Declaraciones.BanIps.Remove(1);
   }
   

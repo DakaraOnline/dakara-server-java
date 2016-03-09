@@ -1,5 +1,4 @@
 
-
 /*  AUTOMATICALLY CONVERTED FILE  */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"UsUaRiOs"')] */
 /* 'Argentum Online 0.12.2 */
@@ -1702,7 +1701,7 @@ public class UsUaRiOs {
 		return retval;
 	}
 
-	static void SubirSkill(int UserIndex, int Skill, boolean Acerto) {
+	static void SubirSkill(int UserIndex, eSkill Skill, boolean Acerto) {
 		/* '************************************************* */
 		/* 'Author: Unknown */
 		/* 'Last modified: 11/19/2009 */
@@ -1710,7 +1709,7 @@ public class UsUaRiOs {
 		/* '************************************************* */
 		if (Declaraciones.UserList[UserIndex].flags.Hambre == 0 && Declaraciones.UserList[UserIndex].flags.Sed == 0) {
 			if (Declaraciones.UserList[UserIndex].Counters.AsignedSkills < 10) {
-				if (!Declaraciones.UserList[UserIndex].flags.UltimoMensaje == 7) {
+				if (Declaraciones.UserList[UserIndex].flags.UltimoMensaje != 7) {
 					Protocol.WriteConsoleMsg(UserIndex,
 							"Para poder entrenar un skill debes asignar los 10 skills iniciales.",
 							FontTypeNames.FONTTYPE_INFO);
@@ -1720,35 +1719,36 @@ public class UsUaRiOs {
 				return;
 			}
 
-			if (Declaraciones.UserList[UserIndex].Stats.UserSkills[Skill] == Declaraciones.MAXSKILLPOINTS) {
+			if (Declaraciones.UserList[UserIndex].Stats.UserSkills[Skill.toInteger()] == Declaraciones.MAXSKILLPOINTS) {
 				return;
 			}
 
 			int Lvl = 0;
 			Lvl = Declaraciones.UserList[UserIndex].Stats.ELV;
 
-			if (Lvl > vb6.UBound(Declaraciones.LevelSkill)) {
-				Lvl = vb6.UBound(Declaraciones.LevelSkill);
+			if (Lvl >= Declaraciones.LevelSkill.length) {
+				Lvl = Declaraciones.LevelSkill.length - 1;
 			}
 
-			if (Declaraciones.UserList[UserIndex].Stats.UserSkills[Skill] >= Declaraciones.LevelSkill[Lvl].LevelValue) {
+			if (Declaraciones.UserList[UserIndex].Stats.UserSkills[Skill
+					.toInteger()] >= Declaraciones.LevelSkill[Lvl].LevelValue) {
 				return;
 			}
 
 			if (Acerto) {
-				Declaraciones.UserList[UserIndex].Stats.ExpSkills[Skill] = Declaraciones.UserList[UserIndex].Stats.ExpSkills[Skill]
-						+ Declaraciones.EXP_ACIERTO_SKILL;
+				Declaraciones.UserList[UserIndex].Stats.ExpSkills[Skill.toInteger()] += Declaraciones.EXP_ACIERTO_SKILL;
 			} else {
-				Declaraciones.UserList[UserIndex].Stats.ExpSkills[Skill] = Declaraciones.UserList[UserIndex].Stats.ExpSkills[Skill]
-						+ Declaraciones.EXP_FALLO_SKILL;
+				Declaraciones.UserList[UserIndex].Stats.ExpSkills[Skill.toInteger()] += Declaraciones.EXP_FALLO_SKILL;
 			}
 
-			if (Declaraciones.UserList[UserIndex].Stats.ExpSkills[Skill] >= Declaraciones.UserList[UserIndex].Stats.EluSkills[Skill]) {
-				Declaraciones.UserList[UserIndex].Stats.UserSkills[Skill] = Declaraciones.UserList[UserIndex].Stats.UserSkills[Skill]
-						+ 1;
+			if (Declaraciones.UserList[UserIndex].Stats.ExpSkills[Skill
+					.toInteger()] >= Declaraciones.UserList[UserIndex].Stats.EluSkills[Skill.toInteger()]) {
+				Declaraciones.UserList[UserIndex].Stats.UserSkills[Skill
+						.toInteger()] = Declaraciones.UserList[UserIndex].Stats.UserSkills[Skill.toInteger()] + 1;
 				Protocol.WriteConsoleMsg(UserIndex,
-						"¡Has mejorado tu skill " + Declaraciones.SkillsNames[Skill] + " en un punto! Ahora tienes "
-								+ Declaraciones.UserList[UserIndex].Stats.UserSkills[Skill] + " pts.",
+						"¡Has mejorado tu skill " + Declaraciones.SkillsNames[Skill.toInteger()]
+								+ " en un punto! Ahora tienes "
+								+ Declaraciones.UserList[UserIndex].Stats.UserSkills[Skill.toInteger()] + " pts.",
 						FontTypeNames.FONTTYPE_INFO);
 
 				Declaraciones.UserList[UserIndex].Stats.Exp = Declaraciones.UserList[UserIndex].Stats.Exp + 50;
@@ -3081,27 +3081,29 @@ public class UsUaRiOs {
 	 * allocation, False if the skill increase by training
 	 */
 
-	static void CheckEluSkill(int UserIndex, int Skill, boolean Allocation) {
- /* '************************************************* */
- /* 'Author: Torres Patricio (Pato) */
- /* 'Last modified: 11/20/2009 */
- /* ' */
- /* '************************************************* */
- 
-   if (Declaraciones.UserList[UserIndex].Stats.UserSkills[Skill]<Declaraciones.MAXSKILLPOINTS) {
-    if (Allocation) {
-    Declaraciones.UserList[UserIndex].Stats.ExpSkills[Skill] = 0;
-    } else {
-    Declaraciones.UserList[UserIndex].Stats.ExpSkills[Skill] = Declaraciones.UserList[UserIndex].Stats.ExpSkills[Skill]-Declaraciones.UserList[UserIndex].Stats.EluSkills[Skill];
-   }
-   
-   Declaraciones.UserList[UserIndex].Stats.EluSkills[Skill] = Declaraciones.ELU_SKILL_INICIAL*1.05 $ Declaraciones.UserList[UserIndex].Stats.UserSkills[Skill];
-   } else {
-   Declaraciones.UserList[UserIndex].Stats.ExpSkills[Skill] = 0;
-   Declaraciones.UserList[UserIndex].Stats.EluSkills[Skill] = 0;
-  }
- 
-}
+	static void CheckEluSkill(int UserIndex, eSkill Skill, boolean Allocation) {
+		/* '************************************************* */
+		/* 'Author: Torres Patricio (Pato) */
+		/* 'Last modified: 11/20/2009 */
+		/* ' */
+		/* '************************************************* */
+
+		if (Declaraciones.UserList[UserIndex].Stats.UserSkills[Skill] < Declaraciones.MAXSKILLPOINTS) {
+			if (Allocation) {
+				Declaraciones.UserList[UserIndex].Stats.ExpSkills[Skill] = 0;
+			} else {
+				Declaraciones.UserList[UserIndex].Stats.ExpSkills[Skill] = Declaraciones.UserList[UserIndex].Stats.ExpSkills[Skill]
+						- Declaraciones.UserList[UserIndex].Stats.EluSkills[Skill];
+			}
+
+			Declaraciones.UserList[UserIndex].Stats.EluSkills[Skill] = (int) (Declaraciones.ELU_SKILL_INICIAL
+					* Math.pow(1.05, Declaraciones.UserList[UserIndex].Stats.UserSkills[Skill]));
+		} else {
+			Declaraciones.UserList[UserIndex].Stats.ExpSkills[Skill] = 0;
+			Declaraciones.UserList[UserIndex].Stats.EluSkills[Skill] = 0;
+		}
+
+	}
 
 	static boolean HasEnoughItems(int UserIndex, int ObjIndex, int Amount) {
 		boolean retval = false;

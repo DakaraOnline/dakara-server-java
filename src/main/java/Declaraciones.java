@@ -123,7 +123,7 @@ public class Declaraciones {
 	static final int SLOTS_POR_FILA = 5;
 
 	static final int PROB_ACUCHILLAR = 20;
-	static final float DANO_ACUCHILLAR = 0.2;
+	static final float DANO_ACUCHILLAR = 0.2f;
 
 	static final int MAXMASCOTASENTRENADOR = 7;
 
@@ -179,7 +179,7 @@ public class Declaraciones {
 
 	static final int FX_TELEPORT_INDEX = 1;
 
-	static final float PORCENTAJE_MATERIALES_UPGRADE = 0.85;
+	static final float PORCENTAJE_MATERIALES_UPGRADE = 0.85f;
 
 	/*
 	 * ' La utilidad de esto es casi nula, sólo se revisa si fue a la cabeza...
@@ -1345,7 +1345,7 @@ public class Declaraciones {
 	public static User[] UserList = new User[0];
 	/* 'NPCS */
 	public static npc[] Npclist = new npc[1 + Declaraciones.MAXNPCS];
-	public static MapBlock[] MapData = new MapBlock[0];
+	public static MapBlock[][][] MapData = new MapBlock[0][0][0];
 	public static MapInfo[] MapInfo = new MapInfo[0];
 	public static tHechizo[] Hechizos = new tHechizo[0];
 	public static int[] CharList = new int[1 + Declaraciones.MAXCHARS];

@@ -176,7 +176,7 @@ public class frmMain {
    if (Declaraciones.HappyHourActivated) {
    /* ' Reestablece la exp de los npcs */
    if (Declaraciones.HappyHour != 0) {
-   UpdateNpcsExp(1/Declaraciones.HappyHour);
+   UpdateNpcsExp(1 / (double) Declaraciones.HappyHour);
    }
   }
   
@@ -267,15 +267,14 @@ public class frmMain {
 	}
 
 	static void cmdCerrarServer_Click() {
-		if (vb6.MsgBox("¡¡Atencion!! Si cierra el servidor puede provocar la perdida de datos. "
-				+ "¿Desea hacerlo de todas maneras?", vbYesNo) == vbYes) {
-
-			Object f;
-			/* 'For Each f In Forms */
-			/* ' Unload f */
-			/* 'Next */
-		}
-	}
+  if (vb6.MsgBox("¡¡Atencion!! Si cierra el servidor puede provocar la perdida de datos. " + "¿Desea hacerlo de todas maneras?", vbYesNo) == vbYes) {
+  
+  Object f;
+   for (f : Forms) {
+   Unload(f);
+  }
+ }
+}
 
 	static void cmdConfiguracion_Click() {
 		frmServidor.Visible = true;

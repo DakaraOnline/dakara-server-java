@@ -79,7 +79,7 @@ public class modSistemaComercio {
   /* 'El precio, cuando nos venden algo, lo tenemos que redondear para arriba. */
   /* 'Es decir, 1.1 = 2, por lo cual se hace de la siguiente forma Precio = Clng(PrecioFinal + 0.5) Siempre va a darte el proximo numero. O el "Techo" (MarKoxX) */
   
-  Precio = vb6.CLng((Declaraciones.ObjData[Declaraciones.Npclist[NpcIndex].Invent.Object[Slot].ObjIndex].Valor/Descuento(UserIndex)*Cantidad)+0.5);
+  Precio = vb6.CLng((Declaraciones.ObjData[Declaraciones.Npclist[NpcIndex].Invent.Object[Slot].ObjIndex].Valor / (double) Descuento(UserIndex)*Cantidad)+0.5);
   
    if (Declaraciones.UserList[UserIndex].Stats.GLD<Precio) {
    Protocol.WriteConsoleMsg(UserIndex, "No tienes suficiente dinero.", FontTypeNames.FONTTYPE_INFO);
@@ -262,7 +262,7 @@ public class modSistemaComercio {
 		/* 'Author: Nacho (Integer) */
 		/* 'Last modified: 2/8/06 */
 		/* '************************************************* */
-		retval = 1 + Declaraciones.UserList[UserIndex].Stats.UserSkills[eSkill.Comerciar] / 100;
+		retval = 1 + Declaraciones.UserList[UserIndex].Stats.UserSkills[eSkill.Comerciar] / (double) 100;
 		return retval;
 	}
 
@@ -288,7 +288,7 @@ public class modSistemaComercio {
 				thisObj.ObjIndex = Declaraciones.Npclist[NpcIndex].Invent.Object[Slot].ObjIndex;
 				thisObj.Amount = Declaraciones.Npclist[NpcIndex].Invent.Object[Slot].Amount;
 
-				val = (Declaraciones.ObjData[thisObj.ObjIndex].Valor) / Descuento(UserIndex);
+				val = (Declaraciones.ObjData[thisObj.ObjIndex].Valor) / (double) Descuento(UserIndex);
 
 				Protocol.WriteChangeNPCInventorySlot(UserIndex, Slot, thisObj, val);
 			} else {
@@ -319,7 +319,7 @@ public class modSistemaComercio {
 			return retval;
 		}
 
-		retval = Declaraciones.ObjData[ObjIndex].Valor / modSistemaComercio.REDUCTOR_PRECIOVENTA;
+		retval = Declaraciones.ObjData[ObjIndex].Valor / (double) modSistemaComercio.REDUCTOR_PRECIOVENTA;
 		return retval;
 	}
 

@@ -31,7 +31,7 @@
 /* '************************************************************** */
 /* ' General_IpSecurity.Bas - Maneja la seguridad de las IPs */
 /* ' */
-/* ' Escrito y disenado por DuNga (ltourrilhes@gmail.com) */
+/* ' Escrito y diseñado por DuNga (ltourrilhes@gmail.com) */
 /* '************************************************************** */
 import enums.*;
 
@@ -40,7 +40,7 @@ public class SecurityIp {
 	/* '************************************************* ************* */
 	/* ' General_IpSecurity.Bas - Maneja la seguridad de las IPs */
 	/* ' */
-	/* ' Escrito y disenado por DuNga (ltourrilhes@gmail.com) */
+	/* ' Escrito y diseñado por DuNga (ltourrilhes@gmail.com) */
 	/* '************************************************* ************* */
 
 	/* 'USAMOS 2 LONGS: UNO DE LA IP, SEGUIDO DE UNO DE LA INFO */

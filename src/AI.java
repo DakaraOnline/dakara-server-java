@@ -431,7 +431,7 @@ public class AI {
 			}
 
 			/*
-			 * ' No le pertenece a nadie o el dueno no esta en el rango de
+			 * ' No le pertenece a nadie o el dueño no esta en el rango de
 			 * vision, sigue a cualquiera
 			 */
 			for (i = (1); i <= (ModAreas.ConnGroups[Declaraciones.Npclist[NpcIndex].Pos.Map].CountEntrys); i++) {

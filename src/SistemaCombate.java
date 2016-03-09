@@ -29,7 +29,7 @@
 /* 'Código Postal 1900 */
 /* 'Pablo Ignacio Márquez */
 /* ' */
-/* 'Diseno y corrección del modulo de combate por */
+/* 'Diseño y corrección del modulo de combate por */
 /* 'Gerardo Saiz, gerardosaiz@yahoo.com */
 /* ' */
 
@@ -71,7 +71,7 @@ public class SistemaCombate {
 		/* '*************************************************** */
 
 		retval = (Declaraciones.UserList[UserIndex].Stats.UserSkills[eSkill.Defensa]
-				* Declaraciones.ModClase[Declaraciones.UserList[UserIndex].clase].Escudo) / 2;
+				* Declaraciones.ModClase[Declaraciones.UserList[UserIndex].clase].Escudo) / (double) 2;
 		return retval;
 	}
 
@@ -84,7 +84,7 @@ public class SistemaCombate {
 		/* '*************************************************** */
 		int lTemp = 0;
 		lTemp = (Declaraciones.UserList[UserIndex].Stats.UserSkills[eSkill.Tacticas]
-				+ Declaraciones.UserList[UserIndex].Stats.UserSkills[eSkill.Tacticas] / 33
+				+ Declaraciones.UserList[UserIndex].Stats.UserSkills[eSkill.Tacticas] / (double) 33
 						* Declaraciones.UserList[UserIndex].Stats.UserAtributos[eAtributos.Agilidad])
 				* Declaraciones.ModClase[Declaraciones.UserList[UserIndex].clase].Evasion;
 
@@ -215,7 +215,7 @@ public class SistemaCombate {
 				PoderAtaque = PoderAtaqueArma(UserIndex);
 				Skill = eSkill.Armas;
 			}
-			/* 'Peleando con punos */
+			/* 'Peleando con puños */
 		} else {
 			PoderAtaque = PoderAtaqueWrestling(UserIndex);
 			Skill = eSkill.Wrestling;
@@ -277,7 +277,8 @@ public class SistemaCombate {
 				/* 'Evitamos división por cero */
 				if (SkillDefensa + SkillTacticas > 0) {
 					/* ' Chances are rounded */
-					ProbRechazo = MaximoInt(10, MinimoInt(90, 100 * SkillDefensa / (SkillDefensa + SkillTacticas)));
+					ProbRechazo = MaximoInt(10,
+							MinimoInt(90, 100 * SkillDefensa / (double) (SkillDefensa + SkillTacticas)));
 				} else {
 					/* 'Si no tiene skills le dejamos el 10% mínimo */
 					ProbRechazo = 10;
@@ -310,7 +311,7 @@ public class SistemaCombate {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 01/04/2010 (ZaMa) */
-		/* '01/04/2010: ZaMa - Modifico el dano de wrestling. */
+		/* '01/04/2010: ZaMa - Modifico el daño de wrestling. */
 		/*
 		 * '01/04/2010: ZaMa - Agrego bonificadores de wrestling para los
 		 * guantes.
@@ -343,7 +344,7 @@ public class SistemaCombate {
 						proyectil = Declaraciones.ObjData[Declaraciones.UserList[UserIndex].Invent.MunicionEqpObjIndex];
 						DanoArma = DanoArma + Matematicas.RandomNumber(proyectil.MinHIT, proyectil.MaxHIT);
 						/* ' For some reason this isn't done... */
-						/* 'DanoMaxArma = DanoMaxArma + proyectil.MaxHIT */
+						/* 'DañoMaxArma = DañoMaxArma + proyectil.MaxHIT */
 					}
 				} else {
 					ModifClase = Declaraciones.ModClase[Declaraciones.UserList[UserIndex].clase].DanoArmas;
@@ -359,7 +360,7 @@ public class SistemaCombate {
 							 * el Dragon si o si
 							 */
 							matoDragon = true;
-							/* ' Sino es Dragon dano es 1 */
+							/* ' Sino es Dragon daño es 1 */
 						} else {
 							DanoArma = 1;
 							DanoMaxArma = 1;
@@ -380,14 +381,14 @@ public class SistemaCombate {
 						proyectil = Declaraciones.ObjData[Declaraciones.UserList[UserIndex].Invent.MunicionEqpObjIndex];
 						DanoArma = DanoArma + Matematicas.RandomNumber(proyectil.MinHIT, proyectil.MaxHIT);
 						/* ' For some reason this isn't done... */
-						/* 'DanoMaxArma = DanoMaxArma + proyectil.MaxHIT */
+						/* 'DañoMaxArma = DañoMaxArma + proyectil.MaxHIT */
 					}
 				} else {
 					ModifClase = Declaraciones.ModClase[Declaraciones.UserList[UserIndex].clase].DanoArmas;
 
 					if (Declaraciones.UserList[UserIndex].Invent.WeaponEqpObjIndex == Declaraciones.EspadaMataDragonesIndex) {
 						ModifClase = Declaraciones.ModClase[Declaraciones.UserList[UserIndex].clase].DanoArmas;
-						/* ' Si usa la espada mataDragones dano es 1 */
+						/* ' Si usa la espada mataDragones daño es 1 */
 						DanoArma = 1;
 						DanoMaxArma = 1;
 					} else {
@@ -399,7 +400,7 @@ public class SistemaCombate {
 		} else {
 			ModifClase = Declaraciones.ModClase[Declaraciones.UserList[UserIndex].clase].DanoWrestling;
 
-			/* ' Dano sin guantes */
+			/* ' Daño sin guantes */
 			DanoMinArma = 4;
 			DanoMaxArma = 9;
 
@@ -424,7 +425,7 @@ public class SistemaCombate {
 			retval = Declaraciones.Npclist[NpcIndex].Stats.MinHp + Declaraciones.Npclist[NpcIndex].Stats.def;
 		} else {
 			retval = (3 * DanoArma
-					+ ((DanoMaxArma / 5) * MaximoInt(0,
+					+ ((DanoMaxArma / (double) 5) * MaximoInt(0,
 							Declaraciones.UserList[UserIndex].Stats.UserAtributos[eAtributos.Fuerza] - 15))
 					+ DanoUsuario) * ModifClase;
 		}
@@ -436,7 +437,7 @@ public class SistemaCombate {
  /* 'Author: Unknown */
  /* 'Last Modification: 07/04/2010 (Pato) */
  /* '25/01/2010: ZaMa - Agrego poder acuchillar npcs. */
- /* '07/04/2010: ZaMa - Los asesinos apunalan acorde al dano base sin descontar la defensa del npc. */
+ /* '07/04/2010: ZaMa - Los asesinos apuñalan acorde al daño base sin descontar la defensa del npc. */
  /* '07/04/2010: Pato - Si se mata al dragón en party se loguean los miembros de la misma. */
  /* '11/07/2010: ZaMa - Ahora la defensa es solo ignorada para asesinos. */
  /* '*************************************************** */
@@ -452,7 +453,7 @@ public class SistemaCombate {
  
  DanoBase = CalcularDano(UserIndex, NpcIndex);
  
- /* 'esta navegando? si es asi le sumamos el dano del barco */
+ /* 'esta navegando? si es asi le sumamos el daño del barco */
   if (Declaraciones.UserList[UserIndex].flags.Navegando == 1) {
   
   BoatIndex = Declaraciones.UserList[UserIndex].Invent.BarcoObjIndex;
@@ -472,7 +473,7 @@ public class SistemaCombate {
   Declaraciones.Npclist[NpcIndex].Stats.MinHp = Declaraciones.Npclist[NpcIndex].Stats.MinHp-dano;
   
    if (Declaraciones.Npclist[NpcIndex].Stats.MinHp>0) {
-   /* 'Trata de apunalar por la espalda al enemigo */
+   /* 'Trata de apuñalar por la espalda al enemigo */
     if (UsUaRiOs.PuedeApunalar(UserIndex)) {
     
     /* ' La defensa se ignora solo en asesinos */
@@ -612,7 +613,7 @@ public class SistemaCombate {
 			break;
 		}
 
-		/* ' Dano final */
+		/* ' Daño final */
 		dano = dano - HeadDefense - BodyDefense - BoatDefense;
 		if (dano < 1) {
 			dano = 1;
@@ -625,10 +626,10 @@ public class SistemaCombate {
 		}
 
 		if (Declaraciones.UserList[UserIndex].flags.Meditando) {
-			if (dano > vb6.Fix(Declaraciones.UserList[UserIndex].Stats.MinHp / 100
+			if (dano > vb6.Fix(Declaraciones.UserList[UserIndex].Stats.MinHp / (double) 100
 					* Declaraciones.UserList[UserIndex].Stats.UserAtributos[eAtributos.Inteligencia]
-					* Declaraciones.UserList[UserIndex].Stats.UserSkills[eSkill.Meditar] / 100 * 12
-					/ (Matematicas.RandomNumber(0, 5) + 7))) {
+					* Declaraciones.UserList[UserIndex].Stats.UserSkills[eSkill.Meditar] / (double) 100 * 12
+					/ (double) (Matematicas.RandomNumber(0, 5) + 7))) {
 				Declaraciones.UserList[UserIndex].flags.Meditando = false;
 				Protocol.WriteMeditateToggle(UserIndex);
 				Protocol.WriteConsoleMsg(UserIndex, "Dejas de meditar.", FontTypeNames.FONTTYPE_INFO);
@@ -930,7 +931,7 @@ public class SistemaCombate {
 
 		/* ' Tiene maestro? */
 		if (MasterIndex > 0) {
-			/* ' Su maestro es dueno del npc al que ataca? */
+			/* ' Su maestro es dueño del npc al que ataca? */
 			if (Declaraciones.Npclist[Victima].Owner == MasterIndex) {
 				/* ' Renuevo el timer de pertenencia */
 				modNuevoTimer.IntervaloPerdioNpc(MasterIndex, true);
@@ -1211,7 +1212,7 @@ public class SistemaCombate {
 				SumaSkills = MaximoInt(1, SkillDefensa + SkillTacticas);
 
 				/* ' Chances are rounded */
-				ProbRechazo = MaximoInt(10, MinimoInt(90, 100 * SkillDefensa / SumaSkills));
+				ProbRechazo = MaximoInt(10, MinimoInt(90, 100 * SkillDefensa / (double) SumaSkills));
 				Rechazo = (Matematicas.RandomNumber(1, 100) <= ProbRechazo);
 				if (Rechazo) {
 					/* 'Se rechazo el ataque con el escudo */
@@ -1379,7 +1380,7 @@ public class SistemaCombate {
 
 		UserEnvenena(AtacanteIndex, VictimaIndex);
 
-		/* ' Aumento de dano por barca (atacante) */
+		/* ' Aumento de daño por barca (atacante) */
 		if (Declaraciones.UserList[AtacanteIndex].flags.Navegando == 1) {
 
 			BoatIndex = Declaraciones.UserList[AtacanteIndex].Invent.BarcoObjIndex;
@@ -1483,7 +1484,7 @@ public class SistemaCombate {
 				UsUaRiOs.SubirSkill(AtacanteIndex, eSkill.Wrestling, true);
 			}
 
-			/* 'Trata de apunalar por la espalda al enemigo */
+			/* 'Trata de apuñalar por la espalda al enemigo */
 			if (UsUaRiOs.PuedeApunalar(AtacanteIndex)) {
 				Trabajo.DoApunalar(AtacanteIndex, 0, VictimaIndex, dano);
 			}
@@ -1538,7 +1539,7 @@ public class SistemaCombate {
 			VictimaNick = Declaraciones.UserList[VictimaIndex].Name;
 		}
 
-		General.LogError("Error en UserDanoUser. Error " + Err.Number + " : " + Err.description + " AtacanteIndex: "
+		General.LogError("Error en UserDañoUser. Error " + Err.Number + " : " + Err.description + " AtacanteIndex: "
 				+ AtacanteIndex + " Nick: " + AtacanteNick + " VictimaIndex: " + VictimaIndex + " Nick: "
 				+ VictimaNick);
 	}
@@ -1995,7 +1996,7 @@ public class SistemaCombate {
 		/* 'Es el NPC mascota de alguien? */
 		if (MasterIndex > 0) {
 
-			/* ' Dueno de la mascota ciuda? */
+			/* ' Dueño de la mascota ciuda? */
 			if (!ES.criminal(MasterIndex)) {
 
 				/* ' Atacante ciuda? */
@@ -2063,7 +2064,7 @@ public class SistemaCombate {
 
 				/* 'Es mascota de un caos? */
 			} else if (Extra.esCaos(MasterIndex)) {
-				/* 'Es Caos el Dueno. */
+				/* 'Es Caos el Dueño. */
 				if (Extra.esCaos(AttackerIndex)) {
 					/*
 					 * 'Un Caos intenta atacar una criatura de un Caos. No puede
@@ -2122,7 +2123,7 @@ public class SistemaCombate {
 
 						/*
 						 * 'TODO_ZAMA: Si dejo esto asi, los pks con seguro
-						 * peusto van a poder inmobilizar criaturas con dueno
+						 * peusto van a poder inmobilizar criaturas con dueño
 						 */
 						/* ' Si es pk neutral, puede hacer lo que quiera :P. */
 						if (!ES.criminal(AttackerIndex) && !ES.criminal(OwnerUserIndex)) {
@@ -2219,7 +2220,7 @@ public class SistemaCombate {
 
 						/* ' El npc no esta inmobilizado ni paralizado */
 					} else {
-						/* ' Si no tiene dueno, puede apropiarselo */
+						/* ' Si no tiene dueño, puede apropiarselo */
 						if (OwnerUserIndex == 0) {
 
 							/*
@@ -2240,7 +2241,7 @@ public class SistemaCombate {
 
 						/*
 						 * ' Siempre se pueden paralizar/inmobilizar npcs con o
-						 * sin dueno
+						 * sin dueño
 						 */
 						/* ' que no tengan ese estado */
 						retval = true;
@@ -2356,7 +2357,7 @@ public class SistemaCombate {
 						/* ' Es npc de un criminal */
 					} else {
 						if (Extra.esCaos(OwnerUserIndex)) {
-							/* 'Es Caos el Dueno. */
+							/* 'Es Caos el Dueño. */
 							if (Extra.esCaos(AttackerIndex)) {
 								/*
 								 * 'Un Caos intenta atacar una npc de un Caos.
@@ -2372,7 +2373,7 @@ public class SistemaCombate {
 				}
 			}
 
-			/* ' Si no tiene dueno el npc, se lo apropia */
+			/* ' Si no tiene dueño el npc, se lo apropia */
 		} else {
 			/* ' Solo pueden apropiarse de npcs los caos, armadas o ciudas. */
 			if (!ES.criminal(AttackerIndex) || Extra.esCaos(AttackerIndex)) {
@@ -2384,16 +2385,16 @@ public class SistemaCombate {
 						 * ' Si es una mascota atacando, no se apropia del npc
 						 */
 						if (!IsPet) {
-							/* ' No es dueno de ningun npc => Se lo apropia. */
+							/* ' No es dueño de ningun npc => Se lo apropia. */
 							if (Declaraciones.UserList[AttackerIndex].flags.OwnedNpc == 0) {
 								UsUaRiOs.ApropioNpc(AttackerIndex, NpcIndex);
 								/*
-								 * ' Es dueno de un npc, pero no puede ser de
+								 * ' Es dueño de un npc, pero no puede ser de
 								 * este porque no tiene propietario.
 								 */
 							} else {
 								/*
-								 * ' Se va a aduenar del npc (y perder el otro)
+								 * ' Se va a adueñar del npc (y perder el otro)
 								 * solo si no inmobiliza/paraliza
 								 */
 								if (!Paraliza) {
@@ -2488,8 +2489,8 @@ public class SistemaCombate {
 		 * '[Nacho] La experiencia a dar es la porcion de vida quitada * toda la
 		 * experiencia
 		 */
-		ExpaDar = vb6
-				.CLng(ElDano * (Declaraciones.Npclist[NpcIndex].GiveEXP / Declaraciones.Npclist[NpcIndex].Stats.MaxHp));
+		ExpaDar = vb6.CLng(ElDano
+				* (Declaraciones.Npclist[NpcIndex].GiveEXP / (double) Declaraciones.Npclist[NpcIndex].Stats.MaxHp));
 		if (ExpaDar <= 0) {
 			return;
 		}
@@ -2541,7 +2542,7 @@ public class SistemaCombate {
 
 		/* 'TODO: Pero que rebuscado!! */
 		/*
-		 * 'Nigo: Te lo redisene, pero no te borro el TODO para que lo revises.
+		 * 'Nigo: Te lo rediseñe, pero no te borro el TODO para que lo revises.
 		 */
 		/* FIXME: ON ERROR GOTO ErrHandler */
 		eTrigger tOrg;

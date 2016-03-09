@@ -161,7 +161,7 @@ public class Acciones {
 
 				case otForos:
 					AccionParaForo(Map, X, Y, UserIndex);
-					/* 'Lena */
+					/* 'Leña */
 					break;
 
 				case otLena:

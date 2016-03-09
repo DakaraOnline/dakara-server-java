@@ -1298,7 +1298,7 @@ public class Extra {
 							estatus = "(Dudoso) ";
 
 						} else if (SupervivenciaSkill <= 20) {
-							if (MinHp < (MaxHp / 2)) {
+							if (MinHp < (MaxHp / (double) 2)) {
 								estatus = "(Herido) ";
 							} else {
 								estatus = "(Sano) ";

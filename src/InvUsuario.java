@@ -1671,7 +1671,7 @@ public class InvUsuario {
 				Declaraciones.UserList[UserIndex].Stats.MinMAN = Declaraciones.UserList[UserIndex].Stats.MinMAN
 						+ Matematicas.Porcentaje(Declaraciones.UserList[UserIndex].Stats.MaxMAN, 4)
 						+ Declaraciones.UserList[UserIndex].Stats.ELV / 2
-						+ 40 / Declaraciones.UserList[UserIndex].Stats.ELV;
+						+ 40 / (double) Declaraciones.UserList[UserIndex].Stats.ELV;
 				if (Declaraciones.UserList[UserIndex].Stats.MinMAN > Declaraciones.UserList[UserIndex].Stats.MaxMAN) {
 					Declaraciones.UserList[UserIndex].Stats.MinMAN = Declaraciones.UserList[UserIndex].Stats.MaxMAN;
 				}

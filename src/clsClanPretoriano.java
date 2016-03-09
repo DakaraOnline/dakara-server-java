@@ -1418,7 +1418,7 @@ public class clsClanPretoriano {
       if (UserAtacable(UserIndex, false, false)) {
       
       Distancia = UserDistance(UserIndex, X, Y);
-      Danio = vb6.Abs(vb6.Int(880/(Distancia $ (3/7))));
+      Danio = vb6.Abs(vb6.Int(880 / (double) (Distancia $ (3 / (double) 7))));
       
       Declaraciones.UserList[UserIndex].Stats.MinHp = Declaraciones.UserList[UserIndex].Stats.MinHp-Danio;
       
@@ -1477,7 +1477,7 @@ public class clsClanPretoriano {
    if (PetIndex>0) {
     
     Distancia = NpcDistance(PetIndex, NpcX, NpcY);
-    Danio = vb6.Abs(vb6.Int(880/(Distancia $ (3/7))));
+    Danio = vb6.Abs(vb6.Int(880 / (double) (Distancia $ (3 / (double) 7))));
     
     Declaraciones.Npclist[PetIndex].Stats.MinHp = Declaraciones.Npclist[PetIndex].Stats.MinHp-Danio;
     
@@ -1850,8 +1850,8 @@ public class clsClanPretoriano {
 		if (BestTarget > 0) {
 
 			GreedyWalkTo(NpcIndex, CenterPos.Map,
-					CenterPos.X + ((Declaraciones.UserList[BestTarget].Pos.X - CenterPos.X) / 2),
-					CenterPos.Y + ((Declaraciones.UserList[BestTarget].Pos.Y - CenterPos.Y) / 2));
+					CenterPos.X + ((Declaraciones.UserList[BestTarget].Pos.X - CenterPos.X) / (double) 2),
+					CenterPos.Y + ((Declaraciones.UserList[BestTarget].Pos.Y - CenterPos.Y) / (double) 2));
 			return;
 		} else {
 

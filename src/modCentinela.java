@@ -352,7 +352,7 @@ public class modCentinela {
 			} else {
 				/* 'Logueamos el evento */
 				LogCentinela("El usuario " + Declaraciones.UserList[UserIndex].Name
-						+ " respondió más de una vez la contrasena correcta.");
+						+ " respondió más de una vez la contraseña correcta.");
 			}
 
 		} else {
@@ -608,7 +608,7 @@ public class modCentinela {
 			if (!Declaraciones.UserList[modCentinela.Centinela[CentinelaIndex].RevisandoUserIndex].flags.CentinelaOK) {
 				LogCentinela("El usuario "
 						+ Declaraciones.UserList[modCentinela.Centinela[CentinelaIndex].RevisandoUserIndex].Name
-						+ " se desolgueó al pedirsele la contrasena.");
+						+ " se desolgueó al pedirsele la contraseña.");
 			}
 
 			/*

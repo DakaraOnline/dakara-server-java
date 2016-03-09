@@ -828,11 +828,11 @@ public class ES {
 			Declaraciones.ModClase[i].AtaqueWrestling = vb6.val(
 					GetVar(Declaraciones.DatPath + "Balance.dat", "MODATAQUEWRESTLING", Declaraciones.ListaClases[i]));
 			Declaraciones.ModClase[i].DanoArmas = vb6
-					.val(GetVar(Declaraciones.DatPath + "Balance.dat", "MODDANOARMAS", Declaraciones.ListaClases[i]));
+					.val(GetVar(Declaraciones.DatPath + "Balance.dat", "MODDAÑOARMAS", Declaraciones.ListaClases[i]));
 			Declaraciones.ModClase[i].DanoProyectiles = vb6.val(
-					GetVar(Declaraciones.DatPath + "Balance.dat", "MODDANOPROYECTILES", Declaraciones.ListaClases[i]));
+					GetVar(Declaraciones.DatPath + "Balance.dat", "MODDAÑOPROYECTILES", Declaraciones.ListaClases[i]));
 			Declaraciones.ModClase[i].DanoWrestling = vb6.val(
-					GetVar(Declaraciones.DatPath + "Balance.dat", "MODDANOWRESTLING", Declaraciones.ListaClases[i]));
+					GetVar(Declaraciones.DatPath + "Balance.dat", "MODDAÑOWRESTLING", Declaraciones.ListaClases[i]));
 			Declaraciones.ModClase[i].Escudo = vb6
 					.val(GetVar(Declaraciones.DatPath + "Balance.dat", "MODESCUDO", Declaraciones.ListaClases[i]));
 		}
@@ -1006,7 +1006,7 @@ public class ES {
 
 			case otWeapon:
 				Declaraciones.ObjData[Object].WeaponAnim = vb6.val(Leer.GetValue("OBJ" + Object, "Anim"));
-				Declaraciones.ObjData[Object].Apunala = vb6.val(Leer.GetValue("OBJ" + Object, "Apunala"));
+				Declaraciones.ObjData[Object].Apunala = vb6.val(Leer.GetValue("OBJ" + Object, "Apuñala"));
 				Declaraciones.ObjData[Object].Envenena = vb6.val(Leer.GetValue("OBJ" + Object, "Envenena"));
 				Declaraciones.ObjData[Object].MaxHIT = vb6.val(Leer.GetValue("OBJ" + Object, "MaxHIT"));
 				Declaraciones.ObjData[Object].MinHIT = vb6.val(Leer.GetValue("OBJ" + Object, "MinHIT"));
@@ -1123,7 +1123,7 @@ public class ES {
 			Declaraciones.ObjData[Object].MinDef = vb6.val(Leer.GetValue("OBJ" + Object, "MINDEF"));
 			Declaraciones.ObjData[Object].MaxDef = vb6.val(Leer.GetValue("OBJ" + Object, "MAXDEF"));
 			Declaraciones.ObjData[Object].def = (Declaraciones.ObjData[Object].MinDef
-					+ Declaraciones.ObjData[Object].MaxDef) / 2;
+					+ Declaraciones.ObjData[Object].MaxDef) / (double) 2;
 
 			Declaraciones.ObjData[Object].RazaEnana = vb6.val(Leer.GetValue("OBJ" + Object, "RazaEnana"));
 			Declaraciones.ObjData[Object].RazaDrow = vb6.val(Leer.GetValue("OBJ" + Object, "RazaDrow"));
@@ -2449,7 +2449,7 @@ public class ES {
 				+ (-Declaraciones.UserList[UserIndex].Reputacion.LadronesRep)
 				+ Declaraciones.UserList[UserIndex].Reputacion.NobleRep
 				+ Declaraciones.UserList[UserIndex].Reputacion.PlebeRep;
-		L = L / 6;
+		L = L / (double) 6;
 		Manager.ChangeValue("REP", "Promedio", vb6.CStr(L));
 
 		String cad;
@@ -2520,7 +2520,7 @@ public class ES {
 				+ (-Declaraciones.UserList[UserIndex].Reputacion.LadronesRep)
 				+ Declaraciones.UserList[UserIndex].Reputacion.NobleRep
 				+ Declaraciones.UserList[UserIndex].Reputacion.PlebeRep;
-		L = L / 6;
+		L = L / (double) 6;
 		retval = (L < 0);
 
 		return retval;

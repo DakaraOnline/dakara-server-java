@@ -326,7 +326,7 @@ public class UsUaRiOs {
 				+ (-Declaraciones.UserList[UserIndex].Reputacion.LadronesRep)
 				+ Declaraciones.UserList[UserIndex].Reputacion.NobleRep
 				+ Declaraciones.UserList[UserIndex].Reputacion.PlebeRep;
-		L = vb6.Round(L / 6);
+		L = vb6.Round(L / (double) 6);
 
 		Declaraciones.UserList[UserIndex].Reputacion.Promedio = L;
 
@@ -802,7 +802,8 @@ public class UsUaRiOs {
 
 			case Bandit:
 				AumentoHIT = vb6.IIf(Declaraciones.UserList[UserIndex].Stats.ELV > 35, 1, 3);
-				AumentoMANA = Declaraciones.UserList[UserIndex].Stats.UserAtributos[eAtributos.Inteligencia] / 3 * 2;
+				AumentoMANA = Declaraciones.UserList[UserIndex].Stats.UserAtributos[eAtributos.Inteligencia]
+						/ (double) 3 * 2;
 				AumentoSTA = Declaraciones.AumentoStBandido;
 
 				break;
@@ -1639,7 +1640,7 @@ public class UsUaRiOs {
 
 			} else if (Declaraciones.Npclist[NpcIndex].Stats.Alineacion == 1) {
 				Declaraciones.UserList[UserIndex].Reputacion.PlebeRep = Declaraciones.UserList[UserIndex].Reputacion.PlebeRep
-						+ Declaraciones.vlCAZADOR / 2;
+						+ Declaraciones.vlCAZADOR / (double) 2;
 				if (Declaraciones.UserList[UserIndex].Reputacion.PlebeRep > Declaraciones.MAXREP) {
 					Declaraciones.UserList[UserIndex].Reputacion.PlebeRep = Declaraciones.MAXREP;
 				}
@@ -2445,7 +2446,7 @@ public class UsUaRiOs {
 					Declaraciones.UserList[UserIndex].MascotasIndex[i] = index;
 
 					/*
-					 * ' Nos aseguramos de que conserve el hp, si estaba danado
+					 * ' Nos aseguramos de que conserve el hp, si estaba dañado
 					 */
 					Declaraciones.Npclist[index].Stats.MinHp = vb6.IIf(iMinHP == 0,
 							Declaraciones.Npclist[index].Stats.MinHp, iMinHP);
@@ -2512,7 +2513,7 @@ public class UsUaRiOs {
 		} else {
 			Declaraciones.UserList[UserIndex].MascotasIndex[PetIndex] = NpcIndex;
 
-			/* ' Nos aseguramos de que conserve el hp, si estaba danado */
+			/* ' Nos aseguramos de que conserve el hp, si estaba dañado */
 			Declaraciones.Npclist[NpcIndex].Stats.MinHp = vb6.IIf(iMinHP == 0,
 					Declaraciones.Npclist[NpcIndex].Stats.MinHp, iMinHP);
 
@@ -2961,7 +2962,7 @@ public class UsUaRiOs {
 			Declaraciones.Npclist[Declaraciones.UserList[UserIndex].flags.OwnedNpc].Owner = 0;
 		}
 
-		/* ' Si tenia otro dueno, lo perdio aca */
+		/* ' Si tenia otro dueño, lo perdio aca */
 		Declaraciones.Npclist[NpcIndex].Owner = UserIndex;
 		Declaraciones.UserList[UserIndex].flags.OwnedNpc = NpcIndex;
 
@@ -3225,7 +3226,7 @@ public class UsUaRiOs {
 				 */
 				if (AtacablePor != OwnerIndex) {
 					Protocol.WriteConsoleMsg(UserIndex,
-							"No puedes atacar otra criatura con dueno hasta que haya terminado tu castigo.",
+							"No puedes atacar otra criatura con dueño hasta que haya terminado tu castigo.",
 							FontTypeNames.FONTTYPE_INFO);
 					return retval;
 				}

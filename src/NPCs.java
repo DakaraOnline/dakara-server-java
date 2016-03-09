@@ -189,7 +189,7 @@ public class NPCs {
 
 				} else if (MiNPC.Stats.Alineacion == 2) {
 					Declaraciones.UserList[UserIndex].Reputacion.NobleRep = Declaraciones.UserList[UserIndex].Reputacion.NobleRep
-							+ Declaraciones.vlASESINO / 2;
+							+ Declaraciones.vlASESINO / (double) 2;
 					if (Declaraciones.UserList[UserIndex].Reputacion.NobleRep > Declaraciones.MAXREP) {
 						Declaraciones.UserList[UserIndex].Reputacion.NobleRep = Declaraciones.MAXREP;
 					}
@@ -349,7 +349,7 @@ public class NPCs {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
-		/* '22/05/2010: ZaMa - Ahora se resetea el dueno del npc también. */
+		/* '22/05/2010: ZaMa - Ahora se resetea el dueño del npc también. */
 		/* '*************************************************** */
 
 		Declaraciones.Npclist[NpcIndex].Attackable = 0;

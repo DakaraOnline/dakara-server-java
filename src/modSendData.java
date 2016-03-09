@@ -910,7 +910,7 @@ public class modSendData {
 					if (UsUaRiOs.SameFaccion(UserIndex, tempIndex)) {
 						TCP.EnviarDatosASlot(tempIndex,
 								Protocol.PrepareMessageConsoleMsg(
-										"Escuchas el llamado de un companero que proviene del "
+										"Escuchas el llamado de un compañero que proviene del "
 												+ UsUaRiOs.GetDireccion(UserIndex, tempIndex),
 										Font));
 					}

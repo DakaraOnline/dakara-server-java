@@ -41,7 +41,7 @@ public class Matematicas {
 		/* ' */
 		/* '*************************************************** */
 
-		retval = (Total * Porc) / 100;
+		retval = (Total * Porc) / (double) 100;
 		return retval;
 	}
 

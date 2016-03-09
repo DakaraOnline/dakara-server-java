@@ -450,7 +450,7 @@ public class General {
 		Declaraciones.SkillsNames[eSkill.Tacticas] = "Evasión en combate";
 		Declaraciones.SkillsNames[eSkill.Armas] = "Combate con armas";
 		Declaraciones.SkillsNames[eSkill.Meditar] = "Meditar";
-		Declaraciones.SkillsNames[eSkill.Apunalar] = "Apunalar";
+		Declaraciones.SkillsNames[eSkill.Apunalar] = "Apuñalar";
 		Declaraciones.SkillsNames[eSkill.Ocultarse] = "Ocultarse";
 		Declaraciones.SkillsNames[eSkill.Supervivencia] = "Supervivencia";
 		Declaraciones.SkillsNames[eSkill.Talar] = "Talar";
@@ -1958,7 +1958,8 @@ public class General {
 		Admin.EstadisticasWeb.Inicializa(frmMain.hWnd);
 		Admin.EstadisticasWeb.Informar(CANTIDAD_MAPAS, Declaraciones.NumMaps);
 		Admin.EstadisticasWeb.Informar(CANTIDAD_ONLINE, Declaraciones.NumUsers);
-		Admin.EstadisticasWeb.Informar(UPTIME_SERVER, modNuevoTimer.getInterval(Ta, Admin.tInicioServer) / 1000);
+		Admin.EstadisticasWeb.Informar(UPTIME_SERVER,
+				modNuevoTimer.getInterval(Ta, Admin.tInicioServer) / (double) 1000);
 		Admin.EstadisticasWeb.Informar(RECORD_USUARIOS, Declaraciones.RECORDusuarios);
 
 	}

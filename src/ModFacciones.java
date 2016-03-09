@@ -91,12 +91,12 @@ public static tFaccionArmaduras[] ArmadurasFaccion = new tFaccionArmaduras[[('1'
 		switch (TipoDef) {
 
 		case ieBaja:
-			retval = 20 / (Rango + 1);
+			retval = 20 / (double) (Rango + 1);
 
 			break;
 
 		case ieMedia:
-			retval = Rango * 2 / SistemaCombate.MaximoInt((Rango - 4), 1);
+			retval = Rango * 2 / (double) SistemaCombate.MaximoInt((Rango - 4), 1);
 
 			break;
 
@@ -1085,7 +1085,7 @@ public static tFaccionArmaduras[] ArmadurasFaccion = new tFaccionArmaduras[[('1'
 		/* 'Rango 7: Corruptor (1500 + lvl 27) */
 		/* 'Rango 8: Heraldo Impio (2010) */
 		/* 'Rango 9: Caballero de la Oscuridad (2700) */
-		/* 'Rango 10: Senor del Miedo (4600 + lvl 30) */
+		/* 'Rango 10: Señor del Miedo (4600 + lvl 30) */
 		/* 'Rango 11: Ejecutor Infernal (5800 + lvl 31) */
 		/* 'Rango 12: Protector del Averno (6990 + lvl 33) */
 		/* 'Rango 13: Avatar de la Destrucción (8100 + lvl 35) */
@@ -1130,7 +1130,7 @@ public static tFaccionArmaduras[] ArmadurasFaccion = new tFaccionArmaduras[[('1'
 			break;
 
 		case 9:
-			retval = "Senor del Miedo";
+			retval = "Señor del Miedo";
 			break;
 
 		case 10:

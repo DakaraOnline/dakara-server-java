@@ -1586,7 +1586,7 @@ public class modHechizos {
 			}
 
 			Declaraciones.UserList[TargetIndex].flags.Ceguera = 1;
-			Declaraciones.UserList[TargetIndex].Counters.Ceguera = Admin.IntervaloParalizado / 3;
+			Declaraciones.UserList[TargetIndex].Counters.Ceguera = Admin.IntervaloParalizado / (double) 3;
 
 			Protocol.WriteBlind(TargetIndex);
 			Protocol.FlushBuffer(TargetIndex);
@@ -1876,11 +1876,11 @@ public class modHechizos {
 						dano = (dano
 								* (Declaraciones.ObjData[Declaraciones.UserList[UserIndex].Invent.WeaponEqpObjIndex].StaffDamageBonus
 										+ 70))
-								/ 100;
-						/* 'Aumenta dano segun el staff- */
-						/* 'Dano = (Dano* (70 + BonifBáculo)) / 100 */
+								/ (double) 100;
+						/* 'Aumenta daño segun el staff- */
+						/* 'Daño = (Daño* (70 + BonifBáculo)) / 100 */
 					} else {
-						/* 'Baja dano a 70% del original */
+						/* 'Baja daño a 70% del original */
 						dano = dano * 0.7;
 					}
 				}
@@ -2290,7 +2290,7 @@ public class modHechizos {
 						FontTypeNames.FONTTYPE_FIGHT);
 			}
 
-			/* ' <-------- Quita salud (Dana) ----------> */
+			/* ' <-------- Quita salud (Daña) ----------> */
 		} else if (Declaraciones.Hechizos[SpellIndex].SubeHP == 2) {
 
 			if (UserIndex == TargetIndex) {
@@ -2309,9 +2309,9 @@ public class modHechizos {
 						dano = (dano
 								* (Declaraciones.ObjData[Declaraciones.UserList[UserIndex].Invent.WeaponEqpObjIndex].StaffDamageBonus
 										+ 70))
-								/ 100;
+								/ (double) 100;
 					} else {
-						/* 'Baja dano a 70% del original */
+						/* 'Baja daño a 70% del original */
 						dano = dano * 0.7;
 					}
 				}
@@ -2654,7 +2654,7 @@ public class modHechizos {
 
 		OwnerIndex = Declaraciones.Npclist[TargetIndex].Owner;
 
-		/* ' Si no tiene dueno puede */
+		/* ' Si no tiene dueño puede */
 		if (OwnerIndex == 0) {
 			retval = true;
 			return retval;

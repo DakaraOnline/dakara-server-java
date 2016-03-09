@@ -308,17 +308,17 @@ public class Declaraciones {
 	static final int AumentoSTMago = /* FANCY EXPRESSION */ AumentoSTDef - 1;
 	static final int AumentoSTTrabajador = /* FANCY EXPRESSION */ AumentoSTDef + 25;
 
-	/* 'Tamano del mapa */
+	/* 'Tamaño del mapa */
 	static final int XMaxMapSize = 100;
 	static final int XMinMapSize = 1;
 	static final int YMaxMapSize = 100;
 	static final int YMinMapSize = 1;
 
-	/* 'Tamano del tileset */
+	/* 'Tamaño del tileset */
 	static final int TileSizeX = 32;
 	static final int TileSizeY = 32;
 
-	/* 'Tamano en Tiles de la pantalla de visualizacion */
+	/* 'Tamaño en Tiles de la pantalla de visualizacion */
 	static final int XWindow = 17;
 	static final int YWindow = 13;
 

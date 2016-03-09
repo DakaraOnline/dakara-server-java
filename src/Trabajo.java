@@ -125,7 +125,7 @@ public class Trabajo {
    Suerte = Suerte*Admin.IntervaloOculto;
    
     if (Declaraciones.UserList[UserIndex].clase == eClass.Bandit) {
-    Declaraciones.UserList[UserIndex].Counters.TiempoOculto = vb6.Int(Suerte/2);
+    Declaraciones.UserList[UserIndex].Counters.TiempoOculto = vb6.Int(Suerte / (double) 2);
     } else {
     Declaraciones.UserList[UserIndex].Counters.TiempoOculto = Suerte;
    }
@@ -187,7 +187,7 @@ public class Trabajo {
 
 		ModNave = ModNavegacion(Declaraciones.UserList[UserIndex].clase, UserIndex);
 
-		if (Declaraciones.UserList[UserIndex].Stats.UserSkills[eSkill.Navegacion] / ModNave < Barco.MinSkill) {
+		if (Declaraciones.UserList[UserIndex].Stats.UserSkills[eSkill.Navegacion] / (double) ModNave < Barco.MinSkill) {
 			Protocol.WriteConsoleMsg(UserIndex, "No tienes suficientes conocimientos para usar este barco.",
 					FontTypeNames.FONTTYPE_INFO);
 			Protocol.WriteConsoleMsg(UserIndex,
@@ -314,7 +314,7 @@ public class Trabajo {
 
 			if (Declaraciones.ObjData[Declaraciones.UserList[UserIndex].flags.TargetObjInvIndex].OBJType == eOBJType.otMinerales
 					&& Declaraciones.ObjData[Declaraciones.UserList[UserIndex].flags.TargetObjInvIndex].MinSkill <= Declaraciones.UserList[UserIndex].Stats.UserSkills[eSkill.Mineria]
-							/ ModFundicion(Declaraciones.UserList[UserIndex].clase)) {
+							/ (double) ModFundicion(Declaraciones.UserList[UserIndex].clase)) {
 				DoLingotes(UserIndex);
 			} else {
 				Protocol.WriteConsoleMsg(UserIndex,
@@ -342,7 +342,7 @@ public class Trabajo {
 		if (Declaraciones.UserList[UserIndex].flags.TargetObjInvIndex > 0) {
 			if (Declaraciones.ObjData[Declaraciones.UserList[UserIndex].flags.TargetObjInvIndex].OBJType == eOBJType.otWeapon) {
 				if (Declaraciones.ObjData[Declaraciones.UserList[UserIndex].flags.TargetObjInvIndex].SkHerreria <= Declaraciones.UserList[UserIndex].Stats.UserSkills[eSkill.Herreria]
-						/ ModHerreriA(Declaraciones.UserList[UserIndex].clase)) {
+						/ (double) ModHerreriA(Declaraciones.UserList[UserIndex].clase)) {
 					DoFundir(UserIndex);
 				} else {
 					Protocol.WriteConsoleMsg(UserIndex,
@@ -665,7 +665,7 @@ public class Trabajo {
 		/* '*************************************************** */
 		retval = HerreroTieneMateriales(UserIndex, ItemIndex, CantidadItems) && vb6.Round(
 				Declaraciones.UserList[UserIndex].Stats.UserSkills[eSkill.Herreria]
-						/ ModHerreriA(Declaraciones.UserList[UserIndex].clase),
+						/ (double) ModHerreriA(Declaraciones.UserList[UserIndex].clase),
 				0) >= Declaraciones.ObjData[ItemIndex].SkHerreria;
 		return retval;
 	}
@@ -1065,7 +1065,8 @@ public class Trabajo {
 			}
 		}
 
-		CantidadItems = SistemaCombate.MaximoInt(1, vb6.CInt((Declaraciones.UserList[UserIndex].Stats.ELV - 4) / 5));
+		CantidadItems = SistemaCombate.MaximoInt(1,
+				vb6.CInt((Declaraciones.UserList[UserIndex].Stats.ELV - 4) / (double) 5));
 
 		Slot = Declaraciones.UserList[UserIndex].flags.TargetObjInvSlot;
 		obji = Declaraciones.UserList[UserIndex].Invent.Object[Slot].ObjIndex;
@@ -1264,7 +1265,7 @@ public class Trabajo {
 
 			if (vb6.Round(
 					Declaraciones.UserList[UserIndex].Stats.UserSkills[eSkill.Herreria]
-							/ ModHerreriA(Declaraciones.UserList[UserIndex].clase),
+							/ (double) ModHerreriA(Declaraciones.UserList[UserIndex].clase),
 					0) < Declaraciones.ObjData[ItemUpgrade].SkHerreria) {
 				Protocol.WriteConsoleMsg(UserIndex, "No tienes suficientes skills.", FontTypeNames.FONTTYPE_INFO);
 				return;
@@ -1747,7 +1748,7 @@ public class Trabajo {
 		posMadera.Y = Y;
 
 		if (Declaraciones.MapData[Map][X][Y].ObjInfo.ObjIndex != 58) {
-			Protocol.WriteConsoleMsg(UserIndex, "Necesitas clickear sobre lena para hacer ramitas.",
+			Protocol.WriteConsoleMsg(UserIndex, "Necesitas clickear sobre leña para hacer ramitas.",
 					FontTypeNames.FONTTYPE_INFO);
 			return;
 		}
@@ -2326,7 +2327,7 @@ public class Trabajo {
 		/* 'Autor: Nacho (Integer) & Unknown (orginal version) */
 		/* 'Last Modification: 04/17/08 - (NicoNZ) */
 		/* 'Simplifique la cuenta que hacia para sacar la suerte */
-		/* 'y arregle la cuenta que hacia para sacar el dano */
+		/* 'y arregle la cuenta que hacia para sacar el daño */
 		/* '*************************************************** */
 		int Suerte = 0;
 		int Skill = 0;
@@ -2367,17 +2368,17 @@ public class Trabajo {
 				Declaraciones.UserList[VictimUserIndex].Stats.MinHp = Declaraciones.UserList[VictimUserIndex].Stats.MinHp
 						- dano;
 				Protocol.WriteConsoleMsg(UserIndex,
-						"Has apunalado a " + Declaraciones.UserList[VictimUserIndex].Name + " por " + dano,
+						"Has apuñalado a " + Declaraciones.UserList[VictimUserIndex].Name + " por " + dano,
 						FontTypeNames.FONTTYPE_FIGHT);
 				Protocol.WriteConsoleMsg(VictimUserIndex,
-						"Te ha apunalado " + Declaraciones.UserList[UserIndex].Name + " por " + dano,
+						"Te ha apuñalado " + Declaraciones.UserList[UserIndex].Name + " por " + dano,
 						FontTypeNames.FONTTYPE_FIGHT);
 
 				Protocol.FlushBuffer(VictimUserIndex);
 			} else {
 				Declaraciones.Npclist[VictimNpcIndex].Stats.MinHp = Declaraciones.Npclist[VictimNpcIndex].Stats.MinHp
 						- vb6.Int(dano * 2);
-				Protocol.WriteConsoleMsg(UserIndex, "Has apunalado la criatura por " + vb6.Int(dano * 2),
+				Protocol.WriteConsoleMsg(UserIndex, "Has apuñalado la criatura por " + vb6.Int(dano * 2),
 						FontTypeNames.FONTTYPE_FIGHT);
 				/* '[Alejo] */
 				SistemaCombate.CalcularDarExp(UserIndex, VictimNpcIndex, dano * 2);
@@ -2385,7 +2386,7 @@ public class Trabajo {
 
 			UsUaRiOs.SubirSkill(UserIndex, eSkill.Apunalar, true);
 		} else {
-			Protocol.WriteConsoleMsg(UserIndex, "¡No has logrado apunalar a tu enemigo!", FontTypeNames.FONTTYPE_FIGHT);
+			Protocol.WriteConsoleMsg(UserIndex, "¡No has logrado apuñalar a tu enemigo!", FontTypeNames.FONTTYPE_FIGHT);
 			UsUaRiOs.SubirSkill(UserIndex, eSkill.Apunalar, false);
 		}
 
@@ -2560,13 +2561,13 @@ public class Trabajo {
 				InvNpc.TirarItemAlPiso(Declaraciones.UserList[UserIndex].Pos, MiObj);
 			}
 
-			Protocol.WriteConsoleMsg(UserIndex, "¡Has conseguido algo de lena!", FontTypeNames.FONTTYPE_INFO);
+			Protocol.WriteConsoleMsg(UserIndex, "¡Has conseguido algo de leña!", FontTypeNames.FONTTYPE_INFO);
 
 			UsUaRiOs.SubirSkill(UserIndex, eSkill.Talar, true);
 		} else {
 			/* '[CDT 17-02-2004] */
 			if (!Declaraciones.UserList[UserIndex].flags.UltimoMensaje == 8) {
-				Protocol.WriteConsoleMsg(UserIndex, "¡No has obtenido lena!", FontTypeNames.FONTTYPE_INFO);
+				Protocol.WriteConsoleMsg(UserIndex, "¡No has obtenido leña!", FontTypeNames.FONTTYPE_INFO);
 				Declaraciones.UserList[UserIndex].flags.UltimoMensaje = 8;
 			}
 			/* '[/CDT] */
@@ -2697,7 +2698,7 @@ public class Trabajo {
 		TActual = Declaraciones.GetTickCount() && 0x7FFFFFFF;
 
 		int iInterval = 0;
-		iInterval = vb6.Int(Declaraciones.UserList[UserIndex].Stats.ELV / 17) * 1000;
+		iInterval = vb6.Int(Declaraciones.UserList[UserIndex].Stats.ELV / (double) 17) * 1000;
 		/* ' [TEMPORAL] TIEMPO_INICIOMEDITAR Then */
 		if (modNuevoTimer.getInterval(TActual, Declaraciones.UserList[UserIndex].Counters.tInicioMeditar) < iInterval) {
 			return;
@@ -2961,9 +2962,9 @@ public class Trabajo {
 
 		int res = 0;
 		res = Matematicas.RandomNumber(0, 100);
-		if (res < (Declaraciones.UserList[UserIndex].Stats.UserSkills[eSkill.Wrestling] / 4)) {
+		if (res < (Declaraciones.UserList[UserIndex].Stats.UserSkills[eSkill.Wrestling] / (double) 4)) {
 			Declaraciones.UserList[VictimaIndex].flags.Paralizado = 1;
-			Declaraciones.UserList[VictimaIndex].Counters.Paralisis = Admin.IntervaloParalizado / 2;
+			Declaraciones.UserList[VictimaIndex].Counters.Paralisis = Admin.IntervaloParalizado / (double) 2;
 
 			Declaraciones.UserList[VictimaIndex].flags.ParalizedByIndex = UserIndex;
 			Declaraciones.UserList[VictimaIndex].flags.ParalizedBy = Declaraciones.UserList[UserIndex].Name;

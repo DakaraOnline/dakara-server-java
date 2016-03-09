@@ -471,15 +471,15 @@ return retval;
   return;
  }
  
- /* 'Seteamos el tamano del buffer de entrada */
+ /* 'Seteamos el tamaño del buffer de entrada */
   if (setsockopt[NuevoSock][SOL_SOCKET][SO_RCVBUFFER][wskapiAO.SIZE_RCVBUF][4] != 0) {
   i = Err.LastDllError;
-  General.LogCriticEvent("Error al setear el tamano del buffer de entrada " + i + ": " + GetWSAErrorString[i]);
+  General.LogCriticEvent("Error al setear el tamaño del buffer de entrada " + i + ": " + GetWSAErrorString[i]);
  }
- /* 'Seteamos el tamano del buffer de salida */
+ /* 'Seteamos el tamaño del buffer de salida */
   if (setsockopt[NuevoSock][SOL_SOCKET][SO_SNDBUFFER][wskapiAO.SIZE_SNDBUF][4] != 0) {
   i = Err.LastDllError;
-  General.LogCriticEvent("Error al setear el tamano del buffer de salida " + i + ": " + GetWSAErrorString[i]);
+  General.LogCriticEvent("Error al setear el tamaño del buffer de salida " + i + ": " + GetWSAErrorString[i]);
  }
  
  /* ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''' */

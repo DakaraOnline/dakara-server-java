@@ -82,8 +82,9 @@ private static int[] fragAlignmentLvlData = new int[[('1', '50'), ('1', '4')]]; 
 		/* '*************************************************** */
 
 		/* 'Update trainning time */
-		trainningInfo[UserIndex].trainningTime = trainningInfo[UserIndex].trainningTime + (modNuevoTimer
-				.getInterval((Declaraciones.GetTickCount() && 0x7FFFFFFF), trainningInfo[UserIndex].startTick) / 1000);
+		trainningInfo[UserIndex].trainningTime = trainningInfo[UserIndex].trainningTime
+				+ (modNuevoTimer.getInterval((Declaraciones.GetTickCount() && 0x7FFFFFFF),
+						trainningInfo[UserIndex].startTick) / (double) 1000);
 
 		trainningInfo[UserIndex].startTick = (Declaraciones.GetTickCount() && 0x7FFFFFFF);
 

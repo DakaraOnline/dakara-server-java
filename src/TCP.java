@@ -332,7 +332,7 @@ public class TCP {
 		Declaraciones.UserList[UserIndex].Reputacion.NobleRep = 1000;
 		Declaraciones.UserList[UserIndex].Reputacion.PlebeRep = 30;
 
-		Declaraciones.UserList[UserIndex].Reputacion.Promedio = 30 / 6;
+		Declaraciones.UserList[UserIndex].Reputacion.Promedio = 30 / (double) 6;
 
 		Declaraciones.UserList[UserIndex].Name = Name;
 		Declaraciones.UserList[UserIndex].clase = UserClase;

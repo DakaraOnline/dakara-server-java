@@ -561,7 +561,7 @@ public class Protocol {
 		case PetStand:
 			HandlePetStand(UserIndex);
 
-			/* '/ACOMPANAR */
+			/* '/ACOMPAÑAR */
 			break;
 
 		case PetFollow:
@@ -753,7 +753,7 @@ public class Protocol {
 		case Punishments:
 			HandlePunishments(UserIndex);
 
-			/* '/CONTRASENA */
+			/* '/CONTRASEÑA */
 			break;
 
 		case ChangePassword:
@@ -3700,7 +3700,7 @@ public class Protocol {
 		 */
 		/*
 		 * '14/01/2010: ZaMa - Ya no se pierden municiones al atacar npcs con
-		 * dueno.
+		 * dueño.
 		 */
 		/* '*************************************************** */
 		if (Declaraciones.UserList[UserIndex].incomingData.length < 4) {
@@ -3973,7 +3973,7 @@ public class Protocol {
 										Declaraciones.UserList[UserIndex].Pos.Y));
 						Trabajo.DoTalar(UserIndex);
 					} else {
-						WriteConsoleMsg(UserIndex, "No puedes extraer lena de éste árbol con éste hacha.",
+						WriteConsoleMsg(UserIndex, "No puedes extraer leña de éste árbol con éste hacha.",
 								FontTypeNames.FONTTYPE_INFO);
 					}
 
@@ -6386,11 +6386,11 @@ public class Protocol {
 				earnings = Admin.Apuestas.Ganancias - Admin.Apuestas.Perdidas;
 
 				if (earnings >= 0 && Admin.Apuestas.Ganancias != 0) {
-					Percentage = vb6.Int(earnings * 100 / Admin.Apuestas.Ganancias);
+					Percentage = vb6.Int(earnings * 100 / (double) Admin.Apuestas.Ganancias);
 				}
 
 				if (earnings < 0 && Admin.Apuestas.Perdidas != 0) {
-					Percentage = vb6.Int(earnings * 100 / Admin.Apuestas.Perdidas);
+					Percentage = vb6.Int(earnings * 100 / (double) Admin.Apuestas.Perdidas);
 				}
 
 				WriteConsoleMsg(UserIndex,
@@ -6679,8 +6679,9 @@ public class Protocol {
 			 * " segundos comenzarás a meditar.", FontTypeNames.FONTTYPE_INFO)
 			 */
 			/* ' [TEMPORAL] */
-			WriteConsoleMsg(UserIndex, "Te estás concentrando. En "
-					+ vb6.Int(Declaraciones.UserList[UserIndex].Stats.ELV / 17) + " segundos comenzarás a meditar.",
+			WriteConsoleMsg(UserIndex,
+					"Te estás concentrando. En " + vb6.Int(Declaraciones.UserList[UserIndex].Stats.ELV / (double) 17)
+							+ " segundos comenzarás a meditar.",
 					FontTypeNames.FONTTYPE_INFO);
 
 			Declaraciones.UserList[UserIndex].Char.loops = Declaraciones.INFINITE_LOOPS;
@@ -7672,7 +7673,7 @@ public class Protocol {
 		onlineList = modGuilds.m_ListaDeMiembrosOnline(UserIndex, Declaraciones.UserList[UserIndex].GuildIndex);
 
 		if (Declaraciones.UserList[UserIndex].GuildIndex != 0) {
-			WriteConsoleMsg(UserIndex, "Companeros de tu clan conectados: " + onlineList,
+			WriteConsoleMsg(UserIndex, "Compañeros de tu clan conectados: " + onlineList,
 					FontTypeNames.FONTTYPE_GUILDMSG);
 		} else {
 			WriteConsoleMsg(UserIndex, "No pertences a ningún clan.", FontTypeNames.FONTTYPE_GUILDMSG);
@@ -8174,7 +8175,7 @@ public class Protocol {
 		/* # END IF */
 
 		if (vb6.LenB(newPass) == 0) {
-			WriteConsoleMsg(UserIndex, "Debes especificar una contrasena nueva, inténtalo de nuevo.",
+			WriteConsoleMsg(UserIndex, "Debes especificar una contraseña nueva, inténtalo de nuevo.",
 					FontTypeNames.FONTTYPE_INFO);
 		} else {
 			oldPass2 = vb6.UCase(ES.GetVar(Declaraciones.CharPath + Declaraciones.UserList[UserIndex].Name + ".chr",
@@ -8182,12 +8183,12 @@ public class Protocol {
 
 			if (oldPass2 != oldPass) {
 				WriteConsoleMsg(UserIndex,
-						"La contrasena actual proporcionada no es correcta. La contrasena no ha sido cambiada, inténtalo de nuevo.",
+						"La contraseña actual proporcionada no es correcta. La contraseña no ha sido cambiada, inténtalo de nuevo.",
 						FontTypeNames.FONTTYPE_INFO);
 			} else {
 				ES.WriteVar(Declaraciones.CharPath + Declaraciones.UserList[UserIndex].Name + ".chr", "INIT",
 						"Password", newPass);
-				WriteConsoleMsg(UserIndex, "La contrasena fue cambiada con éxito.", FontTypeNames.FONTTYPE_INFO);
+				WriteConsoleMsg(UserIndex, "La contraseña fue cambiada con éxito.", FontTypeNames.FONTTYPE_INFO);
 			}
 		}
 
@@ -11951,7 +11952,7 @@ public class Protocol {
 
 			if (tUser > 0) {
 				if (!Declaraciones.UserList[tUser].flags.Privilegios && PlayerType.User) {
-					WriteConsoleMsg(UserIndex, "¿¿Estás loco?? ¿¿Cómo vas a pinatear un gm?? :@",
+					WriteConsoleMsg(UserIndex, "¿¿Estás loco?? ¿¿Cómo vas a piñatear un gm?? :@",
 							FontTypeNames.FONTTYPE_INFO);
 				} else {
 					UsUaRiOs.UserDie(tUser);
@@ -11965,7 +11966,7 @@ public class Protocol {
 				if (!(ES.EsDios(UserName) || ES.EsAdmin(UserName))) {
 					WriteConsoleMsg(UserIndex, "No está online.", FontTypeNames.FONTTYPE_INFO);
 				} else {
-					WriteConsoleMsg(UserIndex, "¿¿Estás loco?? ¿¿Cómo vas a pinatear un gm?? :@",
+					WriteConsoleMsg(UserIndex, "¿¿Estás loco?? ¿¿Cómo vas a piñatear un gm?? :@",
 							FontTypeNames.FONTTYPE_INFO);
 				}
 			}
@@ -16257,7 +16258,7 @@ public class Protocol {
 
 		if ((!Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
 				&& (Declaraciones.UserList[UserIndex].flags.Privilegios && (PlayerType.Admin || PlayerType.Dios))) {
-			General.LogGM(Declaraciones.UserList[UserIndex].Name, "Ha alterado la contrasena de " + UserName);
+			General.LogGM(Declaraciones.UserList[UserIndex].Name, "Ha alterado la contraseña de " + UserName);
 
 			if (vb6.LenB(UserName) == 0 || vb6.LenB(copyFrom) == 0) {
 				WriteConsoleMsg(UserIndex, "usar /APASS <pjsinpass>@<pjconpass>", FontTypeNames.FONTTYPE_INFO);
@@ -19174,7 +19175,7 @@ public class Protocol {
   
    for (i = (1); i <= (vb6.UBound(Declaraciones.ArmasHerrero[])); i++) {
    /* ' Can the user create this object? If so add it to the list.... */
-    if (Declaraciones.ObjData[Declaraciones.ArmasHerrero[i]].SkHerreria<=vb6.Round(Declaraciones.UserList[UserIndex].Stats.UserSkills[eSkill.Herreria]/Trabajo.ModHerreriA(Declaraciones.UserList[UserIndex].clase), 0)) {
+    if (Declaraciones.ObjData[Declaraciones.ArmasHerrero[i]].SkHerreria<=vb6.Round(Declaraciones.UserList[UserIndex].Stats.UserSkills[eSkill.Herreria] / (double) Trabajo.ModHerreriA(Declaraciones.UserList[UserIndex].clase), 0)) {
     Count = Count+1;
     validIndexes[Count] = i;
    }
@@ -19234,7 +19235,7 @@ public class Protocol {
   
    for (i = (1); i <= (vb6.UBound(Declaraciones.ArmadurasHerrero[])); i++) {
    /* ' Can the user create this object? If so add it to the list.... */
-    if (Declaraciones.ObjData[Declaraciones.ArmadurasHerrero[i]].SkHerreria<=vb6.Round(Declaraciones.UserList[UserIndex].Stats.UserSkills[eSkill.Herreria]/Trabajo.ModHerreriA(Declaraciones.UserList[UserIndex].clase), 0)) {
+    if (Declaraciones.ObjData[Declaraciones.ArmadurasHerrero[i]].SkHerreria<=vb6.Round(Declaraciones.UserList[UserIndex].Stats.UserSkills[eSkill.Herreria] / (double) Trabajo.ModHerreriA(Declaraciones.UserList[UserIndex].clase), 0)) {
     Count = Count+1;
     validIndexes[Count] = i;
    }
@@ -19994,7 +19995,7 @@ public class Protocol {
 			if (Declaraciones.UserList[UserIndex].Stats.UserSkills[i] < Declaraciones.MAXSKILLPOINTS) {
 				Declaraciones.UserList[UserIndex].outgoingData
 						.WriteByte(vb6.Int(Declaraciones.UserList[UserIndex].Stats.ExpSkills[i] * 100
-								/ Declaraciones.UserList[UserIndex].Stats.EluSkills[i]));
+								/ (double) Declaraciones.UserList[UserIndex].Stats.EluSkills[i]));
 			} else {
 				Declaraciones.UserList[UserIndex].outgoingData.WriteByte(0);
 			}

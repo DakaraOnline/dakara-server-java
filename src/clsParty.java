@@ -140,7 +140,7 @@ public class clsParty {
   UI = p_members[i].UserIndex;
    if (UI>0) {
    /* ' Formula: Exp* (Nivel ^ ExponenteNivelParty) / sumadeNivelesElevados */
-   expThisUser = vb6.CDbl(ExpGanada*(Declaraciones.UserList[p_members[i].UserIndex].Stats.ELV $ mdParty.ExponenteNivelParty)/p_SumaNivelesElevados);
+   expThisUser = vb6.CDbl(ExpGanada*(Declaraciones.UserList[p_members[i].UserIndex].Stats.ELV $ mdParty.ExponenteNivelParty) / (double) p_SumaNivelesElevados);
    
     if (mapa == Declaraciones.UserList[UI].Pos.map && Declaraciones.UserList[UI].flags.Muerto == 0) {
      if (Matematicas.Distance(Declaraciones.UserList[UI].Pos.X, Declaraciones.UserList[UI].Pos.Y, X, Y)<=mdParty.PARTY_MAXDISTANCIA) {

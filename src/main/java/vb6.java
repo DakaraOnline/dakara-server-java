@@ -1,28 +1,16 @@
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.lang.Math;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class vb6 {
-
-    // FIXME: Editar las siguientes funciones con los parametros adecuados
-    //        Hay que sobrecargar varias de las funciones, una por cada tipo.
-
-    public static class App {
-        // Esto tiene que volar del codigo
-    }
-
-    public static class Date {
-        // Esto tiene que volar del codigo
-    }
-
-    public static class Collection {
-        // Esto tiene que volar del codigo
-    }
 
     /* Abs - Returns the absolute value of a specified number.
      * https://msdn.microsoft.com/en-us/library/system.math.abs.aspx */
@@ -442,7 +430,7 @@ public class vb6 {
     public static int InStr(int start, String str1, String str2){
         return InStr(start, str1, str2, Vb6CompareType.BINARY.getVb6InStrCompareType()); //Si no se especifica, se asume binario
     }
-    
+
     /**
      * @param start
      *   Optional. Numeric expression that sets the starting position for each search. If omitted, search begins at the first character position. The start index is 1-based.
@@ -488,27 +476,134 @@ public class vb6 {
     }
 
 
-    /*TODO from here*/
+    /* IIf - Returns one of two objects, depending on the evaluation of an expression.
+     * https://msdn.microsoft.com/en-us/library/27ydhh0d(v=vs.90).aspx */
 
-    public static void IIf(){
+    /**
+     * @param expression
+     * Required. Boolean. The expression you want to evaluate.
+     * @param truePart
+     * Required. Object. Returned if Expression evaluates to True.
+     * @param falsePart
+     * Required. Object. Returned if Expression evaluates to False.
+     * */
+    public static <T> T IIf(boolean expression, T truePart, T falsePart){
+        if(expression) return truePart;
+        else return falsePart;
+    }
+
+
+    /* LBound - Returns the lowest available subscript for the indicated dimension of an array.
+     * https://msdn.microsoft.com/en-us/library/t9a7w1ac(v=vs.90).aspx */
+
+    //Se implementa la version mas sencilla de LBound (que es, ademas, la que se usa en casi todos lados): verificacion de un array unidimensional sin parametro opcional
+    public static int LBound(Object[] array) throws ArgumentNullException {
+        if (array != null) return 0;
+        else throw new ArgumentNullException("Array is Nothing. - Error code 9 (see: https://msdn.microsoft.com/en-us/library/t9a7w1ac(v=vs.90).aspx)");
+    }
+
+
+    /* UBound - Returns the highest available subscript for the indicated dimension of an array.
+     * https://msdn.microsoft.com/en-us/library/95b8f22f(v=vs.90).aspx */
+
+    /**
+     * @return Integer. The highest value the subscript for the specified dimension can contain.
+     * If Array has only one element, UBound returns 0.
+     * If Array has no elements, for example if it is a zero-length string, UBound returns -1.
+     * */
+    public static int UBound(Object[] array ) throws ArgumentNullException {
+        if(array != null) {
+            if(array.length == 0) return -1;
+            else if (array.length == 1) return 0;
+            else return array.length;
+        } else throw new ArgumentNullException("Array is Nothing. - Error code 9 (see: https://msdn.microsoft.com/en-us/library/95b8f22f(v=vs.90).aspx)");
+    }
+
+
+    /* LCase - Returns a string or character converted to lowercase.
+     * https://msdn.microsoft.com/en-us/library/7789633z(v=vs.90).aspx */
+
+    public static char LCase(char c){
+        return Character.toLowerCase(c);
+    }
+
+    public static String LCase(String s){
+        return s.toLowerCase();
+    }
+
+
+    /* UCase - Returns a string or character containing the specified string converted to uppercase.
+     * https://msdn.microsoft.com/en-us/library/53e2ew8a(v=vs.90).aspx */
+
+    public static char UCase(char c){
+        return Character.toUpperCase(c);
+    }
+
+    public static String UCase(String s){
+        return s.toUpperCase();
+    }
+
+
+    /* time - Returns the current time
+     * http://www.vb6.us/tutorials/date-time-functions-visual-basic */
+
+    public static java.util.Date time(){
+        return new java.util.Date();
+    }
+
+
+    /* Left - https://msdn.microsoft.com/en-us/library/y050k1wb(v=vs.90).aspx
+     * https://msdn.microsoft.com/en-us/library/y050k1wb(v=vs.90).aspx */
+
+    /**
+     * @param str
+     *  Required. String expression from which the leftmost characters are returned.
+     * @param length
+     *  Required. Integer expression. Numeric expression indicating how many characters to return. If zero, a zero-length string ("") is returned.
+     *  If greater than or equal to the number of characters in str, the complete string is returned.
+     *  */
+    public static String Left(String str, int length){
+        if(length > str.length()) return str; //Sin esta verificacion, se obtiene un StringIndexOutOfBoundsException
+        return str.substring(0, length);
+    }
+
+
+    /* Len - Returns an integer containing either the number of characters in a string or the nominal number of bytes required to store a variable.
+     * https://msdn.microsoft.com/en-us/library/dxsw58z6(v=vs.90).aspx */
+
+    /**
+     * @param expression
+     *  Any valid String expression or variable name.
+     *  If Expression is of type Object, the Len function returns the size as it will be written to the file by the FilePut function.
+     *
+     * @return -1 in case of error
+     * */
+    public static int Len(Object expression){
+        if(expression instanceof String)
+            return ((String) expression).length();
+        else {
+
+            try {
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                ObjectOutputStream oos = new ObjectOutputStream(baos);
+                oos.writeObject(expression);
+                oos.close();
+                return baos.size();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+        }
+
+        return -1; //En caso de error, devuelve -1 (no es parte del 'Len' oficial de VB6, sino una forma "Java" de lidiar con un posible error)
+    }
+
+    /*TODO desde aca*/
+
+    public static void LenB(){
     }
 
     public static void InStrB(){
-    }
-
-    public static void LBound(){
-    }
-
-    public static void LCase(){
-    }
-
-    public static void Left(){
-    }
-
-    public static void Len(){
-    }
-
-    public static void LenB(){
     }
 
     public static void LOF(){
@@ -559,22 +654,120 @@ public class vb6 {
     public static void StrConv(){
     }
 
-    public static void time(){
-    }
-
     public static void Trim(){
     }
 
-    public static void UBound(){
+    /* ************************* */
+    /* TODO - METODOS A ELIMINAR */
+    /* ************************* */
+
+    public static class App {
+        // TODO Esto tiene que volar del codigo
     }
 
-    public static void UCase(){
+    public static class Date {
+        // TODO Esto tiene que volar del codigo
+    }
+
+    public static class Collection {
+        // TODO Esto tiene que volar del codigo
     }
 
     public static void dir(){
+        //TODO - Esta funcion se usa solo en dos lados, no vale la pena implementarla. Directamente toquemos los metodos que la llaman
+        /*
+        /src/main/java/clsClan.java:
+        344: 		if (vb6.LenB(vb6.dir(Declaraciones.CharPath + Nombre + ".chr")) != 0) {
+
+        /src/main/java/General.java:
+        630: 		retval = vb6.LenB(vb6.dir(File, FileType)) != 0;
+        */
     }
 
     public static void FreeFile(){
+        //FIXME Esta es una funcion relacionada con el manejo de archivos en VB6. Habria que volarla y cambiar todos los metodos que hacen uso de ella.
+        /*
+        /src/main/java/Admin.java:
+        197: 		hFile = vb6.FreeFile();
+        458: 		ArchN = vb6.FreeFile();
+        484: 		ArchN = vb6.FreeFile();
+
+        /src/main/java/clsIniManager.java:
+        156: 		handle = vb6.FreeFile();
+        645: 		hFile = vb6.FreeFile();
+
+        /src/main/java/ConsultasPopulares.java:
+        195: 		ArchN = vb6.FreeFile();
+        215: 		ArchN = vb6.FreeFile();
+
+        /src/main/java/ES.java:
+        313: 		N = vb6.FreeFile(1);
+        339: 		N = vb6.FreeFile(1);
+        564:  nfile = vb6.FreeFile();
+        610: 		FreeFileMap = vb6.FreeFile();
+        616: 		FreeFileInf = vb6.FreeFile();
+        1692: 		hFile = vb6.FreeFile();
+        2686: 		mifile = vb6.FreeFile();
+        2712: 		mifile = vb6.FreeFile();
+        2737: 		mifile = vb6.FreeFile();
+
+        /src/main/java/frmMain.java:
+        254:  N = vb6.FreeFile();
+        392:  N = vb6.FreeFile();
+
+        /src/main/java/frmServidor.java:
+        272:    N = vb6.FreeFile();
+
+        /src/main/java/General.java:
+        608: 		N = vb6.FreeFile();
+        696: 		nfile = vb6.FreeFile();
+        721: 		nfile = vb6.FreeFile();
+        746: 		nfile = vb6.FreeFile();
+        771: 		nfile = vb6.FreeFile();
+        796: 		nfile = vb6.FreeFile();
+        821: 		nfile = vb6.FreeFile();
+        846: 		nfile = vb6.FreeFile(1);
+        869: 		nfile = vb6.FreeFile();
+        888: 		nfile = vb6.FreeFile();
+        907: 		nfile = vb6.FreeFile();
+        928: 		nfile = vb6.FreeFile();
+        954: 		nfile = vb6.FreeFile();
+        980: 		nfile = vb6.FreeFile();
+        1014: 		nfile = vb6.FreeFile();
+        1047: 		nfile = vb6.FreeFile();
+        1072: 		nfile = vb6.FreeFile();
+        1105: 		nfile = vb6.FreeFile();
+        1229:  N = vb6.FreeFile();
+
+        /src/main/java/modCentinela.java:
+        643: 		nfile = vb6.FreeFile();
+
+        /src/main/java/modForum.java:
+        84: 				FileIndex = vb6.FreeFile();
+        103: 				FileIndex = vb6.FreeFile();
+        219: 			FileIndex = vb6.FreeFile();
+        234: 			FileIndex = vb6.FreeFile();
+
+        /src/main/java/modUserRecords.java:
+        188: 		intFile = vb6.FreeFile();
+
+        /src/main/java/Protocol.java:
+        7886: 		N = vb6.FreeFile();
+        16574: 		handle = vb6.FreeFile();
+
+        /src/main/java/Statistics.java:
+        105: 		handle = vb6.FreeFile();
+        246: 		handle = vb6.FreeFile();
+        617: 		handle = vb6.FreeFile();
+
+        /src/main/java/TCP.java:
+        1347: 		N = vb6.FreeFile();
+        1352: 		N = vb6.FreeFile();
+        1850: 		N = vb6.FreeFile(1);
+
+        /src/main/java/wskapiAO.java:
+        388: 		nfile = vb6.FreeFile();
+        */
     }
 
     public static void val(){
@@ -685,6 +878,28 @@ public class vb6 {
             }
         }
 
+    }
+
+    public static class ArgumentNullException extends Exception {
+        public ArgumentNullException() {
+            super();
+        }
+
+        public ArgumentNullException(String message) {
+            super(message);
+        }
+
+        public ArgumentNullException(String message, Throwable cause) {
+            super(message, cause);
+        }
+
+        public ArgumentNullException(Throwable cause) {
+            super(cause);
+        }
+
+        protected ArgumentNullException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+            super(message, cause, enableSuppression, writableStackTrace);
+        }
     }
 
 }

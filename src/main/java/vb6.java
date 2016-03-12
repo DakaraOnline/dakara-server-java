@@ -1,14 +1,12 @@
-
-import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
 import java.lang.Math;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Random;
 
 public class vb6 {
 
@@ -55,14 +53,6 @@ public class vb6 {
 
     public static boolean CBool(String str){
         return Boolean.valueOf(str);
-    }
-
-    public static boolean CBool(double d){
-        return d!=0;
-    }
-
-    public static boolean CBool(float f){
-        return f!=0;
     }
 
     public static boolean CBool(int i){
@@ -235,15 +225,11 @@ public class vb6 {
     /* FileCopy - Copies a file.
      * https://msdn.microsoft.com/en-us/library/2s1c774y(v=vs.90).aspx */
 
-    public static void FileCopy(String source, String destination){
+    public static void FileCopy(String source, String destination) throws IOException {
         File sourceFile = new File(source);
         File destFile = new File(destination);
 
-        try {
-            FileCopy(sourceFile, destFile);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        FileCopy(sourceFile, destFile);
 
     }
 
@@ -513,9 +499,7 @@ public class vb6 {
      * */
     public static int UBound(Object[] array ) throws ArgumentNullException {
         if(array != null) {
-            if(array.length == 0) return -1;
-            else if (array.length == 1) return 0;
-            else return array.length;
+            return array.length - 1;
         } else throw new ArgumentNullException("Array is Nothing. - Error code 9 (see: https://msdn.microsoft.com/en-us/library/95b8f22f(v=vs.90).aspx)");
     }
 
@@ -578,34 +562,118 @@ public class vb6 {
      *
      * @return -1 in case of error
      * */
-    public static int Len(Object expression){
-        if(expression instanceof String)
-            return ((String) expression).length();
-        else {
-
-            try {
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                ObjectOutputStream oos = new ObjectOutputStream(baos);
-                oos.writeObject(expression);
-                oos.close();
-                return baos.size();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-        }
-
-        return -1; //En caso de error, devuelve -1 (no es parte del 'Len' oficial de VB6, sino una forma "Java" de lidiar con un posible error)
+    public static int Len(String expression){
+        return expression.length();
     }
 
+   
+    /* LenB - Len de los bytes codificados en cp1252. */
+    
+    public static int LenB(String str){
+        byte[] bytes = str.getBytes(Charset.forName("Cp1252"));
+        return bytes.length;
+    }
+
+    
+    /* La función InStrB de versiones anteriores de Visual Basic devuelve un número de bytes, en lugar de la posición de un carácter.
+     * 
+     * The InStrB function is used with byte data contained in a string. Instead of returning the character position of the first occurrence 
+     * of one string within another, InStrB returns the byte position.
+     *
+     * https://msdn.microsoft.com/es-es/library/8460tsh1%28v=vs.90%29.aspx 
+     * http://www.experts-exchange.com/questions/20625413/InstrB-and-Instr.html */
+    
+    //Segun Google, InStrB es practicamente igual a hacer un InStr en Binary (osea, una comparacion case-sensitive)
+    
+    public static int InStrB(String str1, String str2){
+        return InStrB(1, str1, str2);
+    }
+
+    public static int InStrB(int start, String str1, String str2){
+        return InStr(start, str1, str2, Vb6CompareType.BINARY.getVb6InStrCompareType());
+    }
+    
+        
+    /* Right - Devuelve una cadena que contiene un número especificado de caracteres desde el lado derecho de una cadena.
+     * https://msdn.microsoft.com/es-es/library/dxs6hz0a%28v=vs.90%29.aspx */
+        
+    public static String Right(String str, int length){
+        if(length > str.length()) return str; //Sin esta verificacion, se obtiene un StringIndexOutOfBoundsException
+        return str.substring(str.length() - length);
+    }
+    
     /*TODO desde aca*/
 
-    public static void LenB(){
+    /* Rnd - Devuelve un número aleatorio de tipo Single.
+     * 
+     * La función Rnd devuelve un valor menor que 1, pero mayor o igual a cero. El valor de Number determina la forma en que Rnd genera un número aleatorio.
+     *
+     * Para cualquier valor de inicialización dado, se genera la misma secuencia de números ya que cada llamada sucesiva que se hace a la función Rnd utiliza 
+     * el número anteriormente generado como inicialización para el siguiente número de la secuencia.
+     *
+     * Antes de llamar a la función Rnd, utilice la instrucción Randomize sin argumento para inicializar el generador de números aleatorios con un valor de 
+     * inicialización basado en el temporizador del sistema.
+     *
+     * Ejemplo de uso VB6: randomValue = CInt(Math.Floor((upperbound - lowerbound + 1) * Rnd())) + lowerbound
+     *
+     * https://msdn.microsoft.com/es-es/library/f7s023d2%28v=vs.90%29.aspx
+     */
+    
+    /**
+     * @return Depende de {@code number}; si es:
+     *<ul>
+     *  <li> Menor que cero - Siempre el mismo número, utilizando {@code number} como valor de inicialización. </li>
+     *  <li> Mayor que cero - El siguiente número aleatorio en la secuencia. </li>
+     *  <li> Igual a cero - El número generado por última vez. </li>
+     *  <li> Omitido - El siguiente número aleatorio en la secuencia. </li>
+     * </ul>
+     */
+    public static int Rnd(int number){
+        Random rnd = new Random(number);
+        
+        if(number < 0){
+            lastRandomNumber = rnd.nextInt(Math.abs(number));
+        } else if (number > 0){
+            lastRandomNumber = rnd.nextInt();
+        } 
+        
+        return lastRandomNumber;
+        
     }
 
-    public static void InStrB(){
+    private static int lastRandomNumber = 0;
+    
+    public static int Rnd(){
+        
     }
-
+    
+    public static class Vb6Random {
+    
+        
+        Random rnd;
+        
+        public Vb6Random(int seed){
+            rnd = new Random(seed);
+        }
+        
+        public Vb6Random(){
+            rnd = new Random();
+        }
+        
+        public int getNext(){
+            lastRandomNumber = rnd.nextInt();
+            return lastRandomNumber;
+        }
+        
+        
+    }
+    
+    public static void Round(){
+    }
+    
+    public static void Sqr(){
+    }
+    
     public static void LOF(){
     }
 
@@ -621,15 +689,6 @@ public class vb6 {
     public static void RGB(){
     }
 
-    public static void Right(){
-    }
-
-    public static void Rnd(){
-    }
-
-    public static void Round(){
-    }
-
     public static void RTrim(){
     }
 
@@ -643,9 +702,6 @@ public class vb6 {
     }
 
     public static void Split(){
-    }
-
-    public static void Sqr(){
     }
 
     public static void str(){

@@ -568,7 +568,7 @@ public class vb6 {
 
    
     /* LenB - Len de los bytes codificados en cp1252. */
-    
+
     public static int LenB(String str){
         byte[] bytes = str.getBytes(Charset.forName("Cp1252"));
         return bytes.length;
@@ -582,9 +582,9 @@ public class vb6 {
      *
      * https://msdn.microsoft.com/es-es/library/8460tsh1%28v=vs.90%29.aspx 
      * http://www.experts-exchange.com/questions/20625413/InstrB-and-Instr.html */
-    
+
     //Segun Google, InStrB es practicamente igual a hacer un InStr en Binary (osea, una comparacion case-sensitive)
-    
+
     public static int InStrB(String str1, String str2){
         return InStrB(1, str1, str2);
     }
@@ -596,16 +596,19 @@ public class vb6 {
         
     /* Right - Devuelve una cadena que contiene un número especificado de caracteres desde el lado derecho de una cadena.
      * https://msdn.microsoft.com/es-es/library/dxs6hz0a%28v=vs.90%29.aspx */
-        
+
     public static String Right(String str, int length){
         if(length > str.length()) return str; //Sin esta verificacion, se obtiene un StringIndexOutOfBoundsException
         return str.substring(str.length() - length);
     }
     
-    /*TODO desde aca*/
-
+    
     /* Rnd - Devuelve un número aleatorio de tipo Single.
-     * 
+     *
+     * [Single data type]: Holds signed IEEE 32-bit (4-byte) single-precision floating-point numbers ranging in value from -3.4028235E+38 through -1.401298E-45
+     * for negative values and from 1.401298E-45 through 3.4028235E+38 for positive values. Single-precision numbers store an approximation of a real number.
+     *
+     *
      * La función Rnd devuelve un valor menor que 1, pero mayor o igual a cero. El valor de Number determina la forma en que Rnd genera un número aleatorio.
      *
      * Para cualquier valor de inicialización dado, se genera la misma secuencia de números ya que cada llamada sucesiva que se hace a la función Rnd utiliza 
@@ -617,8 +620,9 @@ public class vb6 {
      * Ejemplo de uso VB6: randomValue = CInt(Math.Floor((upperbound - lowerbound + 1) * Rnd())) + lowerbound
      *
      * https://msdn.microsoft.com/es-es/library/f7s023d2%28v=vs.90%29.aspx
+     * https://msdn.microsoft.com/en-us/library/xay7978z.aspx
      */
-    
+
     /**
      * @return Depende de {@code number}; si es:
      *<ul>
@@ -628,52 +632,38 @@ public class vb6 {
      *  <li> Omitido - El siguiente número aleatorio en la secuencia. </li>
      * </ul>
      */
-    public static int Rnd(int number){
-        Random rnd = new Random(number);
-        
+
+    private static Random rnd;
+    private static long lastRandomNumber = 0;
+
+    public static long Rnd(int number){
+
         if(number < 0){
-            lastRandomNumber = rnd.nextInt(Math.abs(number));
+            rnd = new Random(number);
+            lastRandomNumber = rnd.nextLong();
         } else if (number > 0){
-            lastRandomNumber = rnd.nextInt();
-        } 
-        
+            return Rnd();
+        }
+
         return lastRandomNumber;
-        
     }
 
-    private static int lastRandomNumber = 0;
-    
-    public static int Rnd(){
-        
+    public static long Rnd(){
+
+        if(rnd == null) rnd = new Random();
+
+        lastRandomNumber = rnd.nextLong();
+        return lastRandomNumber;
     }
-    
-    public static class Vb6Random {
-    
-        
-        Random rnd;
-        
-        public Vb6Random(int seed){
-            rnd = new Random(seed);
-        }
-        
-        public Vb6Random(){
-            rnd = new Random();
-        }
-        
-        public int getNext(){
-            lastRandomNumber = rnd.nextInt();
-            return lastRandomNumber;
-        }
-        
-        
-    }
+
+    /*TODO desde aca*/
     
     public static void Round(){
     }
-    
+
     public static void Sqr(){
     }
-    
+
     public static void LOF(){
     }
 

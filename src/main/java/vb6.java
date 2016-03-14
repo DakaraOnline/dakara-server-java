@@ -1,7 +1,12 @@
 import java.io.File;
 import java.io.IOException;
 import java.lang.Math;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.nio.ByteBuffer;
+import java.nio.CharBuffer;
 import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -602,7 +607,7 @@ public class vb6 {
         return str.substring(str.length() - length);
     }
     
-    
+
     /* Rnd - Devuelve un número aleatorio de tipo Single.
      *
      * [Single data type]: Holds signed IEEE 32-bit (4-byte) single-precision floating-point numbers ranging in value from -3.4028235E+38 through -1.401298E-45
@@ -656,53 +661,190 @@ public class vb6 {
         return lastRandomNumber;
     }
 
-    /*TODO desde aca*/
+
+    /* Round - Returns a number rounded to a specified number of decimal places.
+     * https://msdn.microsoft.com/en-us/library/aa242034(v=vs.60).aspx */
+
+    /**
+     * @param expression
+     *  Required. Numeric expression being rounded.
+     * @param numdecimalplaces
+     *  Optional. Number indicating how many places to the right of the decimal are included in the rounding.
+     *  If omitted, integers are returned by the Round function.
+     * */
+    public static double Round(double expression, int numdecimalplaces){
+        if (numdecimalplaces < 0) throw new IllegalArgumentException();
+
+        BigDecimal bd = new BigDecimal(expression);
+        bd = bd.setScale(numdecimalplaces, RoundingMode.HALF_UP);
+        return bd.doubleValue();
+    }
+
+    public static long Round(double expression){
+        return Math.round(expression);
+    }
+
+    public static float Round(float expression, int numdecimalplaces){
+        return (float) Round((double) expression, numdecimalplaces);
+    }
+
+    public static int Round(float expression){
+        return Math.round(expression);
+    }
+
+
+    /* Sqr - Returns a Double specifying the square root of a number.
+     * https://msdn.microsoft.com/en-us/library/aa263367(v=vs.60).aspx */
+
+    public static double Sqr(double number){
+        return Math.sqrt(number);
+    }
+
+
+    /* Mid - Returns a string containing a specified number of characters from a string.
+     * https://msdn.microsoft.com/en-us/library/05e63829(v=vs.90).aspx */
+
+    /**
+     * @param str
+     *  Required. String expression from which characters are returned.
+     * @param start
+     *  Required. Integer expression. Starting position of the characters to return.
+     *  If Start is greater than the number of characters in str, the Mid function returns a zero-length string ("").
+     *  Start is one based.
+     * @param length
+     *  Optional. Integer expression. Number of characters to return.
+     *  If omitted or if there are fewer than Length characters in the text (including the character at position Start),
+     *  all characters from the start position to the end of the string are returned.
+     * */
+    public static String mid(String str, int start, int length){
+        return Right(str.substring(start-1), length);
+    }
+
+
+    /* Replace - Returns a string in which a specified substring has been replaced with another substring a specified number of times.
+     * http://www.vb6.us/tutorials/vb6-string-functions */
+
+    public static String Replace(String expression, String find, String replaceWith){
+        //Todos los usos de vb6.Replace() involucran buscar y reemplazar un String en otro String objetivo.
+        return expression.replace(find, replaceWith);
+    }
+
+
+    /* RTrim - Removes trailing blank spaces from a string.
+     * http://www.vb6.us/tutorials/vb6-string-functions */
+
+    public static String RTrim(String str){
+        int i = str.length()-1;
+        while (i >= 0 && Character.isWhitespace(str.charAt(i))) {
+            i--;
+        }
+        return str.substring(0,i+1);
+    }
+
+
+    /* Trim - Removes both leading and trailing blank spaces from a string.
+     * http://www.vb6.us/tutorials/vb6-string-functions */
+
+    public static String Trim(String str){
+        return str.trim();
+    }
+
+
+    /* LTrim - Removes both leading and trailing blank spaces from a string.
+     *
+     * Este metodo tecnicamente no era parte del modulo VB6 original, pero es parte de la funcionalidad de Trim
+     * la cual combina ambas funcionalidades de LTrim() y RTrim()
+     *
+     * http://www.vb6.us/tutorials/vb6-string-functions */
+
+    public static String LTrim(String str){
+        int i = 0;
+        while (i < str.length() && Character.isWhitespace(str.charAt(i))) {
+            i++;
+        }
+        return str.substring(i);
+    }
+
+
+    /* Sgn - Returns an integer indicating the sign of a number.
+     * http://www.chennaiiq.com/developers/reference/visual_basic/functions/sgn.asp */
+
+    /**
+     * <table width="90%" border="0" align="center" cellpadding="1" cellspacing="1" class="TBox">  <tbody><tr class="tabH1"> <td>Statement</td><td>Result</td><td>Remark</td>  </tr>  <tr class="ver12"> <td>Sgn(1)</td><td>1</td><td>&nbsp;</td>  </tr>  <tr class="ver12"> <td height="10" colspan="3"></td>  </tr>  <tr class="ver12"> <td>Sgn(533)</td><td>1</td><td>&nbsp;</td>  </tr>  <tr class="ver12"> <td height="10" colspan="3"></td>  </tr>  <tr class="ver12"> <td>Sgn(33.57)</td><td>1</td><td>&nbsp;</td>  </tr>  <tr class="ver12"> <td height="10" colspan="3"></td>  </tr>  <tr class="ver12"> <td>Sgn(-1)</td><td>-1</td><td>&nbsp;</td>  </tr>  <tr class="ver12"> <td height="10" colspan="3"></td>  </tr>  <tr class="ver12"> <td>Sgn(-533)</td><td>-1</td><td>&nbsp;</td>  </tr>  <tr class="ver12"> <td height="10" colspan="3"></td>  </tr>  <tr class="ver12"> <td>Sgn(-33.57)</td><td>-1</td><td>&nbsp;</td>  </tr>  <tr class="ver12"> <td height="10" colspan="3"></td>  </tr>  <tr class="ver12"> <td>Sgn(0)</td><td>0</td><td>&nbsp;</td>  </tr>  <tr class="ver12"> <td height="10" colspan="3"></td>  </tr>  <tr class="ver12"> <td>Sgn(unknown)</td><td>0</td><td>uninitialized Variable</td>  </tr>  <tr class="ver12"> <td height="10" colspan="3"></td>  </tr>  <tr class="ver12"> <td>Sgn(Null)</td><td>Error</td><td>Invalid use of Null</td>  </tr>  <tr class="ver12"> <td height="10" colspan="3"></td>  </tr>  <tr class="ver12"> <td>Sgn("abcd")</td><td>Error</td><td>Type mismatch</td>  </tr>  <tr class="ver12"> <td height="10" colspan="3"></td>  </tr>  <tr class="ver12"> <td>Sgn(True)</td><td>-1</td><td>True - Non Zero</td>  </tr>  <tr class="ver12"> <td height="10" colspan="3"></td>  </tr>  <tr class="ver12"> <td>Sgn(False)</td><td>0</td><td>False - Zero</td>  </tr></tbody></table>
+     * */
+    public static int Sgn(double number){
+        if(number > 0) return 1;
+        else if (number < 0) return -1;
+
+        return 0;
+    }
+
+    public static int Sgn(boolean bool){
+        if(bool) return -1; //Esto la verdad que es horrible, que un true devuelva -1, pero asi estaba en el ejemplo :(
+        else return 0;
+    }
+
+
+    /* Space - Returns a string consisting of the specified number of spaces.
+     * https://msdn.microsoft.com/en-us/library/k6ethaxs(v=vs.90).aspx */
+
+    public static String Space(int numberOfSpaces){
+        String resultado = "";
+        for(int e = numberOfSpaces; e>0; e--) resultado = resultado + " ";
+        return resultado;
+    }
+
+
+    /* str - Returns a String representation of a number.
+     * https://msdn.microsoft.com/en-us/library/4y6a1sx7(v=vs.90).aspx */
+
+    public static String str(int i){
+        return String.valueOf(i);
+    }
+
+    public static String str(double d){
+        return String.valueOf(d);
+    }
+
+    public static String str(long l){
+        return String.valueOf(l);
+    }
+
+    public static String str(float f){
+        return String.valueOf(f);
+    }
+
+
+    /* StrConv - Returns a Variant (String) converted as specified.
+     *
+     * https://msdn.microsoft.com/en-us/library/aa263373(v=vs.60).aspx
+     * http://stackoverflow.com/questions/655891/converting-utf-8-to-iso-8859-1-in-java-how-to-keep-it-as-single-byte
+     * */
+
+    public static String StrConv(String string, int conversion){
+        return StrConv(string, Vb6EncodingType.fromValue(conversion));
+    }
+
+    public static String StrConv(String string, Vb6EncodingType conversion) {
+        //Siempre se usa de la siguiente forma: vb6.StrConv(str, vbFromUnicode)
+        //Por lo tanto, solo se implementara este escenario
     
-    public static void Round(){
+        Charset originCharset = StandardCharsets.UTF_16;
+        Charset systemCharset = Charset.defaultCharset();
+                
+        ByteBuffer inputBuffer = ByteBuffer.wrap(string.getBytes());
+
+        // decode UTF-8
+        CharBuffer data = originCharset.decode(inputBuffer);
+
+        // encode ISO-8559-1
+        ByteBuffer outputBuffer = systemCharset.encode(data);
+        byte[] outputData = outputBuffer.array();
+        
+        return new String(outputData);
     }
 
-    public static void Sqr(){
-    }
-
-    public static void LOF(){
-    }
-
-    public static void mid(){
-    }
-
-    public static void MsgBox(){
-    }
-
-    public static void Replace(){
-    }
-
-    public static void RGB(){
-    }
-
-    public static void RTrim(){
-    }
-
-    public static void Sgn(){
-    }
-
-    public static void Shell(){
-    }
-
-    public static void Space(){
-    }
-
-    public static void Split(){
-    }
-
-    public static void str(){
-    }
-
-    public static void StrConv(){
-    }
-
-    public static void Trim(){
-    }
-
+    
     /* ************************* */
     /* TODO - METODOS A ELIMINAR */
     /* ************************* */
@@ -816,10 +958,37 @@ public class vb6 {
         */
     }
 
+    public static void LOF(){
+        //TODO volar del codigo; es una funcion de file
+    }
+
     public static void val(){
         // FIXME: la funcion val es una cosa fea de VB6, hay que volarla.
         //        El problema es que se usa en demasiados lugares del codigo
     }
+
+    public static void MsgBox(){
+        //TODO funcion de capa de presentacion; volar del codigo
+    }
+
+    public static void RGB(){
+        //TODO funcion de capa de presentacion; volar del codigo
+    }
+
+    public static void Shell(){
+        //TODO Reemplazar en el resto del codigo esta porqueria de VB6
+    }
+
+    public static void Split(){
+        //TODO Esta funcion se usa una sola vez en una sola clase. A volarla...
+        /*
+        /src/main/java/Protocol.java:
+        4179: 		codex = vb6.Split(buffer.ReadASCIIString(), Protocol.SEPARATOR);
+        4895: 		codex = vb6.Split(buffer.ReadASCIIString(), Protocol.SEPARATOR);
+        16974:   auxiliaryString = vb6.Split(newMOTD, vbCrLf);
+        * */
+    }
+
 
     /* ************************* */
     /* CLASES & ENUMS AUXILIARES */
@@ -924,6 +1093,51 @@ public class vb6 {
             }
         }
 
+    }
+
+    /**
+     * <table cols="3"> <tbody> <tr valign="top"> <td class="label"><b>Constant</b></td> <td class="label"><b>Value</b></td> <td class="label"><b>Description</b></td></tr> <tr valign="top"> <td><b>vbUpperCase</b></td> <td>1</td> <td>Converts the string to uppercase characters.</td></tr> <tr valign="top"> <td><b>vbLowerCase</b></td> <td>2</td> <td>Converts the string to lowercase characters.</td></tr> <tr valign="top"> <td><b>vbProperCase</b></td> <td>3</td> <td>Converts the first letter of every word in string to uppercase.</td></tr> <tr valign="top"> <td><b>vbWide*</b></td> <td>4*</td> <td>Converts narrow (single-byte) characters in string to wide (double-byte) characters.</td></tr> <tr valign="top"> <td><b>vbNarrow*</b></td> <td>8*</td> <td>Converts wide (double-byte) characters in string to narrow (single-byte) characters.</td></tr> <tr valign="top"> <td><b>vbKatakana**</b></td> <td>16**</td> <td>Converts Hiragana characters in string to Katakana characters.</td></tr> <tr valign="top"> <td><b>vbHiragana**</b></td> <td>32**</td> <td>Converts Katakana characters in string to Hiragana characters.</td></tr> <tr valign="top"> <td><b>vbUnicode</b></td> <td>64</td> <td>Converts the string to <a href="https://msdn.microsoft.com/en-us/library/aa220300.aspx">Unicode</a> using the default code page of the system.</td></tr> <tr valign="top"> <td><b>vbFromUnicode</b></td> <td>128</td> <td>Converts the string from Unicode to the default code page of the system.</td></tr></tbody></table>
+     * */
+    public static enum Vb6EncodingType {
+
+        VBUPPERCASE(1),
+        VBLOWERCASE(2),
+        VBPROPERCASE(3),
+        VBWIDE(4),
+        VBNARROW(8),
+        VBKATAKANA(16),
+        VBHIRAGANA(32),
+        VBUNICODE(64),
+        VBFROMUNICODE(128);
+
+        private int vb6StrConvType;
+
+        Vb6EncodingType(int i){
+            vb6StrConvType = i;
+        }
+
+        public int getVb6StrConvType() {
+            return vb6StrConvType;
+        }
+
+        public String value() {
+            return name();
+        }
+
+        public static Vb6EncodingType fromValue(int i) {
+            switch (i){
+                case 1: return VBUPPERCASE;
+                case 2: return VBLOWERCASE;
+                case 3: return VBPROPERCASE;
+                case 4: return VBWIDE;
+                case 8: return VBNARROW;
+                case 16: return VBKATAKANA;
+                case 32: return VBHIRAGANA;
+                case 64: return VBUNICODE;
+                case 128: return VBFROMUNICODE;
+                default: return VBFROMUNICODE;
+            }
+        }
     }
 
     public static class ArgumentNullException extends Exception {

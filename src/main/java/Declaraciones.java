@@ -29,6 +29,8 @@
 /* 'Código Postal 1900 */
 /* 'Pablo Ignacio Márquez */
 
+import java.util.Deque;
+
 import enums.*;
 
 public class Declaraciones {
@@ -40,7 +42,7 @@ public class Declaraciones {
 	/* # END IF */
 
 	public static clsAntiMassClon aClon;
-	public static vb6.Collection TrashCollector;
+	public static Deque<cGarbage> TrashCollector;
 
 	static final int MAXSPAWNATTEMPS = 60;
 	static final int INFINITE_LOOPS = /* FANCY EXPRESSION */ -1;

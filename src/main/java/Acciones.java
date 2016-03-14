@@ -336,7 +336,8 @@ public class Acciones {
 
 		int SkillSupervivencia = 0;
 
-		Declaraciones.WorldPos Pos;
+		Declaraciones.WorldPos Pos = new Declaraciones.WorldPos();
+		
 		Pos.Map = Map;
 		Pos.X = X;
 		Pos.Y = Y;
@@ -367,6 +368,7 @@ public class Acciones {
 
 		if (exito == 1) {
 			if (Declaraciones.MapInfo[Declaraciones.UserList[UserIndex].Pos.Map].Zona != Declaraciones.Ciudad) {
+				Obj = new Declaraciones.Obj();
 				Obj.ObjIndex = Declaraciones.FOGATA;
 				Obj.Amount = 1;
 
@@ -380,7 +382,7 @@ public class Acciones {
 				Fogatita.Map = Map;
 				Fogatita.X = X;
 				Fogatita.Y = Y;
-				Declaraciones.TrashCollector.Add(Fogatita);
+				Declaraciones.TrashCollector.addLast(Fogatita);
 
 				UsUaRiOs.SubirSkill(UserIndex, eSkill.Supervivencia, true);
 			} else {

@@ -37,7 +37,7 @@ import enums.*;
 
 public class cGarbage {
 
-	public int map;
+	public int Map;
 	public int X;
 	public int Y;
 

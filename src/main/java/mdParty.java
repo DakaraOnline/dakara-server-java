@@ -1,5 +1,10 @@
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"mdParty"')] */
 /* '************************************************************** */
 /* ' mdParty.bas - Library of functions to manipulate parties. */
@@ -84,7 +89,7 @@ public class mdParty {
 		public double Experiencia;
 	}
 
-	static int NextParty() {
+	public static int NextParty() {
  int retval = 0;
  /* '*************************************************** */
  /* 'Author: Unknown */
@@ -103,7 +108,7 @@ public class mdParty {
 return retval;
 }
 
-	static boolean PuedeCrearParty(int UserIndex) {
+	public static boolean PuedeCrearParty(int UserIndex) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -133,7 +138,7 @@ return retval;
 		return retval;
 	}
 
-	static void CrearParty(int UserIndex) {
+	public static void CrearParty(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -152,7 +157,7 @@ return retval;
 						return;
 					} else {
 						Declaraciones.Parties[tInt] = new clsParty();
-						if (!Declaraciones.Parties[tInt].NuevoMiembro(UserIndex)) {
+						if (! /* FIXME */Declaraciones.Parties[tInt].NuevoMiembro(UserIndex)) {
 							Protocol.WriteConsoleMsg(UserIndex, "La party está llena, no puedes entrar.",
 									FontTypeNames.FONTTYPE_PARTY);
 							Declaraciones.Parties[tInt] = null;
@@ -162,7 +167,7 @@ return retval;
 									FontTypeNames.FONTTYPE_PARTY);
 							Declaraciones.UserList[UserIndex].PartyIndex = tInt;
 							Declaraciones.UserList[UserIndex].PartySolicitud = 0;
-							if (!Declaraciones.Parties[tInt].HacerLeader(UserIndex)) {
+							if (! /* FIXME */Declaraciones.Parties[tInt].HacerLeader(UserIndex)) {
 								Protocol.WriteConsoleMsg(UserIndex, "No puedes hacerte líder.",
 										FontTypeNames.FONTTYPE_PARTY);
 							} else {
@@ -184,7 +189,7 @@ return retval;
 		}
 	}
 
-	static void SolicitarIngresoAParty(int UserIndex) {
+	public static void SolicitarIngresoAParty(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 05/22/2010 (Marco) */
@@ -271,7 +276,7 @@ return retval;
 
 	}
 
-	static void SalirDeParty(int UserIndex) {
+	public static void SalirDeParty(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -293,7 +298,7 @@ return retval;
 
 	}
 
-	static void ExpulsarDeParty(int leader, int OldMember) {
+	public static void ExpulsarDeParty(int leader, int OldMember) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -326,7 +331,7 @@ return retval;
 	/* ' */
 	/* ' @param User Specifies reference to user */
 	/* ' @return True if the user can use party commands, false if not. */
-	static boolean UserPuedeEjecutarComandos(int User) {
+	public static boolean UserPuedeEjecutarComandos(int User) {
 		boolean retval = false;
 		/* '************************************************* */
 		/* 'Author: Marco Vanotti(Marco) */
@@ -351,7 +356,7 @@ return retval;
 		return retval;
 	}
 
-	static void AprobarIngresoAParty(int leader, int NewMember) {
+	public static void AprobarIngresoAParty(int leader, int NewMember) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 11/03/2010 */
@@ -368,7 +373,7 @@ return retval;
 		PI = Declaraciones.UserList[leader].PartyIndex;
 
 		if (Declaraciones.UserList[NewMember].PartySolicitud == PI) {
-			if (!Declaraciones.UserList[NewMember].flags.Muerto == 1) {
+			if (! /* FIXME */Declaraciones.UserList[NewMember].flags.Muerto == 1) {
 				if (Declaraciones.UserList[NewMember].PartyIndex == 0) {
 					if (Declaraciones.Parties[PI].PuedeEntrar(NewMember, razon)) {
 						if (Declaraciones.Parties[PI].NuevoMiembro(NewMember)) {
@@ -427,7 +432,7 @@ return retval;
 
 	}
 
-	static int IsPartyMember(int UserIndex, int PartyIndex) {
+	public static int IsPartyMember(int UserIndex, int PartyIndex) {
 		int retval = 0;
 		int MemberIndex = 0;
 
@@ -437,7 +442,7 @@ return retval;
 		return retval;
 	}
 
-	static void BroadCastParty(int UserIndex, String /* FIXME BYREF!! */ texto) {
+	public static void BroadCastParty(int UserIndex, String /* FIXME BYREF!! */ texto) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -454,7 +459,7 @@ return retval;
 
 	}
 
-	static void OnlineParty(int UserIndex) {
+	public static void OnlineParty(int UserIndex) {
  /* '************************************************* */
  /* 'Author: Unknown */
  /* 'Last modified: 11/27/09 (Budi) */
@@ -481,7 +486,7 @@ return retval;
  
 }
 
-	static void TransformarEnLider(int OldLeader, int NewLeader) {
+	public static void TransformarEnLider(int OldLeader, int NewLeader) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -517,7 +522,7 @@ return retval;
 
 	}
 
-	static void ActualizaExperiencias() {
+	public static void ActualizaExperiencias() {
  /* '*************************************************** */
  /* 'Author: Unknown */
  /* 'Last Modification: - */
@@ -529,14 +534,14 @@ return retval;
  /* 'para que grabe los datos en los charfiles */
  int i = 0;
  
-  if (!mdParty.PARTY_EXPERIENCIAPORGOLPE) {
+  if (! /* FIXME */mdParty.PARTY_EXPERIENCIAPORGOLPE) {
   
   Declaraciones.haciendoBK = true;
   modSendData.SendData(SendTarget.ToAll, 0, Protocol.PrepareMessagePauseToggle());
   
   modSendData.SendData(SendTarget.ToAll, 0, Protocol.PrepareMessageConsoleMsg("Servidor> Distribuyendo experiencia en parties.", FontTypeNames.FONTTYPE_SERVER));
    for (i = (1); i <= (mdParty.MAX_PARTIES); i++) {
-    if (!Declaraciones.Parties[i]Is null ) {
+    if (! /* FIXME */Declaraciones.Parties[i]Is null ) {
     Declaraciones.Parties[i].FlushExperiencia();
    }
   }
@@ -548,7 +553,7 @@ return retval;
  
 }
 
-	static void ObtenerExito(int UserIndex, int Exp, int mapa, int X, int Y) {
+	public static void ObtenerExito(int UserIndex, int Exp, int mapa, int X, int Y) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -556,7 +561,7 @@ return retval;
 		/* '*************************************************** */
 
 		if (Exp <= 0) {
-			if (!mdParty.CASTIGOS) {
+			if (! /* FIXME */mdParty.CASTIGOS) {
 				return;
 			}
 		}
@@ -565,7 +570,7 @@ return retval;
 
 	}
 
-	static int CantMiembros(int UserIndex) {
+	public static int CantMiembros(int UserIndex) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -589,7 +594,7 @@ return retval;
 	 * ' @remarks When a user level up and he is in a party, we call this sub to
 	 * don't desestabilice the party exp formula
 	 */
-	static void ActualizarSumaNivelesElevados(int UserIndex) {
+	public static void ActualizarSumaNivelesElevados(int UserIndex) {
 		/* '************************************************* */
 		/* 'Author: Marco Vanotti (MarKoxX) */
 		/* 'Last modified: 28/10/08 */

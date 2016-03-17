@@ -1,5 +1,10 @@
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"FrmInterv"')] */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_GlobalNameSpace'), (5, '='), (1, 'False')] */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Creatable'), (5, '='), (1, 'False')] */
@@ -37,7 +42,7 @@ import enums.*;
 
 public class FrmInterv {
 
-	static void AplicarIntervalos() {
+	public static void AplicarIntervalos() {
 
 		/* '¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿ Intervalos del main loop ¿?¿?¿?¿?¿?¿?¿?¿?¿ */
 		Admin.SanaIntervaloSinDescansar = vb6.val(txtSanaIntervaloSinDescansar.Text);
@@ -65,13 +70,13 @@ public class FrmInterv {
 
 	}
 
-	static void Command1_Click() {
+	public static void Command1_Click() {
 		/* FIXME: ON ERROR RESUME NEXT */
 		AplicarIntervalos();
 
 	}
 
-	static void Command2_Click() {
+	public static void Command2_Click() {
 
 		/* FIXME: ON ERROR GOTO Err */
 
@@ -122,7 +127,7 @@ public class FrmInterv {
 		vb6.MsgBox("Error al intentar grabar los intervalos");
 	}
 
-	static void ok_Click() {
+	public static void ok_Click() {
 		Me.Visible = false;
 	}
 

@@ -1,5 +1,10 @@
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"modSendData"')] */
 /* '************************************************************** */
 /* ' SendData.bas - Has all methods to send data to different user groups. */
@@ -34,11 +39,11 @@ import enums.*;
 
 public class modSendData {
 
-	static void SendData(SendTarget sndRoute, int sndIndex, String sndData) {
+	public static void SendData(SendTarget sndRoute, int sndIndex, String sndData) {
 		SendData(sndRoute, sndIndex, sndData, false);
 	}
 
-	static void SendData(SendTarget sndRoute, int sndIndex, String sndData, boolean IsDenounce) {
+	public static void SendData(SendTarget sndRoute, int sndIndex, String sndData, boolean IsDenounce) {
 		/* '************************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) - Rewrite of original */
 		/* 'Last Modify Date: 14/11/2010 */
@@ -221,7 +226,7 @@ public class modSendData {
 		case ToCiudadanos:
 			for (LoopC = (1); LoopC <= (Declaraciones.LastUser); LoopC++) {
 				if ((Declaraciones.UserList[LoopC].ConnID != -1)) {
-					if (!ES.criminal(LoopC)) {
+					if (! /* FIXME */ES.criminal(LoopC)) {
 						TCP.EnviarDatosASlot(LoopC, sndData);
 					}
 				}
@@ -269,7 +274,7 @@ public class modSendData {
 		case ToCiudadanosYRMs:
 			for (LoopC = (1); LoopC <= (Declaraciones.LastUser); LoopC++) {
 				if ((Declaraciones.UserList[LoopC].ConnID != -1)) {
-					if (!ES.criminal(LoopC)
+					if (! /* FIXME */ES.criminal(LoopC)
 							|| (Declaraciones.UserList[LoopC].flags.Privilegios && PlayerType.RoleMaster) != 0) {
 						TCP.EnviarDatosASlot(LoopC, sndData);
 					}
@@ -407,7 +412,7 @@ public class modSendData {
 		}
 	}
 
-	static void SendToUserArea(int UserIndex, String sdData) {
+	public static void SendToUserArea(int UserIndex, String sdData) {
 		/* '************************************************************** */
 		/* 'Author: Lucio N. Tourrilhes (DuNga) */
 		/* 'Last Modify Date: Unknow */
@@ -424,7 +429,7 @@ public class modSendData {
 		AreaX = Declaraciones.UserList[UserIndex].AreasInfo.AreaPerteneceX;
 		AreaY = Declaraciones.UserList[UserIndex].AreasInfo.AreaPerteneceY;
 
-		if (!General.MapaValido(Map)) {
+		if (! /* FIXME */General.MapaValido(Map)) {
 			return;
 		}
 
@@ -442,7 +447,7 @@ public class modSendData {
 		}
 	}
 
-	static void SendToUserAreaButindex(int UserIndex, String sdData) {
+	public static void SendToUserAreaButindex(int UserIndex, String sdData) {
 		/* '************************************************************** */
 		/* 'Author: Lucio N. Tourrilhes (DuNga) */
 		/* 'Last Modify Date: Unknow */
@@ -460,7 +465,7 @@ public class modSendData {
 		AreaX = Declaraciones.UserList[UserIndex].AreasInfo.AreaPerteneceX;
 		AreaY = Declaraciones.UserList[UserIndex].AreasInfo.AreaPerteneceY;
 
-		if (!General.MapaValido(Map)) {
+		if (! /* FIXME */General.MapaValido(Map)) {
 			return;
 		}
 
@@ -482,7 +487,7 @@ public class modSendData {
 		}
 	}
 
-	static void SendToDeadUserArea(int UserIndex, String sdData) {
+	public static void SendToDeadUserArea(int UserIndex, String sdData) {
 		/* '************************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modify Date: Unknow */
@@ -499,7 +504,7 @@ public class modSendData {
 		AreaX = Declaraciones.UserList[UserIndex].AreasInfo.AreaPerteneceX;
 		AreaY = Declaraciones.UserList[UserIndex].AreasInfo.AreaPerteneceY;
 
-		if (!General.MapaValido(Map)) {
+		if (! /* FIXME */General.MapaValido(Map)) {
 			return;
 		}
 
@@ -521,7 +526,7 @@ public class modSendData {
 		}
 	}
 
-	static void SendToUserGuildArea(int UserIndex, String sdData) {
+	public static void SendToUserGuildArea(int UserIndex, String sdData) {
 		/* '************************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modify Date: Unknow */
@@ -538,7 +543,7 @@ public class modSendData {
 		AreaX = Declaraciones.UserList[UserIndex].AreasInfo.AreaPerteneceX;
 		AreaY = Declaraciones.UserList[UserIndex].AreasInfo.AreaPerteneceY;
 
-		if (!General.MapaValido(Map)) {
+		if (! /* FIXME */General.MapaValido(Map)) {
 			return;
 		}
 
@@ -564,7 +569,7 @@ public class modSendData {
 		}
 	}
 
-	static void SendToUserPartyArea(int UserIndex, String sdData) {
+	public static void SendToUserPartyArea(int UserIndex, String sdData) {
 		/* '************************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modify Date: Unknow */
@@ -581,7 +586,7 @@ public class modSendData {
 		AreaX = Declaraciones.UserList[UserIndex].AreasInfo.AreaPerteneceX;
 		AreaY = Declaraciones.UserList[UserIndex].AreasInfo.AreaPerteneceY;
 
-		if (!General.MapaValido(Map)) {
+		if (! /* FIXME */General.MapaValido(Map)) {
 			return;
 		}
 
@@ -604,7 +609,7 @@ public class modSendData {
 		}
 	}
 
-	static void SendToAdminsButConsejerosArea(int UserIndex, String sdData) {
+	public static void SendToAdminsButConsejerosArea(int UserIndex, String sdData) {
 		/* '************************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modify Date: Unknow */
@@ -621,7 +626,7 @@ public class modSendData {
 		AreaX = Declaraciones.UserList[UserIndex].AreasInfo.AreaPerteneceX;
 		AreaY = Declaraciones.UserList[UserIndex].AreasInfo.AreaPerteneceY;
 
-		if (!General.MapaValido(Map)) {
+		if (! /* FIXME */General.MapaValido(Map)) {
 			return;
 		}
 
@@ -642,7 +647,7 @@ public class modSendData {
 		}
 	}
 
-	static void SendToNpcArea(int NpcIndex, String sdData) {
+	public static void SendToNpcArea(int NpcIndex, String sdData) {
 		/* '************************************************************** */
 		/* 'Author: Lucio N. Tourrilhes (DuNga) */
 		/* 'Last Modify Date: Unknow */
@@ -660,7 +665,7 @@ public class modSendData {
 		AreaX = Declaraciones.Npclist[NpcIndex].AreasInfo.AreaPerteneceX;
 		AreaY = Declaraciones.Npclist[NpcIndex].AreasInfo.AreaPerteneceY;
 
-		if (!General.MapaValido(Map)) {
+		if (! /* FIXME */General.MapaValido(Map)) {
 			return;
 		}
 
@@ -680,7 +685,7 @@ public class modSendData {
 		}
 	}
 
-	static void SendToAreaByPos(int Map, int AreaX, int AreaY, String sdData) {
+	public static void SendToAreaByPos(int Map, int AreaX, int AreaY, String sdData) {
  /* '************************************************************** */
  /* 'Author: Lucio N. Tourrilhes (DuNga) */
  /* 'Last Modify Date: Unknow */
@@ -693,7 +698,7 @@ public class modSendData {
  AreaX = 2 $ (AreaX/9);
  AreaY = 2 $ (AreaY/9);
  
- if (!General.MapaValido(Map)) {
+ if (! /* FIXME */General.MapaValido(Map)) {
  return;
  }
  
@@ -713,7 +718,7 @@ public class modSendData {
  }
 }
 
-	static void SendToMap(int Map, String sdData) {
+	public static void SendToMap(int Map, String sdData) {
 		/* '************************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modify Date: 5/24/2007 */
@@ -722,7 +727,7 @@ public class modSendData {
 		int LoopC = 0;
 		int tempIndex = 0;
 
-		if (!General.MapaValido(Map)) {
+		if (! /* FIXME */General.MapaValido(Map)) {
 			return;
 		}
 
@@ -735,7 +740,7 @@ public class modSendData {
 		}
 	}
 
-	static void SendToMapButIndex(int UserIndex, String sdData) {
+	public static void SendToMapButIndex(int UserIndex, String sdData) {
 		/* '************************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modify Date: 5/24/2007 */
@@ -747,7 +752,7 @@ public class modSendData {
 
 		Map = Declaraciones.UserList[UserIndex].Pos.Map;
 
-		if (!General.MapaValido(Map)) {
+		if (! /* FIXME */General.MapaValido(Map)) {
 			return;
 		}
 
@@ -760,7 +765,7 @@ public class modSendData {
 		}
 	}
 
-	static void SendToGMsAreaButRmsOrCounselors(int UserIndex, String sdData) {
+	public static void SendToGMsAreaButRmsOrCounselors(int UserIndex, String sdData) {
 		/* '************************************************************** */
 		/* 'Author: Torres Patricio(Pato) */
 		/* 'Last Modify Date: 12/02/2010 */
@@ -781,7 +786,7 @@ public class modSendData {
 		AreaX = Declaraciones.UserList[UserIndex].AreasInfo.AreaPerteneceX;
 		AreaY = Declaraciones.UserList[UserIndex].AreasInfo.AreaPerteneceY;
 
-		if (!General.MapaValido(Map)) {
+		if (! /* FIXME */General.MapaValido(Map)) {
 			return;
 		}
 
@@ -793,9 +798,9 @@ public class modSendData {
 				if (Declaraciones.UserList[tempIndex].AreasInfo.AreaReciveY && AreaY) {
 					if (Declaraciones.UserList[tempIndex].ConnIDValida) {
 						/* ' Exclusivo para dioses, admins y gms */
-						if ((Declaraciones.UserList[tempIndex].flags.Privilegios && !PlayerType.User
-								&& !PlayerType.Consejero
-								&& !PlayerType.RoleMaster) == Declaraciones.UserList[tempIndex].flags.Privilegios) {
+						if ((Declaraciones.UserList[tempIndex].flags.Privilegios && ! /* FIXME */PlayerType.User
+								&& ! /* FIXME */PlayerType.Consejero
+								&& ! /* FIXME */PlayerType.RoleMaster) == Declaraciones.UserList[tempIndex].flags.Privilegios) {
 							TCP.EnviarDatosASlot(tempIndex, sdData);
 						}
 					}
@@ -804,7 +809,7 @@ public class modSendData {
 		}
 	}
 
-	static void SendToUsersAreaButGMs(int UserIndex, String sdData) {
+	public static void SendToUsersAreaButGMs(int UserIndex, String sdData) {
 		/* '************************************************************** */
 		/* 'Author: Torres Patricio(Pato) */
 		/* 'Last Modify Date: 10/17/2009 */
@@ -821,7 +826,7 @@ public class modSendData {
 		AreaX = Declaraciones.UserList[UserIndex].AreasInfo.AreaPerteneceX;
 		AreaY = Declaraciones.UserList[UserIndex].AreasInfo.AreaPerteneceY;
 
-		if (!General.MapaValido(Map)) {
+		if (! /* FIXME */General.MapaValido(Map)) {
 			return;
 		}
 
@@ -841,7 +846,7 @@ public class modSendData {
 		}
 	}
 
-	static void SendToUsersAndRmsAndCounselorsAreaButGMs(int UserIndex, String sdData) {
+	public static void SendToUsersAndRmsAndCounselorsAreaButGMs(int UserIndex, String sdData) {
 		/* '************************************************************** */
 		/* 'Author: Torres Patricio(Pato) */
 		/* 'Last Modify Date: 10/17/2009 */
@@ -858,7 +863,7 @@ public class modSendData {
 		AreaX = Declaraciones.UserList[UserIndex].AreasInfo.AreaPerteneceX;
 		AreaY = Declaraciones.UserList[UserIndex].AreasInfo.AreaPerteneceY;
 
-		if (!General.MapaValido(Map)) {
+		if (! /* FIXME */General.MapaValido(Map)) {
 			return;
 		}
 
@@ -879,7 +884,7 @@ public class modSendData {
 		}
 	}
 
-	static void AlertarFaccionarios(int UserIndex) {
+	public static void AlertarFaccionarios(int UserIndex) {
 		/* '************************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modify Date: 17/11/2009 */
@@ -898,7 +903,7 @@ public class modSendData {
 
 		Map = Declaraciones.UserList[UserIndex].Pos.Map;
 
-		if (!General.MapaValido(Map)) {
+		if (! /* FIXME */General.MapaValido(Map)) {
 			return;
 		}
 

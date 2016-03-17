@@ -1,5 +1,10 @@
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"frmAdmin"')] */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_GlobalNameSpace'), (5, '='), (1, 'False')] */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Creatable'), (5, '='), (1, 'False')] */
@@ -28,15 +33,15 @@ import enums.*;
 
 public class frmAdmin {
 
-	static void cboPjs_Change() {
+	public static void cboPjs_Change() {
 		ActualizaPjInfo();
 	}
 
-	static void cboPjs_Click() {
+	public static void cboPjs_Click() {
 		ActualizaPjInfo();
 	}
 
-	static void Command1_Click() {
+	public static void Command1_Click() {
 		int tIndex = 0;
 
 		tIndex = Extra.NameIndex(cboPjs.Text);
@@ -50,7 +55,7 @@ public class frmAdmin {
 
 	}
 
-	static void ActualizaListaPjs() {
+	public static void ActualizaListaPjs() {
 		int LoopC = 0;
 
 		cboPjs.Clear();
@@ -67,11 +72,11 @@ public class frmAdmin {
 
 	}
 
-	static void Command3_Click() {
+	public static void Command3_Click() {
 		TCP.EcharPjsNoPrivilegiados();
 	}
 
-	static void ActualizaPjInfo() {
+	public static void ActualizaPjInfo() {
 		int tIndex = 0;
 
 		tIndex = Extra.NameIndex(cboPjs.Text);

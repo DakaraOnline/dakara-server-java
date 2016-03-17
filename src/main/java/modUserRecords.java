@@ -1,6 +1,10 @@
-
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"modUserRecords"')] */
 /* 'Argentum Online 0.13.0 */
 /* 'Copyright (C) 2002 Márquez Pablo Ignacio */
@@ -34,7 +38,7 @@ import enums.*;
 
 public class modUserRecords {
 
-	static void LoadRecords() {
+	public static void LoadRecords() {
 		/* '************************************************************** */
 		/* 'Author: Amraphen */
 		/* 'Last Modify Date: 29/11/2010 */
@@ -47,7 +51,7 @@ public class modUserRecords {
 
 		Reader = new clsIniManager();
 
-		if (!General.FileExist(Declaraciones.DatPath + "RECORDS.DAT")) {
+		if (! /* FIXME */General.FileExist(Declaraciones.DatPath + "RECORDS.DAT")) {
 			CreateRecordsFile();
 		}
 
@@ -84,7 +88,7 @@ public class modUserRecords {
 		}
 	}
 
-	static void SaveRecords() {
+	public static void SaveRecords() {
 		/* '************************************************************** */
 		/* 'Author: Amraphen */
 		/* 'Last Modify Date: 29/11/2010 */
@@ -117,7 +121,7 @@ public class modUserRecords {
 		Writer.DumpFile(Declaraciones.DatPath + "RECORDS.DAT");
 	}
 
-	static void AddRecord(int UserIndex, String Nickname, String Reason) {
+	public static void AddRecord(int UserIndex, String Nickname, String Reason) {
 		/* '************************************************************** */
 		/* 'Author: Amraphen */
 		/* 'Last Modify Date: 29/11/2010 */
@@ -134,7 +138,7 @@ public class modUserRecords {
 		Declaraciones.Records[Declaraciones.NumRecords].NumObs = 0;
 	}
 
-	static void AddObs(int UserIndex, int RecordIndex, String Obs) {
+	public static void AddObs(int UserIndex, int RecordIndex, String Obs) {
 		/* '************************************************************** */
 		/* 'Author: Amraphen */
 		/* 'Last Modify Date: 29/11/2010 */
@@ -152,7 +156,7 @@ public class modUserRecords {
 		Declaraciones.Records[RecordIndex].Obs[Declaraciones.Records[RecordIndex].NumObs].Detalles = Obs;
 	}
 
-	static void RemoveRecord(int RecordIndex) {
+	public static void RemoveRecord(int RecordIndex) {
 		/* '************************************************************** */
 		/* 'Author: Amraphen */
 		/* 'Last Modify Date: 29/11/2010 */
@@ -177,7 +181,7 @@ public class modUserRecords {
 		}
 	}
 
-	static void CreateRecordsFile() {
+	public static void CreateRecordsFile() {
 		/* '************************************************************** */
 		/* 'Author: Amraphen */
 		/* 'Last Modify Date: 29/11/2010 */

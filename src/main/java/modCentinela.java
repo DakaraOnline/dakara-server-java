@@ -1,5 +1,10 @@
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"modCentinela"')] */
 /* '***************************************************************** */
 /* 'modCentinela.bas - ImperiumAO - v1.2 */
@@ -76,7 +81,7 @@ public class modCentinela {
 	static final int NRO_CENTINELA = 5;
 	public static tCentinela[] Centinela = new tCentinela[1 + modCentinela.NRO_CENTINELA];
 
-	static void CallUserAttention() {
+	public static void CallUserAttention() {
 		/* '************************************************* */
 		/* 'Author: Unknown */
 		/* 'Last modified: 03/10/2010 */
@@ -88,7 +93,7 @@ public class modCentinela {
 		/* '************************************************* */
 
 		/* 'Esta el sistema habilitado? */
-		if (!modCentinela.centinelaActivado) {
+		if (! /* FIXME */modCentinela.centinelaActivado) {
 			return;
 		}
 
@@ -111,7 +116,7 @@ public class modCentinela {
 
 					if (modNuevoTimer.getInterval(TActual, modCentinela.Centinela[index].SpawnTime) >= 5000) {
 
-						if (!Declaraciones.UserList[UserIndex].flags.CentinelaOK) {
+						if (! /* FIXME */Declaraciones.UserList[UserIndex].flags.CentinelaOK) {
 							Protocol.WritePlayWave(UserIndex, Declaraciones.SND_WARP,
 									Declaraciones.Npclist[modCentinela.Centinela[index].NpcIndex].Pos.X,
 									Declaraciones.Npclist[modCentinela.Centinela[index].NpcIndex].Pos.Y);
@@ -131,7 +136,7 @@ public class modCentinela {
 		}
 	}
 
-	static void GoToNextWorkingChar() {
+	public static void GoToNextWorkingChar() {
 		/* '************************************************* */
 		/* 'Author: Unknown */
 		/* 'Last modified: 03/10/2010 */
@@ -157,7 +162,7 @@ public class modCentinela {
 			/* ' Usuario trabajando y no revisado? */
 			if (Declaraciones.UserList[LoopC].flags.UserLogged && Declaraciones.UserList[LoopC].Counters.Trabajando > 0
 					&& (Declaraciones.UserList[LoopC].flags.Privilegios && PlayerType.User)) {
-				if (!Declaraciones.UserList[LoopC].flags.CentinelaOK
+				if (! /* FIXME */Declaraciones.UserList[LoopC].flags.CentinelaOK
 						&& Declaraciones.UserList[LoopC].flags.CentinelaIndex == 0) {
 					/* 'Inicializamos */
 					modCentinela.Centinela[CentinelaIndex].RevisandoUserIndex = LoopC;
@@ -209,7 +214,7 @@ public class modCentinela {
 
 	}
 
-	static int GetIdleCentinela(int StartCheckIndex) {
+	public static int GetIdleCentinela(int StartCheckIndex) {
 		int retval = 0;
 		/* '************************************************* */
 		/* 'Author: ZaMa */
@@ -223,7 +228,7 @@ public class modCentinela {
 
 		for (index = (StartCheckIndex); index <= (modCentinela.NRO_CENTINELA); index++) {
 
-			if (!modCentinela.Centinela[index].Activo) {
+			if (! /* FIXME */modCentinela.Centinela[index].Activo) {
 				retval = index;
 				return retval;
 			}
@@ -233,7 +238,7 @@ public class modCentinela {
 		return retval;
 	}
 
-	static void CentinelaFinalCheck(int CentiIndex) {
+	public static void CentinelaFinalCheck(int CentiIndex) {
 		/* '************************************************* */
 		/* 'Author: Unknown */
 		/* 'Last modified: 02/10/2010 */
@@ -254,7 +259,7 @@ public class modCentinela {
 
 		UserIndex = modCentinela.Centinela[CentiIndex].RevisandoUserIndex;
 
-		if (!Declaraciones.UserList[UserIndex].flags.CentinelaOK) {
+		if (! /* FIXME */Declaraciones.UserList[UserIndex].flags.CentinelaOK) {
 
 			UserName = Declaraciones.UserList[UserIndex].Name;
 
@@ -303,7 +308,7 @@ public class modCentinela {
 		General.LogError("Error en el checkeo del centinela: " + Err.description);
 	}
 
-	static void CentinelaCheckClave(int UserIndex, int clave) {
+	public static void CentinelaCheckClave(int UserIndex, int clave) {
 		/* '************************************************* */
 		/* 'Author: Unknown */
 		/* 'Last modified: 02/10/2010 */
@@ -338,7 +343,7 @@ public class modCentinela {
 		if (clave == modCentinela.Centinela[CentinelaIndex].clave
 				&& UserIndex == modCentinela.Centinela[CentinelaIndex].RevisandoUserIndex) {
 
-			if (!Declaraciones.UserList[UserIndex].flags.CentinelaOK) {
+			if (! /* FIXME */Declaraciones.UserList[UserIndex].flags.CentinelaOK) {
 
 				Declaraciones.UserList[UserIndex].flags.CentinelaOK = true;
 				Protocol.WriteChatOverHead(UserIndex,
@@ -367,7 +372,7 @@ public class modCentinela {
 						+ " respondió aunque no se le hablaba a él.");
 			} else {
 
-				if (!Declaraciones.UserList[UserIndex].flags.CentinelaOK) {
+				if (! /* FIXME */Declaraciones.UserList[UserIndex].flags.CentinelaOK) {
 					/* ' Clave incorrecta, la reenvio */
 					CentinelaSendClave(UserIndex, CentinelaIndex);
 					LogCentinela(
@@ -382,7 +387,7 @@ public class modCentinela {
 
 	}
 
-	static void ResetCentinelaInfo() {
+	public static void ResetCentinelaInfo() {
 		/* '************************************************* */
 		/* 'Author: Unknown */
 		/* 'Last modified: 02/10/2010 */
@@ -403,7 +408,7 @@ public class modCentinela {
 
 	}
 
-	static void CentinelaSendClave(int UserIndex, int CentinelaIndex) {
+	public static void CentinelaSendClave(int UserIndex, int CentinelaIndex) {
 		/* '************************************************* */
 		/* 'Author: Unknown */
 		/* 'Last modified: 02/10/2010 */
@@ -420,7 +425,7 @@ public class modCentinela {
 
 		if (modCentinela.Centinela[CentinelaIndex].RevisandoUserIndex == UserIndex) {
 
-			if (!Declaraciones.UserList[UserIndex].flags.CentinelaOK) {
+			if (! /* FIXME */Declaraciones.UserList[UserIndex].flags.CentinelaOK) {
 				Protocol.WriteChatOverHead(UserIndex,
 						"¡La clave que te he dicho es /CENTINELA " + modCentinela.Centinela[CentinelaIndex].clave
 								+ ", escríbelo rápido!",
@@ -440,7 +445,7 @@ public class modCentinela {
 
 	}
 
-	static void PasarMinutoCentinela() {
+	public static void PasarMinutoCentinela() {
 		/* '************************************************* */
 		/* 'Author: Unknown */
 		/* 'Last modified: 02/10/2010 */
@@ -456,7 +461,7 @@ public class modCentinela {
 		int UserIndex = 0;
 		int IdleCount = 0;
 
-		if (!modCentinela.centinelaActivado) {
+		if (! /* FIXME */modCentinela.centinelaActivado) {
 			return;
 		}
 
@@ -559,7 +564,7 @@ public class modCentinela {
 		General.LogError("Error en PasarMinutoCentinela. Error: " + Err.Number + " - " + Err.description);
 	}
 
-	static void WarpCentinela(int UserIndex, int CentinelaIndex) {
+	public static void WarpCentinela(int UserIndex, int CentinelaIndex) {
 		/* '************************************************* */
 		/* 'Author: Unknown */
 		/* 'Last modified: 02/10/2010 */
@@ -588,7 +593,7 @@ public class modCentinela {
 
 	}
 
-	static void CentinelaUserLogout(int CentinelaIndex) {
+	public static void CentinelaUserLogout(int CentinelaIndex) {
 		/* '************************************************* */
 		/* 'Author: Unknown */
 		/* 'Last modified: 02/11/2010 */
@@ -606,7 +611,7 @@ public class modCentinela {
 		if (modCentinela.Centinela[CentinelaIndex].RevisandoUserIndex != 0) {
 
 			/* 'Logueamos el evento */
-			if (!Declaraciones.UserList[modCentinela.Centinela[CentinelaIndex].RevisandoUserIndex].flags.CentinelaOK) {
+			if (! /* FIXME */Declaraciones.UserList[modCentinela.Centinela[CentinelaIndex].RevisandoUserIndex].flags.CentinelaOK) {
 				LogCentinela("El usuario "
 						+ Declaraciones.UserList[modCentinela.Centinela[CentinelaIndex].RevisandoUserIndex].Name
 						+ " se desolgueó al pedirsele la contraseña.");
@@ -630,7 +635,7 @@ public class modCentinela {
 
 	}
 
-	static void LogCentinela(String texto) {
+	public static void LogCentinela(String texto) {
 		/* '************************************************* */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last modified: 03/15/2006 */
@@ -653,7 +658,7 @@ public class modCentinela {
 		/* FIXME: ErrHandler : */
 	}
 
-	static void ResetCentinelas() {
+	public static void ResetCentinelas() {
 		/* '************************************************* */
 		/* 'Author: ZaMa */
 		/* 'Last modified: 02/10/2010 */
@@ -693,7 +698,7 @@ public class modCentinela {
 
 	}
 
-	static int EsCentinela(int NpcIndex) {
+	public static int EsCentinela(int NpcIndex) {
 		int retval = 0;
 		/* '************************************************* */
 		/* 'Author: ZaMa */
@@ -719,7 +724,7 @@ public class modCentinela {
 		return retval;
 	}
 
-	static void RenovarResetTimer() {
+	public static void RenovarResetTimer() {
 		/* '************************************************* */
 		/* 'Author: ZaMa */
 		/* 'Last modified: 07/10/2010 */

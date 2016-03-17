@@ -1,5 +1,10 @@
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"Characters"')] */
 /* '************************************************************** */
 /* ' Characters.bas - library of functions to manipulate characters. */
@@ -42,7 +47,7 @@ public class Characters {
 	 */
 	/* ' @see INVALID_INDEX */
 
-	static int CharIndexToUserIndex(int CharIndex) {
+	public static int CharIndexToUserIndex(int CharIndex) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */

@@ -1,4 +1,10 @@
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"Protocol"')] */
 /* '************************************************************** */
 /* ' Protocol.bas - Handles all incoming / outgoing messages for client-server communications. */
@@ -65,7 +71,7 @@ public class Protocol {
 	/* 'The last existing client packet id. */
 	static final int LAST_CLIENT_PACKET_ID = 129;
 
-	static void InitAuxiliarBuffer() {
+	public static void InitAuxiliarBuffer() {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 15/03/2011 */
@@ -79,7 +85,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleIncomingData(int UserIndex) {
+	public static void HandleIncomingData(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 01/09/07 */
@@ -91,11 +97,11 @@ public class Protocol {
 		packetID = Declaraciones.UserList[UserIndex].incomingData.PeekByte();
 
 		/* 'Does the packet requires a logged user?? */
-		if (!(packetID == ClientPacketID.ThrowDices || packetID == ClientPacketID.LoginExistingChar
+		if (! /* FIXME */(packetID == ClientPacketID.ThrowDices || packetID == ClientPacketID.LoginExistingChar
 				|| packetID == ClientPacketID.LoginNewChar)) {
 
 			/* 'Is the user actually logged? */
-			if (!Declaraciones.UserList[UserIndex].flags.UserLogged) {
+			if (! /* FIXME */Declaraciones.UserList[UserIndex].flags.UserLogged) {
 				TCP.CloseSocket(UserIndex);
 				return;
 
@@ -901,7 +907,7 @@ public class Protocol {
 			HandleIncomingData(UserIndex);
 
 		} else if (Err.Number != 0
-				&& !Err.Number == Declaraciones.UserList[UserIndex].incomingData.NotEnoughDataErrCode) {
+				&& ! /* FIXME */Err.Number == Declaraciones.UserList[UserIndex].incomingData.NotEnoughDataErrCode) {
 			/* 'An error ocurred, log it and kick player. */
 			General.LogError("Error: " + Err.Number + " [" + Err.description + "] " + " Source: " + Err.source + vbTab
 					+ " HelpFile: " + Err.HelpFile + vbTab + " HelpContext: " + Err.HelpContext + vbTab
@@ -916,11 +922,12 @@ public class Protocol {
 		}
 	}
 
-	static void WriteMultiMessage(int UserIndex, int MessageIndex) {
+	public static void WriteMultiMessage(int UserIndex, int MessageIndex) {
  WriteMultiMessage(UserIndex, MessageIndex, int(), int(), int(), String());
  }
 
-	static void WriteMultiMessage(int UserIndex, int MessageIndex, int Arg1, int Arg2, int Arg3, String StringArg1) {
+	public static void WriteMultiMessage(int UserIndex, int MessageIndex, int Arg1, int Arg2, int Arg3,
+			String StringArg1) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1040,7 +1047,7 @@ public class Protocol {
 		}
 	}
 
-	static void HandleGMCommands(int UserIndex) {
+	public static void HandleGMCommands(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1949,7 +1956,7 @@ public class Protocol {
 	/* ' Handles the "Home" message. */
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
-	static void HandleHome(int UserIndex) {
+	public static void HandleHome(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Budi */
 		/* 'Creation Date: 06/01/2010 */
@@ -1991,7 +1998,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleLoginExistingChar(int UserIndex) {
+	public static void HandleLoginExistingChar(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -2031,7 +2038,7 @@ public class Protocol {
 		/* 'Convert version number to string */
 		version = vb6.CStr(buffer.ReadByte()) + "." + vb6.CStr(buffer.ReadByte()) + "." + vb6.CStr(buffer.ReadByte());
 
-		if (!TCP.AsciiValidos(UserName)) {
+		if (! /* FIXME */TCP.AsciiValidos(UserName)) {
 			WriteErrorMsg(UserIndex, "Nombre inválido.");
 			FlushBuffer(UserIndex);
 			TCP.CloseSocket(UserIndex);
@@ -2039,7 +2046,7 @@ public class Protocol {
 			return;
 		}
 
-		if (!Admin.PersonajeExiste(UserName)) {
+		if (! /* FIXME */Admin.PersonajeExiste(UserName)) {
 			WriteErrorMsg(UserIndex, "El personaje no existe.");
 			FlushBuffer(UserIndex);
 			TCP.CloseSocket(UserIndex);
@@ -2055,11 +2062,11 @@ public class Protocol {
 		if (Admin.BANCheck(UserName)) {
 			WriteErrorMsg(UserIndex,
 					"Se te ha prohibido la entrada a Argentum Online debido a tu mal comportamiento. Puedes consultar el reglamento y el sistema de soporte desde www.argentumonline.com.ar");
-		} else if (!Admin.VersionOK(version)) {
+		} else if (! /* FIXME */Admin.VersionOK(version)) {
 			WriteErrorMsg(UserIndex, "Esta versión del juego es obsoleta, la versión correcta es la "
 					+ Declaraciones.ULTIMAVERSION + ". La misma se encuentra disponible en www.argentumonline.com.ar");
 		} else {
-			bConFailed = !TCP.ConnectUser(UserIndex, UserName, Password);
+			bConFailed = ! /* FIXME */TCP.ConnectUser(UserIndex, UserName, Password);
 		}
 		/* # IF SeguridadAlkon THEN */
 		/* # END IF */
@@ -2068,7 +2075,7 @@ public class Protocol {
 		 * 'If we got here then packet is complete, copy data back to original
 		 * queue
 		 */
-		if (!bConFailed) {
+		if (! /* FIXME */bConFailed) {
 			Declaraciones.UserList[UserIndex].incomingData.CopyBuffer(buffer);
 		}
 
@@ -2093,7 +2100,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleThrowDices(int UserIndex) {
+	public static void HandleThrowDices(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -2121,7 +2128,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleLoginNewChar(int UserIndex) {
+	public static void HandleLoginNewChar(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -2208,7 +2215,7 @@ public class Protocol {
 		/* # IF SeguridadAlkon THEN */
 		/* # END IF */
 
-		if (!Admin.VersionOK(version)) {
+		if (! /* FIXME */Admin.VersionOK(version)) {
 			WriteErrorMsg(UserIndex, "Esta versión del juego es obsoleta, la versión correcta es la "
 					+ Declaraciones.ULTIMAVERSION + ". La misma se encuentra disponible en www.argentumonline.com.ar");
 		} else {
@@ -2241,7 +2248,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleTalk(int UserIndex) {
+	public static void HandleTalk(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 13/01/2010 */
@@ -2305,7 +2312,7 @@ public class Protocol {
 			/* 'Analize chat... */
 			Statistics.ParseChat(Chat);
 
-			if (!(Declaraciones.UserList[UserIndex].flags.AdminInvisible == 1)) {
+			if (! /* FIXME */(Declaraciones.UserList[UserIndex].flags.AdminInvisible == 1)) {
 				if (Declaraciones.UserList[UserIndex].flags.Muerto == 1) {
 					modSendData.SendData(SendTarget.ToDeadArea, UserIndex, PrepareMessageChatOverHead(Chat,
 							Declaraciones.UserList[UserIndex].Char.CharIndex, Declaraciones.CHAT_COLOR_DEAD_CHAR));
@@ -2346,7 +2353,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleYell(int UserIndex) {
+	public static void HandleYell(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 13/01/2010 (ZaMa) */
@@ -2418,7 +2425,7 @@ public class Protocol {
 							PrepareMessageChatOverHead(Chat, Declaraciones.UserList[UserIndex].Char.CharIndex, vbRed));
 				}
 			} else {
-				if (!(Declaraciones.UserList[UserIndex].flags.AdminInvisible == 1)) {
+				if (! /* FIXME */(Declaraciones.UserList[UserIndex].flags.AdminInvisible == 1)) {
 					modSendData.SendData(SendTarget.ToPCArea, UserIndex, PrepareMessageChatOverHead(Chat,
 							Declaraciones.UserList[UserIndex].Char.CharIndex, Declaraciones.CHAT_COLOR_GM_YELL));
 				} else {
@@ -2452,7 +2459,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleWhisper(int UserIndex) {
+	public static void HandleWhisper(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 03/12/2010 */
@@ -2522,7 +2529,7 @@ public class Protocol {
 				 */
 				if ((TargetPriv && (PlayerType.Dios || PlayerType.Admin)) != 0
 						&& (UserPriv && (PlayerType.User || PlayerType.Consejero || PlayerType.SemiDios)) != 0
-						&& !Declaraciones.UserList[UserIndex].flags.EnConsulta) {
+						&& ! /* FIXME */Declaraciones.UserList[UserIndex].flags.EnConsulta) {
 
 					/* ' No puede */
 					WriteConsoleMsg(UserIndex, "No puedes susurrarle a los Administradores.",
@@ -2532,15 +2539,15 @@ public class Protocol {
 					 * ' Usuarios no pueden susurrar a semis o conses (Salvo en
 					 * consulta)
 					 */
-				} else if ((UserPriv && PlayerType.User) != 0 && (!TargetPriv && PlayerType.User) != 0
-						&& !Declaraciones.UserList[UserIndex].flags.EnConsulta) {
+				} else if ((UserPriv && PlayerType.User) != 0 && (! /* FIXME */TargetPriv && PlayerType.User) != 0
+						&& ! /* FIXME */Declaraciones.UserList[UserIndex].flags.EnConsulta) {
 
 					/* ' No puede */
 					WriteConsoleMsg(UserIndex, "No puedes susurrarle a los Administradores.",
 							FontTypeNames.FONTTYPE_INFO);
 
 					/* ' En rango? (Los dioses pueden susurrar a distancia) */
-				} else if (!TCP.EstaPCarea(UserIndex, TargetUserIndex)
+				} else if (! /* FIXME */TCP.EstaPCarea(UserIndex, TargetUserIndex)
 						&& (UserPriv && (PlayerType.Dios || PlayerType.Admin)) == 0) {
 
 					/* ' No se puede susurrar a admins fuera de su rango */
@@ -2570,13 +2577,13 @@ public class Protocol {
 						Statistics.ParseChat(Chat);
 
 						/* ' Dios susurrando a distancia */
-						if (!TCP.EstaPCarea(UserIndex, TargetUserIndex)
+						if (! /* FIXME */TCP.EstaPCarea(UserIndex, TargetUserIndex)
 								&& (UserPriv && (PlayerType.Dios || PlayerType.Admin)) != 0) {
 
 							WriteConsoleMsg(UserIndex, "Susurraste> " + Chat, FontTypeNames.FONTTYPE_GM);
 							WriteConsoleMsg(TargetUserIndex, "Gm susurra> " + Chat, FontTypeNames.FONTTYPE_GM);
 
-						} else if (!(Declaraciones.UserList[UserIndex].flags.AdminInvisible == 1)) {
+						} else if (! /* FIXME */(Declaraciones.UserList[UserIndex].flags.AdminInvisible == 1)) {
 							WriteChatOverHead(UserIndex, Chat, Declaraciones.UserList[UserIndex].Char.CharIndex,
 									vbBlue);
 							WriteChatOverHead(TargetUserIndex, Chat, Declaraciones.UserList[UserIndex].Char.CharIndex,
@@ -2634,7 +2641,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleWalk(int UserIndex) {
+	public static void HandleWalk(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 13/01/2010 (ZaMa) */
@@ -2678,7 +2685,7 @@ public class Protocol {
 					Declaraciones.UserList[UserIndex].flags.CountSH = 0;
 				}
 
-				if (!Declaraciones.UserList[UserIndex].flags.CountSH == 0) {
+				if (! /* FIXME */Declaraciones.UserList[UserIndex].flags.CountSH == 0) {
 					if (dummy != 0) {
 						dummy = 126000 / dummy;
 					}
@@ -2737,7 +2744,7 @@ public class Protocol {
 			}
 			/* 'paralized */
 		} else {
-			if (!Declaraciones.UserList[UserIndex].flags.UltimoMensaje == 1) {
+			if (! /* FIXME */Declaraciones.UserList[UserIndex].flags.UltimoMensaje == 1) {
 				Declaraciones.UserList[UserIndex].flags.UltimoMensaje = 1;
 
 				WriteConsoleMsg(UserIndex, "No puedes moverte porque estás paralizado.", FontTypeNames.FONTTYPE_INFO);
@@ -2792,7 +2799,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleRequestPositionUpdate(int UserIndex) {
+	public static void HandleRequestPositionUpdate(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -2809,7 +2816,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleAttack(int UserIndex) {
+	public static void HandleAttack(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 13/01/2010 */
@@ -2889,7 +2896,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandlePickUp(int UserIndex) {
+	public static void HandlePickUp(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 07/25/09 */
@@ -2916,7 +2923,7 @@ public class Protocol {
 
 		/* 'Lower rank administrators can't pick up items */
 		if (Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.Consejero) {
-			if (!Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) {
+			if (! /* FIXME */Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) {
 				WriteConsoleMsg(UserIndex, "No puedes tomar ningún objeto.", FontTypeNames.FONTTYPE_INFO);
 				return;
 			}
@@ -2930,7 +2937,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleSafeToggle(int UserIndex) {
+	public static void HandleSafeToggle(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -2947,7 +2954,7 @@ public class Protocol {
 			WriteMultiMessage(UserIndex, eMessages.SafeModeOn);
 		}
 
-		Declaraciones.UserList[UserIndex].flags.Seguro = !Declaraciones.UserList[UserIndex].flags.Seguro;
+		Declaraciones.UserList[UserIndex].flags.Seguro = ! /* FIXME */Declaraciones.UserList[UserIndex].flags.Seguro;
 	}
 
 	/* '' */
@@ -2955,14 +2962,14 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleResuscitationToggle(int UserIndex) {
+	public static void HandleResuscitationToggle(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Rapsodius */
 		/* 'Creation Date: 10/10/07 */
 		/* '*************************************************** */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
-		Declaraciones.UserList[UserIndex].flags.SeguroResu = !Declaraciones.UserList[UserIndex].flags.SeguroResu;
+		Declaraciones.UserList[UserIndex].flags.SeguroResu = ! /* FIXME */Declaraciones.UserList[UserIndex].flags.SeguroResu;
 
 		if (Declaraciones.UserList[UserIndex].flags.SeguroResu) {
 			/* 'Call WriteResuscitationSafeOn(UserIndex) */
@@ -2978,7 +2985,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleRequestGuildLeaderInfo(int UserIndex) {
+	public static void HandleRequestGuildLeaderInfo(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -2995,7 +3002,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleRequestAtributes(int UserIndex) {
+	public static void HandleRequestAtributes(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -3012,7 +3019,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleRequestFame(int UserIndex) {
+	public static void HandleRequestFame(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -3029,7 +3036,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleRequestSkills(int UserIndex) {
+	public static void HandleRequestSkills(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -3046,7 +3053,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleRequestMiniStats(int UserIndex) {
+	public static void HandleRequestMiniStats(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -3063,7 +3070,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleCommerceEnd(int UserIndex) {
+	public static void HandleCommerceEnd(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -3082,7 +3089,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleUserCommerceEnd(int UserIndex) {
+	public static void HandleUserCommerceEnd(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 11/03/2010 */
@@ -3115,7 +3122,7 @@ public class Protocol {
 	/* ' Handles the "UserCommerceConfirm" message. */
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
-	static void HandleUserCommerceConfirm(int UserIndex) {
+	public static void HandleUserCommerceConfirm(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 14/12/2009 */
@@ -3134,7 +3141,7 @@ public class Protocol {
 
 	}
 
-	static void HandleCommerceChat(int UserIndex) {
+	public static void HandleCommerceChat(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 03/12/2009 */
@@ -3197,7 +3204,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleBankEnd(int UserIndex) {
+	public static void HandleBankEnd(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -3216,7 +3223,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleUserCommerceOk(int UserIndex) {
+	public static void HandleUserCommerceOk(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -3234,7 +3241,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleUserCommerceReject(int UserIndex) {
+	public static void HandleUserCommerceReject(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -3268,7 +3275,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleDrop(int UserIndex) {
+	public static void HandleDrop(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 07/25/09 */
@@ -3298,7 +3305,8 @@ public class Protocol {
 		if (Declaraciones.UserList[UserIndex].flags.Navegando == 1
 				|| Declaraciones.UserList[UserIndex].flags.Muerto == 1
 				|| ((Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.Consejero) != 0
-						&& (!Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0)) {
+						&& (! /* FIXME */Declaraciones.UserList[UserIndex].flags.Privilegios
+								&& PlayerType.RoleMaster) != 0)) {
 			return;
 		}
 
@@ -3338,7 +3346,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleCastSpell(int UserIndex) {
+	public static void HandleCastSpell(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -3383,7 +3391,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleLeftClick(int UserIndex) {
+	public static void HandleLeftClick(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -3411,7 +3419,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleDoubleClick(int UserIndex) {
+	public static void HandleDoubleClick(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -3439,7 +3447,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleWork(int UserIndex) {
+	public static void HandleWork(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 13/01/2010 (ZaMa) */
@@ -3489,7 +3497,7 @@ public class Protocol {
 			if (Declaraciones.UserList[UserIndex].flags.Navegando == 1) {
 				if (Declaraciones.UserList[UserIndex].clase != eClass.Pirat) {
 					/* '[CDT 17-02-2004] */
-					if (!Declaraciones.UserList[UserIndex].flags.UltimoMensaje == 3) {
+					if (! /* FIXME */Declaraciones.UserList[UserIndex].flags.UltimoMensaje == 3) {
 						WriteConsoleMsg(UserIndex, "No puedes ocultarte si estás navegando.",
 								FontTypeNames.FONTTYPE_INFO);
 						Declaraciones.UserList[UserIndex].flags.UltimoMensaje = 3;
@@ -3501,7 +3509,7 @@ public class Protocol {
 
 			if (Declaraciones.UserList[UserIndex].flags.Oculto == 1) {
 				/* '[CDT 17-02-2004] */
-				if (!Declaraciones.UserList[UserIndex].flags.UltimoMensaje == 2) {
+				if (! /* FIXME */Declaraciones.UserList[UserIndex].flags.UltimoMensaje == 2) {
 					WriteConsoleMsg(UserIndex, "Ya estás oculto.", FontTypeNames.FONTTYPE_INFO);
 					Declaraciones.UserList[UserIndex].flags.UltimoMensaje = 2;
 				}
@@ -3521,7 +3529,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleInitCrafting(int UserIndex) {
+	public static void HandleInitCrafting(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 29/01/2010 */
@@ -3549,7 +3557,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleUseSpellMacro(int UserIndex) {
+	public static void HandleUseSpellMacro(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -3573,7 +3581,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleUseItem(int UserIndex) {
+	public static void HandleUseItem(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -3613,7 +3621,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleCraftBlacksmith(int UserIndex) {
+	public static void HandleCraftBlacksmith(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -3639,7 +3647,7 @@ public class Protocol {
 			return;
 		}
 
-		if (!modNuevoTimer.IntervaloPermiteTrabajar(UserIndex)) {
+		if (! /* FIXME */modNuevoTimer.IntervaloPermiteTrabajar(UserIndex)) {
 			return;
 		}
 		Trabajo.HerreroConstruirItem(UserIndex, Item);
@@ -3650,7 +3658,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleCraftCarpenter(int UserIndex) {
+	public static void HandleCraftCarpenter(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -3676,7 +3684,7 @@ public class Protocol {
 			return;
 		}
 
-		if (!modNuevoTimer.IntervaloPermiteTrabajar(UserIndex)) {
+		if (! /* FIXME */modNuevoTimer.IntervaloPermiteTrabajar(UserIndex)) {
 			return;
 		}
 		Trabajo.CarpinteroConstruirItem(UserIndex, Item);
@@ -3687,7 +3695,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleWorkLeftClick(int UserIndex) {
+	public static void HandleWorkLeftClick(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 14/01/2010 (ZaMa) */
@@ -3729,11 +3737,11 @@ public class Protocol {
 
 		if (Declaraciones.UserList[UserIndex].flags.Muerto == 1 || Declaraciones.UserList[UserIndex].flags.Descansar
 				|| Declaraciones.UserList[UserIndex].flags.Meditando
-				|| !Extra.InMapBounds(Declaraciones.UserList[UserIndex].Pos.Map, X, Y)) {
+				|| ! /* FIXME */Extra.InMapBounds(Declaraciones.UserList[UserIndex].Pos.Map, X, Y)) {
 			return;
 		}
 
-		if (!Extra.InRangoVision(UserIndex, X, Y)) {
+		if (! /* FIXME */Extra.InRangoVision(UserIndex, X, Y)) {
 			WritePosUpdate(UserIndex);
 			return;
 		}
@@ -3745,15 +3753,15 @@ public class Protocol {
 		case Proyectiles:
 
 			/* 'Check attack interval */
-			if (!modNuevoTimer.IntervaloPermiteAtacar(UserIndex, false)) {
+			if (! /* FIXME */modNuevoTimer.IntervaloPermiteAtacar(UserIndex, false)) {
 				return;
 			}
 			/* 'Check Magic interval */
-			if (!modNuevoTimer.IntervaloPermiteLanzarSpell(UserIndex, false)) {
+			if (! /* FIXME */modNuevoTimer.IntervaloPermiteLanzarSpell(UserIndex, false)) {
 				return;
 			}
 			/* 'Check bow's interval */
-			if (!modNuevoTimer.IntervaloPermiteUsarArcos(UserIndex)) {
+			if (! /* FIXME */modNuevoTimer.IntervaloPermiteUsarArcos(UserIndex)) {
 				return;
 			}
 
@@ -3784,14 +3792,14 @@ public class Protocol {
 			}
 
 			/* 'Check bow's interval */
-			if (!modNuevoTimer.IntervaloPermiteUsarArcos(UserIndex, false)) {
+			if (! /* FIXME */modNuevoTimer.IntervaloPermiteUsarArcos(UserIndex, false)) {
 				return;
 			}
 
 			/* 'Check Spell-Hit interval */
-			if (!modNuevoTimer.IntervaloPermiteGolpeMagia(UserIndex)) {
+			if (! /* FIXME */modNuevoTimer.IntervaloPermiteGolpeMagia(UserIndex)) {
 				/* 'Check Magic interval */
-				if (!modNuevoTimer.IntervaloPermiteLanzarSpell(UserIndex)) {
+				if (! /* FIXME */modNuevoTimer.IntervaloPermiteLanzarSpell(UserIndex)) {
 					return;
 				}
 			}
@@ -3814,7 +3822,7 @@ public class Protocol {
 			}
 
 			/* 'Check interval */
-			if (!modNuevoTimer.IntervaloPermiteTrabajar(UserIndex)) {
+			if (! /* FIXME */modNuevoTimer.IntervaloPermiteTrabajar(UserIndex)) {
 				return;
 			}
 
@@ -3884,7 +3892,7 @@ public class Protocol {
 			if (Declaraciones.MapInfo[Declaraciones.UserList[UserIndex].Pos.Map].Pk) {
 
 				/* 'Check interval */
-				if (!modNuevoTimer.IntervaloPermiteTrabajar(UserIndex)) {
+				if (! /* FIXME */modNuevoTimer.IntervaloPermiteTrabajar(UserIndex)) {
 					return;
 				}
 
@@ -3929,7 +3937,7 @@ public class Protocol {
 
 		case Talar:
 			/* 'Check interval */
-			if (!modNuevoTimer.IntervaloPermiteTrabajar(UserIndex)) {
+			if (! /* FIXME */modNuevoTimer.IntervaloPermiteTrabajar(UserIndex)) {
 				return;
 			}
 
@@ -3997,7 +4005,7 @@ public class Protocol {
 			break;
 
 		case Mineria:
-			if (!modNuevoTimer.IntervaloPermiteTrabajar(UserIndex)) {
+			if (! /* FIXME */modNuevoTimer.IntervaloPermiteTrabajar(UserIndex)) {
 				return;
 			}
 
@@ -4076,7 +4084,7 @@ public class Protocol {
 
 		case Declaraciones.FundirMetal:
 			/* 'Check interval */
-			if (!modNuevoTimer.IntervaloPermiteTrabajar(UserIndex)) {
+			if (! /* FIXME */modNuevoTimer.IntervaloPermiteTrabajar(UserIndex)) {
 				return;
 			}
 
@@ -4141,7 +4149,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleCreateNewGuild(int UserIndex) {
+	public static void HandleCreateNewGuild(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/11/09 */
@@ -4218,7 +4226,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleSpellInfo(int UserIndex) {
+	public static void HandleSpellInfo(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -4263,7 +4271,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleEquipItem(int UserIndex) {
+	public static void HandleEquipItem(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -4303,7 +4311,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleChangeHeading(int UserIndex) {
+	public static void HandleChangeHeading(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 06/28/2008 */
@@ -4351,7 +4359,7 @@ public class Protocol {
 			if (Extra.LegalPos(Declaraciones.UserList[UserIndex].Pos.Map,
 					Declaraciones.UserList[UserIndex].Pos.X + posX, Declaraciones.UserList[UserIndex].Pos.Y + posY,
 					vb6.CBool(Declaraciones.UserList[UserIndex].flags.Navegando),
-					!vb6.CBool(Declaraciones.UserList[UserIndex].flags.Navegando))) {
+					! /* FIXME */vb6.CBool(Declaraciones.UserList[UserIndex].flags.Navegando))) {
 				return;
 			}
 		}
@@ -4375,7 +4383,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleModifySkills(int UserIndex) {
+	public static void HandleModifySkills(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 11/19/09 */
@@ -4444,7 +4452,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleTrain(int UserIndex) {
+	public static void HandleTrain(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -4499,7 +4507,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleCommerceBuy(int UserIndex) {
+	public static void HandleCommerceBuy(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -4540,7 +4548,7 @@ public class Protocol {
 		}
 
 		/* 'Only if in commerce mode.... */
-		if (!Declaraciones.UserList[UserIndex].flags.Comerciando) {
+		if (! /* FIXME */Declaraciones.UserList[UserIndex].flags.Comerciando) {
 			WriteConsoleMsg(UserIndex, "No estás comerciando.", FontTypeNames.FONTTYPE_INFO);
 			return;
 		}
@@ -4555,7 +4563,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleBankExtractItem(int UserIndex) {
+	public static void HandleBankExtractItem(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -4600,7 +4608,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleCommerceSell(int UserIndex) {
+	public static void HandleCommerceSell(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -4650,7 +4658,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleBankDeposit(int UserIndex) {
+	public static void HandleBankDeposit(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -4695,7 +4703,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleForumPost(int UserIndex) {
+	public static void HandleForumPost(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 02/01/2010 */
@@ -4782,7 +4790,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleMoveSpell(int UserIndex) {
+	public static void HandleMoveSpell(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -4812,7 +4820,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleMoveBank(int UserIndex) {
+	public static void HandleMoveBank(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Torres Patricio (Pato) */
 		/* 'Last Modification: 06/14/09 */
@@ -4865,7 +4873,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleClanCodexUpdate(int UserIndex) {
+	public static void HandleClanCodexUpdate(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -4920,7 +4928,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleUserCommerceOffer(int UserIndex) {
+	public static void HandleUserCommerceOffer(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 24/11/2009 */
@@ -4946,7 +4954,7 @@ public class Protocol {
 		Amount = Declaraciones.UserList[UserIndex].incomingData.ReadLong();
 		OfferSlot = Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
-		if (!mdlCOmercioConUsuario.PuedeSeguirComerciando(UserIndex)) {
+		if (! /* FIXME */mdlCOmercioConUsuario.PuedeSeguirComerciando(UserIndex)) {
 			return;
 		}
 
@@ -5020,7 +5028,8 @@ public class Protocol {
 			}
 
 			/* ' Can't offer more than he has */
-			if (!UsUaRiOs.HasEnoughItems(UserIndex, ObjIndex, UsUaRiOs.TotalOfferItems(ObjIndex, UserIndex) + Amount)) {
+			if (! /* FIXME */UsUaRiOs.HasEnoughItems(UserIndex, ObjIndex,
+					UsUaRiOs.TotalOfferItems(ObjIndex, UserIndex) + Amount)) {
 
 				WriteCommerceChat(UserIndex, "No tienes esa cantidad.", FontTypeNames.FONTTYPE_TALK);
 				return;
@@ -5074,7 +5083,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleGuildAcceptPeace(int UserIndex) {
+	public static void HandleGuildAcceptPeace(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -5142,7 +5151,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleGuildRejectAlliance(int UserIndex) {
+	public static void HandleGuildRejectAlliance(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -5210,7 +5219,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleGuildRejectPeace(int UserIndex) {
+	public static void HandleGuildRejectPeace(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -5278,7 +5287,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleGuildAcceptAlliance(int UserIndex) {
+	public static void HandleGuildAcceptAlliance(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -5346,7 +5355,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleGuildOfferPeace(int UserIndex) {
+	public static void HandleGuildOfferPeace(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -5406,7 +5415,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleGuildOfferAlliance(int UserIndex) {
+	public static void HandleGuildOfferAlliance(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -5466,7 +5475,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleGuildAllianceDetails(int UserIndex) {
+	public static void HandleGuildAllianceDetails(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -5527,7 +5536,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleGuildPeaceDetails(int UserIndex) {
+	public static void HandleGuildPeaceDetails(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -5588,7 +5597,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleGuildRequestJoinerInfo(int UserIndex) {
+	public static void HandleGuildRequestJoinerInfo(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -5649,7 +5658,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleGuildAlliancePropList(int UserIndex) {
+	public static void HandleGuildAlliancePropList(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -5666,7 +5675,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleGuildPeacePropList(int UserIndex) {
+	public static void HandleGuildPeacePropList(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -5683,7 +5692,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleGuildDeclareWar(int UserIndex) {
+	public static void HandleGuildDeclareWar(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -5754,7 +5763,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleGuildNewWebsite(int UserIndex) {
+	public static void HandleGuildNewWebsite(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -5803,7 +5812,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleGuildAcceptNewMember(int UserIndex) {
+	public static void HandleGuildAcceptNewMember(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -5832,7 +5841,7 @@ public class Protocol {
 
 		UserName = buffer.ReadASCIIString();
 
-		if (!modGuilds.a_AceptarAspirante(UserIndex, UserName, errorStr)) {
+		if (! /* FIXME */modGuilds.a_AceptarAspirante(UserIndex, UserName, errorStr)) {
 			WriteConsoleMsg(UserIndex, errorStr, FontTypeNames.FONTTYPE_GUILD);
 		} else {
 			tUser = Extra.NameIndex(UserName);
@@ -5872,7 +5881,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleGuildRejectNewMember(int UserIndex) {
+	public static void HandleGuildRejectNewMember(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 01/08/07 */
@@ -5904,7 +5913,7 @@ public class Protocol {
 		UserName = buffer.ReadASCIIString();
 		Reason = buffer.ReadASCIIString();
 
-		if (!modGuilds.a_RechazarAspirante(UserIndex, UserName, errorStr)) {
+		if (! /* FIXME */modGuilds.a_RechazarAspirante(UserIndex, UserName, errorStr)) {
 			WriteConsoleMsg(UserIndex, errorStr, FontTypeNames.FONTTYPE_GUILD);
 		} else {
 			tUser = Extra.NameIndex(UserName);
@@ -5941,7 +5950,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleGuildKickMember(int UserIndex) {
+	public static void HandleGuildKickMember(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -6004,7 +6013,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleGuildUpdateNews(int UserIndex) {
+	public static void HandleGuildUpdateNews(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -6053,7 +6062,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleGuildMemberInfo(int UserIndex) {
+	public static void HandleGuildMemberInfo(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -6102,7 +6111,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleGuildOpenElections(int UserIndex) {
+	public static void HandleGuildOpenElections(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -6113,7 +6122,7 @@ public class Protocol {
 
 		String ERROR;
 
-		if (!modGuilds.v_AbrirElecciones(UserIndex, ERROR)) {
+		if (! /* FIXME */modGuilds.v_AbrirElecciones(UserIndex, ERROR)) {
 			WriteConsoleMsg(UserIndex, ERROR, FontTypeNames.FONTTYPE_GUILD);
 		} else {
 			modSendData.SendData(SendTarget.ToGuildMembers, Declaraciones.UserList[UserIndex].GuildIndex,
@@ -6129,7 +6138,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleGuildRequestMembership(int UserIndex) {
+	public static void HandleGuildRequestMembership(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -6159,7 +6168,7 @@ public class Protocol {
 		guild = buffer.ReadASCIIString();
 		application = buffer.ReadASCIIString();
 
-		if (!modGuilds.a_NuevoAspirante(UserIndex, guild, application, errorStr)) {
+		if (! /* FIXME */modGuilds.a_NuevoAspirante(UserIndex, guild, application, errorStr)) {
 			WriteConsoleMsg(UserIndex, errorStr, FontTypeNames.FONTTYPE_GUILD);
 		} else {
 			WriteConsoleMsg(UserIndex,
@@ -6191,7 +6200,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleGuildRequestDetails(int UserIndex) {
+	public static void HandleGuildRequestDetails(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -6240,7 +6249,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleOnline(int UserIndex) {
+	public static void HandleOnline(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -6268,7 +6277,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleQuit(int UserIndex) {
+	public static void HandleQuit(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 04/15/2008 (NicoNZ) */
@@ -6313,7 +6322,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleGuildLeave(int UserIndex) {
+	public static void HandleGuildLeave(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -6341,7 +6350,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleRequestAccountState(int UserIndex) {
+	public static void HandleRequestAccountState(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -6382,7 +6391,7 @@ public class Protocol {
 			break;
 
 		case Timbero:
-			if (!Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.User) {
+			if (! /* FIXME */Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.User) {
 				earnings = Admin.Apuestas.Ganancias - Admin.Apuestas.Perdidas;
 
 				if (earnings >= 0 && Admin.Apuestas.Ganancias != 0) {
@@ -6408,7 +6417,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandlePetStand(int UserIndex) {
+	public static void HandlePetStand(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -6453,7 +6462,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandlePetFollow(int UserIndex) {
+	public static void HandlePetFollow(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -6498,7 +6507,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleReleasePet(int UserIndex) {
+	public static void HandleReleasePet(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 18/11/2009 */
@@ -6542,7 +6551,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleTrainList(int UserIndex) {
+	public static void HandleTrainList(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -6584,7 +6593,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleRest(int UserIndex) {
+	public static void HandleRest(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -6603,14 +6612,14 @@ public class Protocol {
 		if (TCP.HayOBJarea(Declaraciones.UserList[UserIndex].Pos, Declaraciones.FOGATA)) {
 			WriteRestOK(UserIndex);
 
-			if (!Declaraciones.UserList[UserIndex].flags.Descansar) {
+			if (! /* FIXME */Declaraciones.UserList[UserIndex].flags.Descansar) {
 				WriteConsoleMsg(UserIndex, "Te acomodás junto a la fogata y comienzas a descansar.",
 						FontTypeNames.FONTTYPE_INFO);
 			} else {
 				WriteConsoleMsg(UserIndex, "Te levantas.", FontTypeNames.FONTTYPE_INFO);
 			}
 
-			Declaraciones.UserList[UserIndex].flags.Descansar = !Declaraciones.UserList[UserIndex].flags.Descansar;
+			Declaraciones.UserList[UserIndex].flags.Descansar = ! /* FIXME */Declaraciones.UserList[UserIndex].flags.Descansar;
 		} else {
 			if (Declaraciones.UserList[UserIndex].flags.Descansar) {
 				WriteRestOK(UserIndex);
@@ -6629,7 +6638,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleMeditate(int UserIndex) {
+	public static void HandleMeditate(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 04/15/08 (NicoNZ) */
@@ -6654,7 +6663,7 @@ public class Protocol {
 		}
 
 		/* 'Admins don't have to wait :D */
-		if (!Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.User) {
+		if (! /* FIXME */Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.User) {
 			Declaraciones.UserList[UserIndex].Stats.MinMAN = Declaraciones.UserList[UserIndex].Stats.MaxMAN;
 			WriteConsoleMsg(UserIndex, "Maná restaurado.", FontTypeNames.FONTTYPE_VENENO);
 			WriteUpdateMana(UserIndex);
@@ -6667,7 +6676,7 @@ public class Protocol {
 			WriteConsoleMsg(UserIndex, "Dejas de meditar.", FontTypeNames.FONTTYPE_INFO);
 		}
 
-		Declaraciones.UserList[UserIndex].flags.Meditando = !Declaraciones.UserList[UserIndex].flags.Meditando;
+		Declaraciones.UserList[UserIndex].flags.Meditando = ! /* FIXME */Declaraciones.UserList[UserIndex].flags.Meditando;
 
 		/* 'Barrin 3/10/03 Tiempo de inicio al meditar */
 		if (Declaraciones.UserList[UserIndex].flags.Meditando) {
@@ -6721,7 +6730,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleResucitate(int UserIndex) {
+	public static void HandleResucitate(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -6741,7 +6750,7 @@ public class Protocol {
 		/* 'Validate NPC and make sure player is dead */
 		if ((Declaraciones.Npclist[Declaraciones.UserList[UserIndex].flags.TargetNPC].NPCtype != eNPCType.Revividor
 				&& (Declaraciones.Npclist[Declaraciones.UserList[UserIndex].flags.TargetNPC].NPCtype != eNPCType.ResucitadorNewbie
-						|| !Extra.EsNewbie(UserIndex)))
+						|| ! /* FIXME */Extra.EsNewbie(UserIndex)))
 				|| Declaraciones.UserList[UserIndex].flags.Muerto == 0) {
 			return;
 		}
@@ -6770,7 +6779,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleConsultation(String UserIndex) {
+	public static void HandleConsultation(String UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 01/05/2010 */
@@ -6788,7 +6797,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
 		/* ' Comando exclusivo para gms */
-		if (!Extra.EsGm(UserIndex)) {
+		if (! /* FIXME */Extra.EsGm(UserIndex)) {
 			return;
 		}
 
@@ -6857,7 +6866,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleHeal(int UserIndex) {
+	public static void HandleHeal(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -6898,7 +6907,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleRequestStats(int UserIndex) {
+	public static void HandleRequestStats(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -6915,7 +6924,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleHelp(int UserIndex) {
+	public static void HandleHelp(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -6932,7 +6941,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleCommerceStart(int UserIndex) {
+	public static void HandleCommerceStart(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -7036,7 +7045,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleBankStart(int UserIndex) {
+	public static void HandleBankStart(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -7078,7 +7087,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleEnlist(int UserIndex) {
+	public static void HandleEnlist(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -7117,7 +7126,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleInformation(int UserIndex) {
+	public static void HandleInformation(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -7204,7 +7213,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleReward(int UserIndex) {
+	public static void HandleReward(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -7255,7 +7264,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleRequestMOTD(int UserIndex) {
+	public static void HandleRequestMOTD(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -7272,7 +7281,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleUpTime(int UserIndex) {
+	public static void HandleUpTime(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 01/10/08 */
@@ -7314,7 +7323,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandlePartyLeave(int UserIndex) {
+	public static void HandlePartyLeave(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -7331,7 +7340,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandlePartyCreate(int UserIndex) {
+	public static void HandlePartyCreate(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -7340,7 +7349,7 @@ public class Protocol {
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
-		if (!mdParty.PuedeCrearParty(UserIndex)) {
+		if (! /* FIXME */mdParty.PuedeCrearParty(UserIndex)) {
 			return;
 		}
 
@@ -7352,7 +7361,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandlePartyJoin(int UserIndex) {
+	public static void HandlePartyJoin(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -7369,7 +7378,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleShareNpc(int UserIndex) {
+	public static void HandleShareNpc(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 15/04/2010 */
@@ -7398,7 +7407,7 @@ public class Protocol {
 		if (ES.criminal(UserIndex)) {
 			/* ' Caos can only share with other caos */
 			if (Extra.esCaos(UserIndex)) {
-				if (!Extra.esCaos(TargetUserIndex)) {
+				if (! /* FIXME */Extra.esCaos(TargetUserIndex)) {
 					WriteConsoleMsg(UserIndex, "Solo puedes compartir npcs con miembros de tu misma facción!!",
 							FontTypeNames.FONTTYPE_INFO);
 					return;
@@ -7448,7 +7457,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleStopSharingNpc(int UserIndex) {
+	public static void HandleStopSharingNpc(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 15/04/2010 */
@@ -7482,7 +7491,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleInquiry(int UserIndex) {
+	public static void HandleInquiry(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -7499,7 +7508,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleGuildMessage(int UserIndex) {
+	public static void HandleGuildMessage(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 15/07/2009 */
@@ -7538,7 +7547,7 @@ public class Protocol {
 				modSendData.SendData(SendTarget.ToDiosesYclan, Declaraciones.UserList[UserIndex].GuildIndex,
 						PrepareMessageGuildChat(Declaraciones.UserList[UserIndex].Name + "> " + Chat));
 
-				if (!(Declaraciones.UserList[UserIndex].flags.AdminInvisible == 1)) {
+				if (! /* FIXME */(Declaraciones.UserList[UserIndex].flags.AdminInvisible == 1)) {
 					modSendData.SendData(SendTarget.ToClanArea, UserIndex, PrepareMessageChatOverHead(
 							"< " + Chat + " >", Declaraciones.UserList[UserIndex].Char.CharIndex, vbYellow));
 				}
@@ -7569,7 +7578,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandlePartyMessage(int UserIndex) {
+	public static void HandlePartyMessage(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -7637,7 +7646,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleCentinelReport(int UserIndex) {
+	public static void HandleCentinelReport(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -7659,7 +7668,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleGuildOnline(int UserIndex) {
+	public static void HandleGuildOnline(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -7685,7 +7694,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandlePartyOnline(int UserIndex) {
+	public static void HandlePartyOnline(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -7702,7 +7711,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleCouncilMessage(int UserIndex) {
+	public static void HandleCouncilMessage(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -7768,7 +7777,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleRoleMasterRequest(int UserIndex) {
+	public static void HandleRoleMasterRequest(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -7826,7 +7835,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleGMRequest(int UserIndex) {
+	public static void HandleGMRequest(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -7835,7 +7844,7 @@ public class Protocol {
 		/* 'Remove packet ID */
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
-		if (!Declaraciones.Ayuda.Existe(Declaraciones.UserList[UserIndex].Name)) {
+		if (! /* FIXME */Declaraciones.Ayuda.Existe(Declaraciones.UserList[UserIndex].Name)) {
 			WriteConsoleMsg(UserIndex,
 					"El mensaje ha sido entregado, ahora sólo debes esperar que se desocupe algún GM.",
 					FontTypeNames.FONTTYPE_INFO);
@@ -7854,7 +7863,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleBugReport(int UserIndex) {
+	public static void HandleBugReport(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -7921,7 +7930,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleChangeDescription(int UserIndex) {
+	public static void HandleChangeDescription(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -7951,7 +7960,7 @@ public class Protocol {
 		if (Declaraciones.UserList[UserIndex].flags.Muerto == 1) {
 			WriteConsoleMsg(UserIndex, "No puedes cambiar la descripción estando muerto.", FontTypeNames.FONTTYPE_INFO);
 		} else {
-			if (!TCP.AsciiValidos(description)) {
+			if (! /* FIXME */TCP.AsciiValidos(description)) {
 				WriteConsoleMsg(UserIndex, "La descripción tiene caracteres inválidos.", FontTypeNames.FONTTYPE_INFO);
 			} else {
 				Declaraciones.UserList[UserIndex].desc = vb6.Trim(description);
@@ -7983,7 +7992,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleGuildVote(int UserIndex) {
+	public static void HandleGuildVote(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -8011,7 +8020,7 @@ public class Protocol {
 
 		vote = buffer.ReadASCIIString();
 
-		if (!modGuilds.v_UsuarioVota(UserIndex, vote, errorStr)) {
+		if (! /* FIXME */modGuilds.v_UsuarioVota(UserIndex, vote, errorStr)) {
 			WriteConsoleMsg(UserIndex, "Voto NO contabilizado: " + errorStr, FontTypeNames.FONTTYPE_GUILD);
 		} else {
 			WriteConsoleMsg(UserIndex, "Voto contabilizado.", FontTypeNames.FONTTYPE_GUILD);
@@ -8041,7 +8050,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleShowGuildNews(int UserIndex) {
+	public static void HandleShowGuildNews(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: ZaMA */
 		/* 'Last Modification: 05/17/06 */
@@ -8059,7 +8068,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandlePunishments(int UserIndex) {
+	public static void HandlePunishments(int UserIndex) {
  /* '*************************************************** */
  /* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
  /* 'Last Modification: 25/08/2009 */
@@ -8138,7 +8147,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleChangePassword(int UserIndex) {
+	public static void HandleChangePassword(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Creation Date: 10/10/07 */
@@ -8216,7 +8225,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleGamble(int UserIndex) {
+	public static void HandleGamble(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -8317,7 +8326,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleInquiryVote(int UserIndex) {
+	public static void HandleInquiryVote(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -8343,7 +8352,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleBankExtractGold(int UserIndex) {
+	public static void HandleBankExtractGold(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -8406,7 +8415,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleLeaveFaction(int UserIndex) {
+	public static void HandleLeaveFaction(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 09/28/2010 */
@@ -8490,10 +8499,10 @@ public class Protocol {
 			 * cualquier NPC (C4b3z0n)
 			 */
 			/* 'Si se pueden unir a la facción (status), son invitados */
-			if ((TalkToDemon && ES.criminal(UserIndex)) || (TalkToKing && !ES.criminal(UserIndex))) {
+			if ((TalkToDemon && ES.criminal(UserIndex)) || (TalkToKing && ! /* FIXME */ES.criminal(UserIndex))) {
 				WriteChatOverHead(UserIndex, "No perteneces a nuestra facción. Si deseas unirte, di /ENLISTAR",
 						Declaraciones.Npclist[NpcIndex].Char.CharIndex, 0x00ffffff);
-			} else if ((TalkToDemon && !ES.criminal(UserIndex))) {
+			} else if ((TalkToDemon && ! /* FIXME */ES.criminal(UserIndex))) {
 				WriteChatOverHead(UserIndex, "¡¡¡Sal de aquí bufón!!!", Declaraciones.Npclist[NpcIndex].Char.CharIndex,
 						0x00ffffff);
 			} else if ((TalkToKing && ES.criminal(UserIndex))) {
@@ -8512,7 +8521,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleBankDepositGold(int UserIndex) {
+	public static void HandleBankDepositGold(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -8575,7 +8584,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleDenounce(int UserIndex) {
+	public static void HandleDenounce(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 14/11/2010 */
@@ -8641,7 +8650,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleGuildFundate(int UserIndex) {
+	public static void HandleGuildFundate(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 14/12/2009 */
@@ -8668,7 +8677,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleGuildFundation(int UserIndex) {
+	public static void HandleGuildFundation(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 14/12/2009 */
@@ -8740,7 +8749,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandlePartyKick(int UserIndex) {
+	public static void HandlePartyKick(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/05/09 */
@@ -8811,7 +8820,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandlePartySetLeader(int UserIndex) {
+	public static void HandlePartySetLeader(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/05/09 */
@@ -8890,7 +8899,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandlePartyAcceptMember(int UserIndex) {
+	public static void HandlePartyAcceptMember(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/05/09 */
@@ -8986,7 +8995,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleGuildMemberList(int UserIndex) {
+	public static void HandleGuildMemberList(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -9024,7 +9033,7 @@ public class Protocol {
 				guild = vb6.Replace(guild, "/", "");
 			}
 
-			if (!General.FileExist(vb6.App.Instance().Path + "\\guilds\\" + guild + "-members.mem")) {
+			if (! /* FIXME */General.FileExist(vb6.App.Instance().Path + "\\guilds\\" + guild + "-members.mem")) {
 				WriteConsoleMsg(UserIndex, "No existe el clan: " + guild, FontTypeNames.FONTTYPE_INFO);
 			} else {
 				memberCount = vb6.val(ES.GetVar(vb6.App.Instance().Path + "\\Guilds\\" + guild + "-Members" + ".mem",
@@ -9063,7 +9072,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleGMMessage(int UserIndex) {
+	public static void HandleGMMessage(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 01/08/07 */
@@ -9090,7 +9099,7 @@ public class Protocol {
 
 		message = buffer.ReadASCIIString();
 
-		if (!Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.User) {
+		if (! /* FIXME */Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.User) {
 			General.LogGM(Declaraciones.UserList[UserIndex].Name, "Mensaje a Gms:" + message);
 
 			if (vb6.LenB(message) != 0) {
@@ -9126,7 +9135,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleShowName(int UserIndex) {
+	public static void HandleShowName(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -9138,7 +9147,7 @@ public class Protocol {
 		if (Declaraciones.UserList[UserIndex].flags.Privilegios
 				&& (PlayerType.Dios || PlayerType.Admin || PlayerType.RoleMaster)) {
 			/* 'Show / Hide the name */
-			Declaraciones.UserList[UserIndex].showName = !Declaraciones.UserList[UserIndex].showName;
+			Declaraciones.UserList[UserIndex].showName = ! /* FIXME */Declaraciones.UserList[UserIndex].showName;
 
 			UsUaRiOs.RefreshCharStatus(UserIndex);
 		}
@@ -9149,7 +9158,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleOnlineRoyalArmy(int UserIndex) {
+	public static void HandleOnlineRoyalArmy(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 28/05/2010 */
@@ -9198,7 +9207,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleOnlineChaosLegion(int UserIndex) {
+	public static void HandleOnlineChaosLegion(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 28/05/2010 */
@@ -9247,7 +9256,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleGoNearby(int UserIndex) {
+	public static void HandleGoNearby(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 01/10/07 */
@@ -9289,7 +9298,7 @@ public class Protocol {
 			 * 'Si es dios o Admins no podemos salvo que nosotros también lo
 			 * seamos
 			 */
-			if (!(ES.EsDios(UserName) || ES.EsAdmin(UserName))
+			if (! /* FIXME */(ES.EsDios(UserName) || ES.EsAdmin(UserName))
 					|| (Declaraciones.UserList[UserIndex].flags.Privilegios && (PlayerType.Dios || PlayerType.Admin))) {
 				/* 'existe el usuario destino? */
 				if (tIndex <= 0) {
@@ -9331,7 +9340,7 @@ public class Protocol {
 					}
 
 					/* 'No space found?? */
-					if (!Found) {
+					if (! /* FIXME */Found) {
 						WriteConsoleMsg(UserIndex, "Todos los lugares están ocupados.", FontTypeNames.FONTTYPE_INFO);
 					}
 				}
@@ -9362,7 +9371,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleComment(int UserIndex) {
+	public static void HandleComment(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -9388,7 +9397,7 @@ public class Protocol {
 		String comment;
 		comment = buffer.ReadASCIIString();
 
-		if (!Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.User) {
+		if (! /* FIXME */Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.User) {
 			General.LogGM(Declaraciones.UserList[UserIndex].Name, "Comentario: " + comment);
 			WriteConsoleMsg(UserIndex, "Comentario salvado...", FontTypeNames.FONTTYPE_INFO);
 		}
@@ -9417,7 +9426,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleServerTime(int UserIndex) {
+	public static void HandleServerTime(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 01/08/07 */
@@ -9441,7 +9450,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleWhere(int UserIndex) {
+	public static void HandleWhere(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 18/11/2010 */
@@ -9477,7 +9486,7 @@ public class Protocol {
 
 		UserName = buffer.ReadASCIIString();
 
-		if (!Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.User) {
+		if (! /* FIXME */Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.User) {
 
 			tUser = Extra.NameIndex(UserName);
 			if (tUser <= 0) {
@@ -9499,7 +9508,7 @@ public class Protocol {
 								FontTypeNames.FONTTYPE_INFO);
 					}
 				} else {
-					if (!(ES.EsDios(UserName) || ES.EsAdmin(UserName))) {
+					if (! /* FIXME */(ES.EsDios(UserName) || ES.EsAdmin(UserName))) {
 						WriteConsoleMsg(UserIndex, "Usuario inexistente.", FontTypeNames.FONTTYPE_INFO);
 					} else if (Declaraciones.UserList[UserIndex].flags.Privilegios
 							&& (PlayerType.Dios || PlayerType.Admin)) {
@@ -9548,7 +9557,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleCreaturesInMap(int UserIndex) {
+	public static void HandleCreaturesInMap(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 30/07/06 */
@@ -9681,7 +9690,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleWarpMeToTarget(int UserIndex) {
+	public static void HandleWarpMeToTarget(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 26/03/09 */
@@ -9716,7 +9725,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleWarpChar(int UserIndex) {
+	public static void HandleWarpChar(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 26/03/2009 */
@@ -9753,10 +9762,10 @@ public class Protocol {
 		X = buffer.ReadByte();
 		Y = buffer.ReadByte();
 
-		if (!Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.User) {
+		if (! /* FIXME */Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.User) {
 			if (General.MapaValido(Map) && vb6.LenB(UserName) != 0) {
 				if (vb6.UCase(UserName) != "YO") {
-					if (!Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.Consejero) {
+					if (! /* FIXME */Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.Consejero) {
 						tUser = Extra.NameIndex(UserName);
 					}
 				} else {
@@ -9764,14 +9773,14 @@ public class Protocol {
 				}
 
 				if (tUser <= 0) {
-					if (!(ES.EsDios(UserName) || ES.EsAdmin(UserName))) {
+					if (! /* FIXME */(ES.EsDios(UserName) || ES.EsAdmin(UserName))) {
 						WriteConsoleMsg(UserIndex, "Usuario offline.", FontTypeNames.FONTTYPE_INFO);
 					} else {
 						WriteConsoleMsg(UserIndex, "No puedes transportar dioses o admins.",
 								FontTypeNames.FONTTYPE_INFO);
 					}
 
-				} else if (!((Declaraciones.UserList[tUser].flags.Privilegios && PlayerType.Dios) != 0
+				} else if (! /* FIXME */((Declaraciones.UserList[tUser].flags.Privilegios && PlayerType.Dios) != 0
 						|| (Declaraciones.UserList[tUser].flags.Privilegios && PlayerType.Admin) != 0)
 						|| tUser == UserIndex) {
 
@@ -9814,7 +9823,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleSilence(int UserIndex) {
+	public static void HandleSilence(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -9842,7 +9851,7 @@ public class Protocol {
 
 		UserName = buffer.ReadASCIIString();
 
-		if (!Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.User) {
+		if (! /* FIXME */Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.User) {
 			tUser = Extra.NameIndex(UserName);
 
 			if (tUser <= 0) {
@@ -9891,7 +9900,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleSOSShowList(int UserIndex) {
+	public static void HandleSOSShowList(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -9911,7 +9920,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandlePartyForm(int UserIndex) {
+	public static void HandlePartyForm(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Budi */
 		/* 'Last Modification: 11/26/09 */
@@ -9932,7 +9941,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param UserIndex The index of the user sending the message. */
 
-	static void HandleItemUpgrade(int UserIndex) {
+	public static void HandleItemUpgrade(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Torres Patricio */
 		/* 'Last Modification: 12/09/09 */
@@ -9948,11 +9957,11 @@ public class Protocol {
 		if (ItemIndex <= 0) {
 			return;
 		}
-		if (!Trabajo.TieneObjetos(ItemIndex, 1, UserIndex)) {
+		if (! /* FIXME */Trabajo.TieneObjetos(ItemIndex, 1, UserIndex)) {
 			return;
 		}
 
-		if (!modNuevoTimer.IntervaloPermiteTrabajar(UserIndex)) {
+		if (! /* FIXME */modNuevoTimer.IntervaloPermiteTrabajar(UserIndex)) {
 			return;
 		}
 		Trabajo.DoUpgrade(UserIndex, ItemIndex);
@@ -9963,7 +9972,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleSOSRemove(int UserIndex) {
+	public static void HandleSOSRemove(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -9989,7 +9998,7 @@ public class Protocol {
 		String UserName;
 		UserName = buffer.ReadASCIIString();
 
-		if (!Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.User) {
+		if (! /* FIXME */Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.User) {
 			Declaraciones.Ayuda.Quitar(UserName);
 		}
 
@@ -10017,7 +10026,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleGoToChar(int UserIndex) {
+	public static void HandleGoToChar(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 26/03/2009 */
@@ -10057,7 +10066,7 @@ public class Protocol {
 			 * 'Si es dios o Admins no podemos salvo que nosotros también lo
 			 * seamos
 			 */
-			if ((!(ES.EsDios(UserName) || ES.EsAdmin(UserName)))
+			if ((! /* FIXME */(ES.EsDios(UserName) || ES.EsAdmin(UserName)))
 					|| (((Declaraciones.UserList[UserIndex].flags.Privilegios
 							&& (PlayerType.Dios || PlayerType.Admin)) != 0)
 							&& ((Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) == 0))) {
@@ -10108,7 +10117,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleInvisible(int UserIndex) {
+	public static void HandleInvisible(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -10130,7 +10139,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleGMPanel(int UserIndex) {
+	public static void HandleGMPanel(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -10151,7 +10160,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleRequestUserList(int UserIndex) {
+	public static void HandleRequestUserList(int UserIndex) {
  /* '*************************************************** */
  /* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
  /* 'Last Modification: 01/09/07 */
@@ -10192,7 +10201,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleWorking(int UserIndex) {
+	public static void HandleWorking(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 07/10/2010 */
@@ -10235,7 +10244,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleHiding(int UserIndex) {
+	public static void HandleHiding(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -10270,7 +10279,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleJail(int UserIndex) {
+	public static void HandleJail(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 07/06/2010 */
@@ -10311,8 +10320,8 @@ public class Protocol {
 		}
 
 		/* '/carcel nick@motivo@<tiempo> */
-		if ((!Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
-				&& (!Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.User) != 0) {
+		if ((! /* FIXME */Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
+				&& (! /* FIXME */Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.User) != 0) {
 			if (vb6.LenB(UserName) == 0 || vb6.LenB(Reason) == 0) {
 				WriteConsoleMsg(UserIndex, "Utilice /carcel nick@motivo@tiempo", FontTypeNames.FONTTYPE_INFO);
 			} else {
@@ -10326,7 +10335,7 @@ public class Protocol {
 						WriteConsoleMsg(UserIndex, "El usuario no está online.", FontTypeNames.FONTTYPE_INFO);
 					}
 				} else {
-					if (!Declaraciones.UserList[tUser].flags.Privilegios && PlayerType.User) {
+					if (! /* FIXME */Declaraciones.UserList[tUser].flags.Privilegios && PlayerType.User) {
 						WriteConsoleMsg(UserIndex, "No puedes encarcelar a administradores.",
 								FontTypeNames.FONTTYPE_INFO);
 					} else if (jailTime > 60) {
@@ -10379,7 +10388,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleKillNPC(int UserIndex) {
+	public static void HandleKillNPC(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 04/22/08 (NicoNZ) */
@@ -10425,7 +10434,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleWarnUser(int UserIndex) {
+	public static void HandleWarnUser(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 12/26/06 */
@@ -10456,14 +10465,14 @@ public class Protocol {
 		UserName = buffer.ReadASCIIString();
 		Reason = buffer.ReadASCIIString();
 
-		if ((!Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
-				&& (!Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.User) != 0) {
+		if ((! /* FIXME */Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
+				&& (! /* FIXME */Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.User) != 0) {
 			if (vb6.LenB(UserName) == 0 || vb6.LenB(Reason) == 0) {
 				WriteConsoleMsg(UserIndex, "Utilice /advertencia nick@motivo", FontTypeNames.FONTTYPE_INFO);
 			} else {
 				Privs = Admin.UserDarPrivilegioLevel(UserName);
 
-				if (!Privs && PlayerType.User) {
+				if (! /* FIXME */Privs && PlayerType.User) {
 					WriteConsoleMsg(UserIndex, "No puedes advertir a administradores.", FontTypeNames.FONTTYPE_INFO);
 				} else {
 					if ((vb6.InStrB(UserName, "\\") != 0)) {
@@ -10512,7 +10521,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleEditChar(int UserIndex) {
+	public static void HandleEditChar(int UserIndex) {
  /* '*************************************************** */
  /* 'Author: Nicolas Matias Gonzalez (NIGO) */
  /* 'Last Modification: 18/09/2010 */
@@ -10603,7 +10612,7 @@ public class Protocol {
   
    if (valido) {
    UserCharPath = Declaraciones.CharPath + UserName + ".chr";
-    if (tUser<=0 && !General.FileExist(UserCharPath)) {
+    if (tUser<=0 && ! /* FIXME */General.FileExist(UserCharPath)) {
     WriteConsoleMsg(UserIndex, "Estás intentando editar un usuario inexistente.", FontTypeNames.FONTTYPE_INFO);
     General.LogGM(Declaraciones.UserList[UserIndex].Name, "Intentó editar un usuario inexistente.");
     } else {
@@ -10799,7 +10808,7 @@ public class Protocol {
        ES.WriteVar(UserCharPath, "Skills", "EXPSK" + LoopC, 0);
        
         if (Arg2<Declaraciones.MAXSKILLPOINTS) {
-        ES.WriteVar(UserCharPath, "Skills", "ELUSK" + LoopC, Declaraciones.ELU_SKILL_INICIAL*1.05 $ Arg2);
+        ES.WriteVar(UserCharPath, "Skills", "ELUSK" + LoopC, Declaraciones.ELU_SKILL_INICIAL*1.05f $ Arg2);
         } else {
         ES.WriteVar(UserCharPath, "Skills", "ELUSK" + LoopC, 0);
        }
@@ -11038,7 +11047,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleRequestCharInfo(int UserIndex) {
+	public static void HandleRequestCharInfo(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Fredy Horacio Treboux (liquid) */
 		/* 'Last Modification: 01/08/07 */
@@ -11072,7 +11081,7 @@ public class Protocol {
 			/* 'is the player offline? */
 			if (TargetIndex <= 0) {
 				/* 'don't allow to retrieve administrator's info */
-				if (!(ES.EsDios(TargetName) || ES.EsAdmin(TargetName))) {
+				if (! /* FIXME */(ES.EsDios(TargetName) || ES.EsAdmin(TargetName))) {
 					WriteConsoleMsg(UserIndex, "Usuario offline, buscando en charfile.", FontTypeNames.FONTTYPE_INFO);
 					UsUaRiOs.SendUserStatsTxtOFF(UserIndex, TargetName);
 				}
@@ -11109,7 +11118,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleRequestCharStats(int UserIndex) {
+	public static void HandleRequestCharStats(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 07/06/2010 */
@@ -11146,7 +11155,7 @@ public class Protocol {
 		UserIsAdmin = (Declaraciones.UserList[UserIndex].flags.Privilegios
 				&& (PlayerType.Admin || PlayerType.Dios)) != 0;
 
-		if ((!Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
+		if ((! /* FIXME */Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
 				&& ((Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.SemiDios) != 0 || UserIsAdmin)) {
 			General.LogGM(Declaraciones.UserList[UserIndex].Name, "/STAT " + UserName);
 
@@ -11155,7 +11164,7 @@ public class Protocol {
 			OtherUserIsAdmin = ES.EsDios(UserName) || ES.EsAdmin(UserName);
 
 			if (tUser <= 0) {
-				if (UserIsAdmin || !OtherUserIsAdmin) {
+				if (UserIsAdmin || ! /* FIXME */OtherUserIsAdmin) {
 					WriteConsoleMsg(UserIndex, "Usuario offline. Leyendo charfile... ", FontTypeNames.FONTTYPE_INFO);
 
 					UsUaRiOs.SendUserMiniStatsTxtFromChar(UserIndex, UserName);
@@ -11164,7 +11173,7 @@ public class Protocol {
 							FontTypeNames.FONTTYPE_INFO);
 				}
 			} else {
-				if (UserIsAdmin || !OtherUserIsAdmin) {
+				if (UserIsAdmin || ! /* FIXME */OtherUserIsAdmin) {
 					UsUaRiOs.SendUserMiniStatsTxt(UserIndex, tUser);
 				} else {
 					WriteConsoleMsg(UserIndex, "No puedes ver los stats de un dios o admin.",
@@ -11197,7 +11206,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleRequestCharGold(int UserIndex) {
+	public static void HandleRequestCharGold(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 07/06/2010 */
@@ -11245,7 +11254,7 @@ public class Protocol {
 			OtherUserIsAdmin = ES.EsDios(UserName) || ES.EsAdmin(UserName);
 
 			if (tUser <= 0) {
-				if (UserIsAdmin || !OtherUserIsAdmin) {
+				if (UserIsAdmin || ! /* FIXME */OtherUserIsAdmin) {
 					WriteConsoleMsg(UserIndex, "Usuario offline. Leyendo charfile... ", FontTypeNames.FONTTYPE_TALK);
 
 					UsUaRiOs.SendUserOROTxtFromChar(UserIndex, UserName);
@@ -11253,7 +11262,7 @@ public class Protocol {
 					WriteConsoleMsg(UserIndex, "No puedes ver el oro de un dios o admin.", FontTypeNames.FONTTYPE_INFO);
 				}
 			} else {
-				if (UserIsAdmin || !OtherUserIsAdmin) {
+				if (UserIsAdmin || ! /* FIXME */OtherUserIsAdmin) {
 					WriteConsoleMsg(UserIndex, "El usuario " + UserName + " tiene "
 							+ Declaraciones.UserList[tUser].Stats.Banco + " en el banco.", FontTypeNames.FONTTYPE_TALK);
 				} else {
@@ -11286,7 +11295,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleRequestCharInventory(int UserIndex) {
+	public static void HandleRequestCharInventory(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 07/06/2010 */
@@ -11334,7 +11343,7 @@ public class Protocol {
 			OtherUserIsAdmin = ES.EsDios(UserName) || ES.EsAdmin(UserName);
 
 			if (tUser <= 0) {
-				if (UserIsAdmin || !OtherUserIsAdmin) {
+				if (UserIsAdmin || ! /* FIXME */OtherUserIsAdmin) {
 					WriteConsoleMsg(UserIndex, "Usuario offline. Leyendo del charfile...", FontTypeNames.FONTTYPE_TALK);
 
 					UsUaRiOs.SendUserInvTxtFromChar(UserIndex, UserName);
@@ -11343,7 +11352,7 @@ public class Protocol {
 							FontTypeNames.FONTTYPE_INFO);
 				}
 			} else {
-				if (UserIsAdmin || !OtherUserIsAdmin) {
+				if (UserIsAdmin || ! /* FIXME */OtherUserIsAdmin) {
 					UsUaRiOs.SendUserInvTxt(UserIndex, tUser);
 				} else {
 					WriteConsoleMsg(UserIndex, "No puedes ver el inventario de un dios o admin.",
@@ -11376,7 +11385,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleRequestCharBank(int UserIndex) {
+	public static void HandleRequestCharBank(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 07/06/2010 */
@@ -11423,7 +11432,7 @@ public class Protocol {
 			OtherUserIsAdmin = ES.EsDios(UserName) || ES.EsAdmin(UserName);
 
 			if (tUser <= 0) {
-				if (UserIsAdmin || !OtherUserIsAdmin) {
+				if (UserIsAdmin || ! /* FIXME */OtherUserIsAdmin) {
 					WriteConsoleMsg(UserIndex, "Usuario offline. Leyendo charfile... ", FontTypeNames.FONTTYPE_TALK);
 
 					modBanco.SendUserBovedaTxtFromChar(UserIndex, UserName);
@@ -11432,7 +11441,7 @@ public class Protocol {
 							FontTypeNames.FONTTYPE_INFO);
 				}
 			} else {
-				if (UserIsAdmin || !OtherUserIsAdmin) {
+				if (UserIsAdmin || ! /* FIXME */OtherUserIsAdmin) {
 					modBanco.SendUserBovedaTxt(UserIndex, tUser);
 				} else {
 					WriteConsoleMsg(UserIndex, "No puedes ver la bóveda de un dios o admin.",
@@ -11465,7 +11474,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleRequestCharSkills(int UserIndex) {
+	public static void HandleRequestCharSkills(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 12/29/06 */
@@ -11546,7 +11555,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleReviveChar(int UserIndex) {
+	public static void HandleReviveChar(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 11/03/2010 */
@@ -11658,7 +11667,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleOnlineGM(int UserIndex) {
+	public static void HandleOnlineGM(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Fredy Horacio Treboux (liquid) */
 		/* 'Last Modification: 12/28/06 */
@@ -11686,7 +11695,7 @@ public class Protocol {
 		for (i = (1); i <= (Declaraciones.LastUser); i++) {
 			if (Declaraciones.UserList[i].flags.UserLogged) {
 				if (((Declaraciones.UserList[i].flags.Privilegios && priv) != 0)) {
-					if (!(isRM
+					if (! /* FIXME */(isRM
 							&& (((Declaraciones.UserList[i].flags.Privilegios
 									&& (PlayerType.Admin || PlayerType.Dios)) != 0))
 							&& (Declaraciones.UserList[i].flags.Privilegios && PlayerType.RoleMaster) == 0)) {
@@ -11709,7 +11718,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleOnlineMap(int UserIndex) {
+	public static void HandleOnlineMap(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 23/03/2009 */
@@ -11758,7 +11767,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleForgive(int UserIndex) {
+	public static void HandleForgive(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 07/06/2010 */
@@ -11789,7 +11798,7 @@ public class Protocol {
 
 		UserName = buffer.ReadASCIIString();
 
-		if ((!Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
+		if ((! /* FIXME */Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
 				&& (Declaraciones.UserList[UserIndex].flags.Privilegios
 						&& (PlayerType.Admin || PlayerType.Dios || PlayerType.SemiDios)) != 0) {
 			tUser = Extra.NameIndex(UserName);
@@ -11801,7 +11810,7 @@ public class Protocol {
 					General.LogGM(Declaraciones.UserList[UserIndex].Name,
 							"Intento perdonar un personaje de nivel avanzado.");
 
-					if (!(ES.EsDios(UserName) || ES.EsAdmin(UserName))) {
+					if (! /* FIXME */(ES.EsDios(UserName) || ES.EsAdmin(UserName))) {
 						WriteConsoleMsg(UserIndex, "Sólo se permite perdonar newbies.", FontTypeNames.FONTTYPE_INFO);
 					}
 				}
@@ -11832,7 +11841,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleKick(int UserIndex) {
+	public static void HandleKick(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 07/06/2010 */
@@ -11872,7 +11881,7 @@ public class Protocol {
 			tUser = Extra.NameIndex(UserName);
 
 			if (tUser <= 0) {
-				if (!(ES.EsDios(UserName) || ES.EsAdmin(UserName)) || IsAdmin) {
+				if (! /* FIXME */(ES.EsDios(UserName) || ES.EsAdmin(UserName)) || IsAdmin) {
 					WriteConsoleMsg(UserIndex, "El usuario no está online.", FontTypeNames.FONTTYPE_INFO);
 				} else {
 					WriteConsoleMsg(UserIndex, "No puedes echar a alguien con jerarquía mayor a la tuya.",
@@ -11914,7 +11923,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleExecute(int UserIndex) {
+	public static void HandleExecute(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 07/06/2010 */
@@ -11945,13 +11954,13 @@ public class Protocol {
 
 		UserName = buffer.ReadASCIIString();
 
-		if ((!Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
+		if ((! /* FIXME */Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
 				&& (Declaraciones.UserList[UserIndex].flags.Privilegios
 						&& (PlayerType.Admin || PlayerType.Dios || PlayerType.SemiDios)) != 0) {
 			tUser = Extra.NameIndex(UserName);
 
 			if (tUser > 0) {
-				if (!Declaraciones.UserList[tUser].flags.Privilegios && PlayerType.User) {
+				if (! /* FIXME */Declaraciones.UserList[tUser].flags.Privilegios && PlayerType.User) {
 					WriteConsoleMsg(UserIndex, "¿¿Estás loco?? ¿¿Cómo vas a piñatear un gm?? :@",
 							FontTypeNames.FONTTYPE_INFO);
 				} else {
@@ -11963,7 +11972,7 @@ public class Protocol {
 					General.LogGM(Declaraciones.UserList[UserIndex].Name, " ejecuto a " + UserName);
 				}
 			} else {
-				if (!(ES.EsDios(UserName) || ES.EsAdmin(UserName))) {
+				if (! /* FIXME */(ES.EsDios(UserName) || ES.EsAdmin(UserName))) {
 					WriteConsoleMsg(UserIndex, "No está online.", FontTypeNames.FONTTYPE_INFO);
 				} else {
 					WriteConsoleMsg(UserIndex, "¿¿Estás loco?? ¿¿Cómo vas a piñatear un gm?? :@",
@@ -11996,7 +12005,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleBanChar(int UserIndex) {
+	public static void HandleBanChar(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 12/29/06 */
@@ -12025,7 +12034,7 @@ public class Protocol {
 		UserName = buffer.ReadASCIIString();
 		Reason = buffer.ReadASCIIString();
 
-		if ((!Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
+		if ((! /* FIXME */Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
 				&& (Declaraciones.UserList[UserIndex].flags.Privilegios
 						&& (PlayerType.Admin || PlayerType.Dios || PlayerType.SemiDios)) != 0) {
 			Admin.BanCharacter(UserIndex, UserName, Reason);
@@ -12055,7 +12064,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleUnbanChar(int UserIndex) {
+	public static void HandleUnbanChar(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 12/29/06 */
@@ -12083,7 +12092,7 @@ public class Protocol {
 
 		UserName = buffer.ReadASCIIString();
 
-		if ((!Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
+		if ((! /* FIXME */Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
 				&& (Declaraciones.UserList[UserIndex].flags.Privilegios
 						&& (PlayerType.Admin || PlayerType.Dios || PlayerType.SemiDios)) != 0) {
 			if ((vb6.InStrB(UserName, "\\") != 0)) {
@@ -12093,7 +12102,7 @@ public class Protocol {
 				UserName = vb6.Replace(UserName, "/", "");
 			}
 
-			if (!General.FileExist(Declaraciones.CharPath + UserName + ".chr", 0)) {
+			if (! /* FIXME */General.FileExist(Declaraciones.CharPath + UserName + ".chr", 0)) {
 				WriteConsoleMsg(UserIndex, "Charfile inexistente (no use +).", FontTypeNames.FONTTYPE_INFO);
 			} else {
 				if ((vb6.val(ES.GetVar(Declaraciones.CharPath + UserName + ".chr", "FLAGS", "Ban")) == 1)) {
@@ -12138,7 +12147,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleNPCFollow(int UserIndex) {
+	public static void HandleNPCFollow(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 12/29/06 */
@@ -12164,7 +12173,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleSummonChar(int UserIndex) {
+	public static void HandleSummonChar(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 26/03/2009 */
@@ -12252,7 +12261,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleSpawnListRequest(int UserIndex) {
+	public static void HandleSpawnListRequest(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 12/29/06 */
@@ -12273,7 +12282,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleSpawnCreature(int UserIndex) {
+	public static void HandleSpawnCreature(int UserIndex) {
  /* '*************************************************** */
  /* 'Author: Nicolas Matias Gonzalez (NIGO) */
  /* 'Last Modification: 12/29/06 */
@@ -12304,7 +12313,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleResetNPCInventory(int UserIndex) {
+	public static void HandleResetNPCInventory(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 12/29/06 */
@@ -12331,7 +12340,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleCleanWorld(int UserIndex) {
+	public static void HandleCleanWorld(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 12/29/06 */
@@ -12353,7 +12362,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleServerMessage(int UserIndex) {
+	public static void HandleServerMessage(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 28/05/2010 */
@@ -12418,7 +12427,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleMapMessage(int UserIndex) {
+	public static void HandleMapMessage(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 14/11/2010 */
@@ -12483,7 +12492,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleNickToIP(int UserIndex) {
+	public static void HandleNickToIP(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 07/06/2010 */
@@ -12520,7 +12529,7 @@ public class Protocol {
 
 		UserName = buffer.ReadASCIIString();
 
-		if ((!Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
+		if ((! /* FIXME */Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
 				&& (Declaraciones.UserList[UserIndex].flags.Privilegios
 						&& (PlayerType.Admin || PlayerType.Dios || PlayerType.SemiDios)) != 0) {
 			tUser = Extra.NameIndex(UserName);
@@ -12560,7 +12569,7 @@ public class Protocol {
 							FontTypeNames.FONTTYPE_INFO);
 				}
 			} else {
-				if (!(ES.EsDios(UserName) || ES.EsAdmin(UserName)) || IsAdmin) {
+				if (! /* FIXME */(ES.EsDios(UserName) || ES.EsAdmin(UserName)) || IsAdmin) {
 					WriteConsoleMsg(UserIndex, "No hay ningún personaje con ese nick.", FontTypeNames.FONTTYPE_INFO);
 				}
 			}
@@ -12590,7 +12599,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleIPToNick(int UserIndex) {
+	public static void HandleIPToNick(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 12/29/06 */
@@ -12650,7 +12659,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleGuildOnlineMembers(int UserIndex) {
+	public static void HandleGuildOnlineMembers(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 12/29/06 */
@@ -12682,7 +12691,7 @@ public class Protocol {
 			GuildName = vb6.Replace(GuildName, "+", " ");
 		}
 
-		if ((!Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
+		if ((! /* FIXME */Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
 				&& (Declaraciones.UserList[UserIndex].flags.Privilegios
 						&& (PlayerType.Admin || PlayerType.Dios || PlayerType.SemiDios)) != 0) {
 			tGuild = modGuilds.GetGuildIndex(GuildName);
@@ -12718,7 +12727,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleTeleportCreate(int UserIndex) {
+	public static void HandleTeleportCreate(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 22/03/2010 */
@@ -12758,7 +12767,7 @@ public class Protocol {
 
 		General.LogGM(Declaraciones.UserList[UserIndex].Name, "/CT " + mapa + "," + X + "," + Y + "," + Radio);
 
-		if (!General.MapaValido(mapa) || !Extra.InMapBounds(mapa, X, Y)) {
+		if (! /* FIXME */General.MapaValido(mapa) || ! /* FIXME */Extra.InMapBounds(mapa, X, Y)) {
 			return;
 		}
 
@@ -12807,7 +12816,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleTeleportDestroy(int UserIndex) {
+	public static void HandleTeleportDestroy(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 12/29/06 */
@@ -12830,7 +12839,7 @@ public class Protocol {
 		X = Declaraciones.UserList[UserIndex].flags.TargetX;
 		Y = Declaraciones.UserList[UserIndex].flags.TargetY;
 
-		if (!Extra.InMapBounds(mapa, X, Y)) {
+		if (! /* FIXME */Extra.InMapBounds(mapa, X, Y)) {
 			return;
 		}
 
@@ -12860,7 +12869,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleRainToggle(int UserIndex) {
+	public static void HandleRainToggle(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 12/29/06 */
@@ -12874,7 +12883,7 @@ public class Protocol {
 		}
 
 		General.LogGM(Declaraciones.UserList[UserIndex].Name, "/LLUVIA");
-		Admin.Lloviendo = !Admin.Lloviendo;
+		Admin.Lloviendo = ! /* FIXME */Admin.Lloviendo;
 
 		modSendData.SendData(SendTarget.ToAll, 0, PrepareMessageRainToggle());
 	}
@@ -12884,7 +12893,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleEnableDenounces(int UserIndex) {
+	public static void HandleEnableDenounces(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 14/11/2010 */
@@ -12895,7 +12904,7 @@ public class Protocol {
 		Declaraciones.UserList[UserIndex].incomingData.ReadByte();
 
 		/* ' Gm? */
-		if (!Extra.EsGm(UserIndex)) {
+		if (! /* FIXME */Extra.EsGm(UserIndex)) {
 			return;
 		}
 		/* ' Rm? */
@@ -12906,7 +12915,7 @@ public class Protocol {
 		boolean Activado = false;
 		String msg;
 
-		Activado = !Declaraciones.UserList[UserIndex].flags.SendDenounces;
+		Activado = ! /* FIXME */Declaraciones.UserList[UserIndex].flags.SendDenounces;
 		Declaraciones.UserList[UserIndex].flags.SendDenounces = Activado;
 
 		msg = "Denuncias por consola " + vb6.IIf(Activado, "ativadas", "desactivadas") + ".";
@@ -12922,7 +12931,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleShowDenouncesList(int UserIndex) {
+	public static void HandleShowDenouncesList(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 14/11/2010 */
@@ -12942,7 +12951,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleSetCharDescription(int UserIndex) {
+	public static void HandleSetCharDescription(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 12/29/06 */
@@ -13004,7 +13013,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HanldeForceMIDIToMap(int UserIndex) {
+	public static void HanldeForceMIDIToMap(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 12/29/06 */
@@ -13028,7 +13037,7 @@ public class Protocol {
 		if (Declaraciones.UserList[UserIndex].flags.Privilegios
 				&& (PlayerType.Dios || PlayerType.Admin || PlayerType.RoleMaster)) {
 			/* 'Si el mapa no fue enviado tomo el actual */
-			if (!Extra.InMapBounds(mapa, 50, 50)) {
+			if (! /* FIXME */Extra.InMapBounds(mapa, 50, 50)) {
 				mapa = Declaraciones.UserList[UserIndex].Pos.Map;
 			}
 
@@ -13048,7 +13057,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleForceWAVEToMap(int UserIndex) {
+	public static void HandleForceWAVEToMap(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 12/29/06 */
@@ -13076,7 +13085,7 @@ public class Protocol {
 		if (Declaraciones.UserList[UserIndex].flags.Privilegios
 				&& (PlayerType.Dios || PlayerType.Admin || PlayerType.RoleMaster)) {
 			/* 'Si el mapa no fue enviado tomo el actual */
-			if (!Extra.InMapBounds(mapa, X, Y)) {
+			if (! /* FIXME */Extra.InMapBounds(mapa, X, Y)) {
 				mapa = Declaraciones.UserList[UserIndex].Pos.Map;
 				X = Declaraciones.UserList[UserIndex].Pos.X;
 				Y = Declaraciones.UserList[UserIndex].Pos.Y;
@@ -13092,7 +13101,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleRoyalArmyMessage(int UserIndex) {
+	public static void HandleRoyalArmyMessage(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 12/29/06 */
@@ -13149,7 +13158,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleChaosLegionMessage(int UserIndex) {
+	public static void HandleChaosLegionMessage(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 12/29/06 */
@@ -13206,7 +13215,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleCitizenMessage(int UserIndex) {
+	public static void HandleCitizenMessage(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 12/29/06 */
@@ -13263,7 +13272,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleCriminalMessage(int UserIndex) {
+	public static void HandleCriminalMessage(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 12/29/06 */
@@ -13320,7 +13329,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleTalkAsNPC(int UserIndex) {
+	public static void HandleTalkAsNPC(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 12/29/06 */
@@ -13386,7 +13395,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleDestroyAllItemsInArea(int UserIndex) {
+	public static void HandleDestroyAllItemsInArea(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 12/30/06 */
@@ -13430,7 +13439,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleAcceptRoyalCouncilMember(int UserIndex) {
+	public static void HandleAcceptRoyalCouncilMember(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 12/30/06 */
@@ -13459,7 +13468,7 @@ public class Protocol {
 
 		UserName = buffer.ReadASCIIString();
 
-		if ((!Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
+		if ((! /* FIXME */Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
 				&& (Declaraciones.UserList[UserIndex].flags.Privilegios && (PlayerType.Admin || PlayerType.Dios))) {
 			tUser = Extra.NameIndex(UserName);
 			if (tUser <= 0) {
@@ -13472,7 +13481,7 @@ public class Protocol {
 					Declaraciones.UserList[tUser].flags.Privilegios = Declaraciones.UserList[tUser].flags.Privilegios
 							- PlayerType.ChaosCouncil;
 				}
-				if (!Declaraciones.UserList[tUser].flags.Privilegios && PlayerType.RoyalCouncil) {
+				if (! /* FIXME */Declaraciones.UserList[tUser].flags.Privilegios && PlayerType.RoyalCouncil) {
 					Declaraciones.UserList[tUser].flags.Privilegios = Declaraciones.UserList[tUser].flags.Privilegios
 							+ PlayerType.RoyalCouncil;
 				}
@@ -13506,7 +13515,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleAcceptChaosCouncilMember(int UserIndex) {
+	public static void HandleAcceptChaosCouncilMember(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 12/30/06 */
@@ -13535,7 +13544,7 @@ public class Protocol {
 
 		UserName = buffer.ReadASCIIString();
 
-		if ((!Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
+		if ((! /* FIXME */Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
 				&& (Declaraciones.UserList[UserIndex].flags.Privilegios && (PlayerType.Admin || PlayerType.Dios))) {
 			tUser = Extra.NameIndex(UserName);
 			if (tUser <= 0) {
@@ -13548,7 +13557,7 @@ public class Protocol {
 					Declaraciones.UserList[tUser].flags.Privilegios = Declaraciones.UserList[tUser].flags.Privilegios
 							- PlayerType.RoyalCouncil;
 				}
-				if (!Declaraciones.UserList[tUser].flags.Privilegios && PlayerType.ChaosCouncil) {
+				if (! /* FIXME */Declaraciones.UserList[tUser].flags.Privilegios && PlayerType.ChaosCouncil) {
 					Declaraciones.UserList[tUser].flags.Privilegios = Declaraciones.UserList[tUser].flags.Privilegios
 							+ PlayerType.ChaosCouncil;
 				}
@@ -13582,7 +13591,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleItemsInTheFloor(int UserIndex) {
+	public static void HandleItemsInTheFloor(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 12/30/06 */
@@ -13619,7 +13628,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleMakeDumb(int UserIndex) {
+	public static void HandleMakeDumb(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 12/30/06 */
@@ -13684,7 +13693,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleMakeDumbNoMore(int UserIndex) {
+	public static void HandleMakeDumbNoMore(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 12/30/06 */
@@ -13750,7 +13759,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleDumpIPTables(int UserIndex) {
+	public static void HandleDumpIPTables(int UserIndex) {
  /* '*************************************************** */
  /* 'Author: Nicolas Matias Gonzalez (NIGO) */
  /* 'Last Modification: 12/30/06 */
@@ -13771,7 +13780,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleCouncilKick(int UserIndex) {
+	public static void HandleCouncilKick(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 12/30/06 */
@@ -13799,7 +13808,7 @@ public class Protocol {
 
 		UserName = buffer.ReadASCIIString();
 
-		if ((!Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
+		if ((! /* FIXME */Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
 				&& (Declaraciones.UserList[UserIndex].flags.Privilegios
 						&& (PlayerType.Admin || PlayerType.Dios)) != 0) {
 			tUser = Extra.NameIndex(UserName);
@@ -13863,7 +13872,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleSetTrigger(int UserIndex) {
+	public static void HandleSetTrigger(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 12/30/06 */
@@ -13902,7 +13911,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleAskTrigger(int UserIndex) {
+	public static void HandleAskTrigger(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 04/13/07 */
@@ -13936,7 +13945,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleBannedIPList(int UserIndex) {
+	public static void HandleBannedIPList(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 12/30/06 */
@@ -13971,7 +13980,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleBannedIPReload(int UserIndex) {
+	public static void HandleBannedIPReload(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 12/30/06 */
@@ -13994,7 +14003,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleGuildBan(int UserIndex) {
+	public static void HandleGuildBan(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 12/30/06 */
@@ -14027,11 +14036,11 @@ public class Protocol {
 
 		GuildName = buffer.ReadASCIIString();
 
-		if ((!Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
+		if ((! /* FIXME */Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
 				&& (Declaraciones.UserList[UserIndex].flags.Privilegios && (PlayerType.Admin || PlayerType.Dios))) {
 			tFile = vb6.App.Instance().Path + "\\guilds\\" + GuildName + "-members.mem";
 
-			if (!General.FileExist(tFile)) {
+			if (! /* FIXME */General.FileExist(tFile)) {
 				WriteConsoleMsg(UserIndex, "No existe el clan: " + GuildName, FontTypeNames.FONTTYPE_INFO);
 			} else {
 				modSendData.SendData(SendTarget.ToAll, 0,
@@ -14097,7 +14106,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleBanIP(int UserIndex) {
+	public static void HandleBanIP(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 07/02/09 */
@@ -14196,7 +14205,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleUnbanIP(int UserIndex) {
+	public static void HandleUnbanIP(int UserIndex) {
  /* '*************************************************** */
  /* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
  /* 'Last Modification: 12/30/06 */
@@ -14233,7 +14242,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleCreateItem(int UserIndex) {
+	public static void HandleCreateItem(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 12/30/06 */
@@ -14304,7 +14313,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleDestroyItems(int UserIndex) {
+	public static void HandleDestroyItems(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 12/30/06 */
@@ -14351,7 +14360,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleChaosLegionKick(int UserIndex) {
+	public static void HandleChaosLegionKick(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 12/30/06 */
@@ -14382,7 +14391,7 @@ public class Protocol {
 		UserName = buffer.ReadASCIIString();
 		Reason = buffer.ReadASCIIString();
 
-		if ((!Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
+		if ((! /* FIXME */Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
 				&& (Declaraciones.UserList[UserIndex].flags.Privilegios && (PlayerType.Admin || PlayerType.Dios)) != 0
 				|| Declaraciones.UserList[UserIndex].flags.PrivEspecial) {
 
@@ -14458,7 +14467,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleRoyalArmyKick(int UserIndex) {
+	public static void HandleRoyalArmyKick(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 12/30/06 */
@@ -14489,7 +14498,7 @@ public class Protocol {
 		UserName = buffer.ReadASCIIString();
 		Reason = buffer.ReadASCIIString();
 
-		if ((!Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
+		if ((! /* FIXME */Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
 				&& (Declaraciones.UserList[UserIndex].flags.Privilegios && (PlayerType.Admin || PlayerType.Dios)) != 0
 				|| Declaraciones.UserList[UserIndex].flags.PrivEspecial) {
 
@@ -14564,7 +14573,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleForceMIDIAll(int UserIndex) {
+	public static void HandleForceMIDIAll(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 12/30/06 */
@@ -14598,7 +14607,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleForceWAVEAll(int UserIndex) {
+	public static void HandleForceWAVEAll(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 12/30/06 */
@@ -14629,7 +14638,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleRemovePunishment(int UserIndex) {
+	public static void HandleRemovePunishment(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 1/05/07 */
@@ -14660,7 +14669,7 @@ public class Protocol {
 		punishment = buffer.ReadByte();
 		NewText = buffer.ReadASCIIString();
 
-		if ((!Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
+		if ((! /* FIXME */Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
 				&& (Declaraciones.UserList[UserIndex].flags.Privilegios && (PlayerType.Admin || PlayerType.Dios))) {
 			if (vb6.LenB(UserName) == 0) {
 				WriteConsoleMsg(UserIndex, "Utilice /borrarpena Nick@NumeroDePena@NuevaPena",
@@ -14712,7 +14721,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleTileBlockedToggle(int UserIndex) {
+	public static void HandleTileBlockedToggle(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 12/30/06 */
@@ -14744,7 +14753,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleKillNPCNoRespawn(int UserIndex) {
+	public static void HandleKillNPCNoRespawn(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 12/30/06 */
@@ -14772,7 +14781,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleKillAllNearbyNPCs(int UserIndex) {
+	public static void HandleKillAllNearbyNPCs(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nicolas Matias Gonzalez (NIGO) */
 		/* 'Last Modification: 12/30/06 */
@@ -14808,7 +14817,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleLastIP(int UserIndex) {
+	public static void HandleLastIP(int UserIndex) {
  /* '*************************************************** */
  /* 'Author: Nicolas Matias Gonzalez (NIGO) */
  /* 'Last Modification: 12/30/06 */
@@ -14837,7 +14846,7 @@ public class Protocol {
   priv = PlayerType.Admin || PlayerType.Dios || PlayerType.SemiDios || PlayerType.Consejero;
   UserName = buffer.ReadASCIIString();
   
-   if ((!Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0 && (Declaraciones.UserList[UserIndex].flags.Privilegios && (PlayerType.Admin || PlayerType.Dios || PlayerType.SemiDios)) != 0) {
+   if ((! /* FIXME */Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0 && (Declaraciones.UserList[UserIndex].flags.Privilegios && (PlayerType.Admin || PlayerType.Dios || PlayerType.SemiDios)) != 0) {
    /* 'Handle special chars */
     if ((vb6.InStrB(UserName, "\\") != 0)) {
     UserName = vb6.Replace(UserName, "\\", "");
@@ -14894,7 +14903,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleChatColor(int UserIndex) {
+	public static void HandleChatColor(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Lucas Tavolaro Ortiz (Tavo) */
 		/* 'Last Modification: 12/23/06 */
@@ -14926,7 +14935,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleIgnored(int UserIndex) {
+	public static void HandleIgnored(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Lucas Tavolaro Ortiz (Tavo) */
 		/* 'Last Modification: 12/23/06 */
@@ -14937,7 +14946,7 @@ public class Protocol {
 
 		if (Declaraciones.UserList[UserIndex].flags.Privilegios
 				&& (PlayerType.Admin || PlayerType.Dios || PlayerType.SemiDios || PlayerType.Consejero)) {
-			Declaraciones.UserList[UserIndex].flags.AdminPerseguible = !Declaraciones.UserList[UserIndex].flags.AdminPerseguible;
+			Declaraciones.UserList[UserIndex].flags.AdminPerseguible = ! /* FIXME */Declaraciones.UserList[UserIndex].flags.AdminPerseguible;
 		}
 	}
 
@@ -14946,7 +14955,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleCheckSlot(int UserIndex) {
+	public static void HandleCheckSlot(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Pablo (ToxicWaste) */
 		/* 'Last Modification: 07/06/2010 */
@@ -14999,7 +15008,7 @@ public class Protocol {
 			OtherUserIsAdmin = ES.EsDios(UserName) || ES.EsAdmin(UserName);
 
 			if (tIndex > 0) {
-				if (UserIsAdmin || !OtherUserIsAdmin) {
+				if (UserIsAdmin || ! /* FIXME */OtherUserIsAdmin) {
 					if (Slot > 0 && Slot <= Declaraciones.UserList[tIndex].CurrentInventorySlots) {
 						if (Declaraciones.UserList[tIndex].Invent.Object[Slot].ObjIndex > 0) {
 							WriteConsoleMsg(UserIndex,
@@ -15018,7 +15027,7 @@ public class Protocol {
 					WriteConsoleMsg(UserIndex, "No puedes ver slots de un dios o admin.", FontTypeNames.FONTTYPE_INFO);
 				}
 			} else {
-				if (UserIsAdmin || !OtherUserIsAdmin) {
+				if (UserIsAdmin || ! /* FIXME */OtherUserIsAdmin) {
 					WriteConsoleMsg(UserIndex, "Usuario offline.", FontTypeNames.FONTTYPE_TALK);
 				} else {
 					WriteConsoleMsg(UserIndex, "No puedes ver slots de un dios o admin.", FontTypeNames.FONTTYPE_INFO);
@@ -15050,7 +15059,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleResetAutoUpdate(int UserIndex) {
+	public static void HandleResetAutoUpdate(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Lucas Tavolaro Ortiz (Tavo) */
 		/* 'Last Modification: 12/23/06 */
@@ -15075,7 +15084,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleRestart(int UserIndex) {
+	public static void HandleRestart(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Lucas Tavolaro Ortiz (Tavo) */
 		/* 'Last Modification: 12/23/06 */
@@ -15104,7 +15113,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleReloadObjects(int UserIndex) {
+	public static void HandleReloadObjects(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Lucas Tavolaro Ortiz (Tavo) */
 		/* 'Last Modification: 12/23/06 */
@@ -15129,7 +15138,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleReloadSpells(int UserIndex) {
+	public static void HandleReloadSpells(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Lucas Tavolaro Ortiz (Tavo) */
 		/* 'Last Modification: 12/23/06 */
@@ -15154,7 +15163,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message */
 
-	static void HandleReloadServerIni(int UserIndex) {
+	public static void HandleReloadServerIni(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Lucas Tavolaro Ortiz (Tavo) */
 		/* 'Last Modification: 12/23/06 */
@@ -15181,7 +15190,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message */
 
-	static void HandleReloadNPCs(int UserIndex) {
+	public static void HandleReloadNPCs(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Lucas Tavolaro Ortiz (Tavo) */
 		/* 'Last Modification: 12/23/06 */
@@ -15208,7 +15217,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message */
 
-	static void HandleKickAllChars(int UserIndex) {
+	public static void HandleKickAllChars(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Lucas Tavolaro Ortiz (Tavo) */
 		/* 'Last Modification: 12/23/06 */
@@ -15233,7 +15242,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message */
 
-	static void HandleNight(int UserIndex) {
+	public static void HandleNight(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Lucas Tavolaro Ortiz (Tavo) */
 		/* 'Last Modification: 12/23/06 */
@@ -15251,7 +15260,7 @@ public class Protocol {
 			return;
 		}
 
-		Admin.DeNoche = !Admin.DeNoche;
+		Admin.DeNoche = ! /* FIXME */Admin.DeNoche;
 
 		int i = 0;
 
@@ -15267,7 +15276,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message */
 
-	static void HandleShowServerForm(int UserIndex) {
+	public static void HandleShowServerForm(int UserIndex) {
  /* '*************************************************** */
  /* 'Author: Lucas Tavolaro Ortiz (Tavo) */
  /* 'Last Modification: 12/23/06 */
@@ -15289,7 +15298,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message */
 
-	static void HandleCleanSOS(int UserIndex) {
+	public static void HandleCleanSOS(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Lucas Tavolaro Ortiz (Tavo) */
 		/* 'Last Modification: 12/23/06 */
@@ -15314,7 +15323,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message */
 
-	static void HandleSaveChars(int UserIndex) {
+	public static void HandleSaveChars(int UserIndex) {
  /* '*************************************************** */
  /* 'Author: Lucas Tavolaro Ortiz (Tavo) */
  /* 'Last Modification: 12/23/06 */
@@ -15338,7 +15347,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message */
 
-	static void HandleChangeMapInfoBackup(int UserIndex) {
+	public static void HandleChangeMapInfoBackup(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Lucas Tavolaro Ortiz (Tavo) */
 		/* 'Last Modification: 12/24/06 */
@@ -15389,7 +15398,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message */
 
-	static void HandleChangeMapInfoPK(int UserIndex) {
+	public static void HandleChangeMapInfoPK(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Lucas Tavolaro Ortiz (Tavo) */
 		/* 'Last Modification: 12/24/06 */
@@ -15432,7 +15441,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message */
 
-	static void HandleChangeMapInfoRestricted(int UserIndex) {
+	public static void HandleChangeMapInfoRestricted(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Pablo (ToxicWaste) */
 		/* 'Last Modification: 26/01/2007 */
@@ -15508,7 +15517,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message */
 
-	static void HandleChangeMapInfoNoMagic(int UserIndex) {
+	public static void HandleChangeMapInfoNoMagic(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Pablo (ToxicWaste) */
 		/* 'Last Modification: 26/01/2007 */
@@ -15545,7 +15554,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message */
 
-	static void HandleChangeMapInfoNoInvi(int UserIndex) {
+	public static void HandleChangeMapInfoNoInvi(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Pablo (ToxicWaste) */
 		/* 'Last Modification: 26/01/2007 */
@@ -15582,7 +15591,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message */
 
-	static void HandleChangeMapInfoNoResu(int UserIndex) {
+	public static void HandleChangeMapInfoNoResu(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Pablo (ToxicWaste) */
 		/* 'Last Modification: 26/01/2007 */
@@ -15619,7 +15628,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message */
 
-	static void HandleChangeMapInfoLand(int UserIndex) {
+	public static void HandleChangeMapInfoLand(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Pablo (ToxicWaste) */
 		/* 'Last Modification: 26/01/2007 */
@@ -15701,7 +15710,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message */
 
-	static void HandleChangeMapInfoZone(int UserIndex) {
+	public static void HandleChangeMapInfoZone(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Pablo (ToxicWaste) */
 		/* 'Last Modification: 26/01/2007 */
@@ -15779,7 +15788,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message */
 
-	static void HandleChangeMapInfoStealNpc(int UserIndex) {
+	public static void HandleChangeMapInfoStealNpc(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 25/07/2010 */
@@ -15818,7 +15827,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message */
 
-	static void HandleChangeMapInfoNoOcultar(int UserIndex) {
+	public static void HandleChangeMapInfoNoOcultar(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 18/09/2010 */
@@ -15858,7 +15867,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message */
 
-	static void HandleChangeMapInfoNoInvocar(int UserIndex) {
+	public static void HandleChangeMapInfoNoInvocar(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 18/09/2010 */
@@ -15898,7 +15907,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message */
 
-	static void HandleSaveMap(int UserIndex) {
+	public static void HandleSaveMap(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Lucas Tavolaro Ortiz (Tavo) */
 		/* 'Last Modification: 12/24/06 */
@@ -15926,7 +15935,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message */
 
-	static void HandleShowGuildMessages(int UserIndex) {
+	public static void HandleShowGuildMessages(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Lucas Tavolaro Ortiz (Tavo) */
 		/* 'Last Modification: 12/24/06 */
@@ -15954,7 +15963,7 @@ public class Protocol {
 
 		guild = buffer.ReadASCIIString();
 
-		if ((!Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
+		if ((! /* FIXME */Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
 				&& (Declaraciones.UserList[UserIndex].flags.Privilegios && (PlayerType.Admin || PlayerType.Dios))) {
 			modGuilds.GMEscuchaClan(UserIndex, guild);
 		}
@@ -15983,7 +15992,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message */
 
-	static void HandleDoBackUp(int UserIndex) {
+	public static void HandleDoBackUp(int UserIndex) {
  /* '*************************************************** */
  /* 'Author: Lucas Tavolaro Ortiz (Tavo) */
  /* 'Last Modification: 12/24/06 */
@@ -16007,7 +16016,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message */
 
-	static void HandleToggleCentinelActivated(int UserIndex) {
+	public static void HandleToggleCentinelActivated(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Lucas Tavolaro Ortiz (Tavo) */
 		/* 'Last Modification: 12/26/06 */
@@ -16022,7 +16031,7 @@ public class Protocol {
 			return;
 		}
 
-		modCentinela.centinelaActivado = !modCentinela.centinelaActivado;
+		modCentinela.centinelaActivado = ! /* FIXME */modCentinela.centinelaActivado;
 
 		modCentinela.ResetCentinelas();
 
@@ -16040,7 +16049,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message */
 
-	static void HandleAlterName(int UserIndex) {
+	public static void HandleAlterName(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 12/26/06 */
@@ -16072,7 +16081,7 @@ public class Protocol {
 		UserName = buffer.ReadASCIIString();
 		newName = buffer.ReadASCIIString();
 
-		if ((!Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
+		if ((! /* FIXME */Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
 				&& (Declaraciones.UserList[UserIndex].flags.Privilegios && (PlayerType.Admin || PlayerType.Dios))
 				|| Declaraciones.UserList[UserIndex].flags.PrivEspecial) {
 			if (vb6.LenB(UserName) == 0 || vb6.LenB(newName) == 0) {
@@ -16084,7 +16093,7 @@ public class Protocol {
 					WriteConsoleMsg(UserIndex, "El Pj está online, debe salir para hacer el cambio.",
 							FontTypeNames.FONTTYPE_WARNING);
 				} else {
-					if (!General.FileExist(Declaraciones.CharPath + UserName + ".chr")) {
+					if (! /* FIXME */General.FileExist(Declaraciones.CharPath + UserName + ".chr")) {
 						WriteConsoleMsg(UserIndex, "El pj " + UserName + " es inexistente.",
 								FontTypeNames.FONTTYPE_INFO);
 					} else {
@@ -16097,7 +16106,7 @@ public class Protocol {
 											+ " pertenece a un clan, debe salir del mismo con /salirclan para ser transferido.",
 									FontTypeNames.FONTTYPE_INFO);
 						} else {
-							if (!General.FileExist(Declaraciones.CharPath + newName + ".chr")) {
+							if (! /* FIXME */General.FileExist(Declaraciones.CharPath + newName + ".chr")) {
 								vb6.FileCopy(Declaraciones.CharPath + UserName + ".chr",
 										Declaraciones.CharPath + vb6.UCase(newName) + ".chr");
 
@@ -16155,7 +16164,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message */
 
-	static void HandleAlterMail(int UserIndex) {
+	public static void HandleAlterMail(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 12/26/06 */
@@ -16184,12 +16193,12 @@ public class Protocol {
 		UserName = buffer.ReadASCIIString();
 		newMail = buffer.ReadASCIIString();
 
-		if ((!Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
+		if ((! /* FIXME */Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
 				&& (Declaraciones.UserList[UserIndex].flags.Privilegios && (PlayerType.Admin || PlayerType.Dios))) {
 			if (vb6.LenB(UserName) == 0 || vb6.LenB(newMail) == 0) {
 				WriteConsoleMsg(UserIndex, "usar /AEMAIL <pj>-<nuevomail>", FontTypeNames.FONTTYPE_INFO);
 			} else {
-				if (!General.FileExist(Declaraciones.CharPath + UserName + ".chr")) {
+				if (! /* FIXME */General.FileExist(Declaraciones.CharPath + UserName + ".chr")) {
 					WriteConsoleMsg(UserIndex, "No existe el charfile " + UserName + ".chr",
 							FontTypeNames.FONTTYPE_INFO);
 				} else {
@@ -16226,7 +16235,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message */
 
-	static void HandleAlterPassword(int UserIndex) {
+	public static void HandleAlterPassword(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 12/26/06 */
@@ -16256,15 +16265,15 @@ public class Protocol {
 		UserName = vb6.Replace(buffer.ReadASCIIString(), "+", " ");
 		copyFrom = vb6.Replace(buffer.ReadASCIIString(), "+", " ");
 
-		if ((!Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
+		if ((! /* FIXME */Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
 				&& (Declaraciones.UserList[UserIndex].flags.Privilegios && (PlayerType.Admin || PlayerType.Dios))) {
 			General.LogGM(Declaraciones.UserList[UserIndex].Name, "Ha alterado la contraseña de " + UserName);
 
 			if (vb6.LenB(UserName) == 0 || vb6.LenB(copyFrom) == 0) {
 				WriteConsoleMsg(UserIndex, "usar /APASS <pjsinpass>@<pjconpass>", FontTypeNames.FONTTYPE_INFO);
 			} else {
-				if (!General.FileExist(Declaraciones.CharPath + UserName + ".chr")
-						|| !General.FileExist(Declaraciones.CharPath + copyFrom + ".chr")) {
+				if (! /* FIXME */General.FileExist(Declaraciones.CharPath + UserName + ".chr")
+						|| ! /* FIXME */General.FileExist(Declaraciones.CharPath + copyFrom + ".chr")) {
 					WriteConsoleMsg(UserIndex, "Alguno de los PJs no existe " + UserName + "@" + copyFrom,
 							FontTypeNames.FONTTYPE_INFO);
 				} else {
@@ -16301,7 +16310,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message */
 
-	static void HandleCreateNPC(int UserIndex) {
+	public static void HandleCreateNPC(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 26/09/2010 */
@@ -16344,7 +16353,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message */
 
-	static void HandleCreateNPCWithRespawn(int UserIndex) {
+	public static void HandleCreateNPCWithRespawn(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 26/09/2010 */
@@ -16387,7 +16396,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message */
 
-	static void HandleImperialArmour(int UserIndex) {
+	public static void HandleImperialArmour(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 12/24/06 */
@@ -16439,7 +16448,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message */
 
-	static void HandleChaosArmour(int UserIndex) {
+	public static void HandleChaosArmour(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 12/24/06 */
@@ -16491,7 +16500,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message */
 
-	static void HandleNavigateToggle(int UserIndex) {
+	public static void HandleNavigateToggle(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 01/12/07 */
@@ -16519,7 +16528,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message */
 
-	static void HandleServerOpenToUsersToggle(int UserIndex) {
+	public static void HandleServerOpenToUsersToggle(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 12/24/06 */
@@ -16549,7 +16558,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message */
 
-	static void HandleTurnOffServer(int UserIndex) {
+	public static void HandleTurnOffServer(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 12/24/06 */
@@ -16592,7 +16601,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message */
 
-	static void HandleTurnCriminal(int UserIndex) {
+	public static void HandleTurnCriminal(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 12/26/06 */
@@ -16620,7 +16629,7 @@ public class Protocol {
 
 		UserName = buffer.ReadASCIIString();
 
-		if ((!Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
+		if ((! /* FIXME */Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
 				&& (Declaraciones.UserList[UserIndex].flags.Privilegios && (PlayerType.Admin || PlayerType.Dios))) {
 			General.LogGM(Declaraciones.UserList[UserIndex].Name, "/CONDEN " + UserName);
 
@@ -16654,7 +16663,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message */
 
-	static void HandleResetFactions(int UserIndex) {
+	public static void HandleResetFactions(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 06/09/09 */
@@ -16685,7 +16694,7 @@ public class Protocol {
 
 		UserName = buffer.ReadASCIIString();
 
-		if ((!Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
+		if ((! /* FIXME */Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
 				&& (Declaraciones.UserList[UserIndex].flags.Privilegios && (PlayerType.Admin || PlayerType.Dios))
 				|| Declaraciones.UserList[UserIndex].flags.PrivEspecial) {
 			General.LogGM(Declaraciones.UserList[UserIndex].Name, "/RAJAR " + UserName);
@@ -16755,7 +16764,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message */
 
-	static void HandleRemoveCharFromGuild(int UserIndex) {
+	public static void HandleRemoveCharFromGuild(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 12/26/06 */
@@ -16783,7 +16792,7 @@ public class Protocol {
 
 		UserName = buffer.ReadASCIIString();
 
-		if ((!Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
+		if ((! /* FIXME */Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
 				&& (Declaraciones.UserList[UserIndex].flags.Privilegios && (PlayerType.Admin || PlayerType.Dios))) {
 			General.LogGM(Declaraciones.UserList[UserIndex].Name, "/RAJARCLAN " + UserName);
 
@@ -16824,7 +16833,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message */
 
-	static void HandleRequestCharMail(int UserIndex) {
+	public static void HandleRequestCharMail(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 12/26/06 */
@@ -16852,7 +16861,7 @@ public class Protocol {
 
 		UserName = buffer.ReadASCIIString();
 
-		if ((!Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
+		if ((! /* FIXME */Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
 				&& (Declaraciones.UserList[UserIndex].flags.Privilegios && (PlayerType.Admin || PlayerType.Dios))
 				|| Declaraciones.UserList[UserIndex].flags.PrivEspecial) {
 			if (General.FileExist(Declaraciones.CharPath + UserName + ".chr")) {
@@ -16886,7 +16895,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message */
 
-	static void HandleSystemMessage(int UserIndex) {
+	public static void HandleSystemMessage(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Lucas Tavolaro Ortiz (Tavo) */
 		/* 'Last Modification: 12/29/06 */
@@ -16912,7 +16921,7 @@ public class Protocol {
 		String message;
 		message = buffer.ReadASCIIString();
 
-		if ((!Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
+		if ((! /* FIXME */Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0
 				&& (Declaraciones.UserList[UserIndex].flags.Privilegios && (PlayerType.Admin || PlayerType.Dios))) {
 			General.LogGM(Declaraciones.UserList[UserIndex].Name, "Mensaje de sistema:" + message);
 
@@ -16943,7 +16952,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message */
 
-	static void HandleSetMOTD(int UserIndex) {
+	public static void HandleSetMOTD(int UserIndex) {
  /* '*************************************************** */
  /* 'Author: Lucas Tavolaro Ortiz (Tavo) */
  /* 'Last Modification: 03/31/07 */
@@ -16973,7 +16982,7 @@ public class Protocol {
   newMOTD = buffer.ReadASCIIString();
   auxiliaryString = vb6.Split(newMOTD, vbCrLf);
   
-   if (((!Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0 && (Declaraciones.UserList[UserIndex].flags.Privilegios && (PlayerType.Admin || PlayerType.Dios))) || Declaraciones.UserList[UserIndex].flags.PrivEspecial) {
+   if (((! /* FIXME */Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.RoleMaster) != 0 && (Declaraciones.UserList[UserIndex].flags.Privilegios && (PlayerType.Admin || PlayerType.Dios))) || Declaraciones.UserList[UserIndex].flags.PrivEspecial) {
    
    General.LogGM(Declaraciones.UserList[UserIndex].Name, "Ha fijado un nuevo MOTD");
    
@@ -17014,7 +17023,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message */
 
-	static void HandleChangeMOTD(int UserIndex) {
+	public static void HandleChangeMOTD(int UserIndex) {
  /* '*************************************************** */
  /* 'Author: Juan Martín sotuyo Dodero (Maraxus) */
  /* 'Last Modification: 12/29/06 */
@@ -17048,7 +17057,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message */
 
-	static void HandlePing(int UserIndex) {
+	public static void HandlePing(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Lucas Tavolaro Ortiz (Tavo) */
 		/* 'Last Modification: 12/24/06 */
@@ -17065,7 +17074,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message */
 
-	static void HandleSetIniVar(int UserIndex) {
+	public static void HandleSetIniVar(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Brian Chaia (BrianPr) */
 		/* 'Last Modification: 01/23/10 (Marco) */
@@ -17149,7 +17158,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message */
 
-	static void HandleCreatePretorianClan(int UserIndex) {
+	public static void HandleCreatePretorianClan(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 29/10/2010 */
@@ -17176,7 +17185,7 @@ public class Protocol {
 		}
 
 		/* ' Valid pos? */
-		if (!Extra.InMapBounds(Map, X, Y)) {
+		if (! /* FIXME */Extra.InMapBounds(Map, X, Y)) {
 			WriteConsoleMsg(UserIndex, "Posición inválida.", FontTypeNames.FONTTYPE_INFO);
 			return;
 		}
@@ -17191,9 +17200,9 @@ public class Protocol {
 		}
 
 		/* ' Is already active any clan? */
-		if (!Declaraciones.ClanPretoriano[index].Active) {
+		if (! /* FIXME */Declaraciones.ClanPretoriano[index].Active) {
 
-			if (!Declaraciones.ClanPretoriano[index].SpawnClan(Map, X, Y, index)) {
+			if (! /* FIXME */Declaraciones.ClanPretoriano[index].SpawnClan(Map, X, Y, index)) {
 				WriteConsoleMsg(UserIndex, "La posición no es apropiada para crear el clan",
 						FontTypeNames.FONTTYPE_INFO);
 			}
@@ -17218,7 +17227,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message */
 
-	static void HandleDeletePretorianClan(int UserIndex) {
+	public static void HandleDeletePretorianClan(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 29/10/2010 */
@@ -17275,7 +17284,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteLoggedMessage(int UserIndex) {
+	public static void WriteLoggedMessage(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -17308,7 +17317,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteRemoveAllDialogs(int UserIndex) {
+	public static void WriteRemoveAllDialogs(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -17341,7 +17350,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteRemoveCharDialog(int UserIndex, int CharIndex) {
+	public static void WriteRemoveCharDialog(int UserIndex, int CharIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -17373,7 +17382,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteNavigateToggle(int UserIndex) {
+	public static void WriteNavigateToggle(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -17405,7 +17414,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteDisconnect(int UserIndex) {
+	public static void WriteDisconnect(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -17437,7 +17446,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteUserOfferConfirm(int UserIndex) {
+	public static void WriteUserOfferConfirm(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 14/12/2009 */
@@ -17469,7 +17478,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteCommerceEnd(int UserIndex) {
+	public static void WriteCommerceEnd(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -17500,7 +17509,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteBankEnd(int UserIndex) {
+	public static void WriteBankEnd(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -17532,7 +17541,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteCommerceInit(int UserIndex) {
+	public static void WriteCommerceInit(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -17563,7 +17572,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteBankInit(int UserIndex) {
+	public static void WriteBankInit(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -17596,7 +17605,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteUserCommerceInit(int UserIndex) {
+	public static void WriteUserCommerceInit(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -17630,7 +17639,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteUserCommerceEnd(int UserIndex) {
+	public static void WriteUserCommerceEnd(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -17662,7 +17671,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteShowBlacksmithForm(int UserIndex) {
+	public static void WriteShowBlacksmithForm(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -17694,7 +17703,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteShowCarpenterForm(int UserIndex) {
+	public static void WriteShowCarpenterForm(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -17726,7 +17735,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteUpdateSta(int UserIndex) {
+	public static void WriteUpdateSta(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -17759,7 +17768,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteUpdateMana(int UserIndex) {
+	public static void WriteUpdateMana(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -17791,7 +17800,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteUpdateHP(int UserIndex) {
+	public static void WriteUpdateHP(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -17824,7 +17833,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteUpdateGold(int UserIndex) {
+	public static void WriteUpdateGold(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -17857,7 +17866,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteUpdateBankGold(int UserIndex) {
+	public static void WriteUpdateBankGold(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 14/12/2009 */
@@ -17890,7 +17899,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteUpdateExp(int UserIndex) {
+	public static void WriteUpdateExp(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -17923,7 +17932,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteUpdateStrenghtAndDexterity(int UserIndex) {
+	public static void WriteUpdateStrenghtAndDexterity(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Budi */
 		/* 'Last Modification: 11/26/09 */
@@ -17958,7 +17967,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteUpdateDexterity(int UserIndex) {
+	public static void WriteUpdateDexterity(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Budi */
 		/* 'Last Modification: 11/26/09 */
@@ -17991,7 +18000,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteUpdateStrenght(int UserIndex) {
+	public static void WriteUpdateStrenght(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Budi */
 		/* 'Last Modification: 11/26/09 */
@@ -18030,7 +18039,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteChangeMap(int UserIndex, int Map, int version) {
+	public static void WriteChangeMap(int UserIndex, int Map, int version) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -18064,7 +18073,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WritePosUpdate(int UserIndex) {
+	public static void WritePosUpdate(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -18103,7 +18112,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteChatOverHead(int UserIndex, String Chat, int CharIndex, int color) {
+	public static void WriteChatOverHead(int UserIndex, String Chat, int CharIndex, int color) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -18138,7 +18147,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteConsoleMsg(int UserIndex, String Chat, FontTypeNames FontIndex) {
+	public static void WriteConsoleMsg(int UserIndex, String Chat, FontTypeNames FontIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -18158,7 +18167,7 @@ public class Protocol {
 		}
 	}
 
-	static void WriteCommerceChat(int UserIndex, String Chat, FontTypeNames FontIndex) {
+	public static void WriteCommerceChat(int UserIndex, String Chat, FontTypeNames FontIndex) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 05/17/06 */
@@ -18192,7 +18201,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteGuildChat(int UserIndex, String Chat) {
+	public static void WriteGuildChat(int UserIndex, String Chat) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -18225,7 +18234,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteShowMessageBox(int UserIndex, String message) {
+	public static void WriteShowMessageBox(int UserIndex, String message) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -18258,7 +18267,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteUserIndexInServer(int UserIndex) {
+	public static void WriteUserIndexInServer(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -18291,7 +18300,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteUserCharIndexInServer(int UserIndex) {
+	public static void WriteUserCharIndexInServer(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -18341,8 +18350,9 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteCharacterCreate(int UserIndex, int body, int Head, eHeading heading, int CharIndex, int X, int Y,
-			int weapon, int shield, int FX, int FXLoops, int helmet, String Name, int NickColor, int Privileges) {
+	public static void WriteCharacterCreate(int UserIndex, int body, int Head, eHeading heading, int CharIndex, int X,
+			int Y, int weapon, int shield, int FX, int FXLoops, int helmet, String Name, int NickColor,
+			int Privileges) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -18376,7 +18386,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteCharacterRemove(int UserIndex, int CharIndex) {
+	public static void WriteCharacterRemove(int UserIndex, int CharIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -18411,7 +18421,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteCharacterMove(int UserIndex, int CharIndex, int X, int Y) {
+	public static void WriteCharacterMove(int UserIndex, int CharIndex, int X, int Y) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -18432,7 +18442,7 @@ public class Protocol {
 		}
 	}
 
-	static void WriteForceCharMove(Object UserIndex, eHeading Direccion) {
+	public static void WriteForceCharMove(Object UserIndex, eHeading Direccion) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 26/03/2009 */
@@ -18473,8 +18483,8 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteCharacterChange(int UserIndex, int body, int Head, eHeading heading, int CharIndex, int weapon,
-			int shield, int FX, int FXLoops, int helmet) {
+	public static void WriteCharacterChange(int UserIndex, int body, int Head, eHeading heading, int CharIndex,
+			int weapon, int shield, int FX, int FXLoops, int helmet) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -18510,7 +18520,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteObjectCreate(int UserIndex, int GrhIndex, int X, int Y) {
+	public static void WriteObjectCreate(int UserIndex, int GrhIndex, int X, int Y) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -18545,7 +18555,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteObjectDelete(int UserIndex, int X, int Y) {
+	public static void WriteObjectDelete(int UserIndex, int X, int Y) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -18580,7 +18590,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteBlockPosition(int UserIndex, int X, int Y, boolean Blocked) {
+	public static void WriteBlockPosition(int UserIndex, int X, int Y, boolean Blocked) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -18616,11 +18626,11 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WritePlayMidi(int UserIndex, int midi) {
+	public static void WritePlayMidi(int UserIndex, int midi) {
 		WritePlayMidi(UserIndex, midi, -1);
 	}
 
-	static void WritePlayMidi(int UserIndex, int midi, int loops) {
+	public static void WritePlayMidi(int UserIndex, int midi, int loops) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -18658,7 +18668,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WritePlayWave(int UserIndex, int wave, int X, int Y) {
+	public static void WritePlayWave(int UserIndex, int wave, int X, int Y) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 08/08/07 */
@@ -18689,7 +18699,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteGuildList(int UserIndex, String[] /* FIXME BYREF!! */ guildList) {
+	public static void WriteGuildList(int UserIndex, String[] /* FIXME BYREF!! */ guildList) {
  /* '*************************************************** */
  /* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
  /* 'Last Modification: 05/17/06 */
@@ -18732,7 +18742,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteAreaChanged(int UserIndex) {
+	public static void WriteAreaChanged(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -18766,7 +18776,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WritePauseToggle(int UserIndex) {
+	public static void WritePauseToggle(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -18798,7 +18808,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteRainToggle(int UserIndex) {
+	public static void WriteRainToggle(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -18832,7 +18842,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteCreateFX(int UserIndex, int CharIndex, int FX, int FXLoops) {
+	public static void WriteCreateFX(int UserIndex, int CharIndex, int FX, int FXLoops) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -18865,7 +18875,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteUpdateUserStats(int UserIndex) {
+	public static void WriteUpdateUserStats(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -18908,7 +18918,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteWorkRequestTarget(int UserIndex, eSkill Skill) {
+	public static void WriteWorkRequestTarget(int UserIndex, eSkill Skill) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -18942,7 +18952,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteChangeInventorySlot(int UserIndex, int Slot) {
+	public static void WriteChangeInventorySlot(int UserIndex, int Slot) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 3/12/09 */
@@ -18987,7 +18997,7 @@ public class Protocol {
 		}
 	}
 
-	static void WriteAddSlots(int UserIndex, eMochilas Mochila) {
+	public static void WriteAddSlots(int UserIndex, eMochilas Mochila) {
 		/* '*************************************************** */
 		/* 'Author: Budi */
 		/* 'Last Modification: 01/12/09 */
@@ -19013,7 +19023,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteChangeBankSlot(int UserIndex, int Slot) {
+	public static void WriteChangeBankSlot(int UserIndex, int Slot) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 12/03/09 */
@@ -19072,7 +19082,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteChangeSpellSlot(int UserIndex, int Slot) {
+	public static void WriteChangeSpellSlot(int UserIndex, int Slot) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -19114,7 +19124,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteAttributes(int UserIndex) {
+	public static void WriteAttributes(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -19156,7 +19166,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteBlacksmithWeapons(int UserIndex) {
+	public static void WriteBlacksmithWeapons(int UserIndex) {
  /* '*************************************************** */
  /* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
  /* 'Last Modification: 04/15/2008 (NicoNZ) Habia un error al fijarse los skills del personaje */
@@ -19216,7 +19226,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteBlacksmithArmors(int UserIndex) {
+	public static void WriteBlacksmithArmors(int UserIndex) {
  /* '*************************************************** */
  /* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
  /* 'Last Modification: 04/15/2008 (NicoNZ) Habia un error al fijarse los skills del personaje */
@@ -19276,7 +19286,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteCarpenterObjects(int UserIndex) {
+	public static void WriteCarpenterObjects(int UserIndex) {
  /* '*************************************************** */
  /* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
  /* 'Last Modification: 05/17/06 */
@@ -19334,7 +19344,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteRestOK(int UserIndex) {
+	public static void WriteRestOK(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -19365,7 +19375,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteErrorMsg(int UserIndex, String message) {
+	public static void WriteErrorMsg(int UserIndex, String message) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -19394,7 +19404,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteBlind(int UserIndex) {
+	public static void WriteBlind(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -19422,7 +19432,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteDumb(int UserIndex) {
+	public static void WriteDumb(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -19454,7 +19464,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteShowSignal(int UserIndex, int ObjIndex) {
+	public static void WriteShowSignal(int UserIndex, int ObjIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -19491,7 +19501,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteChangeNPCInventorySlot(int UserIndex, int Slot, Declaraciones.Obj /* FIXME BYREF!! */ Obj, float price) {
+	public static void WriteChangeNPCInventorySlot(int UserIndex, int Slot, Declaraciones.Obj /* FIXME BYREF!! */ Obj, float price) {
  /* '*************************************************** */
  /* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
  /* 'Last Modification: 12/03/09 */
@@ -19539,7 +19549,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteUpdateHungerAndThirst(int UserIndex) {
+	public static void WriteUpdateHungerAndThirst(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -19572,7 +19582,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteFame(int UserIndex) {
+	public static void WriteFame(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -19615,7 +19625,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteMiniStats(int UserIndex) {
+	public static void WriteMiniStats(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -19664,7 +19674,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteLevelUp(int UserIndex, int skillPoints) {
+	public static void WriteLevelUp(int UserIndex, int skillPoints) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -19698,7 +19708,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteAddForumMsg(int UserIndex, eForumType ForumType,
+	public static void WriteAddForumMsg(int UserIndex, eForumType ForumType,
 			String /* FIXME BYREF!! */ Title, String /* FIXME BYREF!! */ Author,
 			String /* FIXME BYREF!! */ message) {
 		/* '*************************************************** */
@@ -19737,7 +19747,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteShowForumForm(int UserIndex) {
+	public static void WriteShowForumForm(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -19801,7 +19811,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteSetInvisible(int UserIndex, int CharIndex, boolean invisible) {
+	public static void WriteSetInvisible(int UserIndex, int CharIndex, boolean invisible) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -19833,7 +19843,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteDiceRoll(int UserIndex) {
+	public static void WriteDiceRoll(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -19876,7 +19886,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteMeditateToggle(int UserIndex) {
+	public static void WriteMeditateToggle(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -19908,7 +19918,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteBlindNoMore(int UserIndex) {
+	public static void WriteBlindNoMore(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -19940,7 +19950,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteDumbNoMore(int UserIndex) {
+	public static void WriteDumbNoMore(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -19972,7 +19982,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteSendSkills(int UserIndex) {
+	public static void WriteSendSkills(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 11/19/09 */
@@ -20022,7 +20032,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteTrainerCreatureList(int UserIndex, int NpcIndex) {
+	public static void WriteTrainerCreatureList(int UserIndex, int NpcIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -20070,7 +20080,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteGuildNews(int UserIndex, String guildNews, String[] /* FIXME BYREF!! */ enemies, String[] /* FIXME BYREF!! */ allies) {
+	public static void WriteGuildNews(int UserIndex, String guildNews, String[] /* FIXME BYREF!! */ enemies, String[] /* FIXME BYREF!! */ allies) {
  /* '*************************************************** */
  /* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
  /* 'Last Modification: 05/17/06 */
@@ -20128,7 +20138,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteOfferDetails(int UserIndex, String details) {
+	public static void WriteOfferDetails(int UserIndex, String details) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -20165,7 +20175,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteAlianceProposalsList(int UserIndex, String[] /* FIXME BYREF!! */ guilds) {
+	public static void WriteAlianceProposalsList(int UserIndex, String[] /* FIXME BYREF!! */ guilds) {
  /* '*************************************************** */
  /* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
  /* 'Last Modification: 05/17/06 */
@@ -20209,7 +20219,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WritePeaceProposalsList(int UserIndex, String[] /* FIXME BYREF!! */ guilds) {
+	public static void WritePeaceProposalsList(int UserIndex, String[] /* FIXME BYREF!! */ guilds) {
  /* '*************************************************** */
  /* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
  /* 'Last Modification: 05/17/06 */
@@ -20275,9 +20285,9 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteCharacterInfo(int UserIndex, String charName, eRaza race, eClass Class, eGenero gender, int level,
-			int gold, int bank, int reputation, String previousPetitions, String currentGuild, String previousGuilds,
-			boolean RoyalArmy, boolean CaosLegion, int citicensKilled, int criminalsKilled) {
+	public static void WriteCharacterInfo(int UserIndex, String charName, eRaza race, eClass Class, eGenero gender,
+			int level, int gold, int bank, int reputation, String previousPetitions, String currentGuild,
+			String previousGuilds, boolean RoyalArmy, boolean CaosLegion, int citicensKilled, int criminalsKilled) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -20335,7 +20345,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteGuildLeaderInfo(int UserIndex, String[] /* FIXME BYREF!! */ guildList, String[] /* FIXME BYREF!! */ MemberList, String guildNews, String[] /* FIXME BYREF!! */ joinRequests) {
+	public static void WriteGuildLeaderInfo(int UserIndex, String[] /* FIXME BYREF!! */ guildList, String[] /* FIXME BYREF!! */ MemberList, String guildNews, String[] /* FIXME BYREF!! */ joinRequests) {
  /* '*************************************************** */
  /* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
  /* 'Last Modification: 05/17/06 */
@@ -20407,7 +20417,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteGuildMemberInfo(int UserIndex, String[] /* FIXME BYREF!! */ guildList, String[] /* FIXME BYREF!! */ MemberList) {
+	public static void WriteGuildMemberInfo(int UserIndex, String[] /* FIXME BYREF!! */ guildList, String[] /* FIXME BYREF!! */ MemberList) {
  /* '*************************************************** */
  /* 'Author: ZaMa */
  /* 'Last Modification: 21/02/2010 */
@@ -20478,7 +20488,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteGuildDetails(int UserIndex, String GuildName, String founder, String foundationDate, String leader, String URL, int memberCount, boolean electionsOpen, String alignment, int enemiesCount, int AlliesCount, String antifactionPoints, String[] /* FIXME BYREF!! */ codex, String guildDesc) {
+	public static void WriteGuildDetails(int UserIndex, String GuildName, String founder, String foundationDate, String leader, String URL, int memberCount, boolean electionsOpen, String alignment, int enemiesCount, int AlliesCount, String antifactionPoints, String[] /* FIXME BYREF!! */ codex, String guildDesc) {
  /* '*************************************************** */
  /* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
  /* 'Last Modification: 05/17/06 */
@@ -20538,7 +20548,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteShowGuildAlign(int UserIndex) {
+	public static void WriteShowGuildAlign(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 14/12/2009 */
@@ -20570,7 +20580,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteShowGuildFundationForm(int UserIndex) {
+	public static void WriteShowGuildFundationForm(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -20602,7 +20612,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteParalizeOK(int UserIndex) {
+	public static void WriteParalizeOK(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 08/12/07 */
@@ -20638,7 +20648,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteShowUserRequest(int UserIndex, String details) {
+	public static void WriteShowUserRequest(int UserIndex, String details) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -20671,7 +20681,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteTradeOK(int UserIndex) {
+	public static void WriteTradeOK(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -20702,7 +20712,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteBankOK(int UserIndex) {
+	public static void WriteBankOK(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -20735,7 +20745,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteChangeUserTradeSlot(int UserIndex, int OfferSlot, int ObjIndex, int Amount) {
+	public static void WriteChangeUserTradeSlot(int UserIndex, int OfferSlot, int ObjIndex, int Amount) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 12/03/09 */
@@ -20798,7 +20808,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteSendNight(int UserIndex, boolean night) {
+	public static void WriteSendNight(int UserIndex, boolean night) {
 		/* '*************************************************** */
 		/* 'Author: Fredy Horacio Treboux (liquid) */
 		/* 'Last Modification: 01/08/07 */
@@ -20832,7 +20842,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteSpawnList(int UserIndex, String[] /* FIXME BYREF!! */ npcNames) {
+	public static void WriteSpawnList(int UserIndex, String[] /* FIXME BYREF!! */ npcNames) {
  /* '*************************************************** */
  /* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
  /* 'Last Modification: 05/17/06 */
@@ -20874,7 +20884,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteShowSOSForm(int UserIndex) {
+	public static void WriteShowSOSForm(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -20919,7 +20929,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteShowDenounces(int UserIndex) {
+	public static void WriteShowDenounces(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 14/11/2010 */
@@ -20966,7 +20976,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteShowPartyForm(int UserIndex) {
+	public static void WriteShowPartyForm(int UserIndex) {
  /* '*************************************************** */
  /* 'Author: Budi */
  /* 'Last Modification: 11/26/09 */
@@ -21020,7 +21030,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteShowMOTDEditionForm(int UserIndex, String currentMOTD) {
+	public static void WriteShowMOTDEditionForm(int UserIndex, String currentMOTD) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -21054,7 +21064,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteShowGMPanelForm(int UserIndex) {
+	public static void WriteShowGMPanelForm(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -21088,7 +21098,8 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WriteUserNameList(int UserIndex, String[] /* FIXME BYREF!! */ userNamesList, int cant) {
+	public static void WriteUserNameList(int UserIndex,
+			String[] /* FIXME BYREF!! */ userNamesList, int cant) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 NIGO: */
@@ -21131,7 +21142,7 @@ public class Protocol {
 	 * flushed.
 	 */
 
-	static void WritePong(int UserIndex) {
+	public static void WritePong(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -21155,7 +21166,7 @@ public class Protocol {
 	/* ' */
 	/* ' @param UserIndex User whose outgoing data buffer will be flushed. */
 
-	static void FlushBuffer(int UserIndex) {
+	public static void FlushBuffer(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -21190,7 +21201,7 @@ public class Protocol {
 	 * prepared in a single string to be easily sent to several clients.
 	 */
 
-	static String PrepareMessageSetInvisible(int CharIndex, boolean invisible) {
+	public static String PrepareMessageSetInvisible(int CharIndex, boolean invisible) {
 		String retval;
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -21206,7 +21217,7 @@ public class Protocol {
 		return retval;
 	}
 
-	static String PrepareMessageCharacterChangeNick(int CharIndex, String newNick) {
+	public static String PrepareMessageCharacterChangeNick(int CharIndex, String newNick) {
 		String retval;
 		/* '*************************************************** */
 		/* 'Author: Budi */
@@ -21239,7 +21250,7 @@ public class Protocol {
 	 * prepared in a single string to be easily sent to several clients.
 	 */
 
-	static String PrepareMessageChatOverHead(String Chat, int CharIndex, int color) {
+	public static String PrepareMessageChatOverHead(String Chat, int CharIndex, int color) {
  String retval;
  /* '*************************************************** */
  /* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -21273,7 +21284,7 @@ return retval;
 	 * flushed.
 	 */
 
-	static String PrepareMessageConsoleMsg(String Chat, FontTypeNames FontIndex) {
+	public static String PrepareMessageConsoleMsg(String Chat, FontTypeNames FontIndex) {
 		String retval;
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -21288,7 +21299,7 @@ return retval;
 		return retval;
 	}
 
-	static String PrepareCommerceConsoleMsg(String /* FIXME BYREF!! */ Chat, FontTypeNames FontIndex) {
+	public static String PrepareCommerceConsoleMsg(String /* FIXME BYREF!! */ Chat, FontTypeNames FontIndex) {
 		String retval;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
@@ -21319,7 +21330,7 @@ return retval;
 	 * flushed.
 	 */
 
-	static String PrepareMessageCreateFX(int CharIndex, int FX, int FXLoops) {
+	public static String PrepareMessageCreateFX(int CharIndex, int FX, int FXLoops) {
 		String retval;
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -21354,7 +21365,7 @@ return retval;
 	 * flushed.
 	 */
 
-	static String PrepareMessagePlayWave(int wave, int X, int Y) {
+	public static String PrepareMessagePlayWave(int wave, int X, int Y) {
 		String retval;
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -21384,7 +21395,7 @@ return retval;
 	 * flushed.
 	 */
 
-	static String PrepareMessageGuildChat(String Chat) {
+	public static String PrepareMessageGuildChat(String Chat) {
 		String retval;
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -21411,7 +21422,7 @@ return retval;
 	 * flushed.
 	 */
 
-	static String PrepareMessageShowMessageBox(String Chat) {
+	public static String PrepareMessageShowMessageBox(String Chat) {
 		String retval;
 		/* '*************************************************** */
 		/* 'Author: Fredy Horacio Treboux (liquid) */
@@ -21439,11 +21450,11 @@ return retval;
 	 * flushed.
 	 */
 
-	static String PrepareMessagePlayMidi(int midi) {
+	public static String PrepareMessagePlayMidi(int midi) {
 		return PrepareMessagePlayMidi(midi, -1);
 	}
 
-	static String PrepareMessagePlayMidi(int midi, int loops) {
+	public static String PrepareMessagePlayMidi(int midi, int loops) {
 		String retval;
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -21470,7 +21481,7 @@ return retval;
 	 * flushed.
 	 */
 
-	static String PrepareMessagePauseToggle() {
+	public static String PrepareMessagePauseToggle() {
 		String retval;
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -21494,7 +21505,7 @@ return retval;
 	 * flushed.
 	 */
 
-	static String PrepareMessageRainToggle() {
+	public static String PrepareMessageRainToggle() {
 		String retval;
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -21521,7 +21532,7 @@ return retval;
 	 * flushed.
 	 */
 
-	static String PrepareMessageObjectDelete(int X, int Y) {
+	public static String PrepareMessageObjectDelete(int X, int Y) {
 		String retval;
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -21551,7 +21562,7 @@ return retval;
 	 * flushed.
 	 */
 
-	static String PrepareMessageBlockPosition(int X, int Y, boolean Blocked) {
+	public static String PrepareMessageBlockPosition(int X, int Y, boolean Blocked) {
 		String retval;
 		/* '*************************************************** */
 		/* 'Author: Fredy Horacio Treboux (liquid) */
@@ -21583,7 +21594,7 @@ return retval;
 	 * flushed.
 	 */
 
-	static String PrepareMessageObjectCreate(int GrhIndex, int X, int Y) {
+	public static String PrepareMessageObjectCreate(int GrhIndex, int X, int Y) {
 		String retval;
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -21612,7 +21623,7 @@ return retval;
 	 * flushed.
 	 */
 
-	static String PrepareMessageCharacterRemove(int CharIndex) {
+	public static String PrepareMessageCharacterRemove(int CharIndex) {
 		String retval;
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -21639,7 +21650,7 @@ return retval;
 	 * flushed.
 	 */
 
-	static String PrepareMessageRemoveCharDialog(int CharIndex) {
+	public static String PrepareMessageRemoveCharDialog(int CharIndex) {
 		String retval;
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -21691,8 +21702,9 @@ return retval;
 	 * flushed.
 	 */
 
-	static String PrepareMessageCharacterCreate(int body, int Head, eHeading heading, int CharIndex, int X, int Y,
-			int weapon, int shield, int FX, int FXLoops, int helmet, String Name, int NickColor, int Privileges) {
+	public static String PrepareMessageCharacterCreate(int body, int Head, eHeading heading, int CharIndex, int X,
+			int Y, int weapon, int shield, int FX, int FXLoops, int helmet, String Name, int NickColor,
+			int Privileges) {
 		String retval;
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -21741,7 +21753,7 @@ return retval;
 	 * flushed.
 	 */
 
-	static String PrepareMessageCharacterChange(int body, int Head, eHeading heading, int CharIndex, int weapon,
+	public static String PrepareMessageCharacterChange(int body, int Head, eHeading heading, int CharIndex, int weapon,
 			int shield, int FX, int FXLoops, int helmet) {
 		String retval;
 		/* '*************************************************** */
@@ -21780,7 +21792,7 @@ return retval;
 	 * flushed.
 	 */
 
-	static String PrepareMessageCharacterMove(int CharIndex, int X, int Y) {
+	public static String PrepareMessageCharacterMove(int CharIndex, int X, int Y) {
 		String retval;
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -21796,7 +21808,7 @@ return retval;
 		return retval;
 	}
 
-	static String PrepareMessageForceCharMove(eHeading Direccion) {
+	public static String PrepareMessageForceCharMove(eHeading Direccion) {
 		String retval;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
@@ -21825,7 +21837,7 @@ return retval;
 	 * flushed.
 	 */
 
-	static String PrepareMessageUpdateTagAndStatus(int UserIndex, int NickColor,
+	public static String PrepareMessageUpdateTagAndStatus(int UserIndex, int NickColor,
 			String /* FIXME BYREF!! */ Tag) {
 		String retval;
 		/* '*************************************************** */
@@ -21856,7 +21868,7 @@ return retval;
 	 * flushed.
 	 */
 
-	static String PrepareMessageErrorMsg(String message) {
+	public static String PrepareMessageErrorMsg(String message) {
 		String retval;
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -21878,7 +21890,7 @@ return retval;
 	/* ' */
 	/* ' @param UserIndex User to which the message is intended. */
 
-	static void WriteStopWorking(int UserIndex) {
+	public static void WriteStopWorking(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 21/02/2010 */
@@ -21906,7 +21918,7 @@ return retval;
 	/* ' @param UserIndex User to which the message is intended. */
 	/* ' @param Slot The slot to cancel. */
 
-	static void WriteCancelOfferItem(int UserIndex, int Slot) {
+	public static void WriteCancelOfferItem(int UserIndex, int Slot) {
 		/* '*************************************************** */
 		/* 'Author: Torres Patricio (Pato) */
 		/* 'Last Modification: 05/03/2010 */
@@ -21930,7 +21942,7 @@ return retval;
 	/* ' */
 	/* ' @param UserIndex The index of the user sending the message */
 
-	static void HandleSetDialog(int UserIndex) {
+	public static void HandleSetDialog(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Amraphen */
 		/* 'Last Modification: 18/11/2010 */
@@ -21961,7 +21973,7 @@ return retval;
 
 		if (Declaraciones.UserList[UserIndex].flags.TargetNPC > 0) {
 			/* ' Dsgm/Dsrm/Rm */
-			if (!((Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.Dios) == 0
+			if (! /* FIXME */((Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.Dios) == 0
 					&& (Declaraciones.UserList[UserIndex].flags.Privilegios
 							&& (PlayerType.SemiDios || PlayerType.RoleMaster)) != (PlayerType.SemiDios
 									|| PlayerType.RoleMaster))) {
@@ -21988,7 +22000,7 @@ return retval;
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleImpersonate(int UserIndex) {
+	public static void HandleImpersonate(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 20/11/2010 */
@@ -22034,7 +22046,7 @@ return retval;
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleImitate(int UserIndex) {
+	public static void HandleImitate(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 20/11/2010 */
@@ -22074,7 +22086,7 @@ return retval;
 	/* ' */
 	/* ' @param UserIndex The index of the user sending the message */
 
-	static void HandleRecordAdd(int UserIndex) {
+	public static void HandleRecordAdd(int UserIndex) {
 		/* '************************************************************** */
 		/* 'Author: Amraphen */
 		/* 'Last Modify Date: 29/11/2010 */
@@ -22104,10 +22116,10 @@ return retval;
 		UserName = buffer.ReadASCIIString();
 		Reason = buffer.ReadASCIIString();
 
-		if (!(Declaraciones.UserList[UserIndex].flags.Privilegios
+		if (! /* FIXME */(Declaraciones.UserList[UserIndex].flags.Privilegios
 				&& (PlayerType.User || PlayerType.Consejero || PlayerType.RoleMaster))) {
 			/* 'Verificamos que exista el personaje */
-			if (!General.FileExist(Declaraciones.CharPath + vb6.UCase(UserName) + ".chr")) {
+			if (! /* FIXME */General.FileExist(Declaraciones.CharPath + vb6.UCase(UserName) + ".chr")) {
 				WriteShowMessageBox(UserIndex, "El personaje no existe");
 			} else {
 				/* 'Agregamos el seguimiento */
@@ -22138,7 +22150,7 @@ return retval;
 	/* ' */
 	/* ' @param UserIndex The index of the user sending the message. */
 
-	static void HandleRecordAddObs(int UserIndex) {
+	public static void HandleRecordAddObs(int UserIndex) {
 		/* '************************************************************** */
 		/* 'Author: Amraphen */
 		/* 'Last Modify Date: 29/11/2010 */
@@ -22168,7 +22180,7 @@ return retval;
 		RecordIndex = buffer.ReadByte();
 		Obs = buffer.ReadASCIIString();
 
-		if (!(Declaraciones.UserList[UserIndex].flags.Privilegios
+		if (! /* FIXME */(Declaraciones.UserList[UserIndex].flags.Privilegios
 				&& (PlayerType.User || PlayerType.Consejero || PlayerType.RoleMaster))) {
 			/* 'Agregamos la observación */
 			modUserRecords.AddObs(UserIndex, RecordIndex, Obs);
@@ -22197,7 +22209,7 @@ return retval;
 	/* ' */
 	/* ' @param UserIndex The index of the user sending the message. */
 
-	static void HandleRecordRemove(int UserIndex) {
+	public static void HandleRecordRemove(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Amraphen */
 		/* 'Last Modification: 29/11/2010 */
@@ -22233,7 +22245,7 @@ return retval;
 	/* ' */
 	/* ' @param UserIndex The index of the user sending the message. */
 
-	static void HandleRecordListRequest(int UserIndex) {
+	public static void HandleRecordListRequest(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Amraphen */
 		/* 'Last Modification: 29/11/2010 */
@@ -22262,7 +22274,7 @@ return retval;
 	 * flushed.
 	 */
 
-	static void WriteRecordDetails(int UserIndex, int RecordIndex) {
+	public static void WriteRecordDetails(int UserIndex, int RecordIndex) {
 		/* '*************************************************** */
 		/* 'Author: Amraphen */
 		/* 'Last Modification: 29/11/2010 */
@@ -22341,7 +22353,7 @@ return retval;
 	 * flushed.
 	 */
 
-	static void WriteRecordList(int UserIndex) {
+	public static void WriteRecordList(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Amraphen */
 		/* 'Last Modification: 29/11/2010 */
@@ -22374,7 +22386,7 @@ return retval;
 	/* ' */
 	/* ' @param UserIndex The index of the user sending the message. */
 
-	static void HandleRecordDetailsRequest(int UserIndex) {
+	public static void HandleRecordDetailsRequest(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Amraphen */
 		/* 'Last Modification: 07/04/2011 */
@@ -22395,7 +22407,7 @@ return retval;
 		WriteRecordDetails(UserIndex, RecordIndex);
 	}
 
-	static void HandleMoveItem(int UserIndex) {
+	public static void HandleMoveItem(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Ignacio Mariano Tirabasso (Budi) */
 		/* 'Last Modification: 01/01/2011 */
@@ -22420,7 +22432,7 @@ return retval;
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message. */
 
-	static void HandleHigherAdminsMessage(int UserIndex) {
+	public static void HandleHigherAdminsMessage(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Torres Patricio (Pato) */
 		/* 'Last Modification: 03/30/12 */
@@ -22484,7 +22496,7 @@ return retval;
 	/* ' */
 	/* ' @param userIndex The index of the user sending the message */
 
-	static void HandleAlterGuildName(int UserIndex) {
+	public static void HandleAlterGuildName(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Lex! */
 		/* 'Last Modification: 14/05/12 */

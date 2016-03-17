@@ -1,6 +1,10 @@
-
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"Queue"')] */
 /* 'Argentum Online 0.12.2 */
 /* 'Copyright (C) 2002 Márquez Pablo Ignacio */
@@ -46,22 +50,22 @@ public class Queue {
 	private static int m_firstelem;
 	private static int m_size;
 
-	static boolean IsEmpty() {
+	public static boolean IsEmpty() {
 		boolean retval = false;
 		retval = m_size == 0;
 		return retval;
 	}
 
-	static boolean IsFull() {
+	public static boolean IsFull() {
 		boolean retval = false;
 		retval = m_lastelem == Queue.MAXELEM;
 		return retval;
 	}
 
-	static boolean Push(tVertice /* FIXME BYREF!! */ Vertice) {
+	public static boolean Push(tVertice /* FIXME BYREF!! */ Vertice) {
 		boolean retval = false;
 
-		if (!IsFull()) {
+		if (! /* FIXME */IsFull()) {
 
 			if (IsEmpty()) {
 				m_firstelem = 1;
@@ -79,10 +83,10 @@ public class Queue {
 		return retval;
 	}
 
-	static tVertice Pop() {
+	public static tVertice Pop() {
 		tVertice retval;
 
-		if (!IsEmpty()) {
+		if (! /* FIXME */IsEmpty()) {
 
 			retval = m_array[m_firstelem];
 			m_firstelem = m_firstelem + 1;
@@ -99,7 +103,7 @@ public class Queue {
 		return retval;
 	}
 
-	static void InitQueue() {
+	public static void InitQueue() {
 		m_array = new tVertice[0];
 		m_array = (m_array == null) ? new tVertice[Queue.MAXELEM] : java.util.Arrays.copyOf(m_array, Queue.MAXELEM);
 		m_lastelem = 0;

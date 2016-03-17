@@ -1,5 +1,10 @@
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"SoundMapInfo"')] */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_GlobalNameSpace'), (5, '='), (1, 'False')] */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Creatable'), (5, '='), (1, 'True')] */
@@ -39,7 +44,7 @@ public class SoundMapInfo {
 
 	/* 'sonidos conocidos, pasados a enum para intelisense */
 
-	void Class_Initialize() {
+	private void Class_Initialize() {
 		/* 'armar el array */
 		p_Mapas = new p_tSoundMapInfo[0];
 		p_Mapas = (p_Mapas == null) ? new p_tSoundMapInfo[1 + Declaraciones.NumMaps]
@@ -47,7 +52,7 @@ public class SoundMapInfo {
 		LoadSoundMapInfo();
 	}
 
-	void LoadSoundMapInfo() {
+	public void LoadSoundMapInfo() {
 		int i = 0;
 		int j = 0;
 		String Temps;
@@ -88,7 +93,7 @@ public class SoundMapInfo {
 		}
 	}
 
-	void ReproducirSonidosDeMapas() {
+	public void ReproducirSonidosDeMapas() {
 		int i = 0;
 		int SonidoMapa = 0;
 		int posX = 0;
@@ -119,7 +124,7 @@ public class SoundMapInfo {
 		}
 	}
 
-	void ReproducirSonido(SendTarget Destino, int index, int SoundIndex) {
+	public void ReproducirSonido(SendTarget Destino, int index, int SoundIndex) {
 		modSendData.SendData(Destino, index, Protocol.PrepareMessagePlayWave(SoundIndex,
 				Declaraciones.UserList[index].Pos.X, Declaraciones.UserList[index].Pos.Y));
 	}

@@ -1,5 +1,10 @@
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"clsEstadisticasIPC"')] */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_GlobalNameSpace'), (5, '='), (1, 'False')] */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Creatable'), (5, '='), (1, 'True')] */
@@ -39,7 +44,7 @@ public class clsEstadisticasIPC {
 
 	/* '************************************************* */
 
-	int BuscaVentana(int Wnd, String str) {
+	private int BuscaVentana(int Wnd, String str) {
 		int retval = 0;
 		int W = 0;
 		int L = 0;
@@ -68,7 +73,7 @@ public class clsEstadisticasIPC {
 		return retval;
 	}
 
-	int Informar(EstaNotificaciones QueCosa, int Parametro) {
+	public int Informar(EstaNotificaciones QueCosa, int Parametro) {
 		int retval = 0;
 		BuscaWndEstadisticas();
 		if (hVentana != 0) {
@@ -78,7 +83,7 @@ public class clsEstadisticasIPC {
 		return retval;
 	}
 
-	boolean EstadisticasAndando() {
+	public boolean EstadisticasAndando() {
 		boolean retval = false;
 
 		BuscaWndEstadisticas();
@@ -88,13 +93,13 @@ public class clsEstadisticasIPC {
 		return retval;
 	}
 
-	void Inicializa(int hWnd) {
+	public void Inicializa(int hWnd) {
 		hVentanaMia = hWnd;
 		sMensaje = RegisterWindowMessage("EstadisticasAO");
 
 	}
 
-	void BuscaWndEstadisticas() {
+	private void BuscaWndEstadisticas() {
 		hVentana = BuscaVentana(hVentanaMia, "Servidor de estadisticas AO");
 
 	}

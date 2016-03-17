@@ -1,5 +1,10 @@
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"modSistemaComercio"')] */
 /* '***************************************************** */
 /* 'Sistema de Comercio para Argentum Online */
@@ -40,7 +45,7 @@ public class modSistemaComercio {
 	 * ' @param Cantidad Specifies how many items in that slot are you trying to
 	 * sell / buy
 	 */
-	static void Comercio(eModoComercio Modo, int UserIndex, int NpcIndex, int Slot, int Cantidad) {
+	public static void Comercio(eModoComercio Modo, int UserIndex, int NpcIndex, int Slot, int Cantidad) {
  /* '************************************************* */
  /* 'Author: Nacho (Integer) */
  /* 'Last modified: 07/06/2010 */
@@ -66,7 +71,7 @@ public class modSistemaComercio {
    Protocol.FlushBuffer(UserIndex);
    TCP.CloseSocket(UserIndex);
    return;
-   } else if (!Declaraciones.Npclist[NpcIndex].Invent.Object[Slot].Amount>0) {
+   } else if (! /* FIXME */Declaraciones.Npclist[NpcIndex].Invent.Object[Slot].Amount>0) {
    return;
   }
   
@@ -80,7 +85,7 @@ public class modSistemaComercio {
   /* 'El precio, cuando nos venden algo, lo tenemos que redondear para arriba. */
   /* 'Es decir, 1.1 = 2, por lo cual se hace de la siguiente forma Precio = Clng(PrecioFinal + 0.5) Siempre va a darte el proximo numero. O el "Techo" (MarKoxX) */
   
-  Precio = vb6.CLng((Declaraciones.ObjData[Declaraciones.Npclist[NpcIndex].Invent.Object[Slot].ObjIndex].Valor / (double) Descuento(UserIndex)*Cantidad)+0.5);
+  Precio = vb6.CLng((Declaraciones.ObjData[Declaraciones.Npclist[NpcIndex].Invent.Object[Slot].ObjIndex].Valor / (double) Descuento(UserIndex)*Cantidad)+0.5f);
   
    if (Declaraciones.UserList[UserIndex].Stats.GLD<Precio) {
    Protocol.WriteConsoleMsg(UserIndex, "No tienes suficiente dinero.", FontTypeNames.FONTTYPE_INFO);
@@ -207,7 +212,7 @@ public class modSistemaComercio {
  UsUaRiOs.SubirSkill(UserIndex, eSkill.Comerciar, true);
 }
 
-	static void IniciarComercioNPC(int UserIndex) {
+	public static void IniciarComercioNPC(int UserIndex) {
 		/* '************************************************* */
 		/* 'Author: Nacho (Integer) */
 		/* 'Last modified: 2/8/06 */
@@ -217,7 +222,7 @@ public class modSistemaComercio {
 		Protocol.WriteCommerceInit(UserIndex);
 	}
 
-	static int SlotEnNPCInv(int NpcIndex, int Objeto, int Cantidad) {
+	public static int SlotEnNPCInv(int NpcIndex, int Objeto, int Cantidad) {
 		int retval = 0;
 		/* '************************************************* */
 		/* 'Author: Nacho (Integer) */
@@ -257,7 +262,7 @@ public class modSistemaComercio {
 		return retval;
 	}
 
-	static float Descuento(int UserIndex) {
+	public static float Descuento(int UserIndex) {
 		float retval = 0.0f;
 		/* '************************************************* */
 		/* 'Author: Nacho (Integer) */
@@ -273,7 +278,7 @@ public class modSistemaComercio {
 	/* ' @param userIndex The index of the User */
 	/* ' @param npcIndex The index of the NPC */
 
-	static void EnviarNpcInv(int UserIndex, int NpcIndex) {
+	public static void EnviarNpcInv(int UserIndex, int NpcIndex) {
 		/* '************************************************* */
 		/* 'Author: Nacho (Integer) */
 		/* 'Last Modified: 06/14/08 */
@@ -307,7 +312,7 @@ public class modSistemaComercio {
 	 * venta
 	 */
 
-	static float SalePrice(int ObjIndex) {
+	public static float SalePrice(int ObjIndex) {
 		float retval = 0.0f;
 		/* '************************************************* */
 		/* 'Author: Nicolás (NicoNZ) */

@@ -1,5 +1,10 @@
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"frmServidor"')] */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_GlobalNameSpace'), (5, '='), (1, 'False')] */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Creatable'), (5, '='), (1, 'False')] */
@@ -37,7 +42,7 @@ import enums.*;
 
 public class frmServidor {
 
-	static void Form_Load() {
+	public static void Form_Load() {
 
 		/* # IF UsarQueSocket = 1 THEN */
 		cmdResetSockets.Visible = true;
@@ -48,7 +53,7 @@ public class frmServidor {
 
 	}
 
-	static void cmdApagarServer_Click() {
+	public static void cmdApagarServer_Click() {
  
  if (vb6.MsgBox("¿Está seguro que desea hacer WorldSave, guardar pjs y cerrar?", vbYesNo, "Apagar Magicamente") == vbNo) {
  return;
@@ -72,11 +77,11 @@ public class frmServidor {
  
 }
 
-	static void cmdCerrar_Click() {
+	public static void cmdCerrar_Click() {
 		frmServidor.Visible = false;
 	}
 
-	static void cmdCharBackup_Click() {
+	public static void cmdCharBackup_Click() {
  Me.MousePointer = 11;
  mdParty.ActualizaExperiencias;
  General.GuardarUsuarios();
@@ -84,19 +89,19 @@ public class frmServidor {
  vb6.MsgBox("Grabado de personajes OK!");
 }
 
-	static void cmdConfigIntervalos_Click() {
+	public static void cmdConfigIntervalos_Click() {
 		FrmInterv.Show();
 	}
 
-	static void cmdDebugNpcs_Click() {
+	public static void cmdDebugNpcs_Click() {
 		frmDebugNpc.Show();
 	}
 
-	static void cmdDebugUserlist_Click() {
+	public static void cmdDebugUserlist_Click() {
 		frmUserList.Show();
 	}
 
-	static void cmdLoadWorldBackup_Click() {
+	public static void cmdLoadWorldBackup_Click() {
  /* 'Se asegura de que los sockets estan cerrados e ignora cualquier err */
  /* FIXME: ON ERROR RESUME NEXT */
  
@@ -160,7 +165,7 @@ public class frmServidor {
  
 }
 
-	static void cmdPausarServidor_Click() {
+	public static void cmdPausarServidor_Click() {
 		if (Declaraciones.EnPausa == false) {
 			Declaraciones.EnPausa = true;
 			modSendData.SendData(SendTarget.ToAll, 0, Protocol.PrepareMessagePauseToggle());
@@ -172,44 +177,44 @@ public class frmServidor {
 		}
 	}
 
-	static void cmdRecargarBalance_Click() {
+	public static void cmdRecargarBalance_Click() {
 		ES.LoadBalance();
 	}
 
-	static void cmdRecargarGuardiasPosOrig_Click() {
+	public static void cmdRecargarGuardiasPosOrig_Click() {
 		Admin.ReSpawnOrigPosNpcs();
 	}
 
-	static void cmdRecargarHechizos_Click() {
+	public static void cmdRecargarHechizos_Click() {
 		ES.CargarHechizos();
 	}
 
-	static void cmdRecargarMD5s_Click() {
+	public static void cmdRecargarMD5s_Click() {
 		Admin.MD5sCarga();
 	}
 
-	static void cmdRecargarMOTD_Click() {
+	public static void cmdRecargarMOTD_Click() {
 		ES.LoadMotd();
 	}
 
-	static void cmdRecargarNombresInvalidos_Click() {
+	public static void cmdRecargarNombresInvalidos_Click() {
 		ES.CargarForbidenWords();
 	}
 
-	static void cmdRecargarNPCs_Click() {
+	public static void cmdRecargarNPCs_Click() {
 		General.CargaNpcsDat();
 	}
 
-	static void cmdRecargarObjetos_Click() {
+	public static void cmdRecargarObjetos_Click() {
 		modForum.ResetForums();
 		ES.LoadOBJData();
 	}
 
-	static void cmdRecargarServerIni_Click() {
+	public static void cmdRecargarServerIni_Click() {
 		ES.LoadSini();
 	}
 
-	static void cmdReiniciar_Click() {
+	public static void cmdReiniciar_Click() {
  
  if (vb6.MsgBox("¡¡Atencion!! Si reinicia el servidor puede provocar la pérdida de datos de los usarios. " + "¿Desea reiniciar el servidor de todas maneras?", vbYesNo) == vbNo) {
  return;
@@ -220,7 +225,7 @@ public class frmServidor {
  
 }
 
-	static void cmdResetListen_Click() {
+	public static void cmdResetListen_Click() {
  
  /* # IF UsarQueSocket = 1 THEN */
  /* 'Cierra el socket de escucha */
@@ -234,7 +239,7 @@ public class frmServidor {
  
 }
 
-	static void cmdResetSockets_Click() {
+	public static void cmdResetSockets_Click() {
 
 		/* # IF UsarQueSocket = 1 THEN */
 
@@ -249,11 +254,11 @@ public class frmServidor {
 
 	}
 
-	static void cmdStatsSlots_Click() {
+	public static void cmdStatsSlots_Click() {
 		frmConID.Show();
 	}
 
-	static void cmdUnbanAll_Click() {
+	public static void cmdUnbanAll_Click() {
  /* FIXME: ON ERROR RESUME NEXT */
  
  String Fn;
@@ -271,7 +276,7 @@ public class frmServidor {
    if (General.FileExist(Fn, 0)) {
    N = vb6.FreeFile();
    /* FIXME: OPEN Fn FOR INPUT Shared AS # N */
-    while (!clsByteBuffer.Eof(N)) {
+    while (! /* FIXME */clsByteBuffer.Eof(N)) {
     k = k+1;
     /* FIXME: INPUT # N , cad $ */
     Admin.UnBan(cad$);
@@ -284,7 +289,7 @@ public class frmServidor {
  }
 }
 
-	static void cmdUnbanAllIps_Click() {
+	public static void cmdUnbanAllIps_Click() {
  int i = 0;
  int N = 0;
  
@@ -302,11 +307,11 @@ public class frmServidor {
  }
 }
 
-	static void cmdVerTrafico_Click() {
+	public static void cmdVerTrafico_Click() {
 		frmTrafic.Show();
 	}
 
-	static void cmdWorldBackup_Click() {
+	public static void cmdWorldBackup_Click() {
  /* FIXME: ON ERROR GOTO ErrHandler */
  
  Me.MousePointer = 11;
@@ -321,16 +326,16 @@ public class frmServidor {
  General.LogError("Error en WORLDSAVE");
 }
 
-	static void Form_Deactivate() {
+	public static void Form_Deactivate() {
 		frmServidor.Visible = false;
 	}
 
-	static void frmAdministracion_Click() {
+	public static void frmAdministracion_Click() {
 		Me.Visible = false;
 		frmAdmin.Show();
 	}
 
-	static void cmdRecargarAdministradores_Click() {
+	public static void cmdRecargarAdministradores_Click() {
 		AES.loadAdministrativeUsers();
 	}
 

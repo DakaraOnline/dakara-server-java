@@ -1,5 +1,10 @@
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"ES"')] */
 /* 'Argentum Online 0.12.2 */
 /* 'Copyright (C) 2002 Márquez Pablo Ignacio */
@@ -33,7 +38,7 @@ import enums.*;
 
 public class ES {
 
-	static void CargarSpawnList() {
+	public static void CargarSpawnList() {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -55,7 +60,7 @@ public class ES {
 
 	}
 
-	static boolean EsAdmin(String /* FIXME BYREF!! */ Name) {
+	public static boolean EsAdmin(String /* FIXME BYREF!! */ Name) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -66,7 +71,7 @@ public class ES {
 		return retval;
 	}
 
-	static boolean EsDios(String /* FIXME BYREF!! */ Name) {
+	public static boolean EsDios(String /* FIXME BYREF!! */ Name) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -77,7 +82,7 @@ public class ES {
 		return retval;
 	}
 
-	static boolean EsSemiDios(String /* FIXME BYREF!! */ Name) {
+	public static boolean EsSemiDios(String /* FIXME BYREF!! */ Name) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -88,7 +93,7 @@ public class ES {
 		return retval;
 	}
 
-	static boolean EsGmEspecial(String /* FIXME BYREF!! */ Name) {
+	public static boolean EsGmEspecial(String /* FIXME BYREF!! */ Name) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
@@ -99,7 +104,7 @@ public class ES {
 		return retval;
 	}
 
-	static boolean EsConsejero(String /* FIXME BYREF!! */ Name) {
+	public static boolean EsConsejero(String /* FIXME BYREF!! */ Name) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -110,7 +115,7 @@ public class ES {
 		return retval;
 	}
 
-	static boolean EsRolesMaster(String /* FIXME BYREF!! */ Name) {
+	public static boolean EsRolesMaster(String /* FIXME BYREF!! */ Name) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -121,7 +126,7 @@ public class ES {
 		return retval;
 	}
 
-	static boolean EsGmChar(String /* FIXME BYREF!! */ Name) {
+	public static boolean EsGmChar(String /* FIXME BYREF!! */ Name) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
@@ -134,15 +139,15 @@ public class ES {
 		/* ' Admin? */
 		EsGm = EsAdmin(Name);
 		/* ' Dios? */
-		if (!EsGm) {
+		if (! /* FIXME */EsGm) {
 			EsGm = EsDios(Name);
 		}
 		/* ' Semidios? */
-		if (!EsGm) {
+		if (! /* FIXME */EsGm) {
 			EsGm = EsSemiDios(Name);
 		}
 		/* ' Consejero? */
-		if (!EsGm) {
+		if (! /* FIXME */EsGm) {
 			EsGm = EsConsejero(Name);
 		}
 
@@ -151,7 +156,7 @@ public class ES {
 		return retval;
 	}
 
-	static void loadAdministrativeUsers() {
+	public static void loadAdministrativeUsers() {
 		/* 'Admines => Admin */
 		/* 'Dioses => Dios */
 		/* 'SemiDioses => SemiDios */
@@ -268,7 +273,7 @@ public class ES {
 
 	}
 
-	static PlayerType GetCharPrivs(String /* FIXME BYREF!! */ UserName) {
+	public static PlayerType GetCharPrivs(String /* FIXME BYREF!! */ UserName) {
 		PlayerType retval;
 		/* '**************************************************** */
 		/* 'Author: ZaMa */
@@ -299,7 +304,7 @@ public class ES {
 		return retval;
 	}
 
-	static int TxtDimension(String Name) {
+	public static int TxtDimension(String Name) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -313,7 +318,7 @@ public class ES {
 		N = vb6.FreeFile(1);
 		/* FIXME: OPEN Name FOR INPUT AS # N */
 		Tam = 0;
-		while (!clsByteBuffer.Eof(N)) {
+		while (! /* FIXME */clsByteBuffer.Eof(N)) {
 			Tam = Tam + 1;
 			/* FIXME: LINE INPUT # N , cad */
 		}
@@ -322,7 +327,7 @@ public class ES {
 		return retval;
 	}
 
-	static void CargarForbidenWords() {
+	public static void CargarForbidenWords() {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -347,7 +352,7 @@ public class ES {
 
 	}
 
-	static void CargarHechizos() {
+	public static void CargarHechizos() {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -503,7 +508,7 @@ public class ES {
 
 	}
 
-	static void LoadMotd() {
+	public static void LoadMotd() {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -524,7 +529,7 @@ public class ES {
 
 	}
 
-	static void DoBackUp() {
+	public static void DoBackUp() {
  /* '*************************************************** */
  /* 'Author: Unknown */
  /* 'Last Modification: - */
@@ -567,7 +572,7 @@ public class ES {
  /* FIXME: CLOSE # nfile */
 }
 
-	static void GrabarMapa(int Map, String /* FIXME BYREF!! */ MAPFILE) {
+	public static void GrabarMapa(int Map, String /* FIXME BYREF!! */ MAPFILE) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 12/01/2011 */
@@ -689,7 +694,7 @@ public class ES {
 							|| (Declaraciones.Npclist[Declaraciones.MapData[Map][X][Y].NpcIndex].MaestroUser > 0)
 							|| modCentinela.EsCentinela(Declaraciones.MapData[Map][X][Y].NpcIndex);
 
-					if (!NpcInvalido) {
+					if (! /* FIXME */NpcInvalido) {
 						ByFlags = ByFlags || 2;
 					}
 				}
@@ -706,7 +711,7 @@ public class ES {
 					InfWriter.putInteger(Declaraciones.MapData[Map][X][Y].TileExit.Y);
 				}
 
-				if (Declaraciones.MapData[Map][X][Y].NpcIndex && !NpcInvalido) {
+				if (Declaraciones.MapData[Map][X][Y].NpcIndex && ! /* FIXME */NpcInvalido) {
 					InfWriter.putInteger(Declaraciones.Npclist[Declaraciones.MapData[Map][X][Y].NpcIndex].Numero);
 				}
 
@@ -764,7 +769,7 @@ public class ES {
 		IniManager = null;
 	}
 
-	static void LoadArmasHerreria() {
+	public static void LoadArmasHerreria() {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -786,7 +791,7 @@ public class ES {
 
 	}
 
-	static void LoadArmadurasHerreria() {
+	public static void LoadArmadurasHerreria() {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -808,7 +813,7 @@ public class ES {
 
 	}
 
-	static void LoadBalance() {
+	public static void LoadBalance() {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 15/04/2010 */
@@ -883,7 +888,7 @@ public class ES {
 
 	}
 
-	static void LoadObjCarpintero() {
+	public static void LoadObjCarpintero() {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -905,7 +910,7 @@ public class ES {
 
 	}
 
-	static void LoadOBJData() {
+	public static void LoadOBJData() {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1216,7 +1221,8 @@ public class ES {
 
 	}
 
-	static void LoadUserStats(int UserIndex, clsIniManager /* FIXME BYREF!! */ UserFile) {
+	public static void LoadUserStats(int UserIndex,
+			clsIniManager /* FIXME BYREF!! */ UserFile) {
 		/* '************************************************* */
 		/* 'Author: Unknown */
 		/* 'Last modified: 11/19/2009 */
@@ -1285,7 +1291,7 @@ public class ES {
 		}
 	}
 
-	static void LoadUserReputacion(int UserIndex,
+	public static void LoadUserReputacion(int UserIndex,
 			clsIniManager /* FIXME BYREF!! */ UserFile) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -1303,7 +1309,8 @@ public class ES {
 
 	}
 
-	static void LoadUserInit(int UserIndex, clsIniManager /* FIXME BYREF!! */ UserFile) {
+	public static void LoadUserInit(int UserIndex,
+			clsIniManager /* FIXME BYREF!! */ UserFile) {
 		/* '************************************************* */
 		/* 'Author: Unknown */
 		/* 'Last modified: 19/11/2006 */
@@ -1517,11 +1524,11 @@ public class ES {
 
 	}
 
-	static String GetVar(String File, String Main, String Var) {
+	public static String GetVar(String File, String Main, String Var) {
 		return GetVar(File, Main, Var, 1024);
 	}
 
-	static String GetVar(String File, String Main, String Var, int EmptySpaces) {
+	public static String GetVar(String File, String Main, String Var, int EmptySpaces) {
 		String retval;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -1547,7 +1554,7 @@ public class ES {
 		return retval;
 	}
 
-	static void CargarBackUp() {
+	public static void CargarBackUp() {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1590,7 +1597,7 @@ public class ES {
 				 * 'Miramos que exista al menos uno de los 3 archivos, sino lo
 				 * cargamos de la carpeta de los mapas
 				 */
-				if (!General.FileExist(tFileName + ".*")) {
+				if (! /* FIXME */General.FileExist(tFileName + ".*")) {
 					tFileName = vb6.App.Instance().Path + Declaraciones.MapPath + "Mapa" + Map;
 				}
 			} else {
@@ -1611,7 +1618,7 @@ public class ES {
 
 	}
 
-	static void LoadMapData() {
+	public static void LoadMapData() {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1662,7 +1669,7 @@ public class ES {
 
 	}
 
-	static void CargarMapa(int Map, String /* FIXME BYREF!! */ MAPFl) {
+	public static void CargarMapa(int Map, String /* FIXME BYREF!! */ MAPFl) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 10/08/2010 */
@@ -1856,7 +1863,7 @@ public class ES {
 		Leer = null;
 	}
 
-	static void LoadSini() {
+	public static void LoadSini() {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -2136,7 +2143,7 @@ public class ES {
 
 	}
 
-	static void WriteVar(String File, String Main, String Var, String value) {
+	public static void WriteVar(String File, String Main, String Var, String value) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -2147,11 +2154,11 @@ public class ES {
 
 	}
 
-	static void SaveUser(int UserIndex, String UserFile) {
+	public static void SaveUser(int UserIndex, String UserFile) {
 		SaveUser(UserIndex, UserFile, true);
 	}
 
-	static void SaveUser(int UserIndex, String UserFile, boolean SaveTimeOnline) {
+	public static void SaveUser(int UserIndex, String UserFile, boolean SaveTimeOnline) {
 		/* '************************************************* */
 		/* 'Author: Unknown */
 		/* 'Last modified: 10/10/2010 (Pato) */
@@ -2266,7 +2273,7 @@ public class ES {
 				vb6.CStr(Declaraciones.UserList[UserIndex].Faccion.NextRecompensa));
 
 		/* '¿Fueron modificados los atributos del usuario? */
-		if (!Declaraciones.UserList[UserIndex].flags.TomoPocion) {
+		if (! /* FIXME */Declaraciones.UserList[UserIndex].flags.TomoPocion) {
 			for (LoopC = (1); LoopC <= (vb6.UBound(Declaraciones.UserList[UserIndex].Stats.UserAtributos)); LoopC++) {
 				Manager.ChangeValue("ATRIBUTOS", "AT" + LoopC,
 						vb6.CStr(Declaraciones.UserList[UserIndex].Stats.UserAtributos[LoopC]));
@@ -2504,7 +2511,7 @@ public class ES {
 
 	}
 
-	static boolean criminal(int UserIndex) {
+	public static boolean criminal(int UserIndex) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -2526,7 +2533,7 @@ public class ES {
 		return retval;
 	}
 
-	static void BackUPnPc(int NpcIndex, int hFile) {
+	public static void BackUPnPc(int NpcIndex, int hFile) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 10/09/2010 */
@@ -2586,7 +2593,7 @@ public class ES {
 
 	}
 
-	static void CargarNpcBackUp(int NpcIndex, int NpcNumber) {
+	public static void CargarNpcBackUp(int NpcIndex, int NpcNumber) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -2666,7 +2673,7 @@ public class ES {
 
 	}
 
-	static void LogBan(int BannedIndex, int UserIndex, String Motivo) {
+	public static void LogBan(int BannedIndex, int UserIndex, String Motivo) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -2693,7 +2700,7 @@ public class ES {
 
 	}
 
-	static void LogBanFromName(String BannedName, int UserIndex, String Motivo) {
+	public static void LogBanFromName(String BannedName, int UserIndex, String Motivo) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -2719,7 +2726,7 @@ public class ES {
 
 	}
 
-	static void Ban(String BannedName, String Baneador, String Motivo) {
+	public static void Ban(String BannedName, String Baneador, String Motivo) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -2744,7 +2751,7 @@ public class ES {
 
 	}
 
-	static void CargaApuestas() {
+	public static void CargaApuestas() {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -2757,7 +2764,7 @@ public class ES {
 
 	}
 
-	static void generateMatrix(int mapa) {
+	public static void generateMatrix(int mapa) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -2802,11 +2809,11 @@ public class ES {
 
 	}
 
-	static void setDistance(int mapa, int city, int side) {
+	public static void setDistance(int mapa, int city, int side) {
 		setDistance(mapa, city, side, 0, 0);
 	}
 
-	static void setDistance(int mapa, int city, int side, int X, int Y) {
+	public static void setDistance(int mapa, int city, int side, int X, int Y) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -2854,7 +2861,7 @@ public class ES {
 		}
 	}
 
-	static int getLimit(int mapa, int side) {
+	public static int getLimit(int mapa, int side) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Budi */
@@ -2896,7 +2903,7 @@ public class ES {
 		return retval;
 	}
 
-	static void LoadArmadurasFaccion() {
+	public static void LoadArmadurasFaccion() {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 15/04/2010 */

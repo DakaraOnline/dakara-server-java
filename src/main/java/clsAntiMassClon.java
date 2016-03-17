@@ -1,6 +1,10 @@
-
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"clsAntiMassClon"')] */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_GlobalNameSpace'), (5, '='), (1, 'False')] */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Creatable'), (5, '='), (1, 'True')] */
@@ -40,7 +44,7 @@ public class clsAntiMassClon {
 	static final int MaximoPersonajesPorIP = 15;
 	private vb6.Collection m_coleccion;
 
-	boolean MaxPersonajes(String sIp) {
+	public boolean MaxPersonajes(String sIp) {
 		boolean retval = false;
 		int i = 0;
 
@@ -63,7 +67,7 @@ public class clsAntiMassClon {
 		return retval;
 	}
 
-	int VaciarColeccion() {
+	public int VaciarColeccion() {
  int retval = 0;
  
  /* FIXME: ON ERROR GOTO ErrHandler */
@@ -80,7 +84,7 @@ public class clsAntiMassClon {
 return retval;
 }
 
-	void Class_Initialize() {
+	private void Class_Initialize() {
 		m_coleccion = new Collection();
 	}
 

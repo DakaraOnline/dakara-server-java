@@ -1,5 +1,10 @@
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"modHexaStrings"')] */
 /* 'Argentum Online 0.12.2 */
 /* ' */
@@ -40,7 +45,7 @@ import enums.*;
 
 public class modHexaStrings {
 
-	static String hexMd52Asc(String MD5) {
+	public static String hexMd52Asc(String MD5) {
 		String retval;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -62,7 +67,7 @@ public class modHexaStrings {
 		return retval;
 	}
 
-	static int hexHex2Dec(String hex) {
+	public static int hexHex2Dec(String hex) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -74,7 +79,7 @@ public class modHexaStrings {
 		return retval;
 	}
 
-	static String txtOffset(String Text, int off) {
+	public static String txtOffset(String Text, int off) {
 		String retval;
 		/* '*************************************************** */
 		/* 'Author: Unknown */

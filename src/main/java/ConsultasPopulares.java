@@ -1,5 +1,10 @@
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"ConsultasPopulares"')] */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_GlobalNameSpace'), (5, '='), (1, 'False')] */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Creatable'), (5, '='), (1, 'True')] */
@@ -58,27 +63,27 @@ public class ConsultasPopulares {
 	private int pNivelRequerido;
 	private int[] pOpciones = new int[0];
 
-	void Numero(int NumEncuesta) {
+	public void Numero(int NumEncuesta) {
 		pEncuestaActualNum = NumEncuesta;
 	}
 
-	int Numero() {
+	public int Numero() {
 		int retval = 0;
 		retval = pEncuestaActualNum;
 		return retval;
 	}
 
-	void texto(String Descripcion) {
+	public void texto(String Descripcion) {
 		pEncuestaActualTex = Descripcion;
 	}
 
-	String texto() {
+	public String texto() {
 		String retval;
 		retval = pEncuestaActualTex;
 		return retval;
 	}
 
-	void LoadData() {
+	public void LoadData() {
 		int CantOpciones = 0;
 		int i = 0;
 
@@ -100,7 +105,7 @@ public class ConsultasPopulares {
 		}
 	}
 
-	String doVotar(int UserIndex, int opcion) {
+	public String doVotar(int UserIndex, int opcion) {
 		String retval;
 		/* FIXME: ON ERROR GOTO errorh */
 
@@ -121,8 +126,8 @@ public class ConsultasPopulares {
 		if ((Declaraciones.UserList[UserIndex].Stats.ELV >= pNivelRequerido)) {
 			if ((OpcionValida(opcion))) {
 				YaVoto = vb6.val(ES.GetVar(CharFile, "CONSULTAS", "Voto")) >= pEncuestaActualNum;
-				if (!YaVoto) {
-					if (!MailYaVoto(Declaraciones.UserList[UserIndex].email)) {
+				if (! /* FIXME */YaVoto) {
+					if (! /* FIXME */MailYaVoto(Declaraciones.UserList[UserIndex].email)) {
 						/* 'pj apto para votar */
 						sufragio = vb6.CLng(vb6.val(ES.GetVar(vb6.App.Instance().Path + ARCHIVOCONFIG,
 								"RESULTADOS" + pEncuestaActualNum, "V" + opcion)));
@@ -153,7 +158,7 @@ public class ConsultasPopulares {
 		return retval;
 	}
 
-	String SendInfoEncuesta(int UserIndex) {
+	public String SendInfoEncuesta(int UserIndex) {
 		String retval;
 		int i = 0;
 		Protocol.WriteConsoleMsg(UserIndex, "CONSULTA POPULAR NUMERO " + pEncuestaActualNum,
@@ -171,12 +176,12 @@ public class ConsultasPopulares {
 		return retval;
 	}
 
-	void MarcarPjComoQueYaVoto(int UserIndex) {
+	private void MarcarPjComoQueYaVoto(int UserIndex) {
 		ES.WriteVar(Declaraciones.CharPath + Declaraciones.UserList[UserIndex].Name + ".chr", "CONSULTAS", "Voto",
 				vb6.str(pEncuestaActualNum));
 	}
 
-	boolean MailYaVoto(String email) {
+	private boolean MailYaVoto(String email) {
 		boolean retval = false;
 		/*
 		 * 'abro el archivo, while not eof levnato 1 linea y comparo. Si da
@@ -188,7 +193,7 @@ public class ConsultasPopulares {
 		retval = false;
 
 		/* ' Si no existe no voto. */
-		if (!General.FileExist(vb6.App.Instance().Path + ARCHIVOMAILS)) {
+		if (! /* FIXME */General.FileExist(vb6.App.Instance().Path + ARCHIVOMAILS)) {
 			return retval;
 		}
 
@@ -196,7 +201,7 @@ public class ConsultasPopulares {
 
 		/* FIXME: OPEN App . Path & ARCHIVOMAILS FOR INPUT AS # ArchN */
 
-		while (!clsByteBuffer.Eof(ArchN)) {
+		while (! /* FIXME */clsByteBuffer.Eof(ArchN)) {
 			/* FIXME: LINE INPUT # ArchN , Tmp */
 			if (email == Tmp) {
 				retval = true;
@@ -209,7 +214,7 @@ public class ConsultasPopulares {
 		return retval;
 	}
 
-	void MarcarMailComoQueYaVoto(String email) {
+	private void MarcarMailComoQueYaVoto(String email) {
 		int ArchN = 0;
 
 		ArchN = vb6.FreeFile();
@@ -221,7 +226,7 @@ public class ConsultasPopulares {
 
 	}
 
-	boolean OpcionValida(int opcion) {
+	private boolean OpcionValida(int opcion) {
 		boolean retval = false;
 		retval = opcion > 0 && opcion <= vb6.UBound(pOpciones);
 		return retval;

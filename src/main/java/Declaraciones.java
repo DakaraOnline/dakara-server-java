@@ -1,5 +1,10 @@
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"Declaraciones"')] */
 /* 'Argentum Online 0.12.2 */
 /* 'Copyright (C) 2002 Márquez Pablo Ignacio */
@@ -29,8 +34,6 @@
 /* 'Código Postal 1900 */
 /* 'Pablo Ignacio Márquez */
 
-import java.util.Deque;
-
 import enums.*;
 
 public class Declaraciones {
@@ -42,7 +45,7 @@ public class Declaraciones {
 	/* # END IF */
 
 	public static clsAntiMassClon aClon;
-	public static Deque<cGarbage> TrashCollector;
+	public static vb6.Collection TrashCollector;
 
 	static final int MAXSPAWNATTEMPS = 60;
 	static final int INFINITE_LOOPS = /* FANCY EXPRESSION */ -1;
@@ -1347,7 +1350,7 @@ public class Declaraciones {
 	public static User[] UserList = new User[0];
 	/* 'NPCS */
 	public static npc[] Npclist = new npc[1 + Declaraciones.MAXNPCS];
-	public static MapBlock[][][] MapData = new MapBlock[0][0][0];
+	public static MapBlock[] MapData = new MapBlock[0];
 	public static MapInfo[] MapInfo = new MapInfo[0];
 	public static tHechizo[] Hechizos = new tHechizo[0];
 	public static int[] CharList = new int[1 + Declaraciones.MAXCHARS];

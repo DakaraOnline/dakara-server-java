@@ -1,5 +1,10 @@
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"SecurityIp"')] */
 /* 'Argentum Online 0.12.2 */
 /* 'Copyright (C) 2002 Márquez Pablo Ignacio */
@@ -61,7 +66,7 @@ public class SecurityIp {
 
 	static final int LIMITECONEXIONESxIP = 10;
 
-	static void InitIpTables(int OptCountersValue) {
+	public static void InitIpTables(int OptCountersValue) {
 		/* '************************************************* ************* */
 		/* 'Author: Lucio N. Tourrilhes (DuNga) */
 		/* 'Last Modify Date: EL OSO 21/01/06. Soporte para MaxConTables */
@@ -103,7 +108,7 @@ public class SecurityIp {
 	 * '''''''
 	 */
 
-	static void IpSecurityMantenimientoLista() {
+	public static void IpSecurityMantenimientoLista() {
 		/* '************************************************* ************* */
 		/* 'Author: Lucio N. Tourrilhes (DuNga) */
 		/* 'Last Modify Date: Unknow */
@@ -118,7 +123,7 @@ public class SecurityIp {
 		MaxValue = 0;
 	}
 
-	static boolean IpSecurityAceptarNuevaConexion(int ip) {
+	public static boolean IpSecurityAceptarNuevaConexion(int ip) {
  boolean retval = false;
  /* '*************************************************  ************* */
  /* 'Author: Lucio N. Tourrilhes (DuNga) */
@@ -147,7 +152,7 @@ public class SecurityIp {
    return retval;
   }
   } else {
-  IpTableIndex = !IpTableIndex;
+  IpTableIndex = ! /* FIXME */IpTableIndex;
   AddNewIpIntervalo(ip, IpTableIndex);
   IpTables[IpTableIndex+1] = (tmpTime && 0x3FFFFFFF);
   retval = true;
@@ -158,7 +163,7 @@ public class SecurityIp {
 return retval;
 }
 
-	static void AddNewIpIntervalo(int ip, int index) {
+	public static void AddNewIpIntervalo(int ip, int index) {
 		/* '************************************************* ************* */
 		/* 'Author: Lucio N. Tourrilhes (DuNga) */
 		/* 'Last Modify Date: Unknow */
@@ -208,7 +213,7 @@ return retval;
 	 * ''''''
 	 */
 
-	static boolean IPSecuritySuperaLimiteConexiones(int ip) {
+	public static boolean IPSecuritySuperaLimiteConexiones(int ip) {
  boolean retval = false;
  int IpTableIndex = 0;
  
@@ -230,7 +235,7 @@ return retval;
   retval = false;
   /* 'si hay espacio.. */
    if (MaxConTablesEntry<Declaraciones.MaxUsers) {
-   IpTableIndex = !IpTableIndex;
+   IpTableIndex = ! /* FIXME */IpTableIndex;
    /* 'iptableindex es donde lo agrego */
    AddNewIpLimiteConexiones(ip, IpTableIndex);
    MaxConTables[IpTableIndex+1] = 1;
@@ -242,7 +247,7 @@ return retval;
 return retval;
 }
 
-	static void AddNewIpLimiteConexiones(int ip, int index) {
+	public static void AddNewIpLimiteConexiones(int ip, int index) {
 		/* '************************************************* ************* */
 		/* 'Author: (EL OSO) */
 		/* 'Last Modify Date: 16/2/2006 */
@@ -262,7 +267,7 @@ return retval;
 		MaxConTablesEntry = MaxConTablesEntry + 1;
 	}
 
-	static void IpRestarConexion(int ip) {
+	public static void IpRestarConexion(int ip) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -334,64 +339,61 @@ return retval;
 	 * ''''''
 	 */
 
-	static int FindTableIp(int ip, e_SecurityIpTabla Tabla) {
-		int retval = 0;
-		/* '************************************************* ************* */
-		/* 'Author: Lucio N. Tourrilhes (DuNga) */
-		/* 'Last Modify Date: Unknow */
-		/*
-		 * 'Modified by Juan Martín Sotuyo Dodero (Maraxus) to use Binary
-		 * Insertion
-		 */
-		/* '************************************************* ************* */
-		int First = 0;
-		int Last = 0;
-		int Middle = 0;
+	public static int FindTableIp(int ip, e_SecurityIpTabla Tabla) {
+ int retval = 0;
+ /* '*************************************************  ************* */
+ /* 'Author: Lucio N. Tourrilhes (DuNga) */
+ /* 'Last Modify Date: Unknow */
+ /* 'Modified by Juan Martín Sotuyo Dodero (Maraxus) to use Binary Insertion */
+ /* '*************************************************  ************* */
+ int First = 0;
+ int Last = 0;
+ int Middle = 0;
+ 
+ switch (Tabla) {
+  case IP_INTERVALOS:
+  First = 0;
+  Last = MaxValue-1;
+   while (First<=Last) {
+   Middle = (First+Last)/2;
+   
+    if ((IpTables[Middle*2]<ip)) {
+    First = Middle+1;
+    } else if ((IpTables[Middle*2]>ip)) {
+    Last = Middle-1;
+    } else {
+    retval = Middle*2;
+    return retval;
+   }
+  }
+  retval = ! / * FIXME * /(First*2);
+  
+  break;
+  
+  case IP_LIMITECONEXIONES:
+  
+  First = 0;
+  Last = MaxConTablesEntry-1;
+  
+   while (First<=Last) {
+   Middle = (First+Last)/2;
+   
+    if (MaxConTables[Middle*2]<ip) {
+    First = Middle+1;
+    } else if (MaxConTables[Middle*2]>ip) {
+    Last = Middle-1;
+    } else {
+    retval = Middle*2;
+    return retval;
+   }
+  }
+  retval = ! / * FIXME * /(First*2);
+ break;
+ }
+return retval;
+}
 
-		switch (Tabla) {
-		case IP_INTERVALOS:
-			First = 0;
-			Last = MaxValue - 1;
-			while (First <= Last) {
-				Middle = (First + Last) / 2;
-
-				if ((IpTables[Middle * 2] < ip)) {
-					First = Middle + 1;
-				} else if ((IpTables[Middle * 2] > ip)) {
-					Last = Middle - 1;
-				} else {
-					retval = Middle * 2;
-					return retval;
-				}
-			}
-			retval = !(First * 2);
-
-			break;
-
-		case IP_LIMITECONEXIONES:
-
-			First = 0;
-			Last = MaxConTablesEntry - 1;
-
-			while (First <= Last) {
-				Middle = (First + Last) / 2;
-
-				if (MaxConTables[Middle * 2] < ip) {
-					First = Middle + 1;
-				} else if (MaxConTables[Middle * 2] > ip) {
-					Last = Middle - 1;
-				} else {
-					retval = Middle * 2;
-					return retval;
-				}
-			}
-			retval = !(First * 2);
-			break;
-		}
-		return retval;
-	}
-
-	static int DumpTables() {
+	public static int DumpTables() {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */

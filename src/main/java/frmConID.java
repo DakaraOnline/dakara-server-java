@@ -1,6 +1,10 @@
-
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"frmConID"')] */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_GlobalNameSpace'), (5, '='), (1, 'False')] */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Creatable'), (5, '='), (1, 'False')] */
@@ -38,11 +42,11 @@ import enums.*;
 
 public class frmConID {
 
-	static void Command1_Click() {
+	public static void Command1_Click() {
 		Unload(Me);
 	}
 
-	static void Command2_Click() {
+	public static void Command2_Click() {
 
 		List1.Clear();
 
@@ -64,12 +68,12 @@ public class frmConID {
 
 	}
 
-	static void Command3_Click() {
+	public static void Command3_Click() {
 		int i = 0;
 
 		for (i = (1); i <= (Declaraciones.MaxUsers); i++) {
 			if (Declaraciones.UserList[i].ConnID != -1 && Declaraciones.UserList[i].ConnIDValida
-					&& !Declaraciones.UserList[i].flags.UserLogged) {
+					&& ! /* FIXME */Declaraciones.UserList[i].flags.UserLogged) {
 				TCP.CloseSocket(i);
 			}
 		}

@@ -1,5 +1,10 @@
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"clsByteQueue"')] */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_GlobalNameSpace'), (5, '='), (1, 'False')] */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Creatable'), (5, '='), (1, 'True')] */
@@ -89,7 +94,7 @@ public class clsByteQueue {
 	/* ' */
 	/* ' @see DATA_BUFFER */
 
-	void Class_Initialize() {
+	private void Class_Initialize() {
 		/* '*************************************************** */
 		/* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 04/27/06 */
@@ -104,7 +109,7 @@ public class clsByteQueue {
 	/* '' */
 	/* ' Clean up and release resources */
 
-	void Class_Terminate() {
+	private void Class_Terminate() {
 		/* '*************************************************** */
 		/* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 04/27/06 */
@@ -120,7 +125,7 @@ public class clsByteQueue {
 	/* ' @remarks This method will resize the ByteQueue's buffer to match */
 	/* ' the source. All previous data on this object will be lost. */
 
-	void CopyBuffer(clsByteQueue /* FIXME BYREF!! */ source) {
+	public void CopyBuffer(clsByteQueue /* FIXME BYREF!! */ source) {
 		/* '*************************************************** */
 		/* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 04/27/06 */
@@ -162,7 +167,7 @@ public class clsByteQueue {
 	 * used instead of it
 	 */
 
-	int min(int val1, int val2) {
+	private int min(int val1, int val2) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -195,7 +200,7 @@ public class clsByteQueue {
 	/* ' @see ReadData */
 	/* ' @see NOT_ENOUGH_DATA */
 
-	int WriteData(int[] /* FIXME BYREF!! */ buf, int dataLength) {
+	private int WriteData(int[] /* FIXME BYREF!! */ buf, int dataLength) {
  int retval = 0;
  /* '*************************************************** */
  /* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -245,7 +250,7 @@ return retval;
 	/* ' @see RemoveData */
 	/* ' @see NOT_ENOUGH_DATA */
 
-	int ReadData(int[] /* FIXME BYREF!! */ buf, int dataLength) {
+	private int ReadData(int[] /* FIXME BYREF!! */ buf, int dataLength) {
  int retval = 0;
  /* '*************************************************** */
  /* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -278,7 +283,7 @@ return retval;
 	/* ' @see WriteData */
 	/* ' @see ReadData */
 
-	int RemoveData(int dataLength) {
+	private int RemoveData(int dataLength) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -306,7 +311,7 @@ return retval;
 	/* ' @see PeekByte */
 	/* ' @see ReadByte */
 
-	int WriteByte(int value) {
+	public int WriteByte(int value) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -329,7 +334,7 @@ return retval;
 	/* ' @see PeekInteger */
 	/* ' @see ReadInteger */
 
-	int WriteInteger(int value) {
+	public int WriteInteger(int value) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -353,7 +358,7 @@ return retval;
 	/* ' @see PeekLong */
 	/* ' @see ReadLong */
 
-	int WriteLong(int value) {
+	public int WriteLong(int value) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -377,7 +382,7 @@ return retval;
 	/* ' @see PeekSingle */
 	/* ' @see ReadSingle */
 
-	int WriteSingle(float value) {
+	public int WriteSingle(float value) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -401,7 +406,7 @@ return retval;
 	/* ' @see PeekDouble */
 	/* ' @see ReadDouble */
 
-	int WriteDouble(double value) {
+	public int WriteDouble(double value) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -425,7 +430,7 @@ return retval;
 	/* ' @see PeekBoolean */
 	/* ' @see ReadBoolean */
 
-	int WriteBoolean(boolean value) {
+	public int WriteBoolean(boolean value) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -450,7 +455,7 @@ return retval;
 	/* ' @see PeekASCIIStringFixed */
 	/* ' @see ReadASCIIStringFixed */
 
-	int WriteASCIIStringFixed(String value) {
+	public int WriteASCIIStringFixed(String value) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -476,7 +481,7 @@ return retval;
 	/* ' @see PeekUnicodeStringFixed */
 	/* ' @see ReadUnicodeStringFixed */
 
-	int WriteUnicodeStringFixed(String value) {
+	public int WriteUnicodeStringFixed(String value) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -502,7 +507,7 @@ return retval;
 	/* ' @see PeekASCIIString */
 	/* ' @see ReadASCIIString */
 
-	int WriteASCIIString(String value) {
+	public int WriteASCIIString(String value) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -533,7 +538,7 @@ return retval;
 	/* ' @see PeekUnicodeString */
 	/* ' @see ReadUnicodeString */
 
-	int WriteUnicodeString(String value) {
+	public int WriteUnicodeString(String value) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -569,11 +574,11 @@ return retval;
 	/* ' @see PeekBlock */
 	/* ' @see ReadBlock */
 
-	int WriteBlock(int[] /* FIXME BYREF!! */ value) {
+	public int WriteBlock(int[] /* FIXME BYREF!! */ value) {
 		return WriteBlock(value, -1);
 	}
 
-	int WriteBlock(int[] /* FIXME BYREF!! */ value, int length) {
+	public int WriteBlock(int[] /* FIXME BYREF!! */ value, int length) {
  int retval = 0;
  /* '*************************************************** */
  /* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -598,7 +603,7 @@ return retval;
 	/* ' @see PeekByte */
 	/* ' @see WriteByte */
 
-	int ReadByte() {
+	public int ReadByte() {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -623,7 +628,7 @@ return retval;
 	/* ' @see PeekInteger */
 	/* ' @see WriteInteger */
 
-	int ReadInteger() {
+	public int ReadInteger() {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -649,7 +654,7 @@ return retval;
 	/* ' @see PeekLong */
 	/* ' @see WriteLong */
 
-	int ReadLong() {
+	public int ReadLong() {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -675,7 +680,7 @@ return retval;
 	/* ' @see PeekSingle */
 	/* ' @see WriteSingle */
 
-	float ReadSingle() {
+	public float ReadSingle() {
 		float retval = 0.0f;
 		/* '*************************************************** */
 		/* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -701,7 +706,7 @@ return retval;
 	/* ' @see PeekDouble */
 	/* ' @see WriteDouble */
 
-	double ReadDouble() {
+	public double ReadDouble() {
 		double retval = 0.0;
 		/* '*************************************************** */
 		/* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -727,7 +732,7 @@ return retval;
 	/* ' @see PeekBoolean */
 	/* ' @see WriteBoolean */
 
-	boolean ReadBoolean() {
+	public boolean ReadBoolean() {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -762,7 +767,7 @@ return retval;
 	/* ' @see PeekASCIIStringFixed */
 	/* ' @see WriteUnicodeStringFixed */
 
-	String ReadASCIIStringFixed(int length) {
+	public String ReadASCIIStringFixed(int length) {
  String retval;
  /* '*************************************************** */
  /* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -808,7 +813,7 @@ return retval;
 	/* ' @see PeekUnicodeStringFixed */
 	/* ' @see WriteUnicodeStringFixed */
 
-	String ReadUnicodeStringFixed(int length) {
+	public String ReadUnicodeStringFixed(int length) {
  String retval;
  /* '*************************************************** */
  /* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -850,7 +855,7 @@ return retval;
 	/* ' @see PeekASCIIString */
 	/* ' @see WriteASCIIString */
 
-	String ReadASCIIString() {
+	public String ReadASCIIString() {
  String retval;
  /* '*************************************************** */
  /* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -909,7 +914,7 @@ return retval;
 	/* ' @see PeekUnicodeString */
 	/* ' @see WriteUnicodeString */
 
-	String ReadUnicodeString() {
+	public String ReadUnicodeString() {
  String retval;
  /* '*************************************************** */
  /* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -965,7 +970,7 @@ return retval;
 	/* ' @see PeekBlock */
 	/* ' @see WriteBlock */
 
-	int ReadBlock(int[] /* FIXME BYREF!! */ block, int dataLength) {
+	public int ReadBlock(int[] /* FIXME BYREF!! */ block, int dataLength) {
  int retval = 0;
  /* '*************************************************** */
  /* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -993,7 +998,7 @@ return retval;
 	/* ' @see ReadByte */
 	/* ' @see WriteByte */
 
-	int PeekByte() {
+	public int PeekByte() {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -1022,7 +1027,7 @@ return retval;
 	/* ' @see ReadInteger */
 	/* ' @see WriteInteger */
 
-	int PeekInteger() {
+	public int PeekInteger() {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -1050,7 +1055,7 @@ return retval;
 	/* ' @see ReadLong */
 	/* ' @see WriteLong */
 
-	int PeekLong() {
+	public int PeekLong() {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -1080,7 +1085,7 @@ return retval;
 	/* ' @see ReadSingle */
 	/* ' @see WriteSingle */
 
-	float PeekSingle() {
+	public float PeekSingle() {
 		float retval = 0.0f;
 		/* '*************************************************** */
 		/* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -1110,7 +1115,7 @@ return retval;
 	/* ' @see ReadDouble */
 	/* ' @see WriteDouble */
 
-	double PeekDouble() {
+	public double PeekDouble() {
 		double retval = 0.0;
 		/* '*************************************************** */
 		/* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -1140,7 +1145,7 @@ return retval;
 	/* ' @see ReadBoolean */
 	/* ' @see WriteBoolean */
 
-	boolean PeekBoolean() {
+	public boolean PeekBoolean() {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -1180,7 +1185,7 @@ return retval;
 	/* ' @see ReadASCIIStringFixed */
 	/* ' @see WriteASCIIStringFixed */
 
-	String PeekASCIIStringFixed(int length) {
+	public String PeekASCIIStringFixed(int length) {
  String retval;
  /* '*************************************************** */
  /* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -1228,7 +1233,7 @@ return retval;
 	/* ' @see ReadUnicodeStringFixed */
 	/* ' @see WriteUnicodeStringFixed */
 
-	String PeekUnicodeStringFixed(int length) {
+	public String PeekUnicodeStringFixed(int length) {
  String retval;
  /* '*************************************************** */
  /* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -1275,7 +1280,7 @@ return retval;
 	/* ' @see ReadASCIIString */
 	/* ' @see WriteASCIIString */
 
-	String PeekASCIIString() {
+	public String PeekASCIIString() {
  String retval;
  /* '*************************************************** */
  /* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -1339,7 +1344,7 @@ return retval;
 	/* ' @see ReadUnicodeString */
 	/* ' @see WriteUnicodeString */
 
-	String PeekUnicodeString() {
+	public String PeekUnicodeString() {
  String retval;
  /* '*************************************************** */
  /* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -1399,7 +1404,7 @@ return retval;
 	/* ' @see ReadBlock */
 	/* ' @see WriteBlock */
 
-	int PeekBlock(int[] /* FIXME BYREF!! */ block, int dataLength) {
+	public int PeekBlock(int[] /* FIXME BYREF!! */ block, int dataLength) {
  int retval = 0;
  /* '*************************************************** */
  /* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -1418,7 +1423,7 @@ return retval;
 	/* ' */
 	/* ' @return The current capacity of the queue. */
 
-	int Capacity() {
+	public int Capacity() {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -1439,7 +1444,7 @@ return retval;
 	 */
 	/* ' @see Length */
 
-	void Capacity(int value) {
+	public void Capacity(int value) {
 		/* '*************************************************** */
 		/* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 04/27/06 */
@@ -1463,7 +1468,7 @@ return retval;
 	/* ' */
 	/* ' @return The length of the total data in the queue. */
 
-	int length() {
+	public int length() {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -1479,7 +1484,7 @@ return retval;
 	/* ' */
 	/* ' @return NOT_ENOUGH_DATA. */
 
-	int NotEnoughDataErrCode() {
+	public int NotEnoughDataErrCode() {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -1495,7 +1500,7 @@ return retval;
 	/* ' */
 	/* ' @return NOT_ENOUGH_SPACE. */
 
-	int NotEnoughSpaceErrCode() {
+	public int NotEnoughSpaceErrCode() {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */

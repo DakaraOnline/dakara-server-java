@@ -1,5 +1,10 @@
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"General"')] */
 /* 'Argentum Online 0.12.2 */
 /* 'Copyright (C) 2002 Márquez Pablo Ignacio */
@@ -35,11 +40,11 @@ public class General {
 
 	public static clsIniManager LeerNPCs;
 
-	static void DarCuerpoDesnudo(int UserIndex) {
+	public static void DarCuerpoDesnudo(int UserIndex) {
 		DarCuerpoDesnudo(UserIndex, false);
 	}
 
-	static void DarCuerpoDesnudo(int UserIndex, boolean Mimetizado) {
+	public static void DarCuerpoDesnudo(int UserIndex, boolean Mimetizado) {
 		/* '*************************************************** */
 		/* 'Autor: Nacho (Integer) */
 		/* 'Last Modification: 03/14/07 */
@@ -106,7 +111,7 @@ public class General {
 
 	}
 
-	static void Bloquear(boolean toMap, int sndIndex, int X, int Y, boolean b) {
+	public static void Bloquear(boolean toMap, int sndIndex, int X, int Y, boolean b) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -134,7 +139,7 @@ public class General {
 
 	}
 
-	static boolean HayAgua(int Map, int X, int Y) {
+	public static boolean HayAgua(int Map, int X, int Y) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -161,7 +166,7 @@ public class General {
 		return retval;
 	}
 
-	static boolean HayLava(int Map, int X, int Y) {
+	public static boolean HayLava(int Map, int X, int Y) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Autor: Nacho (Integer) */
@@ -181,7 +186,7 @@ public class General {
 		return retval;
 	}
 
-	static void LimpiarMundo() {
+	public static void LimpiarMundo() {
  /* '*************************************************** */
  /* 'Author: Unknow */
  /* 'Last Modification: 04/15/2008 */
@@ -210,7 +215,7 @@ public class General {
  LogError("Error producido en el sub LimpiarMundo: " + Err.description);
 }
 
-	static void EnviarSpawnList(int UserIndex) {
+	public static void EnviarSpawnList(int UserIndex) {
  /* '*************************************************** */
  /* 'Author: Unknown */
  /* 'Last Modification: - */
@@ -231,7 +236,7 @@ public class General {
  
 }
 
-	static void ConfigListeningSocket(Object /* FIXME BYREF!! */ Obj, int Port) {
+	public static void ConfigListeningSocket(Object /* FIXME BYREF!! */ Obj, int Port) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -244,7 +249,7 @@ public class General {
 
 	}
 
-	static void Main() {
+	public static void Main() {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 15/03/2011 */
@@ -355,7 +360,7 @@ public class General {
 
 	}
 
-	static void LoadConstants() {
+	public static void LoadConstants() {
 		/* '***************************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modify Date: 15/03/2011 */
@@ -510,7 +515,7 @@ public class General {
 
 	}
 
-	static void LoadArrays() {
+	public static void LoadArrays() {
 		/* '***************************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modify Date: 15/03/2011 */
@@ -527,7 +532,7 @@ public class General {
 		ES.CargarForbidenWords();
 	}
 
-	static void ResetUsersConnections() {
+	public static void ResetUsersConnections() {
 		/* '***************************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modify Date: 15/03/2011 */
@@ -545,7 +550,7 @@ public class General {
 
 	}
 
-	static void InitMainTimers() {
+	public static void InitMainTimers() {
 		/* '***************************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modify Date: 15/03/2011 */
@@ -569,7 +574,7 @@ public class General {
 
 	}
 
-	static void SocketConfig() {
+	public static void SocketConfig() {
 		/* '***************************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modify Date: 15/03/2011 */
@@ -598,7 +603,7 @@ public class General {
 
 	}
 
-	static void LogServerStartTime() {
+	public static void LogServerStartTime() {
 		/* '***************************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modify Date: 15/03/2011 */
@@ -617,11 +622,11 @@ public class General {
 
 	}
 
-	static boolean FileExist(String File) {
+	public static boolean FileExist(String File) {
 		return FileExist(File, 0);
 	}
 
-	static boolean FileExist(String File, int FileType) {
+	public static boolean FileExist(String File, int FileType) {
 		boolean retval = false;
 		/* '***************************************************************** */
 		/* 'Se fija si existe el archivo */
@@ -631,7 +636,7 @@ public class General {
 		return retval;
 	}
 
-	static String ReadField(int Pos, String /* FIXME BYREF!! */ Text, int SepASCII) {
+	public static String ReadField(int Pos, String /* FIXME BYREF!! */ Text, int SepASCII) {
 		String retval;
 		/* '***************************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
@@ -659,7 +664,7 @@ public class General {
 		return retval;
 	}
 
-	static boolean MapaValido(int Map) {
+	public static boolean MapaValido(int Map) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -671,7 +676,7 @@ public class General {
 		return retval;
 	}
 
-	static void MostrarNumUsers() {
+	public static void MostrarNumUsers() {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -682,7 +687,7 @@ public class General {
 
 	}
 
-	static void LogCriticEvent(String desc) {
+	public static void LogCriticEvent(String desc) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -707,7 +712,7 @@ public class General {
 
 	}
 
-	static void LogEjercitoReal(String desc) {
+	public static void LogEjercitoReal(String desc) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -732,7 +737,7 @@ public class General {
 
 	}
 
-	static void LogEjercitoCaos(String desc) {
+	public static void LogEjercitoCaos(String desc) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -757,7 +762,7 @@ public class General {
 
 	}
 
-	static void LogIndex(int index, String desc) {
+	public static void LogIndex(int index, String desc) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -782,7 +787,7 @@ public class General {
 
 	}
 
-	static void LogError(String desc) {
+	public static void LogError(String desc) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -807,7 +812,7 @@ public class General {
 
 	}
 
-	static void LogStatic(String desc) {
+	public static void LogStatic(String desc) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -832,7 +837,7 @@ public class General {
 
 	}
 
-	static void LogTarea(String desc) {
+	public static void LogTarea(String desc) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -857,7 +862,7 @@ public class General {
 
 	}
 
-	static void LogClanes(String str) {
+	public static void LogClanes(String str) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -876,7 +881,7 @@ public class General {
 
 	}
 
-	static void LogIP(String str) {
+	public static void LogIP(String str) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -895,7 +900,7 @@ public class General {
 
 	}
 
-	static void LogDesarrollo(String str) {
+	public static void LogDesarrollo(String str) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -914,7 +919,7 @@ public class General {
 
 	}
 
-	static void LogGM(String Nombre, String texto) {
+	public static void LogGM(String Nombre, String texto) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -940,7 +945,7 @@ public class General {
 
 	}
 
-	static void LogAsesinato(String texto) {
+	public static void LogAsesinato(String texto) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -966,7 +971,7 @@ public class General {
 
 	}
 
-	static void logVentaCasa(String texto) {
+	public static void logVentaCasa(String texto) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1000,7 +1005,7 @@ public class General {
 
 	}
 
-	static void LogHackAttemp(String texto) {
+	public static void LogHackAttemp(String texto) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1033,7 +1038,7 @@ public class General {
 
 	}
 
-	static void LogCheating(String texto) {
+	public static void LogCheating(String texto) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1058,7 +1063,7 @@ public class General {
 
 	}
 
-	static void LogCriticalHackAttemp(String texto) {
+	public static void LogCriticalHackAttemp(String texto) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1091,7 +1096,7 @@ public class General {
 
 	}
 
-	static void LogAntiCheat(String texto) {
+	public static void LogAntiCheat(String texto) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1117,7 +1122,7 @@ public class General {
 
 	}
 
-	static boolean ValidInputNP(String cad) {
+	public static boolean ValidInputNP(String cad) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -1143,7 +1148,7 @@ public class General {
 		return retval;
 	}
 
-	static void Restart() {
+	public static void Restart() {
  /* '*************************************************** */
  /* 'Author: Unknown */
  /* 'Last Modification: - */
@@ -1241,7 +1246,7 @@ public class General {
  
 }
 
-	static boolean Intemperie(int UserIndex) {
+	public static boolean Intemperie(int UserIndex) {
 		boolean retval = false;
 		/* '************************************************************** */
 		/* 'Author: Unknown */
@@ -1267,7 +1272,7 @@ public class General {
 		return retval;
 	}
 
-	static void EfectoLluvia(int UserIndex) {
+	public static void EfectoLluvia(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1290,7 +1295,7 @@ public class General {
 		LogError("Error en EfectoLluvia");
 	}
 
-	static void TiempoInvocacion(int UserIndex) {
+	public static void TiempoInvocacion(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1311,7 +1316,7 @@ public class General {
 		}
 	}
 
-	static void EfectoFrio(int UserIndex) {
+	public static void EfectoFrio(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Autor: Unkonwn */
 		/* 'Last Modification: 23/11/2009 */
@@ -1349,7 +1354,7 @@ public class General {
 		}
 	}
 
-	static void EfectoLava(int UserIndex) {
+	public static void EfectoLava(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Autor: Nacho (Integer) */
 		/* 'Last Modification: 23/11/2009 */
@@ -1390,7 +1395,7 @@ public class General {
 	 */
 	/* ' */
 
-	static void EfectoEstadoAtacable(int UserIndex) {
+	public static void EfectoEstadoAtacable(int UserIndex) {
 		/* '****************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Update: 18/09/2010 (ZaMa) */
@@ -1401,12 +1406,12 @@ public class General {
 		/* '****************************************************** */
 
 		/* ' Si ya paso el tiempo de penalizacion */
-		if (!modNuevoTimer.IntervaloEstadoAtacable(UserIndex)) {
+		if (! /* FIXME */modNuevoTimer.IntervaloEstadoAtacable(UserIndex)) {
 			/* ' Deja de poder ser atacado */
 			Declaraciones.UserList[UserIndex].flags.AtacablePor = 0;
 
 			/* ' Activo el seguro si deja de estar atacable */
-			if (!Declaraciones.UserList[UserIndex].flags.Seguro) {
+			if (! /* FIXME */Declaraciones.UserList[UserIndex].flags.Seguro) {
 				Protocol.WriteMultiMessage(UserIndex, eMessages.SafeModeOn);
 			}
 
@@ -1422,7 +1427,7 @@ public class General {
 	/* ' @param UserIndex El index del usuario a ser afectado por el /hogar */
 	/* ' */
 
-	static void TravelingEffect(int UserIndex) {
+	public static void TravelingEffect(int UserIndex) {
 		/* '****************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Update: 01/06/2010 (ZaMa) */
@@ -1443,7 +1448,7 @@ public class General {
 	 */
 	/* ' */
 
-	static void EfectoMimetismo(int UserIndex) {
+	public static void EfectoMimetismo(int UserIndex) {
 		/* '****************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Update: 16/09/2010 (ZaMa) */
@@ -1495,7 +1500,7 @@ public class General {
 		}
 	}
 
-	static void EfectoInvisibilidad(int UserIndex) {
+	public static void EfectoInvisibilidad(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 16/09/2010 (ZaMa) */
@@ -1516,7 +1521,7 @@ public class General {
 				Protocol.WriteConsoleMsg(UserIndex, "Has vuelto a ser visible.", FontTypeNames.FONTTYPE_INFO);
 
 				/* ' Si navega ya esta visible.. */
-				if (!Declaraciones.UserList[UserIndex].flags.Navegando == 1) {
+				if (! /* FIXME */Declaraciones.UserList[UserIndex].flags.Navegando == 1) {
 					UsUaRiOs.SetInvisible(UserIndex, Declaraciones.UserList[UserIndex].Char.CharIndex, false);
 				}
 
@@ -1525,7 +1530,7 @@ public class General {
 
 	}
 
-	static void EfectoParalisisNpc(int NpcIndex) {
+	public static void EfectoParalisisNpc(int NpcIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1542,7 +1547,7 @@ public class General {
 
 	}
 
-	static void EfectoCegueEstu(int UserIndex) {
+	public static void EfectoCegueEstu(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1565,7 +1570,7 @@ public class General {
 
 	}
 
-	static void EfectoParalisisUser(int UserIndex) {
+	public static void EfectoParalisisUser(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 02/12/2010 */
@@ -1597,7 +1602,8 @@ public class General {
 
 					} else if (Declaraciones.UserList[UserIndex].Counters.Paralisis > Admin.IntervaloParalizadoReducido) {
 						/* ' Out of vision range? => Reduce paralisis counter */
-						if (!Extra.InVisionRangeAndMap(UserIndex, Declaraciones.UserList[CasterIndex].Pos)) {
+						if (! /* FIXME */Extra.InVisionRangeAndMap(UserIndex,
+								Declaraciones.UserList[CasterIndex].Pos)) {
 							/* ' Aprox. 1500 ms */
 							Declaraciones.UserList[UserIndex].Counters.Paralisis = Admin.IntervaloParalizadoReducido;
 							return;
@@ -1616,7 +1622,8 @@ public class General {
 							 * ' Out of vision range? => Reduce paralisis
 							 * counter
 							 */
-							if (!Extra.InVisionRangeAndMap(UserIndex, Declaraciones.Npclist[CasterIndex].Pos)) {
+							if (! /* FIXME */Extra.InVisionRangeAndMap(UserIndex,
+									Declaraciones.Npclist[CasterIndex].Pos)) {
 								/* ' Aprox. 1500 ms */
 								Declaraciones.UserList[UserIndex].Counters.Paralisis = Admin.IntervaloParalizadoReducido;
 								return;
@@ -1636,7 +1643,7 @@ public class General {
 
 	}
 
-	static void RemoveParalisis(int UserIndex) {
+	public static void RemoveParalisis(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 20/11/2010 */
@@ -1651,7 +1658,7 @@ public class General {
 		Protocol.WriteParalizeOK(UserIndex);
 	}
 
-	static void RecStamina(int UserIndex, boolean /* FIXME BYREF!! */ EnviarStats, int Intervalo) {
+	public static void RecStamina(int UserIndex, boolean /* FIXME BYREF!! */ EnviarStats, int Intervalo) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1689,7 +1696,7 @@ public class General {
 
 	}
 
-	static void EfectoVeneno(int UserIndex) {
+	public static void EfectoVeneno(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1714,7 +1721,7 @@ public class General {
 
 	}
 
-	static void DuracionPociones(int UserIndex) {
+	public static void DuracionPociones(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: ?????? */
 		/* 'Last Modification: 11/27/09 (Budi) */
@@ -1744,14 +1751,14 @@ public class General {
 
 	}
 
-	static void HambreYSed(int UserIndex, boolean /* FIXME BYREF!! */ fenviarAyS) {
+	public static void HambreYSed(int UserIndex, boolean /* FIXME BYREF!! */ fenviarAyS) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
 		/* ' */
 		/* '*************************************************** */
 
-		if (!Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.User) {
+		if (! /* FIXME */Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.User) {
 			return;
 		}
 
@@ -1791,7 +1798,7 @@ public class General {
 
 	}
 
-	static void Sanar(int UserIndex, boolean /* FIXME BYREF!! */ EnviarStats, int Intervalo) {
+	public static void Sanar(int UserIndex, boolean /* FIXME BYREF!! */ EnviarStats, int Intervalo) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1826,7 +1833,7 @@ public class General {
 
 	}
 
-	static void CargaNpcsDat() {
+	public static void CargaNpcsDat() {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1840,7 +1847,7 @@ public class General {
 		General.LeerNPCs.Initialize(npcfile);
 	}
 
-	static void PasarSegundo() {
+	public static void PasarSegundo() {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1872,7 +1879,7 @@ public class General {
 		/* FIXME: RESUME NEXT */
 	}
 
-	static double ReiniciarAutoUpdate() {
+	public static double ReiniciarAutoUpdate() {
 		double retval = 0.0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -1885,11 +1892,11 @@ public class General {
 		return retval;
 	}
 
-	static void ReiniciarServidor() {
+	public static void ReiniciarServidor() {
 		ReiniciarServidor(true);
 	}
 
-	static void ReiniciarServidor(boolean EjecutarLauncher) {
+	public static void ReiniciarServidor(boolean EjecutarLauncher) {
  /* '*************************************************** */
  /* 'Author: Unknown */
  /* 'Last Modification: - */
@@ -1914,7 +1921,7 @@ public class General {
  
 }
 
-	static void GuardarUsuarios() {
+	public static void GuardarUsuarios() {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1944,7 +1951,7 @@ public class General {
 		Declaraciones.haciendoBK = false;
 	}
 
-	static void InicializaEstadisticas() {
+	public static void InicializaEstadisticas() {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1964,7 +1971,7 @@ public class General {
 
 	}
 
-	static void FreeNPCs() {
+	public static void FreeNPCs() {
 		/* '*************************************************** */
 		/* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */
@@ -1978,7 +1985,7 @@ public class General {
 		}
 	}
 
-	static void FreeCharIndexes() {
+	public static void FreeCharIndexes() {
 		/* '*************************************************** */
 		/* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 05/17/06 */

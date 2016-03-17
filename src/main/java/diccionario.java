@@ -1,5 +1,10 @@
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"diccionario"')] */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_GlobalNameSpace'), (5, '='), (1, 'False')] */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Creatable'), (5, '='), (1, 'True')] */
@@ -47,23 +52,23 @@ public class diccionario {
 	private diccElem[] p_elementos = new diccElem[1 + MAX_ELEM];
 	private int p_cant;
 
-	void Class_Initialize() {
+	public void Class_Initialize() {
 		/* 'constructor */
 		p_cant = 0;
 	}
 
-	void Class_Terminate() {
+	public void Class_Terminate() {
 		/* 'destructor */
 		/* 'destruir los variants????? */
 	}
 
-	int CantElem() {
+	public int CantElem() {
 		int retval = 0;
 		retval = p_cant;
 		return retval;
 	}
 
-	boolean AtPut(String clave, Object /* FIXME BYREF!! */ elem) {
+	public boolean AtPut(String clave, Object /* FIXME BYREF!! */ elem) {
 		boolean retval = false;
 		int i = 0;
 
@@ -86,7 +91,7 @@ public class diccionario {
 					break; /* FIXME: EXIT FOR */
 				}
 			}
-			if (!retval) {
+			if (! /* FIXME */retval) {
 				p_cant = p_cant + 1;
 				p_elementos[p_cant].def = elem;
 				p_elementos[p_cant].clave = clave;
@@ -97,7 +102,7 @@ public class diccionario {
 		return retval;
 	}
 
-	Object At(String clave) {
+	public Object At(String clave) {
 		Object retval;
 		int i = 0;
 
@@ -114,13 +119,13 @@ public class diccionario {
 		return retval;
 	}
 
-	String AtIndex(int i) {
+	public String AtIndex(int i) {
 		String retval;
 		retval = p_elementos[i].clave;
 		return retval;
 	}
 
-	String MayorValor(int /* FIXME BYREF!! */ cant) {
+	public String MayorValor(int /* FIXME BYREF!! */ cant) {
 		String retval;
 		/* 'parchecito para el AO, me da la clave con mayor valor en valor */
 		/* 'y la cantidad de claves con ese valor (por si hay empate) */
@@ -144,7 +149,7 @@ public class diccionario {
 		return retval;
 	}
 
-	void DumpAll() {
+	public void DumpAll() {
 		int i = 0;
 
 		for (i = (1); i <= (MAX_ELEM); i++) {

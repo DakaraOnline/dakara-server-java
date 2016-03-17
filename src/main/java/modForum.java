@@ -1,6 +1,10 @@
-
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"modForum"')] */
 /* 'Argentum Online 0.12.2 */
 /* 'Copyright (C) 2002 Márquez Pablo Ignacio */
@@ -57,7 +61,7 @@ public class modForum {
 	private static int NumForos;
 	private static tForo[] Foros = new tForo[0];
 
-	static void AddForum(String sForoID) {
+	public static void AddForum(String sForoID) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 22/02/2010 */
@@ -125,7 +129,7 @@ public class modForum {
 
 	}
 
-	static int GetForumIndex(String /* FIXME BYREF!! */ sForoID) {
+	public static int GetForumIndex(String /* FIXME BYREF!! */ sForoID) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
@@ -145,7 +149,7 @@ public class modForum {
 		return retval;
 	}
 
-	static void AddPost(int ForumIndex, String /* FIXME BYREF!! */ Post,
+	public static void AddPost(int ForumIndex, String /* FIXME BYREF!! */ Post,
 			String /* FIXME BYREF!! */ Autor, String /* FIXME BYREF!! */ Titulo, boolean bAnuncio) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
@@ -180,7 +184,7 @@ public class modForum {
 		}
 	}
 
-	static void SaveForums() {
+	public static void SaveForums() {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 22/02/2010 */
@@ -193,7 +197,7 @@ public class modForum {
 		}
 	}
 
-	static void SaveForum(int ForumIndex) {
+	public static void SaveForum(int ForumIndex) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 22/02/2010 */
@@ -244,7 +248,7 @@ public class modForum {
 
 	}
 
-	static void CleanForum(int ForumIndex) {
+	public static void CleanForum(int ForumIndex) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 22/02/2010 */
@@ -285,7 +289,7 @@ public class modForum {
 
 	}
 
-	static boolean SendPosts(int UserIndex, String /* FIXME BYREF!! */ ForoID) {
+	public static boolean SendPosts(int UserIndex, String /* FIXME BYREF!! */ ForoID) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
@@ -369,7 +373,7 @@ public class modForum {
 		return retval;
 	}
 
-	static boolean EsAnuncio(int ForumType) {
+	public static boolean EsAnuncio(int ForumType) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
@@ -396,7 +400,7 @@ public class modForum {
 		return retval;
 	}
 
-	static int ForumAlignment(int yForumType) {
+	public static int ForumAlignment(int yForumType) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
@@ -426,7 +430,7 @@ public class modForum {
 		return retval;
 	}
 
-	static void ResetForums() {
+	public static void ResetForums() {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 22/02/2010 */
@@ -437,7 +441,7 @@ public class modForum {
 		NumForos = 0;
 	}
 
-	static void MoveArray(int ForumIndex, boolean Sticky) {
+	public static void MoveArray(int ForumIndex, boolean Sticky) {
 		int i = 0;
 
 		if (Sticky) {

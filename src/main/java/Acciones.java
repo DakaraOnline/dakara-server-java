@@ -1,5 +1,10 @@
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"Acciones"')] */
 /* 'Argentum Online 0.12.2 */
 /* 'Copyright (C) 2002 Márquez Pablo Ignacio */
@@ -48,7 +53,7 @@ public class Acciones {
 	/* ' @param X X */
 	/* ' @param Y Y */
 
-	static void Accion(int UserIndex, int Map, int X, int Y) {
+	public static void Accion(int UserIndex, int Map, int X, int Y) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -209,7 +214,7 @@ public class Acciones {
 		}
 	}
 
-	static void AccionParaForo(int Map, int X, int Y, int UserIndex) {
+	public static void AccionParaForo(int Map, int X, int Y, int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 02/01/2010 */
@@ -218,7 +223,7 @@ public class Acciones {
 
 		/* FIXME: ON ERROR RESUME NEXT */
 
-		Declaraciones.WorldPos Pos = new Declaraciones.WorldPos();
+		Declaraciones.WorldPos Pos;
 
 		Pos.Map = Map;
 		Pos.X = X;
@@ -236,17 +241,17 @@ public class Acciones {
 
 	}
 
-	static void AccionParaPuerta(int Map, int X, int Y, int UserIndex) {
+	public static void AccionParaPuerta(int Map, int X, int Y, int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
 		/* ' */
 		/* '*************************************************** */
 
-		/* FIXME: ESTO ES UNA COPY PASTA HORRIBLE */
+		/* FIXME: ON ERROR RESUME NEXT */
 
-		if (!(Matematicas.Distance(Declaraciones.UserList[UserIndex].Pos.X, Declaraciones.UserList[UserIndex].Pos.Y, X,
-				Y) > 2)) {
+		if (! /* FIXME */(Matematicas.Distance(Declaraciones.UserList[UserIndex].Pos.X,
+				Declaraciones.UserList[UserIndex].Pos.Y, X, Y) > 2)) {
 			if (Declaraciones.ObjData[Declaraciones.MapData[Map][X][Y].ObjInfo.ObjIndex].Llave == 0) {
 				if (Declaraciones.ObjData[Declaraciones.MapData[Map][X][Y].ObjInfo.ObjIndex].Cerrada == 1) {
 					/* 'Abre la puerta */
@@ -264,8 +269,8 @@ public class Acciones {
 						Declaraciones.MapData[Map][X - 1][Y].Blocked = 0;
 
 						/* 'Bloquea todos los mapas */
-						General.Bloquear(true, Map, X, Y, false);
-						General.Bloquear(true, Map, X - 1, Y, false);
+						General.Bloquear(true, Map, X, Y, 0);
+						General.Bloquear(true, Map, X - 1, Y, 0);
 
 						/* 'Sonido */
 						modSendData.SendData(SendTarget.ToPCArea, UserIndex,
@@ -285,8 +290,8 @@ public class Acciones {
 					Declaraciones.MapData[Map][X][Y].Blocked = 1;
 					Declaraciones.MapData[Map][X - 1][Y].Blocked = 1;
 
-					General.Bloquear(true, Map, X - 1, Y, true);
-					General.Bloquear(true, Map, X, Y, true);
+					General.Bloquear(true, Map, X - 1, Y, 1);
+					General.Bloquear(true, Map, X, Y, 1);
 
 					modSendData.SendData(SendTarget.ToPCArea, UserIndex,
 							Protocol.PrepareMessagePlayWave(Declaraciones.SND_PUERTA, X, Y));
@@ -302,7 +307,7 @@ public class Acciones {
 
 	}
 
-	static void AccionParaCartel(int Map, int X, int Y, int UserIndex) {
+	public static void AccionParaCartel(int Map, int X, int Y, int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -311,7 +316,7 @@ public class Acciones {
 
 		/* FIXME: ON ERROR RESUME NEXT */
 
-		if (Declaraciones.ObjData[Declaraciones.MapData[Map][X][Y].ObjInfo.ObjIndex].OBJType == eOBJType.otCarteles) {
+		if (Declaraciones.ObjData[Declaraciones.MapData[Map][X][Y].ObjInfo.ObjIndex].OBJType == 8) {
 
 			if (vb6.Len(Declaraciones.ObjData[Declaraciones.MapData[Map][X][Y].ObjInfo.ObjIndex].texto) > 0) {
 				Protocol.WriteShowSignal(UserIndex, Declaraciones.MapData[Map][X][Y].ObjInfo.ObjIndex);
@@ -321,80 +326,77 @@ public class Acciones {
 
 	}
 
-	static void AccionParaRamita(int Map, int X, int Y, int UserIndex) {
-		/* '*************************************************** */
-		/* 'Author: Unknown */
-		/* 'Last Modification: - */
-		/* ' */
-		/* '*************************************************** */
-
-		/* FIXME: ON ERROR RESUME NEXT */
-
-		int Suerte = 0;
-		int exito = 0;
-		Declaraciones.Obj Obj;
-
-		int SkillSupervivencia = 0;
-
-		Declaraciones.WorldPos Pos = new Declaraciones.WorldPos();
-		
-		Pos.Map = Map;
-		Pos.X = X;
-		Pos.Y = Y;
-
-		if (Matematicas.Distancia(Pos, Declaraciones.UserList[UserIndex].Pos) > 2) {
-			Protocol.WriteConsoleMsg(UserIndex, "Estás demasiado lejos.", FontTypeNames.FONTTYPE_INFO);
-			return;
-		}
-
-		if (Declaraciones.MapData[Map][X][Y].trigger == eTrigger.ZONASEGURA || Declaraciones.MapInfo[Map].Pk == false) {
-			Protocol.WriteConsoleMsg(UserIndex, "No puedes hacer fogatas en zona segura.", FontTypeNames.FONTTYPE_INFO);
-			return;
-		}
-
-		SkillSupervivencia = Declaraciones.UserList[UserIndex].Stats.UserSkills[eSkill.Supervivencia.toInteger()];
-
-		if (SkillSupervivencia < 6) {
-			Suerte = 3;
-
-		} else if (SkillSupervivencia <= 10) {
-			Suerte = 2;
-
-		} else {
-			Suerte = 1;
-		}
-
-		exito = Matematicas.RandomNumber(1, Suerte);
-
-		if (exito == 1) {
-			if (Declaraciones.MapInfo[Declaraciones.UserList[UserIndex].Pos.Map].Zona != Declaraciones.Ciudad) {
-				Obj = new Declaraciones.Obj();
-				Obj.ObjIndex = Declaraciones.FOGATA;
-				Obj.Amount = 1;
-
-				Protocol.WriteConsoleMsg(UserIndex, "Has prendido la fogata.", FontTypeNames.FONTTYPE_INFO);
-
-				InvUsuario.MakeObj(Obj, Map, X, Y);
-
-				/* 'Las fogatas prendidas se deben eliminar */
-				cGarbage Fogatita;
-				Fogatita = new cGarbage();
-				Fogatita.Map = Map;
-				Fogatita.X = X;
-				Fogatita.Y = Y;
-				Declaraciones.TrashCollector.addLast(Fogatita);
-
-				UsUaRiOs.SubirSkill(UserIndex, eSkill.Supervivencia, true);
-			} else {
-				Protocol.WriteConsoleMsg(UserIndex, "La ley impide realizar fogatas en las ciudades.",
-						FontTypeNames.FONTTYPE_INFO);
-				return;
-			}
-		} else {
-			Protocol.WriteConsoleMsg(UserIndex, "No has podido hacer fuego.", FontTypeNames.FONTTYPE_INFO);
-			UsUaRiOs.SubirSkill(UserIndex, eSkill.Supervivencia, false);
-		}
-
-	}
+	public static void AccionParaRamita(int Map, int X, int Y, int UserIndex) {
+ /* '*************************************************** */
+ /* 'Author: Unknown */
+ /* 'Last Modification: - */
+ /* ' */
+ /* '*************************************************** */
+ 
+ /* FIXME: ON ERROR RESUME NEXT */
+ 
+ int Suerte = 0;
+ int exito = 0;
+ Declaraciones.Obj Obj;
+ 
+ int SkillSupervivencia = 0;
+ 
+ Declaraciones.WorldPos Pos;
+ Pos.Map = Map;
+ Pos.X = X;
+ Pos.Y = Y;
+ 
+   if (Matematicas.Distancia(Pos, Declaraciones.UserList[UserIndex].Pos)>2) {
+   Protocol.WriteConsoleMsg(UserIndex, "Estás demasiado lejos.", FontTypeNames.FONTTYPE_INFO);
+   return;
+  }
+  
+   if (Declaraciones.MapData[Map][X][Y].trigger == eTrigger.ZONASEGURA || Declaraciones.MapInfo[Map].Pk == false) {
+   Protocol.WriteConsoleMsg(UserIndex, "No puedes hacer fogatas en zona segura.", FontTypeNames.FONTTYPE_INFO);
+   return;
+  }
+  
+  SkillSupervivencia = Declaraciones.UserList[UserIndex].Stats.UserSkills[eSkill.Supervivencia];
+  
+   if (SkillSupervivencia<6) {
+   Suerte = 3;
+   
+   } else if (SkillSupervivencia<=10) {
+   Suerte = 2;
+   
+   } else {
+   Suerte = 1;
+  }
+  
+  exito = Matematicas.RandomNumber(1, Suerte);
+  
+   if (exito == 1) {
+    if (Declaraciones.MapInfo[Declaraciones.UserList[UserIndex].Pos.Map].Zona != Declaraciones.Ciudad) {
+    Obj.ObjIndex = Declaraciones.FOGATA;
+    Obj.Amount = 1;
+    
+    Protocol.WriteConsoleMsg(UserIndex, "Has prendido la fogata.", FontTypeNames.FONTTYPE_INFO);
+    
+    InvUsuario.MakeObj(Obj, Map, X, Y);
+    
+    /* 'Las fogatas prendidas se deben eliminar */
+    cGarbage Fogatita;
+    Fogatita = new cGarbage();
+    Fogatita.Map = Map;
+    Fogatita.X = X;
+    Fogatita.Y = Y;
+    Declaraciones.TrashCollector.Add[Fogatita];
+    
+    UsUaRiOs.SubirSkill(UserIndex, eSkill.Supervivencia, true);
+    } else {
+    Protocol.WriteConsoleMsg(UserIndex, "La ley impide realizar fogatas en las ciudades.", FontTypeNames.FONTTYPE_INFO);
+    return;
+   }
+   } else {
+   Protocol.WriteConsoleMsg(UserIndex, "No has podido hacer fuego.", FontTypeNames.FONTTYPE_INFO);
+   UsUaRiOs.SubirSkill(UserIndex, eSkill.Supervivencia, false);
+  }
+  
+}
 
 }

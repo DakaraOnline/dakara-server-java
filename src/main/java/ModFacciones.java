@@ -1,6 +1,10 @@
-
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"ModFacciones"')] */
 /* 'Argentum Online 0.12.2 */
 /* 'Copyright (C) 2002 Márquez Pablo Ignacio */
@@ -78,7 +82,7 @@ public static tFaccionArmaduras[] ArmadurasFaccion = new tFaccionArmaduras[[('1'
 /* ' Contiene la cantidad de exp otorgada cada vez que aumenta el rango */
 	public static int[] RecompensaFacciones = new int[0 + ModFacciones.NUM_RANGOS_FACCION];
 
-	static int GetArmourAmount(int Rango, eTipoDefArmors TipoDef) {
+	public static int GetArmourAmount(int Rango, eTipoDefArmors TipoDef) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Autor: ZaMa */
@@ -102,7 +106,7 @@ public static tFaccionArmaduras[] ArmadurasFaccion = new tFaccionArmaduras[[('1'
 			break;
 
 		case ieAlta:
-			retval = Rango * 1.35;
+			retval = Rango * 1.35f;
 
 			break;
 		}
@@ -110,7 +114,7 @@ public static tFaccionArmaduras[] ArmadurasFaccion = new tFaccionArmaduras[[('1'
 		return retval;
 	}
 
-	static void GiveFactionArmours(int UserIndex, boolean IsCaos) {
+	public static void GiveFactionArmours(int UserIndex, boolean IsCaos) {
 		/* '*************************************************** */
 		/* 'Autor: ZaMa */
 		/* 'Last Modification: 15/04/2010 */
@@ -132,7 +136,7 @@ public static tFaccionArmaduras[] ArmadurasFaccion = new tFaccionArmaduras[[('1'
 			ObjArmour.ObjIndex = ModFacciones.ArmadurasFaccion[Declaraciones.UserList[UserIndex].clase][Declaraciones.UserList[UserIndex].raza].Armada[eTipoDefArmors.ieBaja];
 		}
 
-		if (!InvUsuario.MeterItemEnInventario(UserIndex, ObjArmour)) {
+		if (! /* FIXME */InvUsuario.MeterItemEnInventario(UserIndex, ObjArmour)) {
 			InvNpc.TirarItemAlPiso(Declaraciones.UserList[UserIndex].Pos, ObjArmour);
 		}
 
@@ -145,7 +149,7 @@ public static tFaccionArmaduras[] ArmadurasFaccion = new tFaccionArmaduras[[('1'
 			ObjArmour.ObjIndex = ModFacciones.ArmadurasFaccion[Declaraciones.UserList[UserIndex].clase][Declaraciones.UserList[UserIndex].raza].Armada[eTipoDefArmors.ieMedia];
 		}
 
-		if (!InvUsuario.MeterItemEnInventario(UserIndex, ObjArmour)) {
+		if (! /* FIXME */InvUsuario.MeterItemEnInventario(UserIndex, ObjArmour)) {
 			InvNpc.TirarItemAlPiso(Declaraciones.UserList[UserIndex].Pos, ObjArmour);
 		}
 
@@ -158,13 +162,13 @@ public static tFaccionArmaduras[] ArmadurasFaccion = new tFaccionArmaduras[[('1'
 			ObjArmour.ObjIndex = ModFacciones.ArmadurasFaccion[Declaraciones.UserList[UserIndex].clase][Declaraciones.UserList[UserIndex].raza].Armada[eTipoDefArmors.ieAlta];
 		}
 
-		if (!InvUsuario.MeterItemEnInventario(UserIndex, ObjArmour)) {
+		if (! /* FIXME */InvUsuario.MeterItemEnInventario(UserIndex, ObjArmour)) {
 			InvNpc.TirarItemAlPiso(Declaraciones.UserList[UserIndex].Pos, ObjArmour);
 		}
 
 	}
 
-	static void GiveExpReward(int UserIndex, int Rango) {
+	public static void GiveExpReward(int UserIndex, int Rango) {
 		/* '*************************************************** */
 		/* 'Autor: ZaMa */
 		/* 'Last Modification: 15/04/2010 */
@@ -188,7 +192,7 @@ public static tFaccionArmaduras[] ArmadurasFaccion = new tFaccionArmaduras[[('1'
 
 	}
 
-	static void EnlistarArmadaReal(int UserIndex) {
+	public static void EnlistarArmadaReal(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Autor: Pablo (ToxicWaste) & Unknown (orginal version) */
 		/* 'Last Modification: 15/04/2010 */
@@ -318,7 +322,7 @@ public static tFaccionArmaduras[] ArmadurasFaccion = new tFaccionArmaduras[[('1'
 
 	}
 
-	static void RecompensaArmadaReal(int UserIndex) {
+	public static void RecompensaArmadaReal(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Autor: Pablo (ToxicWaste) & Unknown (orginal version) */
 		/* 'Last Modification: 15/04/2010 */
@@ -533,11 +537,11 @@ public static tFaccionArmaduras[] ArmadurasFaccion = new tFaccionArmaduras[[('1'
 
 	}
 
-	static void ExpulsarFaccionReal(int UserIndex) {
+	public static void ExpulsarFaccionReal(int UserIndex) {
 		ExpulsarFaccionReal(UserIndex, true);
 	}
 
-	static void ExpulsarFaccionReal(int UserIndex, boolean Expulsado) {
+	public static void ExpulsarFaccionReal(int UserIndex, boolean Expulsado) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -591,11 +595,11 @@ public static tFaccionArmaduras[] ArmadurasFaccion = new tFaccionArmaduras[[('1'
 
 	}
 
-	static void ExpulsarFaccionCaos(int UserIndex) {
+	public static void ExpulsarFaccionCaos(int UserIndex) {
 		ExpulsarFaccionCaos(UserIndex, true);
 	}
 
-	static void ExpulsarFaccionCaos(int UserIndex, boolean Expulsado) {
+	public static void ExpulsarFaccionCaos(int UserIndex, boolean Expulsado) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -649,7 +653,7 @@ public static tFaccionArmaduras[] ArmadurasFaccion = new tFaccionArmaduras[[('1'
 
 	}
 
-	static String TituloReal(int UserIndex) {
+	public static String TituloReal(int UserIndex) {
 		String retval;
 		/* '*************************************************** */
 		/* 'Autor: Unknown */
@@ -750,7 +754,7 @@ public static tFaccionArmaduras[] ArmadurasFaccion = new tFaccionArmaduras[[('1'
 		return retval;
 	}
 
-	static void EnlistarCaos(int UserIndex) {
+	public static void EnlistarCaos(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Autor: Pablo (ToxicWaste) & Unknown (orginal version) */
 		/* 'Last Modification: 27/11/2009 */
@@ -765,7 +769,7 @@ public static tFaccionArmaduras[] ArmadurasFaccion = new tFaccionArmaduras[[('1'
 		/* 'Handles the entrance of users to the "Legión Oscura" */
 		/* '*************************************************** */
 
-		if (!ES.criminal(UserIndex)) {
+		if (! /* FIXME */ES.criminal(UserIndex)) {
 			Protocol.WriteChatOverHead(UserIndex, "¡¡¡Lárgate de aquí, bufón!!!",
 					vb6.str(Declaraciones.Npclist[Declaraciones.UserList[UserIndex].flags.TargetNPC].Char.CharIndex),
 					0x00ffffff);
@@ -799,7 +803,7 @@ public static tFaccionArmaduras[] ArmadurasFaccion = new tFaccionArmaduras[[('1'
 		}
 		/* '[/Barrin] */
 
-		if (!ES.criminal(UserIndex)) {
+		if (! /* FIXME */ES.criminal(UserIndex)) {
 			Protocol.WriteChatOverHead(UserIndex, "¡¡Ja ja ja!! Tú no eres bienvenido aquí asqueroso ciudadano.",
 					vb6.str(Declaraciones.Npclist[Declaraciones.UserList[UserIndex].flags.TargetNPC].Char.CharIndex),
 					0x00ffffff);
@@ -879,7 +883,7 @@ public static tFaccionArmaduras[] ArmadurasFaccion = new tFaccionArmaduras[[('1'
 
 	}
 
-	static void RecompensaCaos(int UserIndex) {
+	public static void RecompensaCaos(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Pablo (ToxicWaste) & Unknown (orginal version) */
 		/* 'Last Modification: 15/04/2010 */
@@ -1070,7 +1074,7 @@ public static tFaccionArmaduras[] ArmadurasFaccion = new tFaccionArmaduras[[('1'
 
 	}
 
-	static String TituloCaos(int UserIndex) {
+	public static String TituloCaos(int UserIndex) {
 		String retval;
 		/* '*************************************************** */
 		/* 'Autor: Unknown (orginal version) */

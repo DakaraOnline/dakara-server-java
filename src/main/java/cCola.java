@@ -1,6 +1,10 @@
-
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"cCola"')] */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_GlobalNameSpace'), (5, '='), (1, 'False')] */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Creatable'), (5, '='), (1, 'True')] */
@@ -60,7 +64,7 @@ public class cCola {
 
 	private vb6.Collection Cola;
 
-	void MaxLenght(int Max) {
+	public void MaxLenght(int Max) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 14/11/2010 */
@@ -69,7 +73,7 @@ public class cCola {
 		MaxElem = Max;
 	}
 
-	void Reset() {
+	public void Reset() {
 		/* FIXME: ON ERROR RESUME NEXT */
 
 		int i = 0;
@@ -79,27 +83,27 @@ public class cCola {
 
 	}
 
-	int Longitud() {
+	public int Longitud() {
 		int retval = 0;
 		retval = Cola.Count;
 		return retval;
 	}
 
-	boolean IndexValido(int i) {
+	private boolean IndexValido(int i) {
 		boolean retval = false;
 		retval = i >= 1 && i <= Me.Longitud;
 		return retval;
 	}
 
-	void Class_Initialize() {
+	private void Class_Initialize() {
 		Cola = new Collection();
 	}
 
-	String VerElemento(int index) {
+	public String VerElemento(int index) {
 		return VerElemento(index, true);
 	}
 
-	String VerElemento(int index, boolean ConvertUpper) {
+	public String VerElemento(int index, boolean ConvertUpper) {
 		String retval;
 		/* FIXME: ON ERROR RESUME NEXT */
 		if (IndexValido(index)) {
@@ -118,11 +122,11 @@ public class cCola {
 		return retval;
 	}
 
-	void Push(String Detalle) {
+	public void Push(String Detalle) {
 		Push(Detalle, true);
 	}
 
-	void Push(String Detalle, boolean ConvertUpper) {
+	public void Push(String Detalle, boolean ConvertUpper) {
  /* '*************************************************** */
  /* 'Author: Unknown */
  /* 'Last Modification: 14/11/2010 */
@@ -152,7 +156,7 @@ public class cCola {
  
 }
 
-	String Pop() {
+	public String Pop() {
  String retval;
  /* FIXME: ON ERROR RESUME NEXT */
  /* 'Quita elemento de la cola */
@@ -165,7 +169,7 @@ public class cCola {
 return retval;
 }
 
-	String PopByVal() {
+	public String PopByVal() {
 		String retval;
 		/* FIXME: ON ERROR RESUME NEXT */
 		/* 'Call LogTarea("PopByVal SOS") */
@@ -180,7 +184,7 @@ return retval;
 		return retval;
 	}
 
-	boolean Existe(String Nombre) {
+	public boolean Existe(String Nombre) {
 		boolean retval = false;
 		/* FIXME: ON ERROR RESUME NEXT */
 
@@ -204,7 +208,7 @@ return retval;
 		return retval;
 	}
 
-	void Quitar(String Nombre) {
+	public void Quitar(String Nombre) {
  /* FIXME: ON ERROR RESUME NEXT */
  String V;
  int i = 0;
@@ -225,14 +229,14 @@ return retval;
  
 }
 
-	void QuitarIndex(int index) {
+	public void QuitarIndex(int index) {
  /* FIXME: ON ERROR RESUME NEXT */
  if (IndexValido(index)) {
  Cola.Remove[index];
  }
 }
 
-	void Class_Terminate() {
+	private void Class_Terminate() {
 		/* 'Destruimos el objeto Cola */
 		Cola = null;
 	}

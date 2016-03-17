@@ -1,6 +1,10 @@
-
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"Trabajo"')] */
 /* 'Argentum Online 0.12.2 */
 /* 'Copyright (C) 2002 Márquez Pablo Ignacio */
@@ -37,7 +41,7 @@ public class Trabajo {
 	static final int GASTO_ENERGIA_TRABAJADOR = 2;
 	static final int GASTO_ENERGIA_NO_TRABAJADOR = 6;
 
-	static void DoPermanecerOculto(int UserIndex) {
+	public static void DoPermanecerOculto(int UserIndex) {
 		/* '******************************************************** */
 		/* 'Autor: Nacho (Integer) */
 		/* 'Last Modif: 11/19/2009 */
@@ -95,7 +99,7 @@ public class Trabajo {
 
 	}
 
-	static void DoOcultarse(int UserIndex) {
+	public static void DoOcultarse(int UserIndex) {
  /* '*************************************************** */
  /* 'Author: Unknown */
  /* 'Last Modification: 13/01/2010 (ZaMa) */
@@ -112,17 +116,17 @@ public class Trabajo {
  
   Skill = Declaraciones.UserList[UserIndex].Stats.UserSkills[eSkill.Ocultarse];
   
-  Suerte = (((0.000002*Skill-0.0002)*Skill+0.0064)*Skill+0.1124)*100;
+  Suerte = (((0.000002f*Skill-0.0002f)*Skill+0.0064f)*Skill+0.1124f)*100;
   
   res = Matematicas.RandomNumber(1, 100);
   
    if (res<=Suerte) {
    
    Declaraciones.UserList[UserIndex].flags.Oculto = 1;
-   Suerte = (-0.000001*(100-Skill) $ 3);
-   Suerte = Suerte+(0.00009229*(100-Skill) $ 2);
-   Suerte = Suerte+(-0.0088*(100-Skill));
-   Suerte = Suerte+(0.9571);
+   Suerte = (-0.000001f*(100-Skill) $ 3);
+   Suerte = Suerte+(0.00009229f*(100-Skill) $ 2);
+   Suerte = Suerte+(-0.0088f*(100-Skill));
+   Suerte = Suerte+(0.9571f);
    Suerte = Suerte*Admin.IntervaloOculto;
    
     if (Declaraciones.UserList[UserIndex].clase == eClass.Bandit) {
@@ -147,7 +151,7 @@ public class Trabajo {
    UsUaRiOs.SubirSkill(UserIndex, eSkill.Ocultarse, true);
    } else {
    /* '[CDT 17-02-2004] */
-    if (!Declaraciones.UserList[UserIndex].flags.UltimoMensaje == 4) {
+    if (! /* FIXME */Declaraciones.UserList[UserIndex].flags.UltimoMensaje == 4) {
     Protocol.WriteConsoleMsg(UserIndex, "¡No has logrado esconderte!", FontTypeNames.FONTTYPE_INFO);
     Declaraciones.UserList[UserIndex].flags.UltimoMensaje = 4;
    }
@@ -165,7 +169,7 @@ public class Trabajo {
  
 }
 
-	static void DoNavega(int UserIndex,
+	public static void DoNavega(int UserIndex,
 			Declaraciones.ObjData /* FIXME BYREF!! */ Barco, int Slot) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -302,7 +306,7 @@ public class Trabajo {
 
 	}
 
-	static void FundirMineral(int UserIndex) {
+	public static void FundirMineral(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -332,7 +336,7 @@ public class Trabajo {
 
 	}
 
-	static void FundirArmas(int UserIndex) {
+	public static void FundirArmas(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -358,7 +362,7 @@ public class Trabajo {
 		General.LogError("Error en FundirArmas. Error " + Err.Number + " : " + Err.description);
 	}
 
-	static boolean TieneObjetos(int ItemIndex, int cant, int UserIndex) {
+	public static boolean TieneObjetos(int ItemIndex, int cant, int UserIndex) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -382,7 +386,7 @@ public class Trabajo {
 		return retval;
 	}
 
-	static void QuitarObjetos(int ItemIndex, int cant, int UserIndex) {
+	public static void QuitarObjetos(int ItemIndex, int cant, int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 05/08/09 */
@@ -422,7 +426,7 @@ public class Trabajo {
 
 	}
 
-	static void HerreroQuitarMateriales(int UserIndex, int ItemIndex, int CantidadItems) {
+	public static void HerreroQuitarMateriales(int UserIndex, int ItemIndex, int CantidadItems) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 16/11/2009 */
@@ -443,7 +447,7 @@ public class Trabajo {
 		}
 	}
 
-	static void CarpinteroQuitarMateriales(int UserIndex, int ItemIndex, int CantidadItems) {
+	public static void CarpinteroQuitarMateriales(int UserIndex, int ItemIndex, int CantidadItems) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 16/11/2009 */
@@ -458,11 +462,11 @@ public class Trabajo {
 		}
 	}
 
-	static boolean CarpinteroTieneMateriales(int UserIndex, int ItemIndex, int Cantidad) {
+	public static boolean CarpinteroTieneMateriales(int UserIndex, int ItemIndex, int Cantidad) {
 		return CarpinteroTieneMateriales(UserIndex, ItemIndex, Cantidad, false);
 	}
 
-	static boolean CarpinteroTieneMateriales(int UserIndex, int ItemIndex, int Cantidad, boolean ShowMsg) {
+	public static boolean CarpinteroTieneMateriales(int UserIndex, int ItemIndex, int Cantidad, boolean ShowMsg) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -474,7 +478,8 @@ public class Trabajo {
 		/* '*************************************************** */
 
 		if (Declaraciones.ObjData[ItemIndex].Madera > 0) {
-			if (!TieneObjetos(Declaraciones.Lena, Declaraciones.ObjData[ItemIndex].Madera * Cantidad, UserIndex)) {
+			if (! /* FIXME */TieneObjetos(Declaraciones.Lena, Declaraciones.ObjData[ItemIndex].Madera * Cantidad,
+					UserIndex)) {
 				if (ShowMsg) {
 					Protocol.WriteConsoleMsg(UserIndex, "No tienes suficiente madera.", FontTypeNames.FONTTYPE_INFO);
 				}
@@ -484,8 +489,8 @@ public class Trabajo {
 		}
 
 		if (Declaraciones.ObjData[ItemIndex].MaderaElfica > 0) {
-			if (!TieneObjetos(Declaraciones.LenaElfica, Declaraciones.ObjData[ItemIndex].MaderaElfica * Cantidad,
-					UserIndex)) {
+			if (! /* FIXME */TieneObjetos(Declaraciones.LenaElfica,
+					Declaraciones.ObjData[ItemIndex].MaderaElfica * Cantidad, UserIndex)) {
 				if (ShowMsg) {
 					Protocol.WriteConsoleMsg(UserIndex, "No tienes suficiente madera élfica.",
 							FontTypeNames.FONTTYPE_INFO);
@@ -500,7 +505,7 @@ public class Trabajo {
 		return retval;
 	}
 
-	static boolean HerreroTieneMateriales(int UserIndex, int ItemIndex, int CantidadItems) {
+	public static boolean HerreroTieneMateriales(int UserIndex, int ItemIndex, int CantidadItems) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -508,8 +513,8 @@ public class Trabajo {
 		/* '16/11/2009: ZaMa - Agregada validacion a madera elfica. */
 		/* '*************************************************** */
 		if (Declaraciones.ObjData[ItemIndex].LingH > 0) {
-			if (!TieneObjetos(Declaraciones.LingoteHierro, Declaraciones.ObjData[ItemIndex].LingH * CantidadItems,
-					UserIndex)) {
+			if (! /* FIXME */TieneObjetos(Declaraciones.LingoteHierro,
+					Declaraciones.ObjData[ItemIndex].LingH * CantidadItems, UserIndex)) {
 				Protocol.WriteConsoleMsg(UserIndex, "No tienes suficientes lingotes de hierro.",
 						FontTypeNames.FONTTYPE_INFO);
 				retval = false;
@@ -517,8 +522,8 @@ public class Trabajo {
 			}
 		}
 		if (Declaraciones.ObjData[ItemIndex].LingP > 0) {
-			if (!TieneObjetos(Declaraciones.LingotePlata, Declaraciones.ObjData[ItemIndex].LingP * CantidadItems,
-					UserIndex)) {
+			if (! /* FIXME */TieneObjetos(Declaraciones.LingotePlata,
+					Declaraciones.ObjData[ItemIndex].LingP * CantidadItems, UserIndex)) {
 				Protocol.WriteConsoleMsg(UserIndex, "No tienes suficientes lingotes de plata.",
 						FontTypeNames.FONTTYPE_INFO);
 				retval = false;
@@ -526,8 +531,8 @@ public class Trabajo {
 			}
 		}
 		if (Declaraciones.ObjData[ItemIndex].LingO > 0) {
-			if (!TieneObjetos(Declaraciones.LingoteOro, Declaraciones.ObjData[ItemIndex].LingO * CantidadItems,
-					UserIndex)) {
+			if (! /* FIXME */TieneObjetos(Declaraciones.LingoteOro,
+					Declaraciones.ObjData[ItemIndex].LingO * CantidadItems, UserIndex)) {
 				Protocol.WriteConsoleMsg(UserIndex, "No tienes suficientes lingotes de oro.",
 						FontTypeNames.FONTTYPE_INFO);
 				retval = false;
@@ -538,7 +543,7 @@ public class Trabajo {
 		return retval;
 	}
 
-	static boolean TieneMaterialesUpgrade(int UserIndex, int ItemIndex) {
+	public static boolean TieneMaterialesUpgrade(int UserIndex, int ItemIndex) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Torres Patricio (Pato) */
@@ -550,7 +555,7 @@ public class Trabajo {
 		ItemUpgrade = Declaraciones.ObjData[ItemIndex].Upgrade;
 
 		if (Declaraciones.ObjData[ItemUpgrade].LingH > 0) {
-			if (!TieneObjetos(Declaraciones.LingoteHierro,
+			if (! /* FIXME */TieneObjetos(Declaraciones.LingoteHierro,
 					vb6.CInt(Declaraciones.ObjData[ItemUpgrade].LingH
 							- Declaraciones.ObjData[ItemIndex].LingH * Declaraciones.PORCENTAJE_MATERIALES_UPGRADE),
 					UserIndex)) {
@@ -562,7 +567,7 @@ public class Trabajo {
 		}
 
 		if (Declaraciones.ObjData[ItemUpgrade].LingP > 0) {
-			if (!TieneObjetos(Declaraciones.LingotePlata,
+			if (! /* FIXME */TieneObjetos(Declaraciones.LingotePlata,
 					vb6.CInt(Declaraciones.ObjData[ItemUpgrade].LingP
 							- Declaraciones.ObjData[ItemIndex].LingP * Declaraciones.PORCENTAJE_MATERIALES_UPGRADE),
 					UserIndex)) {
@@ -574,7 +579,7 @@ public class Trabajo {
 		}
 
 		if (Declaraciones.ObjData[ItemUpgrade].LingO > 0) {
-			if (!TieneObjetos(Declaraciones.LingoteOro,
+			if (! /* FIXME */TieneObjetos(Declaraciones.LingoteOro,
 					vb6.CInt(Declaraciones.ObjData[ItemUpgrade].LingO
 							- Declaraciones.ObjData[ItemIndex].LingO * Declaraciones.PORCENTAJE_MATERIALES_UPGRADE),
 					UserIndex)) {
@@ -586,7 +591,7 @@ public class Trabajo {
 		}
 
 		if (Declaraciones.ObjData[ItemUpgrade].Madera > 0) {
-			if (!TieneObjetos(Declaraciones.Lena,
+			if (! /* FIXME */TieneObjetos(Declaraciones.Lena,
 					vb6.CInt(Declaraciones.ObjData[ItemUpgrade].Madera
 							- Declaraciones.ObjData[ItemIndex].Madera * Declaraciones.PORCENTAJE_MATERIALES_UPGRADE),
 					UserIndex)) {
@@ -597,8 +602,10 @@ public class Trabajo {
 		}
 
 		if (Declaraciones.ObjData[ItemUpgrade].MaderaElfica > 0) {
-			if (!TieneObjetos(Declaraciones.LenaElfica, vb6.CInt(Declaraciones.ObjData[ItemUpgrade].MaderaElfica
-					- Declaraciones.ObjData[ItemIndex].MaderaElfica * Declaraciones.PORCENTAJE_MATERIALES_UPGRADE),
+			if (! /* FIXME */TieneObjetos(Declaraciones.LenaElfica,
+					vb6.CInt(Declaraciones.ObjData[ItemUpgrade].MaderaElfica
+							- Declaraciones.ObjData[ItemIndex].MaderaElfica
+									* Declaraciones.PORCENTAJE_MATERIALES_UPGRADE),
 					UserIndex)) {
 				Protocol.WriteConsoleMsg(UserIndex, "No tienes suficiente madera élfica.", FontTypeNames.FONTTYPE_INFO);
 				retval = false;
@@ -610,7 +617,7 @@ public class Trabajo {
 		return retval;
 	}
 
-	static void QuitarMaterialesUpgrade(int UserIndex, int ItemIndex) {
+	public static void QuitarMaterialesUpgrade(int UserIndex, int ItemIndex) {
 		/* '*************************************************** */
 		/* 'Author: Torres Patricio (Pato) */
 		/* 'Last Modification: 12/08/2009 */
@@ -653,7 +660,7 @@ public class Trabajo {
 		QuitarObjetos(ItemIndex, 1, UserIndex);
 	}
 
-	static boolean PuedeConstruir(int UserIndex, int ItemIndex, int CantidadItems) {
+	public static boolean PuedeConstruir(int UserIndex, int ItemIndex, int CantidadItems) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -671,7 +678,7 @@ public class Trabajo {
 		return retval;
 	}
 
-	static boolean PuedeConstruirHerreria(int ItemIndex) {
+	public static boolean PuedeConstruirHerreria(int ItemIndex) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -696,7 +703,7 @@ public class Trabajo {
 		return retval;
 	}
 
-	static void HerreroConstruirItem(int UserIndex, int ItemIndex) {
+	public static void HerreroConstruirItem(int UserIndex, int ItemIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 30/05/2010 */
@@ -743,7 +750,7 @@ public class Trabajo {
 
 		if (PuedeConstruirHerreria(ItemIndex)) {
 
-			while (CantidadItems > 0 && !TieneMateriales) {
+			while (CantidadItems > 0 && ! /* FIXME */TieneMateriales) {
 				if (PuedeConstruir(UserIndex, ItemIndex, CantidadItems)) {
 					TieneMateriales = true;
 				} else {
@@ -752,7 +759,7 @@ public class Trabajo {
 			}
 
 			/* ' Chequeo si puede hacer al menos 1 item */
-			if (!TieneMateriales) {
+			if (! /* FIXME */TieneMateriales) {
 				Protocol.WriteConsoleMsg(UserIndex, "No tienes suficientes materiales.", FontTypeNames.FONTTYPE_INFO);
 				Protocol.WriteStopWorking(UserIndex);
 				return;
@@ -816,7 +823,7 @@ public class Trabajo {
 
 			MiObj.Amount = CantidadItems;
 			MiObj.ObjIndex = ItemIndex;
-			if (!InvUsuario.MeterItemEnInventario(UserIndex, MiObj)) {
+			if (! /* FIXME */InvUsuario.MeterItemEnInventario(UserIndex, MiObj)) {
 				InvNpc.TirarItemAlPiso(Declaraciones.UserList[UserIndex].Pos, MiObj);
 			}
 
@@ -831,7 +838,7 @@ public class Trabajo {
 					Protocol.PrepareMessagePlayWave(Declaraciones.MARTILLOHERRERO,
 							Declaraciones.UserList[UserIndex].Pos.X, Declaraciones.UserList[UserIndex].Pos.Y));
 
-			if (!ES.criminal(UserIndex)) {
+			if (! /* FIXME */ES.criminal(UserIndex)) {
 				Declaraciones.UserList[UserIndex].Reputacion.PlebeRep = Declaraciones.UserList[UserIndex].Reputacion.PlebeRep
 						+ Declaraciones.vlProleta;
 				if (Declaraciones.UserList[UserIndex].Reputacion.PlebeRep > Declaraciones.MAXREP) {
@@ -844,7 +851,7 @@ public class Trabajo {
 		}
 	}
 
-	static boolean PuedeConstruirCarpintero(int ItemIndex) {
+	public static boolean PuedeConstruirCarpintero(int ItemIndex) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -864,7 +871,7 @@ public class Trabajo {
 		return retval;
 	}
 
-	static void CarpinteroConstruirItem(int UserIndex, int ItemIndex) {
+	public static void CarpinteroConstruirItem(int UserIndex, int ItemIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 28/05/2010 */
@@ -929,7 +936,7 @@ public class Trabajo {
 				0) >= Declaraciones.ObjData[ItemIndex].SkCarpinteria && PuedeConstruirCarpintero(ItemIndex)) {
 
 			/* ' Calculo cuantos item puede construir */
-			while (CantidadItems > 0 && !TieneMateriales) {
+			while (CantidadItems > 0 && ! /* FIXME */TieneMateriales) {
 				if (CarpinteroTieneMateriales(UserIndex, ItemIndex, CantidadItems)) {
 					TieneMateriales = true;
 				} else {
@@ -938,7 +945,7 @@ public class Trabajo {
 			}
 
 			/* ' No tiene los materiales ni para construir 1 item? */
-			if (!TieneMateriales) {
+			if (! /* FIXME */TieneMateriales) {
 				/* ' Para que muestre el mensaje */
 				CarpinteroTieneMateriales(UserIndex, ItemIndex, 1, true);
 				Protocol.WriteStopWorking(UserIndex);
@@ -976,7 +983,7 @@ public class Trabajo {
 			Declaraciones.Obj MiObj;
 			MiObj.Amount = CantidadItems;
 			MiObj.ObjIndex = ItemIndex;
-			if (!InvUsuario.MeterItemEnInventario(UserIndex, MiObj)) {
+			if (! /* FIXME */InvUsuario.MeterItemEnInventario(UserIndex, MiObj)) {
 				InvNpc.TirarItemAlPiso(Declaraciones.UserList[UserIndex].Pos, MiObj);
 			}
 
@@ -991,7 +998,7 @@ public class Trabajo {
 					Protocol.PrepareMessagePlayWave(Declaraciones.LABUROCARPINTERO,
 							Declaraciones.UserList[UserIndex].Pos.X, Declaraciones.UserList[UserIndex].Pos.Y));
 
-			if (!ES.criminal(UserIndex)) {
+			if (! /* FIXME */ES.criminal(UserIndex)) {
 				Declaraciones.UserList[UserIndex].Reputacion.PlebeRep = Declaraciones.UserList[UserIndex].Reputacion.PlebeRep
 						+ Declaraciones.vlProleta;
 				if (Declaraciones.UserList[UserIndex].Reputacion.PlebeRep > Declaraciones.MAXREP) {
@@ -1009,7 +1016,7 @@ public class Trabajo {
 				+ ". UserIndex:" + UserIndex + ". ItemIndex:" + ItemIndex);
 	}
 
-	static int MineralesParaLingote(iMinerales Lingote) {
+	public static int MineralesParaLingote(iMinerales Lingote) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -1036,7 +1043,7 @@ public class Trabajo {
 		return retval;
 	}
 
-	static void DoLingotes(int UserIndex) {
+	public static void DoLingotes(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 16/11/2009 */
@@ -1072,7 +1079,7 @@ public class Trabajo {
 		Slot = Declaraciones.UserList[UserIndex].flags.TargetObjInvSlot;
 		obji = Declaraciones.UserList[UserIndex].Invent.Object[Slot].ObjIndex;
 
-		while (CantidadItems > 0 && !TieneMinerales) {
+		while (CantidadItems > 0 && ! /* FIXME */TieneMinerales) {
 			if (Declaraciones.UserList[UserIndex].Invent.Object[Slot].Amount >= MineralesParaLingote(obji)
 					* CantidadItems) {
 				TieneMinerales = true;
@@ -1081,7 +1088,7 @@ public class Trabajo {
 			}
 		}
 
-		if (!TieneMinerales || Declaraciones.ObjData[obji].OBJType != eOBJType.otMinerales) {
+		if (! /* FIXME */TieneMinerales || Declaraciones.ObjData[obji].OBJType != eOBJType.otMinerales) {
 			Protocol.WriteConsoleMsg(UserIndex, "No tienes suficientes minerales para hacer un lingote.",
 					FontTypeNames.FONTTYPE_INFO);
 			return;
@@ -1097,7 +1104,7 @@ public class Trabajo {
 		Declaraciones.Obj MiObj;
 		MiObj.Amount = CantidadItems;
 		MiObj.ObjIndex = Declaraciones.ObjData[Declaraciones.UserList[UserIndex].flags.TargetObjInvIndex].LingoteIndex;
-		if (!InvUsuario.MeterItemEnInventario(UserIndex, MiObj)) {
+		if (! /* FIXME */InvUsuario.MeterItemEnInventario(UserIndex, MiObj)) {
 			InvNpc.TirarItemAlPiso(Declaraciones.UserList[UserIndex].Pos, MiObj);
 		}
 
@@ -1110,7 +1117,7 @@ public class Trabajo {
 				+ 1;
 	}
 
-	static void DoFundir(int UserIndex) {
+	public static void DoFundir(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 03/06/2010 */
@@ -1163,11 +1170,11 @@ public class Trabajo {
 		num = Matematicas.RandomNumber(10, 25);
 
 		Lingotes[0] = (Declaraciones.ObjData[Declaraciones.UserList[UserIndex].flags.TargetObjInvIndex].LingH * num)
-				* 0.01;
+				* 0.01f;
 		Lingotes[1] = (Declaraciones.ObjData[Declaraciones.UserList[UserIndex].flags.TargetObjInvIndex].LingP * num)
-				* 0.01;
+				* 0.01f;
 		Lingotes[2] = (Declaraciones.ObjData[Declaraciones.UserList[UserIndex].flags.TargetObjInvIndex].LingO * num)
-				* 0.01;
+				* 0.01f;
 
 		Declaraciones.Obj[] MiObj;
 
@@ -1177,7 +1184,7 @@ public class Trabajo {
 			MiObj[i].ObjIndex = Declaraciones.LingoteHierro + i;
 
 			if (MiObj[i].Amount > 0) {
-				if (!InvUsuario.MeterItemEnInventario(UserIndex, MiObj[i])) {
+				if (! /* FIXME */InvUsuario.MeterItemEnInventario(UserIndex, MiObj[i])) {
 					InvNpc.TirarItemAlPiso(Declaraciones.UserList[UserIndex].Pos, MiObj[i]);
 				}
 			}
@@ -1198,7 +1205,7 @@ public class Trabajo {
 
 	}
 
-	static void DoUpgrade(int UserIndex, int ItemIndex) {
+	public static void DoUpgrade(int UserIndex, int ItemIndex) {
 		/* '*************************************************** */
 		/* 'Author: Torres Patricio (Pato) */
 		/* 'Last Modification: 12/08/2009 */
@@ -1250,7 +1257,7 @@ public class Trabajo {
 		if (ItemUpgrade <= 0) {
 			return;
 		}
-		if (!TieneMaterialesUpgrade(UserIndex, ItemIndex)) {
+		if (! /* FIXME */TieneMaterialesUpgrade(UserIndex, ItemIndex)) {
 			return;
 		}
 
@@ -1346,7 +1353,7 @@ public class Trabajo {
 		MiObj.Amount = 1;
 		MiObj.ObjIndex = ItemUpgrade;
 
-		if (!InvUsuario.MeterItemEnInventario(UserIndex, MiObj)) {
+		if (! /* FIXME */InvUsuario.MeterItemEnInventario(UserIndex, MiObj)) {
 			InvNpc.TirarItemAlPiso(Declaraciones.UserList[UserIndex].Pos, MiObj);
 		}
 
@@ -1365,7 +1372,7 @@ public class Trabajo {
 				+ 1;
 	}
 
-	static float ModNavegacion(eClass clase, int UserIndex) {
+	public static float ModNavegacion(eClass clase, int UserIndex) {
 		float retval = 0.0f;
 		/* '*************************************************** */
 		/* 'Autor: Unknown (orginal version) */
@@ -1386,7 +1393,7 @@ public class Trabajo {
 
 		case Worker:
 			if (Declaraciones.UserList[UserIndex].Stats.UserSkills[eSkill.Pesca] == 100) {
-				retval = 1.71;
+				retval = 1.71f;
 			} else {
 				retval = 2;
 			}
@@ -1400,7 +1407,7 @@ public class Trabajo {
 		return retval;
 	}
 
-	static float ModFundicion(eClass clase) {
+	public static float ModFundicion(eClass clase) {
 		float retval = 0.0f;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -1421,7 +1428,7 @@ public class Trabajo {
 		return retval;
 	}
 
-	static int ModCarpinteria(eClass clase) {
+	public static int ModCarpinteria(eClass clase) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -1442,7 +1449,7 @@ public class Trabajo {
 		return retval;
 	}
 
-	static float ModHerreriA(eClass clase) {
+	public static float ModHerreriA(eClass clase) {
 		float retval = 0.0f;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -1462,7 +1469,7 @@ public class Trabajo {
 		return retval;
 	}
 
-	static int ModDomar(eClass clase) {
+	public static int ModDomar(eClass clase) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -1489,7 +1496,7 @@ public class Trabajo {
 		return retval;
 	}
 
-	static int FreeMascotaIndex(int UserIndex) {
+	public static int FreeMascotaIndex(int UserIndex) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -1509,7 +1516,7 @@ public class Trabajo {
 		return retval;
 	}
 
-	static void DoDomar(int UserIndex, int NpcIndex) {
+	public static void DoDomar(int UserIndex, int NpcIndex) {
 		/* '*************************************************** */
 		/* 'Author: Nacho (Integer) */
 		/* 'Last Modification: 01/05/2010 */
@@ -1546,7 +1553,7 @@ public class Trabajo {
 				return;
 			}
 
-			if (!PuedeDomarMascota(UserIndex, NpcIndex)) {
+			if (! /* FIXME */PuedeDomarMascota(UserIndex, NpcIndex)) {
 				Protocol.WriteConsoleMsg(UserIndex, "No puedes domar más de dos criaturas del mismo tipo.",
 						FontTypeNames.FONTTYPE_INFO);
 				return;
@@ -1557,11 +1564,11 @@ public class Trabajo {
 
 			/* ' 20% de bonificacion */
 			if (Declaraciones.UserList[UserIndex].Invent.AnilloEqpObjIndex == Declaraciones.FLAUTAELFICA) {
-				puntosRequeridos = Declaraciones.Npclist[NpcIndex].flags.Domable * 0.8;
+				puntosRequeridos = Declaraciones.Npclist[NpcIndex].flags.Domable * 0.8f;
 
 				/* ' 11% de bonificacion */
 			} else if (Declaraciones.UserList[UserIndex].Invent.AnilloEqpObjIndex == Declaraciones.FLAUTAMAGICA) {
-				puntosRequeridos = Declaraciones.Npclist[NpcIndex].flags.Domable * 0.89;
+				puntosRequeridos = Declaraciones.Npclist[NpcIndex].flags.Domable * 0.89f;
 
 			} else {
 				puntosRequeridos = Declaraciones.Npclist[NpcIndex].flags.Domable;
@@ -1585,7 +1592,7 @@ public class Trabajo {
 				/* ' Es zona segura? */
 				CanStay = (Declaraciones.MapInfo[Declaraciones.UserList[UserIndex].Pos.Map].Pk == true);
 
-				if (!CanStay) {
+				if (! /* FIXME */CanStay) {
 					petType = Declaraciones.Npclist[NpcIndex].Numero;
 					NroPets = Declaraciones.UserList[UserIndex].NroMascotas;
 
@@ -1602,7 +1609,7 @@ public class Trabajo {
 				UsUaRiOs.SubirSkill(UserIndex, eSkill.Domar, true);
 
 			} else {
-				if (!Declaraciones.UserList[UserIndex].flags.UltimoMensaje == 5) {
+				if (! /* FIXME */Declaraciones.UserList[UserIndex].flags.UltimoMensaje == 5) {
 					Protocol.WriteConsoleMsg(UserIndex, "No has logrado domar la criatura.",
 							FontTypeNames.FONTTYPE_INFO);
 					Declaraciones.UserList[UserIndex].flags.UltimoMensaje = 5;
@@ -1627,7 +1634,7 @@ public class Trabajo {
 	/* ' @param integer userIndex The user id from who wants tame the pet. */
 	/* ' @param integer NPCindex The index of the npc to tome. */
 	/* ' @return boolean True if can, false if not. */
-	static boolean PuedeDomarMascota(int UserIndex, int NpcIndex) {
+	public static boolean PuedeDomarMascota(int UserIndex, int NpcIndex) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
@@ -1651,7 +1658,7 @@ public class Trabajo {
 		return retval;
 	}
 
-	static void DoAdminInvisible(int UserIndex) {
+	public static void DoAdminInvisible(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 12/01/2010 (ZaMa) */
@@ -1728,7 +1735,7 @@ public class Trabajo {
 
 	}
 
-	static void TratarDeHacerFogata(int Map, int X, int Y, int UserIndex) {
+	public static void TratarDeHacerFogata(int Map, int X, int Y, int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1740,7 +1747,7 @@ public class Trabajo {
 		Declaraciones.Obj Obj;
 		Declaraciones.WorldPos posMadera;
 
-		if (!Extra.LegalPos(Map, X, Y)) {
+		if (! /* FIXME */Extra.LegalPos(Map, X, Y)) {
 			return;
 		}
 
@@ -1799,7 +1806,7 @@ public class Trabajo {
 			UsUaRiOs.SubirSkill(UserIndex, eSkill.Supervivencia, true);
 		} else {
 			/* '[CDT 17-02-2004] */
-			if (!Declaraciones.UserList[UserIndex].flags.UltimoMensaje == 10) {
+			if (! /* FIXME */Declaraciones.UserList[UserIndex].flags.UltimoMensaje == 10) {
 				Protocol.WriteConsoleMsg(UserIndex, "No has podido hacer la fogata.", FontTypeNames.FONTTYPE_INFO);
 				Declaraciones.UserList[UserIndex].flags.UltimoMensaje = 10;
 			}
@@ -1810,7 +1817,7 @@ public class Trabajo {
 
 	}
 
-	static void DoPescar(int UserIndex) {
+	public static void DoPescar(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 28/05/2010 */
@@ -1840,7 +1847,7 @@ public class Trabajo {
 		}
 
 		Skill = Declaraciones.UserList[UserIndex].Stats.UserSkills[eSkill.Pesca];
-		Suerte = vb6.Int(-0.00125 * Skill * Skill - 0.3 * Skill + 49);
+		Suerte = vb6.Int(-0.00125f * Skill * Skill - 0.3f * Skill + 49);
 
 		res = Matematicas.RandomNumber(1, Suerte);
 
@@ -1857,7 +1864,7 @@ public class Trabajo {
 
 			MiObj.ObjIndex = Declaraciones.Pescado;
 
-			if (!InvUsuario.MeterItemEnInventario(UserIndex, MiObj)) {
+			if (! /* FIXME */InvUsuario.MeterItemEnInventario(UserIndex, MiObj)) {
 				InvNpc.TirarItemAlPiso(Declaraciones.UserList[UserIndex].Pos, MiObj);
 			}
 
@@ -1866,7 +1873,7 @@ public class Trabajo {
 			UsUaRiOs.SubirSkill(UserIndex, eSkill.Pesca, true);
 		} else {
 			/* '[CDT 17-02-2004] */
-			if (!Declaraciones.UserList[UserIndex].flags.UltimoMensaje == 6) {
+			if (! /* FIXME */Declaraciones.UserList[UserIndex].flags.UltimoMensaje == 6) {
 				Protocol.WriteConsoleMsg(UserIndex, "¡No has pescado nada!", FontTypeNames.FONTTYPE_INFO);
 				Declaraciones.UserList[UserIndex].flags.UltimoMensaje = 6;
 			}
@@ -1875,7 +1882,7 @@ public class Trabajo {
 			UsUaRiOs.SubirSkill(UserIndex, eSkill.Pesca, false);
 		}
 
-		if (!ES.criminal(UserIndex)) {
+		if (! /* FIXME */ES.criminal(UserIndex)) {
 			Declaraciones.UserList[UserIndex].Reputacion.PlebeRep = Declaraciones.UserList[UserIndex].Reputacion.PlebeRep
 					+ Declaraciones.vlProleta;
 			if (Declaraciones.UserList[UserIndex].Reputacion.PlebeRep > Declaraciones.MAXREP) {
@@ -1892,7 +1899,7 @@ public class Trabajo {
 		General.LogError("Error en DoPescar. Error " + Err.Number + " : " + Err.description);
 	}
 
-	static void DoPescarRed(int UserIndex) {
+	public static void DoPescarRed(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1919,7 +1926,7 @@ public class Trabajo {
 		/* ' m = (60-11)/(1-10) */
 		/* ' y = mx - m*10 + 11 */
 
-		Suerte = vb6.Int(-0.00125 * iSkill * iSkill - 0.3 * iSkill + 49);
+		Suerte = vb6.Int(-0.00125f * iSkill * iSkill - 0.3f * iSkill + 49);
 
 		if (Suerte > 0) {
 			res = Matematicas.RandomNumber(1, Suerte);
@@ -1937,7 +1944,7 @@ public class Trabajo {
 
 				MiObj.ObjIndex = Declaraciones.ListaPeces[Matematicas.RandomNumber(1, Declaraciones.NUM_PECES)];
 
-				if (!InvUsuario.MeterItemEnInventario(UserIndex, MiObj)) {
+				if (! /* FIXME */InvUsuario.MeterItemEnInventario(UserIndex, MiObj)) {
 					InvNpc.TirarItemAlPiso(Declaraciones.UserList[UserIndex].Pos, MiObj);
 				}
 
@@ -1945,7 +1952,7 @@ public class Trabajo {
 
 				UsUaRiOs.SubirSkill(UserIndex, eSkill.Pesca, true);
 			} else {
-				if (!Declaraciones.UserList[UserIndex].flags.UltimoMensaje == 6) {
+				if (! /* FIXME */Declaraciones.UserList[UserIndex].flags.UltimoMensaje == 6) {
 					Protocol.WriteConsoleMsg(UserIndex, "¡No has pescado nada!", FontTypeNames.FONTTYPE_INFO);
 					Declaraciones.UserList[UserIndex].flags.UltimoMensaje = 6;
 				}
@@ -1972,7 +1979,7 @@ public class Trabajo {
 	/* ' @param LadrOnIndex Specifies reference to user that stoles */
 	/* ' @param VictimaIndex Specifies reference to user that is being stolen */
 
-	static void DoRobar(int LadrOnIndex, int VictimaIndex) {
+	public static void DoRobar(int LadrOnIndex, int VictimaIndex) {
 		/* '************************************************* */
 		/* 'Author: Unknown */
 		/* 'Last modified: 05/04/2010 */
@@ -1997,7 +2004,7 @@ public class Trabajo {
 
 		int OtroUserIndex = 0;
 
-		if (!Declaraciones.MapInfo[Declaraciones.UserList[VictimaIndex].Pos.Map].Pk) {
+		if (! /* FIXME */Declaraciones.MapInfo[Declaraciones.UserList[VictimaIndex].Pos.Map].Pk) {
 			return;
 		}
 
@@ -2008,14 +2015,14 @@ public class Trabajo {
 		}
 
 		if (Declaraciones.UserList[LadrOnIndex].flags.Seguro) {
-			if (!ES.criminal(VictimaIndex)) {
+			if (! /* FIXME */ES.criminal(VictimaIndex)) {
 				Protocol.WriteConsoleMsg(LadrOnIndex, "Debes quitarte el seguro para robarle a un ciudadano.",
 						FontTypeNames.FONTTYPE_FIGHT);
 				return;
 			}
 		} else {
 			if (Declaraciones.UserList[LadrOnIndex].Faccion.ArmadaReal == 1) {
-				if (!ES.criminal(VictimaIndex)) {
+				if (! /* FIXME */ES.criminal(VictimaIndex)) {
 					Protocol.WriteConsoleMsg(LadrOnIndex,
 							"Los miembros del ejército real no tienen permitido robarle a ciudadanos.",
 							FontTypeNames.FONTTYPE_FIGHT);
@@ -2174,8 +2181,8 @@ public class Trabajo {
 				UsUaRiOs.SubirSkill(LadrOnIndex, eSkill.Robar, false);
 			}
 
-			if (!ES.criminal(LadrOnIndex)) {
-				if (!ES.criminal(VictimaIndex)) {
+			if (! /* FIXME */ES.criminal(LadrOnIndex)) {
+				if (! /* FIXME */ES.criminal(VictimaIndex)) {
 					UsUaRiOs.VolverCriminal(LadrOnIndex);
 				}
 			}
@@ -2203,34 +2210,30 @@ public class Trabajo {
 	/* ' @param VictimaIndex Specifies reference to victim */
 	/* ' @param Slot Specifies reference to victim's inventory slot */
 	/* ' @return If the item is stealable */
-	static boolean ObjEsRobable(int VictimaIndex, int Slot) {
-		boolean retval = false;
-		/* '*************************************************** */
-		/* 'Author: Unknown */
-		/* 'Last Modification: - */
-		/* ' Agregué los barcos */
-		/* ' Esta funcion determina qué objetos son robables. */
-		/* ' 22/05/2010: Los items newbies ya no son robables. */
-		/* '*************************************************** */
-
-		int OI = 0;
-
-		OI = Declaraciones.UserList[VictimaIndex].Invent.Object[Slot].ObjIndex;
-
-		retval = Declaraciones.ObjData[OI].OBJType != eOBJType.otLlaves
-				&& Declaraciones.UserList[VictimaIndex].Invent.Object[Slot].Equipped == 0
-				&& Declaraciones.ObjData[OI].Real == 0 && Declaraciones.ObjData[OI].Caos == 0
-				&& Declaraciones.ObjData[OI].OBJType != eOBJType.otBarcos && !InvUsuario.ItemNewbie(OI)
-				&& Declaraciones.ObjData[OI].Intransferible == 0 && Declaraciones.ObjData[OI].NoRobable == 0;
-		return retval;
-	}
+	public static boolean ObjEsRobable(int VictimaIndex, int Slot) {
+ boolean retval = false;
+ /* '*************************************************** */
+ /* 'Author: Unknown */
+ /* 'Last Modification: - */
+ /* ' Agregué los barcos */
+ /* ' Esta funcion determina qué objetos son robables. */
+ /* ' 22/05/2010: Los items newbies ya no son robables. */
+ /* '*************************************************** */
+ 
+ int OI = 0;
+ 
+ OI = Declaraciones.UserList[VictimaIndex].Invent.Object[Slot].ObjIndex;
+ 
+  retval = Declaraciones.ObjData[OI].OBJType != eOBJType.otLlaves && Declaraciones.UserList[VictimaIndex].Invent.Object[Slot].Equipped == 0 && Declaraciones.ObjData[OI].Real == 0 && Declaraciones.ObjData[OI].Caos == 0 && Declaraciones.ObjData[OI].OBJType != eOBJType.otBarcos && ! / * FIXME * /InvUsuario.ItemNewbie(OI) && Declaraciones.ObjData[OI].Intransferible == 0 && Declaraciones.ObjData[OI].NoRobable == 0;
+return retval;
+}
 
 	/* '' */
 	/* ' Try to steal an item to another character */
 	/* ' */
 	/* ' @param LadrOnIndex Specifies reference to user that stoles */
 	/* ' @param VictimaIndex Specifies reference to user that is being stolen */
-	static void RobarObjeto(int LadrOnIndex, int VictimaIndex) {
+	public static void RobarObjeto(int LadrOnIndex, int VictimaIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 02/04/2010 */
@@ -2248,7 +2251,7 @@ public class Trabajo {
 		/* 'Comenzamos por el principio o el final? */
 		if (Matematicas.RandomNumber(1, 12) < 6) {
 			i = 1;
-			while (!flag && i <= Declaraciones.UserList[VictimaIndex].CurrentInventorySlots) {
+			while (! /* FIXME */flag && i <= Declaraciones.UserList[VictimaIndex].CurrentInventorySlots) {
 				/* 'Hay objeto en este slot? */
 				if (Declaraciones.UserList[VictimaIndex].Invent.Object[i].ObjIndex > 0) {
 					if (ObjEsRobable(VictimaIndex, i)) {
@@ -2257,13 +2260,13 @@ public class Trabajo {
 						}
 					}
 				}
-				if (!flag) {
+				if (! /* FIXME */flag) {
 					i = i + 1;
 				}
 			}
 		} else {
 			i = Declaraciones.UserList[VictimaIndex].CurrentInventorySlots;
-			while (!flag && i > 0) {
+			while (! /* FIXME */flag && i > 0) {
 				/* 'Hay objeto en este slot? */
 				if (Declaraciones.UserList[VictimaIndex].Invent.Object[i].ObjIndex > 0) {
 					if (ObjEsRobable(VictimaIndex, i)) {
@@ -2272,7 +2275,7 @@ public class Trabajo {
 						}
 					}
 				}
-				if (!flag) {
+				if (! /* FIXME */flag) {
 					i = i - 1;
 				}
 			}
@@ -2288,7 +2291,7 @@ public class Trabajo {
 			/*
 			 * 'Cantidad al azar entre el 5% y el 10% del total, con minimo 1.
 			 */
-			num = SistemaCombate.MaximoInt(1, Matematicas.RandomNumber(ObjAmount * 0.05, ObjAmount * 0.1));
+			num = SistemaCombate.MaximoInt(1, Matematicas.RandomNumber(ObjAmount * 0.05f, ObjAmount * 0.1f));
 
 			MiObj.Amount = num;
 			MiObj.ObjIndex = Declaraciones.UserList[VictimaIndex].Invent.Object[i].ObjIndex;
@@ -2301,7 +2304,7 @@ public class Trabajo {
 
 			InvUsuario.UpdateUserInv(false, VictimaIndex, vb6.CByte(i));
 
-			if (!InvUsuario.MeterItemEnInventario(LadrOnIndex, MiObj)) {
+			if (! /* FIXME */InvUsuario.MeterItemEnInventario(LadrOnIndex, MiObj)) {
 				InvNpc.TirarItemAlPiso(Declaraciones.UserList[LadrOnIndex].Pos, MiObj);
 			}
 
@@ -2323,7 +2326,7 @@ public class Trabajo {
 
 	}
 
-	static void DoApunalar(int UserIndex, int VictimNpcIndex, int VictimUserIndex, int dano) {
+	public static void DoApunalar(int UserIndex, int VictimNpcIndex, int VictimUserIndex, int dano) {
 		/* '*************************************************** */
 		/* 'Autor: Nacho (Integer) & Unknown (orginal version) */
 		/* 'Last Modification: 04/17/08 - (NicoNZ) */
@@ -2337,33 +2340,33 @@ public class Trabajo {
 
 		switch (Declaraciones.UserList[UserIndex].clase) {
 		case Assasin:
-			Suerte = vb6.Int(((0.00003 * Skill - 0.002) * Skill + 0.098) * Skill + 4.25);
+			Suerte = vb6.Int(((0.00003f * Skill - 0.002f) * Skill + 0.098f) * Skill + 4.25f);
 
 			break;
 
 		case Cleric:
 		case eClass.Paladin:
 		case eClass.Pirat:
-			Suerte = vb6.Int(((0.000003 * Skill + 0.0006) * Skill + 0.0107) * Skill + 4.93);
+			Suerte = vb6.Int(((0.000003f * Skill + 0.0006f) * Skill + 0.0107f) * Skill + 4.93f);
 
 			break;
 
 		case Bard:
-			Suerte = vb6.Int(((0.000002 * Skill + 0.0002) * Skill + 0.032) * Skill + 4.81);
+			Suerte = vb6.Int(((0.000002f * Skill + 0.0002f) * Skill + 0.032f) * Skill + 4.81f);
 
 			break;
 
 		default:
-			Suerte = vb6.Int(0.0361 * Skill + 4.39);
+			Suerte = vb6.Int(0.0361f * Skill + 4.39f);
 			break;
 		}
 
 		if (Matematicas.RandomNumber(0, 100) < Suerte) {
 			if (VictimUserIndex != 0) {
 				if (Declaraciones.UserList[UserIndex].clase == eClass.Assasin) {
-					dano = vb6.Round(dano * 1.4, 0);
+					dano = vb6.Round(dano * 1.4f, 0);
 				} else {
-					dano = vb6.Round(dano * 1.5, 0);
+					dano = vb6.Round(dano * 1.5f, 0);
 				}
 
 				Declaraciones.UserList[VictimUserIndex].Stats.MinHp = Declaraciones.UserList[VictimUserIndex].Stats.MinHp
@@ -2393,7 +2396,7 @@ public class Trabajo {
 
 	}
 
-	static void DoAcuchillar(int UserIndex, int VictimNpcIndex, int VictimUserIndex, int dano) {
+	public static void DoAcuchillar(int UserIndex, int VictimNpcIndex, int VictimUserIndex, int dano) {
 		/* '*************************************************** */
 		/* 'Autor: ZaMa */
 		/* 'Last Modification: 12/01/2010 */
@@ -2426,7 +2429,7 @@ public class Trabajo {
 
 	}
 
-	static void DoGolpeCritico(int UserIndex, int VictimNpcIndex, int VictimUserIndex, int dano) {
+	public static void DoGolpeCritico(int UserIndex, int VictimNpcIndex, int VictimUserIndex, int dano) {
 		/* '*************************************************** */
 		/* 'Autor: Pablo (ToxicWaste) */
 		/* 'Last Modification: 28/01/2007 */
@@ -2453,11 +2456,11 @@ public class Trabajo {
 
 		Skill = Declaraciones.UserList[UserIndex].Stats.UserSkills[eSkill.Wrestling];
 
-		Suerte = vb6.Int((((0.00000003 * Skill + 0.000006) * Skill + 0.000107) * Skill + 0.0893) * 100);
+		Suerte = vb6.Int((((0.00000003f * Skill + 0.000006f) * Skill + 0.000107f) * Skill + 0.0893f) * 100);
 
 		if (Matematicas.RandomNumber(1, 100) <= Suerte) {
 
-			dano = vb6.Int(dano * 0.75);
+			dano = vb6.Int(dano * 0.75f);
 
 			if (VictimUserIndex != 0) {
 
@@ -2484,7 +2487,7 @@ public class Trabajo {
 
 	}
 
-	static void QuitarSta(int UserIndex, int Cantidad) {
+	public static void QuitarSta(int UserIndex, int Cantidad) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -2506,11 +2509,11 @@ public class Trabajo {
 
 	}
 
-	static void DoTalar(int UserIndex) {
+	public static void DoTalar(int UserIndex) {
 		DoTalar(UserIndex, false);
 	}
 
-	static void DoTalar(int UserIndex, boolean DarMaderaElfica) {
+	public static void DoTalar(int UserIndex, boolean DarMaderaElfica) {
 		/* '*************************************************** */
 		/* 'Autor: Unknown */
 		/* 'Last Modification: 28/05/2010 */
@@ -2541,7 +2544,7 @@ public class Trabajo {
 		}
 
 		Skill = Declaraciones.UserList[UserIndex].Stats.UserSkills[eSkill.Talar];
-		Suerte = vb6.Int(-0.00125 * Skill * Skill - 0.3 * Skill + 49);
+		Suerte = vb6.Int(-0.00125f * Skill * Skill - 0.3f * Skill + 49);
 
 		res = Matematicas.RandomNumber(1, Suerte);
 
@@ -2558,7 +2561,7 @@ public class Trabajo {
 
 			MiObj.ObjIndex = vb6.IIf(DarMaderaElfica, Declaraciones.LenaElfica, Declaraciones.Lena);
 
-			if (!InvUsuario.MeterItemEnInventario(UserIndex, MiObj)) {
+			if (! /* FIXME */InvUsuario.MeterItemEnInventario(UserIndex, MiObj)) {
 				InvNpc.TirarItemAlPiso(Declaraciones.UserList[UserIndex].Pos, MiObj);
 			}
 
@@ -2567,7 +2570,7 @@ public class Trabajo {
 			UsUaRiOs.SubirSkill(UserIndex, eSkill.Talar, true);
 		} else {
 			/* '[CDT 17-02-2004] */
-			if (!Declaraciones.UserList[UserIndex].flags.UltimoMensaje == 8) {
+			if (! /* FIXME */Declaraciones.UserList[UserIndex].flags.UltimoMensaje == 8) {
 				Protocol.WriteConsoleMsg(UserIndex, "¡No has obtenido leña!", FontTypeNames.FONTTYPE_INFO);
 				Declaraciones.UserList[UserIndex].flags.UltimoMensaje = 8;
 			}
@@ -2575,7 +2578,7 @@ public class Trabajo {
 			UsUaRiOs.SubirSkill(UserIndex, eSkill.Talar, false);
 		}
 
-		if (!ES.criminal(UserIndex)) {
+		if (! /* FIXME */ES.criminal(UserIndex)) {
 			Declaraciones.UserList[UserIndex].Reputacion.PlebeRep = Declaraciones.UserList[UserIndex].Reputacion.PlebeRep
 					+ Declaraciones.vlProleta;
 			if (Declaraciones.UserList[UserIndex].Reputacion.PlebeRep > Declaraciones.MAXREP) {
@@ -2593,7 +2596,7 @@ public class Trabajo {
 
 	}
 
-	static void DoMineria(int UserIndex) {
+	public static void DoMineria(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Autor: Unknown */
 		/* 'Last Modification: 28/05/2010 */
@@ -2623,7 +2626,7 @@ public class Trabajo {
 
 		int Skill = 0;
 		Skill = Declaraciones.UserList[UserIndex].Stats.UserSkills[eSkill.Mineria];
-		Suerte = vb6.Int(-0.00125 * Skill * Skill - 0.3 * Skill + 49);
+		Suerte = vb6.Int(-0.00125f * Skill * Skill - 0.3f * Skill + 49);
 
 		res = Matematicas.RandomNumber(1, Suerte);
 
@@ -2644,7 +2647,7 @@ public class Trabajo {
 				MiObj.Amount = 1;
 			}
 
-			if (!InvUsuario.MeterItemEnInventario(UserIndex, MiObj)) {
+			if (! /* FIXME */InvUsuario.MeterItemEnInventario(UserIndex, MiObj)) {
 				InvNpc.TirarItemAlPiso(Declaraciones.UserList[UserIndex].Pos, MiObj);
 			}
 
@@ -2653,7 +2656,7 @@ public class Trabajo {
 			UsUaRiOs.SubirSkill(UserIndex, eSkill.Mineria, true);
 		} else {
 			/* '[CDT 17-02-2004] */
-			if (!Declaraciones.UserList[UserIndex].flags.UltimoMensaje == 9) {
+			if (! /* FIXME */Declaraciones.UserList[UserIndex].flags.UltimoMensaje == 9) {
 				Protocol.WriteConsoleMsg(UserIndex, "¡No has conseguido nada!", FontTypeNames.FONTTYPE_INFO);
 				Declaraciones.UserList[UserIndex].flags.UltimoMensaje = 9;
 			}
@@ -2661,7 +2664,7 @@ public class Trabajo {
 			UsUaRiOs.SubirSkill(UserIndex, eSkill.Mineria, false);
 		}
 
-		if (!ES.criminal(UserIndex)) {
+		if (! /* FIXME */ES.criminal(UserIndex)) {
 			Declaraciones.UserList[UserIndex].Reputacion.PlebeRep = Declaraciones.UserList[UserIndex].Reputacion.PlebeRep
 					+ Declaraciones.vlProleta;
 			if (Declaraciones.UserList[UserIndex].Reputacion.PlebeRep > Declaraciones.MAXREP) {
@@ -2679,7 +2682,7 @@ public class Trabajo {
 
 	}
 
-	static void DoMeditar(int UserIndex) {
+	public static void DoMeditar(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -2758,7 +2761,7 @@ public class Trabajo {
 				Declaraciones.UserList[UserIndex].Stats.MinMAN = Declaraciones.UserList[UserIndex].Stats.MaxMAN;
 			}
 
-			if (!Declaraciones.UserList[UserIndex].flags.UltimoMensaje == 22) {
+			if (! /* FIXME */Declaraciones.UserList[UserIndex].flags.UltimoMensaje == 22) {
 				Protocol.WriteConsoleMsg(UserIndex, "¡Has recuperado " + cant + " puntos de maná!",
 						FontTypeNames.FONTTYPE_INFO);
 				Declaraciones.UserList[UserIndex].flags.UltimoMensaje = 22;
@@ -2771,7 +2774,7 @@ public class Trabajo {
 		}
 	}
 
-	static void DoDesequipar(int UserIndex, int VictimIndex) {
+	public static void DoDesequipar(int UserIndex, int VictimIndex) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modif: 15/04/2010 */
@@ -2795,7 +2798,7 @@ public class Trabajo {
 
 		WrestlingSkill = Declaraciones.UserList[UserIndex].Stats.UserSkills[eSkill.Wrestling];
 
-		Probabilidad = WrestlingSkill * 0.2 + Declaraciones.UserList[UserIndex].Stats.ELV * 0.66;
+		Probabilidad = WrestlingSkill * 0.2f + Declaraciones.UserList[UserIndex].Stats.ELV * 0.66f;
 
 		/* ' Si tiene escudo, intenta desequiparlo */
 		if (Declaraciones.UserList[VictimIndex].Invent.EscudoEqpObjIndex > 0) {
@@ -2887,7 +2890,7 @@ public class Trabajo {
 
 	}
 
-	static void DoHurtar(int UserIndex, int VictimaIndex) {
+	public static void DoHurtar(int UserIndex, int VictimaIndex) {
 		/* '*************************************************** */
 		/* 'Author: Pablo (ToxicWaste) */
 		/* 'Last Modif: 03/03/2010 */
@@ -2944,7 +2947,7 @@ public class Trabajo {
 
 	}
 
-	static void DoHandInmo(int UserIndex, int VictimaIndex) {
+	public static void DoHandInmo(int UserIndex, int VictimaIndex) {
 		/* '*************************************************** */
 		/* 'Author: Pablo (ToxicWaste) */
 		/* 'Last Modif: 17/02/2007 */
@@ -2978,7 +2981,7 @@ public class Trabajo {
 
 	}
 
-	static void Desarmar(int UserIndex, int VictimIndex) {
+	public static void Desarmar(int UserIndex, int VictimIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 02/04/2010 (ZaMa) */
@@ -2991,7 +2994,7 @@ public class Trabajo {
 
 		WrestlingSkill = Declaraciones.UserList[UserIndex].Stats.UserSkills[eSkill.Wrestling];
 
-		Probabilidad = WrestlingSkill * 0.2 + Declaraciones.UserList[UserIndex].Stats.ELV * 0.66;
+		Probabilidad = WrestlingSkill * 0.2f + Declaraciones.UserList[UserIndex].Stats.ELV * 0.66f;
 
 		Resultado = Matematicas.RandomNumber(1, 100);
 
@@ -3006,7 +3009,7 @@ public class Trabajo {
 
 	}
 
-	static int MaxItemsConstruibles(int UserIndex) {
+	public static int MaxItemsConstruibles(int UserIndex) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
@@ -3022,24 +3025,24 @@ public class Trabajo {
 		/* '*************************************************** */
 
 		if (Declaraciones.UserList[UserIndex].clase == eClass.Worker) {
-			retval = SistemaCombate.MaximoInt(1, vb6.CInt((Declaraciones.UserList[UserIndex].Stats.ELV - 2) * 0.2));
+			retval = SistemaCombate.MaximoInt(1, vb6.CInt((Declaraciones.UserList[UserIndex].Stats.ELV - 2) * 0.2f));
 		} else {
 			retval = 1;
 		}
 		return retval;
 	}
 
-	static int MaxItemsExtraibles(int UserLevel) {
+	public static int MaxItemsExtraibles(int UserLevel) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 14/05/2010 */
 		/* '*************************************************** */
-		retval = SistemaCombate.MaximoInt(1, vb6.CInt((UserLevel - 2) * 0.2)) + 1;
+		retval = SistemaCombate.MaximoInt(1, vb6.CInt((UserLevel - 2) * 0.2f)) + 1;
 		return retval;
 	}
 
-	static void ImitateNpc(int UserIndex, int NpcIndex) {
+	public static void ImitateNpc(int UserIndex, int NpcIndex) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 20/11/2010 */

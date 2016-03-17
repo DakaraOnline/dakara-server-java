@@ -1,6 +1,10 @@
-
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"AI"')] */
 /* 'Argentum Online 0.12.2 */
 /* 'Copyright (C) 2002 Mï¿½rquez Pablo Ignacio */
@@ -81,7 +85,7 @@ public class AI {
 	 * ?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½?ï¿½
 	 */
 
-	static void GuardiasAI(int NpcIndex, boolean DelCaos) {
+	public static void GuardiasAI(int NpcIndex, boolean DelCaos) {
 		/* '*************************************************** */
 		/* 'Autor: Unknown (orginal version) */
 		/* 'Last Modification: 12/01/2010 (ZaMa) */
@@ -103,15 +107,15 @@ public class AI {
 				if (Extra.InMapBounds(nPos.Map, nPos.X, nPos.Y)) {
 					UI = Declaraciones.MapData[nPos.Map][nPos.X][nPos.Y].UserIndex;
 					if (UI > 0) {
-						UserProtected = !modNuevoTimer.IntervaloPermiteSerAtacado(UI)
+						UserProtected = ! /* FIXME */modNuevoTimer.IntervaloPermiteSerAtacado(UI)
 								&& Declaraciones.UserList[UI].flags.NoPuedeSerAtacado;
 						UserProtected = UserProtected || Declaraciones.UserList[UI].flags.Ignorado
 								|| Declaraciones.UserList[UI].flags.EnConsulta;
 
 						if (Declaraciones.UserList[UI].flags.Muerto == 0
-								&& Declaraciones.UserList[UI].flags.AdminPerseguible && !UserProtected) {
+								&& Declaraciones.UserList[UI].flags.AdminPerseguible && ! /* FIXME */UserProtected) {
 							/* 'ï¿½ES CRIMINAL? */
-							if (!DelCaos) {
+							if (! /* FIXME */DelCaos) {
 								if (ES.criminal(UI)) {
 									if (SistemaCombate.NpcAtacaUser(NpcIndex, UI)) {
 										NPCs.ChangeNPCChar(NpcIndex, Declaraciones.Npclist[NpcIndex].Char.body,
@@ -119,7 +123,7 @@ public class AI {
 									}
 									return;
 								} else if (Declaraciones.Npclist[NpcIndex].flags.AttackedBy == Declaraciones.UserList[UI].Name
-										&& !Declaraciones.Npclist[NpcIndex].flags.Follow) {
+										&& ! /* FIXME */Declaraciones.Npclist[NpcIndex].flags.Follow) {
 
 									if (SistemaCombate.NpcAtacaUser(NpcIndex, UI)) {
 										NPCs.ChangeNPCChar(NpcIndex, Declaraciones.Npclist[NpcIndex].Char.body,
@@ -128,14 +132,14 @@ public class AI {
 									return;
 								}
 							} else {
-								if (!ES.criminal(UI)) {
+								if (! /* FIXME */ES.criminal(UI)) {
 									if (SistemaCombate.NpcAtacaUser(NpcIndex, UI)) {
 										NPCs.ChangeNPCChar(NpcIndex, Declaraciones.Npclist[NpcIndex].Char.body,
 												Declaraciones.Npclist[NpcIndex].Char.Head, headingloop);
 									}
 									return;
 								} else if (Declaraciones.Npclist[NpcIndex].flags.AttackedBy == Declaraciones.UserList[UI].Name
-										&& !Declaraciones.Npclist[NpcIndex].flags.Follow) {
+										&& ! /* FIXME */Declaraciones.Npclist[NpcIndex].flags.Follow) {
 
 									if (SistemaCombate.NpcAtacaUser(NpcIndex, UI)) {
 										NPCs.ChangeNPCChar(NpcIndex, Declaraciones.Npclist[NpcIndex].Char.body,
@@ -158,7 +162,7 @@ public class AI {
 	/* ' Handles the evil npcs' artificial intelligency. */
 	/* ' */
 	/* ' @param NpcIndex Specifies reference to the npc */
-	static void HostilMalvadoAI(int NpcIndex) {
+	public static void HostilMalvadoAI(int NpcIndex) {
 		/* '************************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modify Date: 12/01/2010 (ZaMa) */
@@ -188,14 +192,14 @@ public class AI {
 				if (Extra.InMapBounds(nPos.Map, nPos.X, nPos.Y)) {
 					UI = Declaraciones.MapData[nPos.Map][nPos.X][nPos.Y].UserIndex;
 					NPCI = Declaraciones.MapData[nPos.Map][nPos.X][nPos.Y].NpcIndex;
-					if (UI > 0 && !atacoPJ) {
-						UserProtected = !modNuevoTimer.IntervaloPermiteSerAtacado(UI)
+					if (UI > 0 && ! /* FIXME */atacoPJ) {
+						UserProtected = ! /* FIXME */modNuevoTimer.IntervaloPermiteSerAtacado(UI)
 								&& Declaraciones.UserList[UI].flags.NoPuedeSerAtacado;
 						UserProtected = UserProtected || Declaraciones.UserList[UI].flags.Ignorado
 								|| Declaraciones.UserList[UI].flags.EnConsulta;
 
 						if (Declaraciones.UserList[UI].flags.Muerto == 0
-								&& Declaraciones.UserList[UI].flags.AdminPerseguible && (!UserProtected)) {
+								&& Declaraciones.UserList[UI].flags.AdminPerseguible && (! /* FIXME */UserProtected)) {
 
 							atacoPJ = true;
 							if (Declaraciones.Npclist[NpcIndex].Movement == NpcObjeto) {
@@ -249,7 +253,7 @@ public class AI {
 		RestoreOldMovement(NpcIndex);
 	}
 
-	static void HostilBuenoAI(int NpcIndex) {
+	public static void HostilBuenoAI(int NpcIndex) {
 		/* '*************************************************** */
 		/* 'Autor: Unknown (orginal version) */
 		/* 'Last Modification: 12/01/2010 (ZaMa) */
@@ -273,13 +277,14 @@ public class AI {
 					if (UI > 0) {
 						if (Declaraciones.UserList[UI].Name == Declaraciones.Npclist[NpcIndex].flags.AttackedBy) {
 
-							UserProtected = !modNuevoTimer.IntervaloPermiteSerAtacado(UI)
+							UserProtected = ! /* FIXME */modNuevoTimer.IntervaloPermiteSerAtacado(UI)
 									&& Declaraciones.UserList[UI].flags.NoPuedeSerAtacado;
 							UserProtected = UserProtected || Declaraciones.UserList[UI].flags.Ignorado
 									|| Declaraciones.UserList[UI].flags.EnConsulta;
 
 							if (Declaraciones.UserList[UI].flags.Muerto == 0
-									&& Declaraciones.UserList[UI].flags.AdminPerseguible && !UserProtected) {
+									&& Declaraciones.UserList[UI].flags.AdminPerseguible
+									&& ! /* FIXME */UserProtected) {
 								if (Declaraciones.Npclist[NpcIndex].flags.LanzaSpells > 0) {
 									NpcLanzaUnSpell(NpcIndex, UI);
 								}
@@ -299,7 +304,7 @@ public class AI {
 		RestoreOldMovement(NpcIndex);
 	}
 
-	static void IrUsuarioCercano(int NpcIndex) {
+	public static void IrUsuarioCercano(int NpcIndex) {
 		/* '*************************************************** */
 		/* 'Autor: Unknown (orginal version) */
 		/* 'Last Modification: 25/07/2010 (ZaMa) */
@@ -358,13 +363,13 @@ public class AI {
 							&& vb6.Sgn(Declaraciones.UserList[UserIndex].Pos.Y
 									- Declaraciones.Npclist[NpcIndex].Pos.Y) == SignoNS) {
 
-						UserProtected = !modNuevoTimer.IntervaloPermiteSerAtacado(UserIndex)
+						UserProtected = ! /* FIXME */modNuevoTimer.IntervaloPermiteSerAtacado(UserIndex)
 								&& Declaraciones.UserList[UserIndex].flags.NoPuedeSerAtacado;
 						UserProtected = UserProtected || Declaraciones.UserList[UserIndex].flags.Ignorado
 								|| Declaraciones.UserList[UserIndex].flags.EnConsulta;
 
 						if (Declaraciones.UserList[UserIndex].flags.Muerto == 0) {
-							if (!UserProtected) {
+							if (! /* FIXME */UserProtected) {
 								if (Declaraciones.Npclist[NpcIndex].flags.LanzaSpells != 0) {
 									NpcLanzaUnSpell(NpcIndex, UserIndex);
 								}
@@ -403,8 +408,8 @@ public class AI {
 							/* ' va hacia el si o esta invi ni oculto */
 							if (Declaraciones.UserList[OwnerIndex].flags.invisible == 0
 									&& Declaraciones.UserList[OwnerIndex].flags.Oculto == 0
-									&& !Declaraciones.UserList[OwnerIndex].flags.EnConsulta
-									&& !Declaraciones.UserList[OwnerIndex].flags.Ignorado) {
+									&& ! /* FIXME */Declaraciones.UserList[OwnerIndex].flags.EnConsulta
+									&& ! /* FIXME */Declaraciones.UserList[OwnerIndex].flags.Ignorado) {
 								if (Declaraciones.Npclist[NpcIndex].flags.LanzaSpells != 0) {
 									NpcLanzaUnSpell(NpcIndex, OwnerIndex);
 								}
@@ -444,7 +449,7 @@ public class AI {
 					if (vb6.Abs(Declaraciones.UserList[UserIndex].Pos.Y
 							- Declaraciones.Npclist[NpcIndex].Pos.Y) <= AI.RANGO_VISION_Y) {
 
-						UserProtected = !modNuevoTimer.IntervaloPermiteSerAtacado(UserIndex)
+						UserProtected = ! /* FIXME */modNuevoTimer.IntervaloPermiteSerAtacado(UserIndex)
 								&& Declaraciones.UserList[UserIndex].flags.NoPuedeSerAtacado;
 						UserProtected = UserProtected || Declaraciones.UserList[UserIndex].flags.Ignorado
 								|| Declaraciones.UserList[UserIndex].flags.EnConsulta;
@@ -452,7 +457,8 @@ public class AI {
 						if (Declaraciones.UserList[UserIndex].flags.Muerto == 0
 								&& Declaraciones.UserList[UserIndex].flags.invisible == 0
 								&& Declaraciones.UserList[UserIndex].flags.Oculto == 0
-								&& Declaraciones.UserList[UserIndex].flags.AdminPerseguible && !UserProtected) {
+								&& Declaraciones.UserList[UserIndex].flags.AdminPerseguible
+								&& ! /* FIXME */UserProtected) {
 
 							if (Declaraciones.Npclist[NpcIndex].flags.LanzaSpells != 0) {
 								NpcLanzaUnSpell(NpcIndex, UserIndex);
@@ -483,7 +489,7 @@ public class AI {
 	/* ' Makes a Pet / Summoned Npc to Follow an enemy */
 	/* ' */
 	/* ' @param NpcIndex Specifies reference to the npc */
-	static void SeguirAgresor(int NpcIndex) {
+	public static void SeguirAgresor(int NpcIndex) {
 		/* '************************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modify by: Marco Vanotti (MarKoxX) */
@@ -543,7 +549,8 @@ public class AI {
 
 						if (Declaraciones.UserList[UI].Name == Declaraciones.Npclist[NpcIndex].flags.AttackedBy) {
 							if (Declaraciones.Npclist[NpcIndex].MaestroUser > 0) {
-								if (!ES.criminal(Declaraciones.Npclist[NpcIndex].MaestroUser) && !ES.criminal(UI)
+								if (! /* FIXME */ES.criminal(Declaraciones.Npclist[NpcIndex].MaestroUser)
+										&& ! /* FIXME */ES.criminal(UI)
 										&& (Declaraciones.UserList[Declaraciones.Npclist[NpcIndex].MaestroUser].flags.Seguro
 												|| Declaraciones.UserList[Declaraciones.Npclist[NpcIndex].MaestroUser].Faccion.ArmadaReal == 1)) {
 									Protocol.WriteConsoleMsg(Declaraciones.Npclist[NpcIndex].MaestroUser,
@@ -592,7 +599,8 @@ public class AI {
 
 						if (Declaraciones.UserList[UI].Name == Declaraciones.Npclist[NpcIndex].flags.AttackedBy) {
 							if (Declaraciones.Npclist[NpcIndex].MaestroUser > 0) {
-								if (!ES.criminal(Declaraciones.Npclist[NpcIndex].MaestroUser) && !ES.criminal(UI)
+								if (! /* FIXME */ES.criminal(Declaraciones.Npclist[NpcIndex].MaestroUser)
+										&& ! /* FIXME */ES.criminal(UI)
 										&& (Declaraciones.UserList[Declaraciones.Npclist[NpcIndex].MaestroUser].flags.Seguro
 												|| Declaraciones.UserList[Declaraciones.Npclist[NpcIndex].MaestroUser].Faccion.ArmadaReal == 1)) {
 									Protocol.WriteConsoleMsg(Declaraciones.Npclist[NpcIndex].MaestroUser,
@@ -640,7 +648,7 @@ public class AI {
 		RestoreOldMovement(NpcIndex);
 	}
 
-	static void RestoreOldMovement(int NpcIndex) {
+	public static void RestoreOldMovement(int NpcIndex) {
 		if (Declaraciones.Npclist[NpcIndex].MaestroUser == 0) {
 			Declaraciones.Npclist[NpcIndex].Movement = Declaraciones.Npclist[NpcIndex].flags.OldMovement;
 			Declaraciones.Npclist[NpcIndex].Hostile = Declaraciones.Npclist[NpcIndex].flags.OldHostil;
@@ -648,7 +656,7 @@ public class AI {
 		}
 	}
 
-	static void PersigueCiudadano(int NpcIndex) {
+	public static void PersigueCiudadano(int NpcIndex) {
 		/* '*************************************************** */
 		/* 'Autor: Unknown (orginal version) */
 		/* 'Last Modification: 12/01/2010 (ZaMa) */
@@ -671,9 +679,9 @@ public class AI {
 				if (vb6.Abs(Declaraciones.UserList[UserIndex].Pos.Y
 						- Declaraciones.Npclist[NpcIndex].Pos.Y) <= AI.RANGO_VISION_Y) {
 
-					if (!ES.criminal(UserIndex)) {
+					if (! /* FIXME */ES.criminal(UserIndex)) {
 
-						UserProtected = !modNuevoTimer.IntervaloPermiteSerAtacado(UserIndex)
+						UserProtected = ! /* FIXME */modNuevoTimer.IntervaloPermiteSerAtacado(UserIndex)
 								&& Declaraciones.UserList[UserIndex].flags.NoPuedeSerAtacado;
 						UserProtected = UserProtected || Declaraciones.UserList[UserIndex].flags.Ignorado
 								|| Declaraciones.UserList[UserIndex].flags.EnConsulta;
@@ -681,7 +689,8 @@ public class AI {
 						if (Declaraciones.UserList[UserIndex].flags.Muerto == 0
 								&& Declaraciones.UserList[UserIndex].flags.invisible == 0
 								&& Declaraciones.UserList[UserIndex].flags.Oculto == 0
-								&& Declaraciones.UserList[UserIndex].flags.AdminPerseguible && !UserProtected) {
+								&& Declaraciones.UserList[UserIndex].flags.AdminPerseguible
+								&& ! /* FIXME */UserProtected) {
 
 							if (Declaraciones.Npclist[NpcIndex].flags.LanzaSpells > 0) {
 								NpcLanzaUnSpell(NpcIndex, UserIndex);
@@ -701,7 +710,7 @@ public class AI {
 		RestoreOldMovement(NpcIndex);
 	}
 
-	static void PersigueCriminal(int NpcIndex) {
+	public static void PersigueCriminal(int NpcIndex) {
 		/* '*************************************************** */
 		/* 'Autor: Unknown (orginal version) */
 		/* 'Last Modification: 12/01/2010 (ZaMa) */
@@ -758,7 +767,7 @@ public class AI {
 
 						if (ES.criminal(UserIndex)) {
 
-							UserProtected = !modNuevoTimer.IntervaloPermiteSerAtacado(UserIndex)
+							UserProtected = ! /* FIXME */modNuevoTimer.IntervaloPermiteSerAtacado(UserIndex)
 									&& Declaraciones.UserList[UserIndex].flags.NoPuedeSerAtacado;
 							UserProtected = UserProtected || Declaraciones.UserList[UserIndex].flags.Ignorado
 									|| Declaraciones.UserList[UserIndex].flags.EnConsulta;
@@ -766,7 +775,8 @@ public class AI {
 							if (Declaraciones.UserList[UserIndex].flags.Muerto == 0
 									&& Declaraciones.UserList[UserIndex].flags.invisible == 0
 									&& Declaraciones.UserList[UserIndex].flags.Oculto == 0
-									&& Declaraciones.UserList[UserIndex].flags.AdminPerseguible && !UserProtected) {
+									&& Declaraciones.UserList[UserIndex].flags.AdminPerseguible
+									&& ! /* FIXME */UserProtected) {
 
 								if (Declaraciones.Npclist[NpcIndex].flags.LanzaSpells > 0) {
 									NpcLanzaUnSpell(NpcIndex, UserIndex);
@@ -790,14 +800,15 @@ public class AI {
 
 						if (ES.criminal(UserIndex)) {
 
-							UserProtected = !modNuevoTimer.IntervaloPermiteSerAtacado(UserIndex)
+							UserProtected = ! /* FIXME */modNuevoTimer.IntervaloPermiteSerAtacado(UserIndex)
 									&& Declaraciones.UserList[UserIndex].flags.NoPuedeSerAtacado;
 							UserProtected = UserProtected || Declaraciones.UserList[UserIndex].flags.Ignorado;
 
 							if (Declaraciones.UserList[UserIndex].flags.Muerto == 0
 									&& Declaraciones.UserList[UserIndex].flags.invisible == 0
 									&& Declaraciones.UserList[UserIndex].flags.Oculto == 0
-									&& Declaraciones.UserList[UserIndex].flags.AdminPerseguible && !UserProtected) {
+									&& Declaraciones.UserList[UserIndex].flags.AdminPerseguible
+									&& ! /* FIXME */UserProtected) {
 								if (Declaraciones.Npclist[NpcIndex].flags.LanzaSpells > 0) {
 									NpcLanzaUnSpell(NpcIndex, UserIndex);
 								}
@@ -820,7 +831,7 @@ public class AI {
 		RestoreOldMovement(NpcIndex);
 	}
 
-	static void SeguirAmo(int NpcIndex) {
+	public static void SeguirAmo(int NpcIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -857,7 +868,7 @@ public class AI {
 		RestoreOldMovement(NpcIndex);
 	}
 
-	static void AiNpcAtacaNpc(int NpcIndex) {
+	public static void AiNpcAtacaNpc(int NpcIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -979,7 +990,7 @@ public class AI {
 			}
 		}
 
-		if (!bNoEsta) {
+		if (! /* FIXME */bNoEsta) {
 			if (Declaraciones.Npclist[NpcIndex].MaestroUser > 0) {
 				NPCs.FollowAmo(NpcIndex);
 			} else {
@@ -989,7 +1000,7 @@ public class AI {
 		}
 	}
 
-	static void AiNpcObjeto(int NpcIndex) {
+	public static void AiNpcObjeto(int NpcIndex) {
 		/* '*************************************************** */
 		/* 'Autor: ZaMa */
 		/* 'Last Modification: 14/09/2009 (ZaMa) */
@@ -1008,13 +1019,13 @@ public class AI {
 				if (vb6.Abs(Declaraciones.UserList[UserIndex].Pos.Y
 						- Declaraciones.Npclist[NpcIndex].Pos.Y) <= AI.RANGO_VISION_Y) {
 
-					UserProtected = !modNuevoTimer.IntervaloPermiteSerAtacado(UserIndex)
+					UserProtected = ! /* FIXME */modNuevoTimer.IntervaloPermiteSerAtacado(UserIndex)
 							&& Declaraciones.UserList[UserIndex].flags.NoPuedeSerAtacado;
 
 					if (Declaraciones.UserList[UserIndex].flags.Muerto == 0
 							&& Declaraciones.UserList[UserIndex].flags.invisible == 0
 							&& Declaraciones.UserList[UserIndex].flags.Oculto == 0
-							&& Declaraciones.UserList[UserIndex].flags.AdminPerseguible && !UserProtected) {
+							&& Declaraciones.UserList[UserIndex].flags.AdminPerseguible && ! /* FIXME */UserProtected) {
 
 						/* ' No quiero que ataque siempre al primero */
 						if (Matematicas.RandomNumber(1, 3) < 3) {
@@ -1032,7 +1043,7 @@ public class AI {
 
 	}
 
-	static void NPCAI(int NpcIndex) {
+	public static void NPCAI(int NpcIndex) {
 		/* '************************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modify by: ZaMa */
@@ -1145,7 +1156,7 @@ public class AI {
 					NPCs.MoveNPCChar(NpcIndex, Matematicas.RandomNumber(eHeading.NORTH, eHeading.WEST));
 				}
 			} else {
-				if (!PathEnd(NpcIndex)) {
+				if (! /* FIXME */PathEnd(NpcIndex)) {
 					FollowPath(NpcIndex);
 				} else {
 					Declaraciones.Npclist[NpcIndex].PFINFO.PathLenght = 0;
@@ -1170,22 +1181,19 @@ public class AI {
 		NPCs.ReSpawnNpc(MiNPC);
 	}
 
-	static boolean UserNear(int NpcIndex) {
-		boolean retval = false;
-		/* '*************************************************** */
-		/* 'Author: Unknown */
-		/* 'Last Modification: - */
-		/* 'Returns True if there is an user adjacent to the npc position. */
-		/* '*************************************************** */
+	public static boolean UserNear(int NpcIndex) {
+ boolean retval = false;
+ /* '*************************************************** */
+ /* 'Author: Unknown */
+ /* 'Last Modification: - */
+ /* 'Returns True if there is an user adjacent to the npc position. */
+ /* '*************************************************** */
+ 
+  retval = ! / * FIXME * /vb6.Int(Matematicas.Distance(Declaraciones.Npclist[NpcIndex].Pos.X, Declaraciones.Npclist[NpcIndex].Pos.Y, Declaraciones.UserList[Declaraciones.Npclist[NpcIndex].PFINFO.TargetUser].Pos.X, Declaraciones.UserList[Declaraciones.Npclist[NpcIndex].PFINFO.TargetUser].Pos.Y))>1;
+return retval;
+}
 
-		retval = !vb6
-				.Int(Matematicas.Distance(Declaraciones.Npclist[NpcIndex].Pos.X, Declaraciones.Npclist[NpcIndex].Pos.Y,
-						Declaraciones.UserList[Declaraciones.Npclist[NpcIndex].PFINFO.TargetUser].Pos.X,
-						Declaraciones.UserList[Declaraciones.Npclist[NpcIndex].PFINFO.TargetUser].Pos.Y)) > 1;
-		return retval;
-	}
-
-	static boolean ReCalculatePath(int NpcIndex) {
+	public static boolean ReCalculatePath(int NpcIndex) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -1195,7 +1203,7 @@ public class AI {
 
 		if (Declaraciones.Npclist[NpcIndex].PFINFO.PathLenght == 0) {
 			retval = true;
-		} else if (!UserNear(NpcIndex)
+		} else if (! /* FIXME */UserNear(NpcIndex)
 				&& Declaraciones.Npclist[NpcIndex].PFINFO.PathLenght == Declaraciones.Npclist[NpcIndex].PFINFO.CurPos
 						- 1) {
 			retval = true;
@@ -1203,7 +1211,7 @@ public class AI {
 		return retval;
 	}
 
-	static boolean PathEnd(int NpcIndex) {
+	public static boolean PathEnd(int NpcIndex) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Gulfas Morgolock */
@@ -1214,7 +1222,7 @@ public class AI {
 		return retval;
 	}
 
-	static boolean FollowPath(int NpcIndex) {
+	public static boolean FollowPath(int NpcIndex) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Gulfas Morgolock */
@@ -1239,7 +1247,7 @@ public class AI {
 		return retval;
 	}
 
-	static boolean PathFindingAI(int NpcIndex) {
+	public static boolean PathFindingAI(int NpcIndex) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Gulfas Morgolock */
@@ -1292,7 +1300,7 @@ public class AI {
 		return retval;
 	}
 
-	static void NpcLanzaUnSpell(int NpcIndex, int UserIndex) {
+	public static void NpcLanzaUnSpell(int NpcIndex, int UserIndex) {
 		/* '************************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modify by: - */
@@ -1308,7 +1316,7 @@ public class AI {
 		modHechizos.NpcLanzaSpellSobreUser(NpcIndex, UserIndex, Declaraciones.Npclist[NpcIndex].Spells[k]);
 	}
 
-	static void NpcLanzaUnSpellSobreNpc(int NpcIndex, int TargetNPC) {
+	public static void NpcLanzaUnSpellSobreNpc(int NpcIndex, int TargetNPC) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */

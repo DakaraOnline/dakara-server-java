@@ -1,5 +1,10 @@
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"Statistics"')] */
 /* '************************************************************** */
 /* ' modStatistics.bas - Takes statistics on the game for later study. */
@@ -54,13 +59,13 @@ private static int[] fragAlignmentLvlData = new int[[('1', '50'), ('1', '4')]]; 
 /* 'Currency just in case.... chats are way TOO often... */
 	private static double[] keyOcurrencies = new double[0 + 255];
 
-	static void Initialize() {
+	public static void Initialize() {
 		trainningInfo = new trainningData[0];
 		trainningInfo = (trainningInfo == null) ? new trainningData[1 + Declaraciones.MaxUsers]
 				: java.util.Arrays.copyOf(trainningInfo, 1 + Declaraciones.MaxUsers);
 	}
 
-	static void UserConnected(int UserIndex) {
+	public static void UserConnected(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -75,7 +80,7 @@ private static int[] fragAlignmentLvlData = new int[[('1', '50'), ('1', '4')]]; 
 		trainningInfo[UserIndex].startTick = (Declaraciones.GetTickCount() && 0x7FFFFFFF);
 	}
 
-	static void UserDisconnected(int UserIndex) {
+	public static void UserDisconnected(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -94,7 +99,7 @@ private static int[] fragAlignmentLvlData = new int[[('1', '50'), ('1', '4')]]; 
 				"TrainningTime", vb6.CStr(trainningInfo[UserIndex].trainningTime));
 	}
 
-	static void UserLevelUp(int UserIndex) {
+	public static void UserLevelUp(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -124,7 +129,7 @@ private static int[] fragAlignmentLvlData = new int[[('1', '50'), ('1', '4')]]; 
 		trainningInfo[UserIndex].startTick = (Declaraciones.GetTickCount() && 0x7FFFFFFF);
 	}
 
-	static void StoreFrag(int killer, int victim) {
+	public static void StoreFrag(int killer, int victim) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -235,7 +240,7 @@ private static int[] fragAlignmentLvlData = new int[[('1', '50'), ('1', '4')]]; 
 				+ 1;
 	}
 
-	static void DumpStatistics() {
+	public static void DumpStatistics() {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -642,7 +647,7 @@ private static int[] fragAlignmentLvlData = new int[[('1', '50'), ('1', '4')]]; 
 		/* FIXME: CLOSE handle */
 	}
 
-	static void ParseChat(String /* FIXME BYREF!! */ S) {
+	public static void ParseChat(String /* FIXME BYREF!! */ S) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */

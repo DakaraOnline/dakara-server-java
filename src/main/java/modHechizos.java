@@ -1,6 +1,10 @@
-
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"modHechizos"')] */
 /* 'Argentum Online 0.12.2 */
 /* 'Copyright (C) 2002 Márquez Pablo Ignacio */
@@ -37,11 +41,11 @@ public class modHechizos {
 	static final int HELEMENTAL_FUEGO = 26;
 	static final int HELEMENTAL_TIERRA = 28;
 
-	static void NpcLanzaSpellSobreUser(int NpcIndex, int UserIndex, int Spell) {
+	public static void NpcLanzaSpellSobreUser(int NpcIndex, int UserIndex, int Spell) {
 		NpcLanzaSpellSobreUser(NpcIndex, UserIndex, Spell, false, false);
 	}
 
-	static void NpcLanzaSpellSobreUser(int NpcIndex, int UserIndex, int Spell, boolean DecirPalabras,
+	public static void NpcLanzaSpellSobreUser(int NpcIndex, int UserIndex, int Spell, boolean DecirPalabras,
 			boolean IgnoreVisibilityCheck) {
 		/* '*************************************************** */
 		/* 'Autor: Unknown (orginal version) */
@@ -72,7 +76,7 @@ public class modHechizos {
 		}
 
 		/* ' Doesn't consider if the user is hidden/invisible or not. */
-		if (!IgnoreVisibilityCheck) {
+		if (! /* FIXME */IgnoreVisibilityCheck) {
 			if (Declaraciones.UserList[UserIndex].flags.invisible == 1
 					|| Declaraciones.UserList[UserIndex].flags.Oculto == 1) {
 				return;
@@ -278,7 +282,7 @@ public class modHechizos {
 
 	}
 
-	static void SendSpellEffects(int UserIndex, int NpcIndex, int Spell, boolean DecirPalabras) {
+	public static void SendSpellEffects(int UserIndex, int NpcIndex, int Spell, boolean DecirPalabras) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 11/11/2010 */
@@ -302,11 +306,11 @@ public class modHechizos {
 		}
 	}
 
-	static void NpcLanzaSpellSobreNpc(int NpcIndex, int TargetNPC, int SpellIndex) {
+	public static void NpcLanzaSpellSobreNpc(int NpcIndex, int TargetNPC, int SpellIndex) {
 		NpcLanzaSpellSobreNpc(NpcIndex, TargetNPC, SpellIndex, false);
 	}
 
-	static void NpcLanzaSpellSobreNpc(int NpcIndex, int TargetNPC, int SpellIndex, boolean DecirPalabras) {
+	public static void NpcLanzaSpellSobreNpc(int NpcIndex, int TargetNPC, int SpellIndex, boolean DecirPalabras) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 21/09/2010 */
@@ -399,7 +403,7 @@ public class modHechizos {
 
 	}
 
-	static boolean TieneHechizo(int i, int UserIndex) {
+	public static boolean TieneHechizo(int i, int UserIndex) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -423,7 +427,7 @@ public class modHechizos {
 		return retval;
 	}
 
-	static void AgregarHechizo(int UserIndex, int Slot) {
+	public static void AgregarHechizo(int UserIndex, int Slot) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -435,7 +439,7 @@ public class modHechizos {
 
 		hIndex = Declaraciones.ObjData[Declaraciones.UserList[UserIndex].Invent.Object[Slot].ObjIndex].HechizoIndex;
 
-		if (!TieneHechizo(hIndex, UserIndex)) {
+		if (! /* FIXME */TieneHechizo(hIndex, UserIndex)) {
 			/* 'Buscamos un slot vacio */
 			for (j = (1); j <= (Declaraciones.MAXUSERHECHIZOS); j++) {
 				if (Declaraciones.UserList[UserIndex].Stats.UserHechizos[j] == 0) {
@@ -458,7 +462,7 @@ public class modHechizos {
 
 	}
 
-	static void DecirPalabrasMagicas(String SpellWords, int UserIndex) {
+	public static void DecirPalabrasMagicas(String SpellWords, int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 17/11/2009 */
@@ -501,7 +505,7 @@ public class modHechizos {
 	/* ' @param UserIndex Specifies reference to user */
 	/* ' @param HechizoIndex Specifies reference to spell */
 	/* ' @return True if the user can cast the spell, otherwise returns false */
-	static boolean PuedeLanzar(int UserIndex, int HechizoIndex) {
+	public static boolean PuedeLanzar(int UserIndex, int HechizoIndex) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -564,18 +568,18 @@ public class modHechizos {
 			if (Declaraciones.UserList[UserIndex].Invent.AnilloEqpObjIndex == Declaraciones.FLAUTAELFICA) {
 				/* ' 50% menos de mana requerido para mimetismo */
 				if (Declaraciones.Hechizos[HechizoIndex].Mimetiza == 1) {
-					DruidManaBonus = 0.5;
+					DruidManaBonus = 0.5f;
 
 					/* ' 30% menos de mana requerido para invocaciones */
 				} else if (Declaraciones.Hechizos[HechizoIndex].Tipo == uInvocacion) {
-					DruidManaBonus = 0.7;
+					DruidManaBonus = 0.7f;
 
 					/*
 					 * ' 10% menos de mana requerido para las demas magias,
 					 * excepto apoca
 					 */
 				} else if (HechizoIndex != Declaraciones.APOCALIPSIS_SPELL_INDEX) {
-					DruidManaBonus = 0.9;
+					DruidManaBonus = 0.9f;
 				}
 			}
 
@@ -607,7 +611,8 @@ public class modHechizos {
 		return retval;
 	}
 
-	static void HechizoTerrenoEstado(int UserIndex, boolean /* FIXME BYREF!! */ b) {
+	public static void HechizoTerrenoEstado(int UserIndex,
+			boolean /* FIXME BYREF!! */ b) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -656,7 +661,8 @@ public class modHechizos {
 	/* ' @param UserIndex Indice del usuario que invoca. */
 	/* ' @param b Indica si se termino la operación. */
 
-	static void HechizoInvocacion(int UserIndex, boolean /* FIXME BYREF!! */ HechizoCasteado) {
+	public static void HechizoInvocacion(int UserIndex,
+			boolean /* FIXME BYREF!! */ HechizoCasteado) {
 		/* '*************************************************** */
 		/* 'Author: Uknown */
 		/* 'Last modification: 18/09/2010 */
@@ -763,7 +769,7 @@ public class modHechizos {
 
 	}
 
-	static void HandleHechizoTerreno(int UserIndex, int SpellIndex) {
+	public static void HandleHechizoTerreno(int UserIndex, int SpellIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 18/11/2009 */
@@ -799,7 +805,7 @@ public class modHechizos {
 					/* ' Solo con flauta equipada */
 					if (Declaraciones.UserList[UserIndex].Invent.AnilloEqpObjIndex == Declaraciones.FLAUTAELFICA) {
 						/* ' 30% menos de mana para invocaciones */
-						ManaRequerida = ManaRequerida * 0.7;
+						ManaRequerida = ManaRequerida * 0.7f;
 					}
 				}
 			}
@@ -824,7 +830,7 @@ public class modHechizos {
 
 	}
 
-	static void HandleHechizoUsuario(int UserIndex, int SpellIndex) {
+	public static void HandleHechizoUsuario(int UserIndex, int SpellIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 12/01/2010 */
@@ -861,13 +867,13 @@ public class modHechizos {
 				if (Declaraciones.UserList[UserIndex].Invent.AnilloEqpObjIndex == Declaraciones.FLAUTAELFICA) {
 					if (Declaraciones.Hechizos[SpellIndex].Mimetiza == 1) {
 						/* ' 50% menos de mana para mimetismo */
-						ManaRequerida = ManaRequerida * 0.5;
+						ManaRequerida = ManaRequerida * 0.5f;
 
 					} else if (SpellIndex != Declaraciones.APOCALIPSIS_SPELL_INDEX) {
 						/*
 						 * ' 10% menos de mana para todo menos apoca y descarga
 						 */
-						ManaRequerida = ManaRequerida * 0.9;
+						ManaRequerida = ManaRequerida * 0.9f;
 					}
 				}
 			}
@@ -894,7 +900,7 @@ public class modHechizos {
 
 	}
 
-	static void HandleHechizoNPC(int UserIndex, int HechizoIndex) {
+	public static void HandleHechizoNPC(int UserIndex, int HechizoIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 12/01/2010 */
@@ -943,7 +949,7 @@ public class modHechizos {
 				if (Declaraciones.UserList[UserIndex].Invent.AnilloEqpObjIndex == Declaraciones.FLAUTAELFICA) {
 					if (Declaraciones.Hechizos[HechizoIndex].Mimetiza == 1) {
 						/* ' 50% menos de mana para mimetismo */
-						ManaRequerida = ManaRequerida * 0.5;
+						ManaRequerida = ManaRequerida * 0.5f;
 						/*
 						 * ' Será ignorado hasta que pierda el efecto del
 						 * mimetismo o ataque un npc
@@ -952,7 +958,7 @@ public class modHechizos {
 					} else {
 						/* ' 10% menos de mana para hechizos */
 						if (HechizoIndex != Declaraciones.APOCALIPSIS_SPELL_INDEX) {
-							ManaRequerida = ManaRequerida * 0.9;
+							ManaRequerida = ManaRequerida * 0.9f;
 						}
 					}
 				}
@@ -978,7 +984,7 @@ public class modHechizos {
 		}
 	}
 
-	static void LanzarHechizo(int SpellIndex, int UserIndex) {
+	public static void LanzarHechizo(int SpellIndex, int UserIndex) {
 		/* '*************************************************** */
 		/* 'Autor: Unknown (orginal version) */
 		/* 'Last Modification: 02/16/2010 */
@@ -1079,7 +1085,8 @@ public class modHechizos {
 
 	}
 
-	static void HechizoEstadoUsuario(int UserIndex, boolean /* FIXME BYREF!! */ HechizoCasteado) {
+	public static void HechizoEstadoUsuario(int UserIndex,
+			boolean /* FIXME BYREF!! */ HechizoCasteado) {
 		/* '*************************************************** */
 		/* 'Autor: Unknown (orginal version) */
 		/* 'Last Modification: 28/04/2010 */
@@ -1161,13 +1168,13 @@ public class modHechizos {
 
 			/* ' Chequea si el status permite ayudar al otro usuario */
 			HechizoCasteado = CanSupportUser(UserIndex, TargetIndex, true);
-			if (!HechizoCasteado) {
+			if (! /* FIXME */HechizoCasteado) {
 				return;
 			}
 
 			/* 'Si sos user, no uses este hechizo con GMS. */
 			if (Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.User) {
-				if (!Declaraciones.UserList[TargetIndex].flags.Privilegios && PlayerType.User) {
+				if (! /* FIXME */Declaraciones.UserList[TargetIndex].flags.Privilegios && PlayerType.User) {
 					HechizoCasteado = false;
 					return;
 				}
@@ -1199,7 +1206,7 @@ public class modHechizos {
 
 			/* 'Si sos user, no uses este hechizo con GMS. */
 			if (Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.User) {
-				if (!Declaraciones.UserList[TargetIndex].flags.Privilegios && PlayerType.User) {
+				if (! /* FIXME */Declaraciones.UserList[TargetIndex].flags.Privilegios && PlayerType.User) {
 					return;
 				}
 			}
@@ -1248,7 +1255,7 @@ public class modHechizos {
 				return;
 			}
 
-			if (!SistemaCombate.PuedeAtacar(UserIndex, TargetIndex)) {
+			if (! /* FIXME */SistemaCombate.PuedeAtacar(UserIndex, TargetIndex)) {
 				return;
 			}
 			if (UserIndex != TargetIndex) {
@@ -1271,13 +1278,13 @@ public class modHechizos {
 
 			/* ' Chequea si el status permite ayudar al otro usuario */
 			HechizoCasteado = CanSupportUser(UserIndex, TargetIndex);
-			if (!HechizoCasteado) {
+			if (! /* FIXME */HechizoCasteado) {
 				return;
 			}
 
 			/* 'Si sos user, no uses este hechizo con GMS. */
 			if (Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.User) {
-				if (!Declaraciones.UserList[TargetIndex].flags.Privilegios && PlayerType.User) {
+				if (! /* FIXME */Declaraciones.UserList[TargetIndex].flags.Privilegios && PlayerType.User) {
 					return;
 				}
 			}
@@ -1294,7 +1301,7 @@ public class modHechizos {
 				return;
 			}
 
-			if (!SistemaCombate.PuedeAtacar(UserIndex, TargetIndex)) {
+			if (! /* FIXME */SistemaCombate.PuedeAtacar(UserIndex, TargetIndex)) {
 				return;
 			}
 			if (UserIndex != TargetIndex) {
@@ -1328,7 +1335,7 @@ public class modHechizos {
 			}
 
 			if (Declaraciones.UserList[TargetIndex].flags.Paralizado == 0) {
-				if (!SistemaCombate.PuedeAtacar(UserIndex, TargetIndex)) {
+				if (! /* FIXME */SistemaCombate.PuedeAtacar(UserIndex, TargetIndex)) {
 					return;
 				}
 
@@ -1384,7 +1391,7 @@ public class modHechizos {
 
 				/* ' Chequea si el status permite ayudar al otro usuario */
 				HechizoCasteado = CanSupportUser(UserIndex, TargetIndex, true);
-				if (!HechizoCasteado) {
+				if (! /* FIXME */HechizoCasteado) {
 					return;
 				}
 
@@ -1402,7 +1409,7 @@ public class modHechizos {
 
 				/* ' Chequea si el status permite ayudar al otro usuario */
 				HechizoCasteado = CanSupportUser(UserIndex, TargetIndex);
-				if (!HechizoCasteado) {
+				if (! /* FIXME */HechizoCasteado) {
 					return;
 				}
 
@@ -1482,14 +1489,14 @@ public class modHechizos {
 
 				/* ' Chequea si el status permite ayudar al otro usuario */
 				HechizoCasteado = CanSupportUser(UserIndex, TargetIndex, true);
-				if (!HechizoCasteado) {
+				if (! /* FIXME */HechizoCasteado) {
 					return;
 				}
 
 				boolean EraCriminal = false;
 				EraCriminal = ES.criminal(UserIndex);
 
-				if (!ES.criminal(TargetIndex)) {
+				if (! /* FIXME */ES.criminal(TargetIndex)) {
 					if (TargetIndex != UserIndex) {
 						Declaraciones.UserList[UserIndex].Reputacion.NobleRep = Declaraciones.UserList[UserIndex].Reputacion.NobleRep
 								+ 500;
@@ -1501,7 +1508,7 @@ public class modHechizos {
 					}
 				}
 
-				if (EraCriminal && !ES.criminal(UserIndex)) {
+				if (EraCriminal && ! /* FIXME */ES.criminal(UserIndex)) {
 					UsUaRiOs.RefreshCharStatus(UserIndex);
 				}
 
@@ -1526,7 +1533,7 @@ public class modHechizos {
 					 */
 					if (Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.User) {
 						Declaraciones.UserList[UserIndex].Stats.MinHp = Declaraciones.UserList[UserIndex].Stats.MinHp
-								* (1 - Declaraciones.UserList[TargetIndex].Stats.ELV * 0.015);
+								* (1 - Declaraciones.UserList[TargetIndex].Stats.ELV * 0.015f);
 					}
 				}
 
@@ -1566,7 +1573,7 @@ public class modHechizos {
 				return;
 			}
 
-			if (!SistemaCombate.PuedeAtacar(UserIndex, TargetIndex)) {
+			if (! /* FIXME */SistemaCombate.PuedeAtacar(UserIndex, TargetIndex)) {
 				return;
 			}
 			if (UserIndex != TargetIndex) {
@@ -1601,7 +1608,7 @@ public class modHechizos {
 				return;
 			}
 
-			if (!SistemaCombate.PuedeAtacar(UserIndex, TargetIndex)) {
+			if (! /* FIXME */SistemaCombate.PuedeAtacar(UserIndex, TargetIndex)) {
 				return;
 			}
 
@@ -1634,7 +1641,7 @@ public class modHechizos {
 
 	}
 
-	static void HechizoEstadoNPC(int NpcIndex, int SpellIndex,
+	public static void HechizoEstadoNPC(int NpcIndex, int SpellIndex,
 			boolean /* FIXME BYREF!! */ HechizoCasteado, int UserIndex) {
 		/* '*************************************************** */
 		/* 'Autor: Unknown (orginal version) */
@@ -1654,7 +1661,7 @@ public class modHechizos {
 		}
 
 		if (Declaraciones.Hechizos[SpellIndex].Envenena == 1) {
-			if (!SistemaCombate.PuedeAtacarNPC(UserIndex, NpcIndex)) {
+			if (! /* FIXME */SistemaCombate.PuedeAtacarNPC(UserIndex, NpcIndex)) {
 				HechizoCasteado = false;
 				return;
 			}
@@ -1671,7 +1678,7 @@ public class modHechizos {
 		}
 
 		if (Declaraciones.Hechizos[SpellIndex].Maldicion == 1) {
-			if (!SistemaCombate.PuedeAtacarNPC(UserIndex, NpcIndex)) {
+			if (! /* FIXME */SistemaCombate.PuedeAtacarNPC(UserIndex, NpcIndex)) {
 				HechizoCasteado = false;
 				return;
 			}
@@ -1695,7 +1702,7 @@ public class modHechizos {
 
 		if (Declaraciones.Hechizos[SpellIndex].Paraliza == 1) {
 			if (Declaraciones.Npclist[NpcIndex].flags.AfectaParalisis == 0) {
-				if (!SistemaCombate.PuedeAtacarNPC(UserIndex, NpcIndex, true)) {
+				if (! /* FIXME */SistemaCombate.PuedeAtacarNPC(UserIndex, NpcIndex, true)) {
 					HechizoCasteado = false;
 					return;
 				}
@@ -1768,7 +1775,7 @@ public class modHechizos {
 
 		if (Declaraciones.Hechizos[SpellIndex].Inmoviliza == 1) {
 			if (Declaraciones.Npclist[NpcIndex].flags.AfectaParalisis == 0) {
-				if (!SistemaCombate.PuedeAtacarNPC(UserIndex, NpcIndex, true)) {
+				if (! /* FIXME */SistemaCombate.PuedeAtacarNPC(UserIndex, NpcIndex, true)) {
 					HechizoCasteado = false;
 					return;
 				}
@@ -1830,7 +1837,7 @@ public class modHechizos {
 
 	}
 
-	static void HechizoPropNPC(int SpellIndex, int NpcIndex, int UserIndex,
+	public static void HechizoPropNPC(int SpellIndex, int NpcIndex, int UserIndex,
 			boolean /* FIXME BYREF!! */ HechizoCasteado) {
 		/* '*************************************************** */
 		/* 'Autor: Unknown (orginal version) */
@@ -1862,7 +1869,7 @@ public class modHechizos {
 			}
 
 		} else if (Declaraciones.Hechizos[SpellIndex].SubeHP == 2) {
-			if (!SistemaCombate.PuedeAtacarNPC(UserIndex, NpcIndex)) {
+			if (! /* FIXME */SistemaCombate.PuedeAtacarNPC(UserIndex, NpcIndex)) {
 				HechizoCasteado = false;
 				return;
 			}
@@ -1882,14 +1889,14 @@ public class modHechizos {
 						/* 'Daño = (Daño* (70 + BonifBáculo)) / 100 */
 					} else {
 						/* 'Baja daño a 70% del original */
-						dano = dano * 0.7;
+						dano = dano * 0.7f;
 					}
 				}
 			}
 			if (Declaraciones.UserList[UserIndex].Invent.AnilloEqpObjIndex == Declaraciones.LAUDELFICO
 					|| Declaraciones.UserList[UserIndex].Invent.AnilloEqpObjIndex == Declaraciones.FLAUTAELFICA) {
 				/* 'laud magico de los bardos */
-				dano = dano * 1.04;
+				dano = dano * 1.04f;
 			}
 
 			InfoHechizo(UserIndex);
@@ -1920,7 +1927,7 @@ public class modHechizos {
 
 	}
 
-	static void InfoHechizo(int UserIndex) {
+	public static void InfoHechizo(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Autor: Unknown (orginal version) */
 		/* 'Last Modification: 25/07/2009 */
@@ -1990,7 +1997,7 @@ public class modHechizos {
 
 	}
 
-	static boolean HechizoPropUsuario(int UserIndex) {
+	public static boolean HechizoPropUsuario(int UserIndex) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Autor: Unknown (orginal version) */
@@ -2046,7 +2053,7 @@ public class modHechizos {
 
 			/* ' <-------- Quita Hambre ----------> */
 		} else if (Declaraciones.Hechizos[SpellIndex].SubeHam == 2) {
-			if (!SistemaCombate.PuedeAtacar(UserIndex, TargetIndex)) {
+			if (! /* FIXME */SistemaCombate.PuedeAtacar(UserIndex, TargetIndex)) {
 				return retval;
 			}
 
@@ -2111,7 +2118,7 @@ public class modHechizos {
 			/* ' <-------- Quita Sed ----------> */
 		} else if (Declaraciones.Hechizos[SpellIndex].SubeSed == 2) {
 
-			if (!SistemaCombate.PuedeAtacar(UserIndex, TargetIndex)) {
+			if (! /* FIXME */SistemaCombate.PuedeAtacar(UserIndex, TargetIndex)) {
 				return retval;
 			}
 
@@ -2151,7 +2158,7 @@ public class modHechizos {
 		if (Declaraciones.Hechizos[SpellIndex].SubeAgilidad == 1) {
 
 			/* ' Chequea si el status permite ayudar al otro usuario */
-			if (!CanSupportUser(UserIndex, TargetIndex)) {
+			if (! /* FIXME */CanSupportUser(UserIndex, TargetIndex)) {
 				return retval;
 			}
 
@@ -2176,7 +2183,7 @@ public class modHechizos {
 			/* ' <-------- Quita Agilidad ----------> */
 		} else if (Declaraciones.Hechizos[SpellIndex].SubeAgilidad == 2) {
 
-			if (!SistemaCombate.PuedeAtacar(UserIndex, TargetIndex)) {
+			if (! /* FIXME */SistemaCombate.PuedeAtacar(UserIndex, TargetIndex)) {
 				return retval;
 			}
 
@@ -2203,7 +2210,7 @@ public class modHechizos {
 		if (Declaraciones.Hechizos[SpellIndex].SubeFuerza == 1) {
 
 			/* ' Chequea si el status permite ayudar al otro usuario */
-			if (!CanSupportUser(UserIndex, TargetIndex)) {
+			if (! /* FIXME */CanSupportUser(UserIndex, TargetIndex)) {
 				return retval;
 			}
 
@@ -2229,7 +2236,7 @@ public class modHechizos {
 			/* ' <-------- Quita Fuerza ----------> */
 		} else if (Declaraciones.Hechizos[SpellIndex].SubeFuerza == 2) {
 
-			if (!SistemaCombate.PuedeAtacar(UserIndex, TargetIndex)) {
+			if (! /* FIXME */SistemaCombate.PuedeAtacar(UserIndex, TargetIndex)) {
 				return retval;
 			}
 
@@ -2263,7 +2270,7 @@ public class modHechizos {
 			}
 
 			/* ' Chequea si el status permite ayudar al otro usuario */
-			if (!CanSupportUser(UserIndex, TargetIndex)) {
+			if (! /* FIXME */CanSupportUser(UserIndex, TargetIndex)) {
 				return retval;
 			}
 
@@ -2313,7 +2320,7 @@ public class modHechizos {
 								/ (double) 100;
 					} else {
 						/* 'Baja daño a 70% del original */
-						dano = dano * 0.7;
+						dano = dano * 0.7f;
 					}
 				}
 			}
@@ -2321,7 +2328,7 @@ public class modHechizos {
 			if (Declaraciones.UserList[UserIndex].Invent.AnilloEqpObjIndex == Declaraciones.LAUDELFICO
 					|| Declaraciones.UserList[UserIndex].Invent.AnilloEqpObjIndex == Declaraciones.FLAUTAELFICA) {
 				/* 'laud magico de los bardos */
-				dano = dano * 1.04;
+				dano = dano * 1.04f;
 			}
 
 			/* 'cascos antimagia */
@@ -2342,7 +2349,7 @@ public class modHechizos {
 				dano = 0;
 			}
 
-			if (!SistemaCombate.PuedeAtacar(UserIndex, TargetIndex)) {
+			if (! /* FIXME */SistemaCombate.PuedeAtacar(UserIndex, TargetIndex)) {
 				return retval;
 			}
 
@@ -2403,7 +2410,7 @@ public class modHechizos {
 
 			/* ' <-------- Quita Mana ----------> */
 		} else if (Declaraciones.Hechizos[SpellIndex].SubeMana == 2) {
-			if (!SistemaCombate.PuedeAtacar(UserIndex, TargetIndex)) {
+			if (! /* FIXME */SistemaCombate.PuedeAtacar(UserIndex, TargetIndex)) {
 				return retval;
 			}
 
@@ -2456,7 +2463,7 @@ public class modHechizos {
 
 			/* ' <-------- Quita Stamina ----------> */
 		} else if (Declaraciones.Hechizos[SpellIndex].SubeSta == 2) {
-			if (!SistemaCombate.PuedeAtacar(UserIndex, TargetIndex)) {
+			if (! /* FIXME */SistemaCombate.PuedeAtacar(UserIndex, TargetIndex)) {
 				return retval;
 			}
 
@@ -2494,11 +2501,11 @@ public class modHechizos {
 		return retval;
 	}
 
-	static boolean CanSupportUser(int CasterIndex, int TargetIndex) {
+	public static boolean CanSupportUser(int CasterIndex, int TargetIndex) {
 		return CanSupportUser(CasterIndex, TargetIndex, false);
 	}
 
-	static boolean CanSupportUser(int CasterIndex, int TargetIndex, boolean DoCriminal) {
+	public static boolean CanSupportUser(int CasterIndex, int TargetIndex, boolean DoCriminal) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
@@ -2531,7 +2538,7 @@ public class modHechizos {
 		if (ES.criminal(TargetIndex)) {
 
 			/* ' Casteador Ciuda? */
-			if (!ES.criminal(CasterIndex)) {
+			if (! /* FIXME */ES.criminal(CasterIndex)) {
 
 				/* ' Armadas no pueden ayudar */
 				if (Extra.esArmada(CasterIndex)) {
@@ -2552,7 +2559,7 @@ public class modHechizos {
 					if (DoCriminal) {
 						UsUaRiOs.VolverCriminal(CasterIndex);
 					} else {
-						DisNobAuBan(CasterIndex, Declaraciones.UserList[CasterIndex].Reputacion.NobleRep * 0.5, 10000);
+						DisNobAuBan(CasterIndex, Declaraciones.UserList[CasterIndex].Reputacion.NobleRep * 0.5f, 10000);
 					}
 				}
 			}
@@ -2567,7 +2574,7 @@ public class modHechizos {
 				return retval;
 
 				/* ' Casteador ciuda/army? */
-			} else if (!ES.criminal(CasterIndex)) {
+			} else if (! /* FIXME */ES.criminal(CasterIndex)) {
 
 				/* ' Esta en estado atacable? */
 				if (Declaraciones.UserList[TargetIndex].flags.AtacablePor > 0) {
@@ -2590,7 +2597,7 @@ public class modHechizos {
 									FontTypeNames.FONTTYPE_INFO);
 							return retval;
 						} else {
-							DisNobAuBan(CasterIndex, Declaraciones.UserList[CasterIndex].Reputacion.NobleRep * 0.5,
+							DisNobAuBan(CasterIndex, Declaraciones.UserList[CasterIndex].Reputacion.NobleRep * 0.5f,
 									10000);
 						}
 					}
@@ -2610,7 +2617,7 @@ public class modHechizos {
 		return retval;
 	}
 
-	static void UpdateUserHechizos(boolean UpdateAll, int UserIndex, int Slot) {
+	public static void UpdateUserHechizos(boolean UpdateAll, int UserIndex, int Slot) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -2620,7 +2627,7 @@ public class modHechizos {
 		int LoopC = 0;
 
 		/* 'Actualiza un solo slot */
-		if (!UpdateAll) {
+		if (! /* FIXME */UpdateAll) {
 			/* 'Actualiza el inventario */
 			if (Declaraciones.UserList[UserIndex].Stats.UserHechizos[Slot] > 0) {
 				ChangeUserHechizo(UserIndex, Slot, Declaraciones.UserList[UserIndex].Stats.UserHechizos[Slot]);
@@ -2641,7 +2648,7 @@ public class modHechizos {
 
 	}
 
-	static boolean CanSupportNpc(int CasterIndex, int TargetIndex) {
+	public static boolean CanSupportNpc(int CasterIndex, int TargetIndex) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
@@ -2704,7 +2711,7 @@ public class modHechizos {
 			/* ' Victima ciuda */
 		} else {
 			/* ' Atacante ciuda? */
-			if (!ES.criminal(CasterIndex)) {
+			if (! /* FIXME */ES.criminal(CasterIndex)) {
 				/* ' Atacante armada? */
 				if (Extra.esArmada(CasterIndex)) {
 					/* ' Victima armada? */
@@ -2757,7 +2764,7 @@ public class modHechizos {
 		return retval;
 	}
 
-	static void ChangeUserHechizo(int UserIndex, int Slot, int Hechizo) {
+	public static void ChangeUserHechizo(int UserIndex, int Slot, int Hechizo) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -2774,7 +2781,7 @@ public class modHechizos {
 
 	}
 
-	static void DesplazarHechizo(int UserIndex, int Dire, int HechizoDesplazado) {
+	public static void DesplazarHechizo(int UserIndex, int Dire, int HechizoDesplazado) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -2784,7 +2791,7 @@ public class modHechizos {
 		if ((Dire != 1 && Dire != -1)) {
 			return;
 		}
-		if (!(HechizoDesplazado >= 1 && HechizoDesplazado <= Declaraciones.MAXUSERHECHIZOS)) {
+		if (! /* FIXME */(HechizoDesplazado >= 1 && HechizoDesplazado <= Declaraciones.MAXUSERHECHIZOS)) {
 			return;
 		}
 
@@ -2818,7 +2825,7 @@ public class modHechizos {
 
 	}
 
-	static void DisNobAuBan(int UserIndex, int NoblePts, int BandidoPts) {
+	public static void DisNobAuBan(int UserIndex, int NoblePts, int BandidoPts) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -2860,7 +2867,7 @@ public class modHechizos {
 			}
 		}
 
-		if (!EraCriminal && ES.criminal(UserIndex)) {
+		if (! /* FIXME */EraCriminal && ES.criminal(UserIndex)) {
 			UsUaRiOs.RefreshCharStatus(UserIndex);
 		}
 	}

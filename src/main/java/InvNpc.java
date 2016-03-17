@@ -1,6 +1,10 @@
-
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"InvNpc"')] */
 /* 'Argentum Online 0.12.2 */
 /* 'Copyright (C) 2002 Márquez Pablo Ignacio */
@@ -44,11 +48,11 @@ public class InvNpc {
 	/* '?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿ */
 	/* '?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿ */
 	/* '?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿?¿ */
-	static Declaraciones.WorldPos TirarItemAlPiso(Declaraciones.WorldPos Pos, Declaraciones.Obj Obj) {
+	public static Declaraciones.WorldPos TirarItemAlPiso(Declaraciones.WorldPos Pos, Declaraciones.Obj Obj) {
 		return TirarItemAlPiso(Pos, Obj, true);
 	}
 
-	static Declaraciones.WorldPos TirarItemAlPiso(Declaraciones.WorldPos Pos, Declaraciones.Obj Obj,
+	public static Declaraciones.WorldPos TirarItemAlPiso(Declaraciones.WorldPos Pos, Declaraciones.Obj Obj,
 			boolean NotPirata) {
 		Declaraciones.WorldPos retval;
 		/* '*************************************************** */
@@ -75,7 +79,7 @@ public class InvNpc {
 		return retval;
 	}
 
-	static void NPC_TIRAR_ITEMS(Declaraciones.npc /* FIXME BYREF!! */ npc, boolean IsPretoriano) {
+	public static void NPC_TIRAR_ITEMS(Declaraciones.npc /* FIXME BYREF!! */ npc, boolean IsPretoriano) {
 		/* '*************************************************** */
 		/* 'Autor: Unknown (orginal version) */
 		/* 'Last Modification: 28/11/2009 */
@@ -153,7 +157,7 @@ public class InvNpc {
 
 	}
 
-	static boolean QuedanItems(int NpcIndex, int ObjIndex) {
+	public static boolean QuedanItems(int NpcIndex, int ObjIndex) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -183,7 +187,7 @@ public class InvNpc {
 	/* ' @param ObjIndex Specifies reference to object */
 	/* ' @return The amount of the item that the npc has */
 	/* ' @remarks This function reads the Npc.dat file */
-	static int EncontrarCant(int NpcIndex, int ObjIndex) {
+	public static int EncontrarCant(int NpcIndex, int ObjIndex) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -216,7 +220,7 @@ public class InvNpc {
 		return retval;
 	}
 
-	static void ResetNpcInv(int NpcIndex) {
+	public static void ResetNpcInv(int NpcIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -244,7 +248,7 @@ public class InvNpc {
 	/* ' @param npcIndex Specifies reference to npcmerchant */
 	/* ' @param Slot Specifies reference to npc's inventory's slot */
 	/* ' @param antidad Specifies amount of items that will be removed */
-	static void QuitarNpcInvItem(int NpcIndex, int Slot, int Cantidad) {
+	public static void QuitarNpcInvItem(int NpcIndex, int Slot, int Cantidad) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 23/11/2009 */
@@ -284,7 +288,7 @@ public class InvNpc {
 				Declaraciones.Npclist[NpcIndex].Invent.Object[Slot].ObjIndex = 0;
 				Declaraciones.Npclist[NpcIndex].Invent.Object[Slot].Amount = 0;
 
-				if (!QuedanItems(NpcIndex, ObjIndex)) {
+				if (! /* FIXME */QuedanItems(NpcIndex, ObjIndex)) {
 					/* 'Check if the item is in the npc's dat. */
 					iCant = EncontrarCant(NpcIndex, ObjIndex);
 					if (iCant) {
@@ -304,7 +308,7 @@ public class InvNpc {
 		}
 	}
 
-	static void CargarInvent(int NpcIndex) {
+	public static void CargarInvent(int NpcIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -330,7 +334,7 @@ public class InvNpc {
 
 	}
 
-	static void TirarOroNpc(int Cantidad,
+	public static void TirarOroNpc(int Cantidad,
 			Declaraciones.WorldPos /* FIXME BYREF!! */ Pos) {
 		/* '*************************************************** */
 		/* 'Autor: ZaMa */

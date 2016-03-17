@@ -1,5 +1,10 @@
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"ModAreas"')] */
 /* '************************************************************** */
 /* ' ModAreas.bas - Module to allow the usage of areas instead of maps. */
@@ -64,7 +69,7 @@ private static int[] AreasInfo = new int[[('1', '100'), ('1', '100')]]; /* XXX M
 
 	public static ConnGroup[] ConnGroups = new ConnGroup[0];
 
-	static void InitAreas() {
+	public static void InitAreas() {
  /* '************************************************************** */
  /* 'Author: Lucio N. Tourrilhes (DuNga) */
  /* 'Last Modify Date: Unknow */
@@ -109,7 +114,7 @@ private static int[] AreasInfo = new int[[('1', '100'), ('1', '100')]]; /* XXX M
  }
 }
 
-	static void AreasOptimizacion() {
+	public static void AreasOptimizacion() {
 		/* '************************************************************** */
 		/* 'Author: Lucio N. Tourrilhes (DuNga) */
 		/* 'Last Modify Date: Unknow */
@@ -154,11 +159,11 @@ private static int[] AreasInfo = new int[[('1', '100'), ('1', '100')]]; /* XXX M
 		}
 	}
 
-	static void CheckUpdateNeededUser(int UserIndex, int Head) {
+	public static void CheckUpdateNeededUser(int UserIndex, int Head) {
 		CheckUpdateNeededUser(UserIndex, Head, false);
 	}
 
-	static void CheckUpdateNeededUser(int UserIndex, int Head, boolean ButIndex) {
+	public static void CheckUpdateNeededUser(int UserIndex, int Head, boolean ButIndex) {
  /* '************************************************************** */
  /* 'Author: Lucio N. Tourrilhes (DuNga) */
  /* 'Last Modify Date: 28/10/2010 */
@@ -252,7 +257,7 @@ private static int[] AreasInfo = new int[[('1', '100'), ('1', '100')]]; /* XXX M
       if (UserIndex != TempInt) {
       
       /* ' Solo avisa al otro cliente si no es un admin invisible */
-       if (!(Declaraciones.UserList[TempInt].flags.AdminInvisible == 1)) {
+       if (! /* FIXME */(Declaraciones.UserList[TempInt].flags.AdminInvisible == 1)) {
         if (UsUaRiOs.MakeUserChar(false, UserIndex, TempInt, Map, X, Y)) {
         /* ' Si esta navegando, siempre esta visible */
          if (Declaraciones.UserList[TempInt].flags.Navegando == 0) {
@@ -267,7 +272,7 @@ private static int[] AreasInfo = new int[[('1', '100'), ('1', '100')]]; /* XXX M
       }
       
       /* ' Solo avisa al otro cliente si no es un admin invisible */
-       if (!(Declaraciones.UserList[UserIndex].flags.AdminInvisible == 1)) {
+       if (! /* FIXME */(Declaraciones.UserList[UserIndex].flags.AdminInvisible == 1)) {
         if (UsUaRiOs.MakeUserChar(false, TempInt, UserIndex, Declaraciones.UserList[UserIndex].Pos.Map, Declaraciones.UserList[UserIndex].Pos.X, Declaraciones.UserList[UserIndex].Pos.Y)) {
         
         /* ' Si esta navegando, siempre esta visible */
@@ -284,7 +289,7 @@ private static int[] AreasInfo = new int[[('1', '100'), ('1', '100')]]; /* XXX M
       Protocol.FlushBuffer(TempInt);
       
       } else if (Head == ModAreas.USER_NUEVO) {
-       if (!ButIndex) {
+       if (! /* FIXME */ButIndex) {
        UsUaRiOs.MakeUserChar(false, UserIndex, UserIndex, Map, X, Y);
       }
      }
@@ -298,7 +303,7 @@ private static int[] AreasInfo = new int[[('1', '100'), ('1', '100')]]; /* XXX M
     /* '<<< Item >>> */
      if (Declaraciones.MapData[Map][X][Y].ObjInfo.ObjIndex) {
      TempInt = Declaraciones.MapData[Map][X][Y].ObjInfo.ObjIndex;
-      if (!Extra.EsObjetoFijo(Declaraciones.ObjData[TempInt].OBJType)) {
+      if (! /* FIXME */Extra.EsObjetoFijo(Declaraciones.ObjData[TempInt].OBJType)) {
       Protocol.WriteObjectCreate(UserIndex, Declaraciones.ObjData[TempInt].GrhIndex, X, Y);
       
        if (Declaraciones.ObjData[TempInt].OBJType == eOBJType.otPuertas) {
@@ -323,7 +328,7 @@ private static int[] AreasInfo = new int[[('1', '100'), ('1', '100')]]; /* XXX M
   Declaraciones.UserList[UserIndex].AreasInfo.AreaID = AreasInfo[Declaraciones.UserList[UserIndex].Pos.X][Declaraciones.UserList[UserIndex].Pos.Y];
 }
 
-	static void CheckUpdateNeededNpc(int NpcIndex, int Head) {
+	public static void CheckUpdateNeededNpc(int NpcIndex, int Head) {
  /* '************************************************************** */
  /* 'Author: Lucio N. Tourrilhes (DuNga) */
  /* 'Last Modify Date: Unknow */
@@ -420,7 +425,7 @@ private static int[] AreasInfo = new int[[('1', '100'), ('1', '100')]]; /* XXX M
   Declaraciones.Npclist[NpcIndex].AreasInfo.AreaID = AreasInfo[Declaraciones.Npclist[NpcIndex].Pos.X][Declaraciones.Npclist[NpcIndex].Pos.Y];
 }
 
-	static void QuitarUser(int UserIndex, int Map) {
+	public static void QuitarUser(int UserIndex, int Map) {
 		/* '************************************************************** */
 		/* 'Author: Lucio N. Tourrilhes (DuNga) */
 		/* 'Last Modify Date: Unknow */
@@ -472,11 +477,11 @@ private static int[] AreasInfo = new int[[('1', '100'), ('1', '100')]]; /* XXX M
 
 	}
 
-	static void AgregarUser(int UserIndex, int Map) {
+	public static void AgregarUser(int UserIndex, int Map) {
 		AgregarUser(UserIndex, Map, false);
 	}
 
-	static void AgregarUser(int UserIndex, int Map, boolean ButIndex) {
+	public static void AgregarUser(int UserIndex, int Map, boolean ButIndex) {
 		/* '************************************************************** */
 		/* 'Author: Lucio N. Tourrilhes (DuNga) */
 		/* 'Last Modify Date: 04/01/2007 */
@@ -492,7 +497,7 @@ private static int[] AreasInfo = new int[[('1', '100'), ('1', '100')]]; /* XXX M
 		boolean EsNuevo = false;
 		int i = 0;
 
-		if (!General.MapaValido(Map)) {
+		if (! /* FIXME */General.MapaValido(Map)) {
 			return;
 		}
 
@@ -537,7 +542,7 @@ private static int[] AreasInfo = new int[[('1', '100'), ('1', '100')]]; /* XXX M
 				+ ". Map: " + Map + ". ButIndex: " + ButIndex);
 	}
 
-	static void AgregarNpc(int NpcIndex) {
+	public static void AgregarNpc(int NpcIndex) {
 		/* '************************************************************** */
 		/* 'Author: Lucio N. Tourrilhes (DuNga) */
 		/* 'Last Modify Date: Unknow */

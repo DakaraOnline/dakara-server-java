@@ -1,6 +1,10 @@
-
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"frmCargando"')] */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_GlobalNameSpace'), (5, '='), (1, 'False')] */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Creatable'), (5, '='), (1, 'False')] */
@@ -38,7 +42,7 @@ import enums.*;
 
 public class frmCargando {
 
-	static void Form_Load() {
+	public static void Form_Load() {
 		/*
 		 * 'Label1(1).Caption = Label1(1).Caption & " V." & App.Major & "." &
 		 * App.Minor & "." & App.Revision

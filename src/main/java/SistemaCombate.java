@@ -1,5 +1,10 @@
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"SistemaCombate"')] */
 
 /* 'Argentum Online 0.12.2 */
@@ -43,7 +48,7 @@ public class SistemaCombate {
 	static final int MAXDISTANCIAARCO = 18;
 	static final int MAXDISTANCIAMAGIA = 18;
 
-	static int MinimoInt(int a, int b) {
+	public static int MinimoInt(int a, int b) {
 		int retval = 0;
 		if (a > b) {
 			retval = b;
@@ -53,7 +58,7 @@ public class SistemaCombate {
 		return retval;
 	}
 
-	static int MaximoInt(int a, int b) {
+	public static int MaximoInt(int a, int b) {
 		int retval = 0;
 		if (a > b) {
 			retval = a;
@@ -63,7 +68,7 @@ public class SistemaCombate {
 		return retval;
 	}
 
-	static int PoderEvasionEscudo(int UserIndex) {
+	public static int PoderEvasionEscudo(int UserIndex) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -76,7 +81,7 @@ public class SistemaCombate {
 		return retval;
 	}
 
-	static int PoderEvasion(int UserIndex) {
+	public static int PoderEvasion(int UserIndex) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -89,11 +94,11 @@ public class SistemaCombate {
 						* Declaraciones.UserList[UserIndex].Stats.UserAtributos[eAtributos.Agilidad])
 				* Declaraciones.ModClase[Declaraciones.UserList[UserIndex].clase].Evasion;
 
-		retval = (lTemp + (2.5 * MaximoInt(Declaraciones.UserList[UserIndex].Stats.ELV - 12, 0)));
+		retval = (lTemp + (2.5f * MaximoInt(Declaraciones.UserList[UserIndex].Stats.ELV - 12, 0)));
 		return retval;
 	}
 
-	static int PoderAtaqueArma(int UserIndex) {
+	public static int PoderAtaqueArma(int UserIndex) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -120,11 +125,11 @@ public class SistemaCombate {
 					* Declaraciones.ModClase[Declaraciones.UserList[UserIndex].clase].AtaqueArmas;
 		}
 
-		retval = (PoderAtaqueTemp + (2.5 * MaximoInt(Declaraciones.UserList[UserIndex].Stats.ELV - 12, 0)));
+		retval = (PoderAtaqueTemp + (2.5f * MaximoInt(Declaraciones.UserList[UserIndex].Stats.ELV - 12, 0)));
 		return retval;
 	}
 
-	static int PoderAtaqueProyectil(int UserIndex) {
+	public static int PoderAtaqueProyectil(int UserIndex) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -154,11 +159,11 @@ public class SistemaCombate {
 					* Declaraciones.ModClase[Declaraciones.UserList[UserIndex].clase].AtaqueProyectiles;
 		}
 
-		retval = (PoderAtaqueTemp + (2.5 * MaximoInt(Declaraciones.UserList[UserIndex].Stats.ELV - 12, 0)));
+		retval = (PoderAtaqueTemp + (2.5f * MaximoInt(Declaraciones.UserList[UserIndex].Stats.ELV - 12, 0)));
 		return retval;
 	}
 
-	static int PoderAtaqueWrestling(int UserIndex) {
+	public static int PoderAtaqueWrestling(int UserIndex) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -188,11 +193,11 @@ public class SistemaCombate {
 					* Declaraciones.ModClase[Declaraciones.UserList[UserIndex].clase].AtaqueWrestling;
 		}
 
-		retval = (PoderAtaqueTemp + (2.5 * MaximoInt(Declaraciones.UserList[UserIndex].Stats.ELV - 12, 0)));
+		retval = (PoderAtaqueTemp + (2.5f * MaximoInt(Declaraciones.UserList[UserIndex].Stats.ELV - 12, 0)));
 		return retval;
 	}
 
-	static boolean UserImpactoNpc(int UserIndex, int NpcIndex) {
+	public static boolean UserImpactoNpc(int UserIndex, int NpcIndex) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -224,7 +229,7 @@ public class SistemaCombate {
 
 		/* ' Chances are rounded */
 		ProbExito = MaximoInt(10,
-				MinimoInt(90, 50 + ((PoderAtaque - Declaraciones.Npclist[NpcIndex].PoderEvasion) * 0.4)));
+				MinimoInt(90, 50 + ((PoderAtaque - Declaraciones.Npclist[NpcIndex].PoderEvasion) * 0.4f)));
 
 		retval = (Matematicas.RandomNumber(1, 100) <= ProbExito);
 
@@ -236,7 +241,7 @@ public class SistemaCombate {
 		return retval;
 	}
 
-	static boolean NpcImpacto(int NpcIndex, int UserIndex) {
+	public static boolean NpcImpacto(int NpcIndex, int UserIndex) {
 		boolean retval = false;
 		/* '************************************************* */
 		/* 'Author: Unknown */
@@ -268,13 +273,13 @@ public class SistemaCombate {
 		}
 
 		/* ' Chances are rounded */
-		ProbExito = MaximoInt(10, MinimoInt(90, 50 + ((NpcPoderAtaque - UserEvasion) * 0.4)));
+		ProbExito = MaximoInt(10, MinimoInt(90, 50 + ((NpcPoderAtaque - UserEvasion) * 0.4f)));
 
 		retval = (Matematicas.RandomNumber(1, 100) <= ProbExito);
 
 		/* ' el usuario esta usando un escudo ??? */
 		if (Declaraciones.UserList[UserIndex].Invent.EscudoEqpObjIndex > 0) {
-			if (!retval) {
+			if (! /* FIXME */retval) {
 				/* 'Evitamos división por cero */
 				if (SkillDefensa + SkillTacticas > 0) {
 					/* ' Chances are rounded */
@@ -303,11 +308,11 @@ public class SistemaCombate {
 		return retval;
 	}
 
-	static int CalcularDano(int UserIndex) {
+	public static int CalcularDano(int UserIndex) {
 		return CalcularDano(UserIndex, 0);
 	}
 
-	static int CalcularDano(int UserIndex, int NpcIndex) {
+	public static int CalcularDano(int UserIndex, int NpcIndex) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -433,7 +438,7 @@ public class SistemaCombate {
 		return retval;
 	}
 
-	static void UserDanoNpc(int UserIndex, int NpcIndex) {
+	public static void UserDanoNpc(int UserIndex, int NpcIndex) {
  /* '*************************************************** */
  /* 'Author: Unknown */
  /* 'Last Modification: 07/04/2010 (Pato) */
@@ -537,7 +542,7 @@ public class SistemaCombate {
   }
 }
 
-	static void NpcDano(int NpcIndex, int UserIndex) {
+	public static void NpcDano(int NpcIndex, int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 18/09/2010 (ZaMa) */
@@ -669,7 +674,7 @@ public class SistemaCombate {
 		}
 	}
 
-	static void RestarCriminalidad(int UserIndex) {
+	public static void RestarCriminalidad(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -693,7 +698,7 @@ public class SistemaCombate {
 			}
 		}
 
-		if (EraCriminal && !ES.criminal(UserIndex)) {
+		if (EraCriminal && ! /* FIXME */ES.criminal(UserIndex)) {
 
 			if (Extra.esCaos(UserIndex)) {
 				ModFacciones.ExpulsarFaccionCaos(UserIndex);
@@ -704,11 +709,11 @@ public class SistemaCombate {
 
 	}
 
-	static void CheckPets(int NpcIndex, int UserIndex) {
+	public static void CheckPets(int NpcIndex, int UserIndex) {
 		CheckPets(NpcIndex, UserIndex, true);
 	}
 
-	static void CheckPets(int NpcIndex, int UserIndex, boolean CheckElementales) {
+	public static void CheckPets(int NpcIndex, int UserIndex, boolean CheckElementales) {
  /* '*************************************************** */
  /* 'Author: Unknown */
  /* 'Last Modification: 15/04/2010 */
@@ -722,7 +727,7 @@ public class SistemaCombate {
  return;
  }
  
- if (!PuedeAtacarNPC(UserIndex, NpcIndex, , true)) {
+ if (! /* FIXME */PuedeAtacarNPC(UserIndex, NpcIndex, , true)) {
  return;
  }
  
@@ -741,7 +746,7 @@ public class SistemaCombate {
   }
 }
 
-	static void AllFollowAmo(int UserIndex) {
+	public static void AllFollowAmo(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -757,7 +762,7 @@ public class SistemaCombate {
 		}
 	}
 
-	static boolean NpcAtacaUser(int NpcIndex, int UserIndex) {
+	public static boolean NpcAtacaUser(int NpcIndex, int UserIndex) {
 		boolean retval = false;
 		/* '************************************************* */
 		/* 'Author: Unknown */
@@ -768,8 +773,8 @@ public class SistemaCombate {
 		if (Declaraciones.UserList[UserIndex].flags.AdminInvisible == 1) {
 			return retval;
 		}
-		if ((!Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.User) != 0
-				&& !Declaraciones.UserList[UserIndex].flags.AdminPerseguible) {
+		if ((! /* FIXME */Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.User) != 0
+				&& ! /* FIXME */Declaraciones.UserList[UserIndex].flags.AdminPerseguible) {
 			return retval;
 		}
 
@@ -830,7 +835,7 @@ public class SistemaCombate {
 		return retval;
 	}
 
-	static boolean NpcImpactoNpc(int Atacante, int Victima) {
+	public static boolean NpcImpactoNpc(int Atacante, int Victima) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -846,12 +851,12 @@ public class SistemaCombate {
 		PoderEva = Declaraciones.Npclist[Victima].PoderEvasion;
 
 		/* ' Chances are rounded */
-		ProbExito = MaximoInt(10, MinimoInt(90, 50 + (PoderAtt - PoderEva) * 0.4));
+		ProbExito = MaximoInt(10, MinimoInt(90, 50 + (PoderAtt - PoderEva) * 0.4f));
 		retval = (Matematicas.RandomNumber(1, 100) <= ProbExito);
 		return retval;
 	}
 
-	static void NpcDanoNpc(int Atacante, int Victima) {
+	public static void NpcDanoNpc(int Atacante, int Victima) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -881,11 +886,11 @@ public class SistemaCombate {
 		}
 	}
 
-	static void NpcAtacaNpc(int Atacante, int Victima) {
+	public static void NpcAtacaNpc(int Atacante, int Victima) {
 		NpcAtacaNpc(Atacante, Victima, true);
 	}
 
-	static void NpcAtacaNpc(int Atacante, int Victima, boolean cambiarMOvimiento) {
+	public static void NpcAtacaNpc(int Atacante, int Victima, boolean cambiarMOvimiento) {
 		/* '************************************************* */
 		/* 'Author: Unknown */
 		/* 'Last modified: 01/03/2009 */
@@ -903,7 +908,8 @@ public class SistemaCombate {
 
 		/* 'Es el Rey Preatoriano? */
 		if (Declaraciones.Npclist[Victima].NPCtype == eNPCType.Pretoriano) {
-			if (!Declaraciones.ClanPretoriano[Declaraciones.Npclist[Victima].ClanIndex].CanAtackMember(Victima)) {
+			if (! /* FIXME */Declaraciones.ClanPretoriano[Declaraciones.Npclist[Victima].ClanIndex]
+					.CanAtackMember(Victima)) {
 				Protocol.WriteConsoleMsg(Declaraciones.Npclist[Atacante].MaestroUser,
 						"Debes matar al resto del ejército antes de atacar al rey!", FontTypeNames.FONTTYPE_FIGHT);
 				Declaraciones.Npclist[Atacante].TargetNPC = 0;
@@ -974,7 +980,7 @@ public class SistemaCombate {
 		}
 	}
 
-	static boolean UsuarioAtacaNpc(int UserIndex, int NpcIndex) {
+	public static boolean UsuarioAtacaNpc(int UserIndex, int NpcIndex) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -995,7 +1001,7 @@ public class SistemaCombate {
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		if (!PuedeAtacarNPC(UserIndex, NpcIndex)) {
+		if (! /* FIXME */PuedeAtacarNPC(UserIndex, NpcIndex)) {
 			return retval;
 		}
 
@@ -1045,7 +1051,7 @@ public class SistemaCombate {
 		return retval;
 	}
 
-	static void UsuarioAtaca(int UserIndex) {
+	public static void UsuarioAtaca(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 13/02/2011 (Amraphen) */
@@ -1059,14 +1065,14 @@ public class SistemaCombate {
 		Declaraciones.WorldPos AttackPos;
 
 		/* 'Check bow's interval */
-		if (!modNuevoTimer.IntervaloPermiteUsarArcos(UserIndex, false)) {
+		if (! /* FIXME */modNuevoTimer.IntervaloPermiteUsarArcos(UserIndex, false)) {
 			return;
 		}
 
 		/* 'Check Spell-Magic interval */
-		if (!modNuevoTimer.IntervaloPermiteMagiaGolpe(UserIndex)) {
+		if (! /* FIXME */modNuevoTimer.IntervaloPermiteMagiaGolpe(UserIndex)) {
 			/* 'Check Attack interval */
-			if (!modNuevoTimer.IntervaloPermiteAtacar(UserIndex)) {
+			if (! /* FIXME */modNuevoTimer.IntervaloPermiteAtacar(UserIndex)) {
 				return;
 			}
 		}
@@ -1140,7 +1146,7 @@ public class SistemaCombate {
 		}
 	}
 
-	static boolean UsuarioImpacto(int AtacanteIndex, int VictimaIndex) {
+	public static boolean UsuarioImpacto(int AtacanteIndex, int VictimaIndex) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -1192,11 +1198,11 @@ public class SistemaCombate {
 		}
 
 		/* ' Chances are rounded */
-		ProbExito = MaximoInt(10, MinimoInt(90, 50 + (PoderAtaque - UserPoderEvasion) * 0.4));
+		ProbExito = MaximoInt(10, MinimoInt(90, 50 + (PoderAtaque - UserPoderEvasion) * 0.4f));
 
 		/* ' Se reduce la evasion un 25% */
 		if (Declaraciones.UserList[VictimaIndex].flags.Meditando) {
-			ProbEvadir = (100 - ProbExito) * 0.75;
+			ProbEvadir = (100 - ProbExito) * 0.75f;
 			ProbExito = MinimoInt(90, 100 - ProbEvadir);
 		}
 
@@ -1205,7 +1211,7 @@ public class SistemaCombate {
 		/* ' el usuario esta usando un escudo ??? */
 		if (Declaraciones.UserList[VictimaIndex].Invent.EscudoEqpObjIndex > 0) {
 			/* 'Fallo ??? */
-			if (!retval) {
+			if (! /* FIXME */retval) {
 
 				int SumaSkills = 0;
 
@@ -1232,7 +1238,7 @@ public class SistemaCombate {
 			}
 		}
 
-		if (!retval) {
+		if (! /* FIXME */retval) {
 			UsUaRiOs.SubirSkill(AtacanteIndex, Skill, false);
 		}
 
@@ -1257,7 +1263,7 @@ public class SistemaCombate {
 		return retval;
 	}
 
-	static boolean UsuarioAtacaUsuario(int AtacanteIndex, int VictimaIndex) {
+	public static boolean UsuarioAtacaUsuario(int AtacanteIndex, int VictimaIndex) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -1271,7 +1277,7 @@ public class SistemaCombate {
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
-		if (!PuedeAtacar(AtacanteIndex, VictimaIndex)) {
+		if (! /* FIXME */PuedeAtacar(AtacanteIndex, VictimaIndex)) {
 			return retval;
 		}
 
@@ -1337,7 +1343,7 @@ public class SistemaCombate {
 		return retval;
 	}
 
-	static void UserDanoUser(int AtacanteIndex, int VictimaIndex) {
+	public static void UserDanoUser(int AtacanteIndex, int VictimaIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 12/01/2010 (ZaMa) */
@@ -1545,7 +1551,7 @@ public class SistemaCombate {
 				+ VictimaNick);
 	}
 
-	static void UsuarioAtacadoPorUsuario(int AttackerIndex, int VictimIndex) {
+	public static void UsuarioAtacadoPorUsuario(int AttackerIndex, int VictimIndex) {
 		/* '*************************************************** */
 		/* 'Autor: Unknown */
 		/* 'Last Modification: 05/05/2010 */
@@ -1567,14 +1573,14 @@ public class SistemaCombate {
 		boolean EraCriminal = false;
 		boolean VictimaEsAtacable = false;
 
-		if (!ES.criminal(AttackerIndex)) {
-			if (!ES.criminal(VictimIndex)) {
+		if (! /* FIXME */ES.criminal(AttackerIndex)) {
+			if (! /* FIXME */ES.criminal(VictimIndex)) {
 				/*
 				 * ' Si la victima no es atacable por el agresor, entonces se
 				 * hace pk
 				 */
 				VictimaEsAtacable = Declaraciones.UserList[VictimIndex].flags.AtacablePor == AttackerIndex;
-				if (!VictimaEsAtacable) {
+				if (! /* FIXME */VictimaEsAtacable) {
 					UsUaRiOs.VolverCriminal(AttackerIndex);
 				}
 			}
@@ -1593,8 +1599,8 @@ public class SistemaCombate {
 		EraCriminal = ES.criminal(AttackerIndex);
 
 		/* ' Si ataco a un atacable, no suma puntos de bandido */
-		if (!VictimaEsAtacable) {
-			if (!ES.criminal(VictimIndex)) {
+		if (! /* FIXME */VictimaEsAtacable) {
+			if (! /* FIXME */ES.criminal(VictimIndex)) {
 				Declaraciones.UserList[AttackerIndex].Reputacion.BandidoRep = Declaraciones.UserList[AttackerIndex].Reputacion.BandidoRep
 						+ Declaraciones.vlASALTO;
 				if (Declaraciones.UserList[AttackerIndex].Reputacion.BandidoRep > Declaraciones.MAXREP) {
@@ -1602,7 +1608,7 @@ public class SistemaCombate {
 				}
 
 				Declaraciones.UserList[AttackerIndex].Reputacion.NobleRep = Declaraciones.UserList[AttackerIndex].Reputacion.NobleRep
-						* 0.5;
+						* 0.5f;
 				if (Declaraciones.UserList[AttackerIndex].Reputacion.NobleRep < 0) {
 					Declaraciones.UserList[AttackerIndex].Reputacion.NobleRep = 0;
 				}
@@ -1620,7 +1626,7 @@ public class SistemaCombate {
 				ModFacciones.ExpulsarFaccionReal(AttackerIndex);
 			}
 
-			if (!EraCriminal) {
+			if (! /* FIXME */EraCriminal) {
 				UsUaRiOs.RefreshCharStatus(AttackerIndex);
 			}
 		} else if (EraCriminal) {
@@ -1635,7 +1641,7 @@ public class SistemaCombate {
 		Protocol.FlushBuffer(VictimIndex);
 	}
 
-	static void AllMascotasAtacanUser(int victim, int Maestro) {
+	public static void AllMascotasAtacanUser(int victim, int Maestro) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1653,7 +1659,7 @@ public class SistemaCombate {
 		}
 	}
 
-	static boolean PuedeAtacar(int AttackerIndex, int VictimIndex) {
+	public static boolean PuedeAtacar(int AttackerIndex, int VictimIndex) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Autor: Unknown */
@@ -1734,9 +1740,9 @@ public class SistemaCombate {
 		}
 
 		/* 'Ataca un ciudadano? */
-		if (!ES.criminal(VictimIndex)) {
+		if (! /* FIXME */ES.criminal(VictimIndex)) {
 			/* ' El atacante es ciuda? */
-			if (!ES.criminal(AttackerIndex)) {
+			if (! /* FIXME */ES.criminal(AttackerIndex)) {
 				/* ' El atacante es armada? */
 				if (Extra.esArmada(AttackerIndex)) {
 					/* ' La victima es armada? */
@@ -1773,7 +1779,7 @@ public class SistemaCombate {
 
 		/* 'Tenes puesto el seguro? */
 		if (Declaraciones.UserList[AttackerIndex].flags.Seguro) {
-			if (!ES.criminal(VictimIndex)) {
+			if (! /* FIXME */ES.criminal(VictimIndex)) {
 				Protocol.WriteConsoleMsg(AttackerIndex,
 						"No puedes atacar ciudadanos, para hacerlo debes desactivar el seguro.",
 						FontTypeNames.FONTTYPE_WARNING);
@@ -1782,7 +1788,7 @@ public class SistemaCombate {
 			}
 		} else {
 			/* ' Un ciuda es atacado */
-			if (!ES.criminal(VictimIndex)) {
+			if (! /* FIXME */ES.criminal(VictimIndex)) {
 				/* ' Por un armada sin seguro */
 				if (Extra.esArmada(AttackerIndex)) {
 					/* ' No puede */
@@ -1849,11 +1855,11 @@ public class SistemaCombate {
 		return retval;
 	}
 
-	static boolean PuedeAtacarNPC(int AttackerIndex, int NpcIndex) {
+	public static boolean PuedeAtacarNPC(int AttackerIndex, int NpcIndex) {
 		return PuedeAtacarNPC(AttackerIndex, NpcIndex, false, false);
 	}
 
-	static boolean PuedeAtacarNPC(int AttackerIndex, int NpcIndex, boolean Paraliza, boolean IsPet) {
+	public static boolean PuedeAtacarNPC(int AttackerIndex, int NpcIndex, boolean Paraliza, boolean IsPet) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Autor: Unknown Author (Original version) */
@@ -1956,7 +1962,7 @@ public class SistemaCombate {
 				/*
 				 * 'Si sos ciudadano tenes que quitar el seguro para atacarla.
 				 */
-				if (!ES.criminal(AttackerIndex)) {
+				if (! /* FIXME */ES.criminal(AttackerIndex)) {
 
 					/* ' Si sos armada no podes atacarlo directamente */
 					if (Extra.esArmada(AttackerIndex)) {
@@ -1998,10 +2004,10 @@ public class SistemaCombate {
 		if (MasterIndex > 0) {
 
 			/* ' Dueño de la mascota ciuda? */
-			if (!ES.criminal(MasterIndex)) {
+			if (! /* FIXME */ES.criminal(MasterIndex)) {
 
 				/* ' Atacante ciuda? */
-				if (!ES.criminal(AttackerIndex)) {
+				if (! /* FIXME */ES.criminal(AttackerIndex)) {
 
 					/*
 					 * ' Si esta en estado atacable puede atacar su mascota sin
@@ -2102,7 +2108,8 @@ public class SistemaCombate {
 			 * ' Si son del mismo clan o party, pueden atacar (No renueva el
 			 * timer)
 			 */
-			if (!SameClan(OwnerUserIndex, AttackerIndex) && !SameParty(OwnerUserIndex, AttackerIndex)) {
+			if (! /* FIXME */SameClan(OwnerUserIndex, AttackerIndex)
+					&& ! /* FIXME */SameParty(OwnerUserIndex, AttackerIndex)) {
 
 				/* ' Si se le agoto el tiempo */
 				/* ' Se lo roba :P */
@@ -2127,7 +2134,7 @@ public class SistemaCombate {
 						 * peusto van a poder inmobilizar criaturas con dueño
 						 */
 						/* ' Si es pk neutral, puede hacer lo que quiera :P. */
-						if (!ES.criminal(AttackerIndex) && !ES.criminal(OwnerUserIndex)) {
+						if (! /* FIXME */ES.criminal(AttackerIndex) && ! /* FIXME */ES.criminal(OwnerUserIndex)) {
 
 							/* 'El atacante es Armada */
 							if (Extra.esArmada(AttackerIndex)) {
@@ -2254,7 +2261,7 @@ public class SistemaCombate {
 				} else {
 
 					/* ' El npc le pertenece a un ciudadano */
-					if (!ES.criminal(OwnerUserIndex)) {
+					if (! /* FIXME */ES.criminal(OwnerUserIndex)) {
 
 						/*
 						 * 'El atacante es Armada y esta intentando atacar un
@@ -2308,7 +2315,7 @@ public class SistemaCombate {
 							 * 'El atacante es Ciudadano y esta intentando
 							 * atacar un npc de un Ciudadano.
 							 */
-							if (!ES.criminal(AttackerIndex)) {
+							if (! /* FIXME */ES.criminal(AttackerIndex)) {
 
 								if (Declaraciones.UserList[AttackerIndex].flags.Seguro) {
 									/*
@@ -2377,7 +2384,7 @@ public class SistemaCombate {
 			/* ' Si no tiene dueño el npc, se lo apropia */
 		} else {
 			/* ' Solo pueden apropiarse de npcs los caos, armadas o ciudas. */
-			if (!ES.criminal(AttackerIndex) || Extra.esCaos(AttackerIndex)) {
+			if (! /* FIXME */ES.criminal(AttackerIndex) || Extra.esCaos(AttackerIndex)) {
 				/* ' No puede apropiarse de los pretos! */
 				if (Declaraciones.Npclist[NpcIndex].NPCtype != eNPCType.Pretoriano) {
 					/* ' No puede apropiarse del dragon de dd! */
@@ -2385,7 +2392,7 @@ public class SistemaCombate {
 						/*
 						 * ' Si es una mascota atacando, no se apropia del npc
 						 */
-						if (!IsPet) {
+						if (! /* FIXME */IsPet) {
 							/* ' No es dueño de ningun npc => Se lo apropia. */
 							if (Declaraciones.UserList[AttackerIndex].flags.OwnedNpc == 0) {
 								UsUaRiOs.ApropioNpc(AttackerIndex, NpcIndex);
@@ -2398,7 +2405,7 @@ public class SistemaCombate {
 								 * ' Se va a adueñar del npc (y perder el otro)
 								 * solo si no inmobiliza/paraliza
 								 */
-								if (!Paraliza) {
+								if (! /* FIXME */Paraliza) {
 									UsUaRiOs.ApropioNpc(AttackerIndex, NpcIndex);
 								}
 							}
@@ -2410,7 +2417,8 @@ public class SistemaCombate {
 
 		/* 'Es el Rey Preatoriano? */
 		if (Declaraciones.Npclist[NpcIndex].NPCtype == eNPCType.Pretoriano) {
-			if (!Declaraciones.ClanPretoriano[Declaraciones.Npclist[NpcIndex].ClanIndex].CanAtackMember(NpcIndex)) {
+			if (! /* FIXME */Declaraciones.ClanPretoriano[Declaraciones.Npclist[NpcIndex].ClanIndex]
+					.CanAtackMember(NpcIndex)) {
 				Protocol.WriteConsoleMsg(AttackerIndex, "Debes matar al resto del ejército antes de atacar al rey.",
 						FontTypeNames.FONTTYPE_FIGHT);
 				return retval;
@@ -2439,7 +2447,7 @@ public class SistemaCombate {
 		return retval;
 	}
 
-	static boolean SameClan(int UserIndex, int OtherUserIndex) {
+	public static boolean SameClan(int UserIndex, int OtherUserIndex) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Autor: ZaMa */
@@ -2451,7 +2459,7 @@ public class SistemaCombate {
 		return retval;
 	}
 
-	static boolean SameParty(int UserIndex, int OtherUserIndex) {
+	public static boolean SameParty(int UserIndex, int OtherUserIndex) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Autor: ZaMa */
@@ -2463,7 +2471,7 @@ public class SistemaCombate {
 		return retval;
 	}
 
-	static void CalcularDarExp(int UserIndex, int NpcIndex, int ElDano) {
+	public static void CalcularDarExp(int UserIndex, int NpcIndex, int ElDano) {
 		/* '*************************************************** */
 		/* 'Autor: Nacho (Integer) */
 		/* 'Last Modification: 03/09/06 Nacho */
@@ -2533,7 +2541,7 @@ public class SistemaCombate {
 		}
 	}
 
-	static eTrigger6 TriggerZonaPelea(int Origen, int Destino) {
+	public static eTrigger6 TriggerZonaPelea(int Origen, int Destino) {
 		eTrigger6 retval;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -2569,7 +2577,7 @@ public class SistemaCombate {
 		return retval;
 	}
 
-	static void UserEnvenena(int AtacanteIndex, int VictimaIndex) {
+	public static void UserEnvenena(int AtacanteIndex, int VictimaIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -2604,7 +2612,7 @@ public class SistemaCombate {
 		Protocol.FlushBuffer(VictimaIndex);
 	}
 
-	static void LanzarProyectil(int UserIndex, int X, int Y) {
+	public static void LanzarProyectil(int UserIndex, int X, int Y) {
 		/* '*************************************************** */
 		/* 'Autor: ZaMa */
 		/* 'Last Modification: 10/07/2010 */

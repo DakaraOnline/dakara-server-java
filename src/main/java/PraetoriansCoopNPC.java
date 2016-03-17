@@ -1,5 +1,10 @@
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"PraetoriansCoopNPC"')] */
 /* ''************************************************************** */
 /* '' PraetoriansCoopNPC.bas - Handles the Praeorians NPCs. */
@@ -52,7 +57,6 @@
 /* ''la fortaleza pretoriana (no es lo mismo de */
 /* ''donde estan los NPCs!). */
 /* ''Se extrae el dato del server.ini en sub LoadSIni */
-public class PraetoriansCoopNPC {
 public static int MAPA_PRETORIANO;
 /* '''''''''''''''''''''''''''''''''''''''''''''' */
 /* ''Estos numeros son necesarios por cuestiones de */
@@ -77,7 +81,7 @@ public static int[] PretorianDatNumbers = new int[0];
 /* 'Public pretorianosVivos As Integer */
 /* ' */
 
- static void LoadPretorianData() {
+ public static void LoadPretorianData() {
  
  String PretorianDat;
  PretorianDat = Declaraciones.DatPath + "Pretorianos.dat";

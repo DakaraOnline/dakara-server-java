@@ -1,5 +1,10 @@
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"PathFinding"')] */
 /* 'Argentum Online 0.12.2 */
 /* 'Copyright (C) 2002 Márquez Pablo Ignacio */
@@ -93,7 +98,7 @@ public class PathFinding {
 
 private static tIntermidiateWork[] TmpArray = new tIntermidiateWork[[('1', 'PathFinding.ROWS'), ('1', 'PathFinding.COLUMS')]]; /* XXX MULTIDIMENSIONAL [('1', 'PathFinding.ROWS'), ('1', 'PathFinding.COLUMS')] */
 
-	static boolean Limites(int vfila, int vcolu) {
+	public static boolean Limites(int vfila, int vcolu) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -105,7 +110,7 @@ private static tIntermidiateWork[] TmpArray = new tIntermidiateWork[[('1', 'Path
 		return retval;
 	}
 
-	static boolean IsWalkable(int Map, int row, int Col, int NpcIndex) {
+	public static boolean IsWalkable(int Map, int row, int Col, int NpcIndex) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -124,7 +129,7 @@ private static tIntermidiateWork[] TmpArray = new tIntermidiateWork[[('1', 'Path
 		return retval;
 	}
 
-	static void ProcessAdjacents(int MapIndex,
+	public static void ProcessAdjacents(int MapIndex,
 			tIntermidiateWork[] /* FIXME BYREF!! */ T, int /* FIXME BYREF!! */ vfila,
 			int /* FIXME BYREF!! */ vcolu, int NpcIndex) {
 		/* '*************************************************** */
@@ -210,11 +215,11 @@ private static tIntermidiateWork[] TmpArray = new tIntermidiateWork[[('1', 'Path
 
 	}
 
-	static void SeekPath(int NpcIndex) {
+	public static void SeekPath(int NpcIndex) {
 		SeekPath(NpcIndex, 30);
 	}
 
-	static void SeekPath(int NpcIndex, int MaxSteps) {
+	public static void SeekPath(int NpcIndex, int MaxSteps) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -246,7 +251,7 @@ private static tIntermidiateWork[] TmpArray = new tIntermidiateWork[[('1', 'Path
 		/* 'We add the first vertex to the Queue */
 		Queue.Push(cur_npc_pos);
 
-		while ((!Queue.IsEmpty())) {
+		while ((! /* FIXME */Queue.IsEmpty())) {
 			if (steps > MaxSteps) {
 				break; /* FIXME: EXIT DO */
 			}
@@ -260,7 +265,7 @@ private static tIntermidiateWork[] TmpArray = new tIntermidiateWork[[('1', 'Path
 		MakePath(NpcIndex);
 	}
 
-	static void MakePath(int NpcIndex) {
+	public static void MakePath(int NpcIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -300,12 +305,12 @@ private static tIntermidiateWork[] TmpArray = new tIntermidiateWork[[('1', 'Path
 
 	}
 
-	static void InitializeTable(tIntermidiateWork[] /* FIXME BYREF!! */ T,
+	public static void InitializeTable(tIntermidiateWork[] /* FIXME BYREF!! */ T,
 			Queue.tVertice /* FIXME BYREF!! */ S) {
 		InitializeTable(T, S, 30);
 	}
 
-	static void InitializeTable(tIntermidiateWork[] /* FIXME BYREF!! */ T, Queue.tVertice /* FIXME BYREF!! */ S, int MaxSteps) {
+	public static void InitializeTable(tIntermidiateWork[] /* FIXME BYREF!! */ T, Queue.tVertice /* FIXME BYREF!! */ S, int MaxSteps) {
  /* '*************************************************** */
  /* 'Author: Unknown */
  /* 'Last Modification: - */

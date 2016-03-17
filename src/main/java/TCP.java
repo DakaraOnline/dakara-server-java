@@ -1,6 +1,10 @@
-
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"TCP"')] */
 /* 'Argentum Online 0.12.2 */
 /* 'Copyright (C) 2002 Márquez Pablo Ignacio */
@@ -38,7 +42,7 @@ public class TCP {
 
 	/* # END IF */
 
-	static void DarCuerpo(int UserIndex) {
+	public static void DarCuerpo(int UserIndex) {
 		/* '************************************************* */
 		/* 'Author: Nacho (Integer) */
 		/* 'Last modified: 14/03/2007 */
@@ -101,7 +105,7 @@ public class TCP {
 		Declaraciones.UserList[UserIndex].Char.body = NewBody;
 	}
 
-	static boolean ValidarCabeza(int UserRaza, int UserGenero, int Head) {
+	public static boolean ValidarCabeza(int UserRaza, int UserGenero, int Head) {
 		boolean retval = false;
 
 		switch (UserGenero) {
@@ -155,7 +159,7 @@ public class TCP {
 		return retval;
 	}
 
-	static boolean AsciiValidos(String cad) {
+	public static boolean AsciiValidos(String cad) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -183,7 +187,7 @@ public class TCP {
 		return retval;
 	}
 
-	static boolean Numeric(String cad) {
+	public static boolean Numeric(String cad) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -211,7 +215,7 @@ public class TCP {
 		return retval;
 	}
 
-	static boolean NombrePermitido(String Nombre) {
+	public static boolean NombrePermitido(String Nombre) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -233,7 +237,7 @@ public class TCP {
 		return retval;
 	}
 
-	static boolean ValidateSkills(int UserIndex) {
+	public static boolean ValidateSkills(int UserIndex) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -257,7 +261,7 @@ public class TCP {
 		return retval;
 	}
 
-	static void ConnectNewUser(int UserIndex, String /* FIXME BYREF!! */ Name,
+	public static void ConnectNewUser(int UserIndex, String /* FIXME BYREF!! */ Name,
 			String /* FIXME BYREF!! */ Password, eRaza UserRaza, eGenero UserSexo, eClass UserClase,
 			String /* FIXME BYREF!! */ UserEmail, eCiudad Hogar, int Head) {
 		/* '************************************************* */
@@ -287,7 +291,7 @@ public class TCP {
 		/* '************************************************* */
 		int i = 0;
 
-		if (!AsciiValidos(Name) || vb6.LenB(Name) == 0) {
+		if (! /* FIXME */AsciiValidos(Name) || vb6.LenB(Name) == 0) {
 			Protocol.WriteErrorMsg(UserIndex, "Nombre inválido.");
 			return;
 		}
@@ -315,7 +319,7 @@ public class TCP {
 			return;
 		}
 
-		if (!ValidarCabeza(UserRaza, UserSexo, Head)) {
+		if (! /* FIXME */ValidarCabeza(UserRaza, UserSexo, Head)) {
 			General.LogCheating("El usuario " + Name + " ha seleccionado la cabeza " + Head + " desde la IP "
 					+ Declaraciones.UserList[UserIndex].ip);
 
@@ -570,7 +574,7 @@ public class TCP {
 
 	/* # IF UsarQueSocket = 1 OR UsarQueSocket = 2 THEN */
 
-	static void CloseSocket(int UserIndex) {
+	public static void CloseSocket(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -662,7 +666,7 @@ public class TCP {
 	/* # END IF */
 
 	/* '[Alejo-21-5]: Cierra un socket sin limpiar el slot */
-	static void CloseSocketSL(int UserIndex) {
+	public static void CloseSocketSL(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -691,7 +695,7 @@ public class TCP {
 	/* ' @param Datos The string that will be send */
 	/* ' @remarks If UsarQueSocket is 3 it won`t use the clsByteQueue */
 
-	static int EnviarDatosASlot(int UserIndex, String /* FIXME BYREF!! */ Datos) {
+	public static int EnviarDatosASlot(int UserIndex, String /* FIXME BYREF!! */ Datos) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -734,7 +738,7 @@ public class TCP {
 		return retval;
 	}
 
-	static boolean EstaPCarea(int index, int Index2) {
+	public static boolean EstaPCarea(int index, int Index2) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -760,7 +764,7 @@ public class TCP {
 		return retval;
 	}
 
-	static boolean HayPCarea(Declaraciones.WorldPos Pos) {
+	public static boolean HayPCarea(Declaraciones.WorldPos Pos) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -784,7 +788,7 @@ public class TCP {
 		return retval;
 	}
 
-	static boolean HayOBJarea(Declaraciones.WorldPos Pos, int ObjIndex) {
+	public static boolean HayOBJarea(Declaraciones.WorldPos Pos, int ObjIndex) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -807,7 +811,7 @@ public class TCP {
 		return retval;
 	}
 
-	static boolean ValidateChr(int UserIndex) {
+	public static boolean ValidateChr(int UserIndex) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -821,7 +825,7 @@ public class TCP {
 		return retval;
 	}
 
-	static boolean ConnectUser(int UserIndex, String /* FIXME BYREF!! */ Name,
+	public static boolean ConnectUser(int UserIndex, String /* FIXME BYREF!! */ Name,
 			String /* FIXME BYREF!! */ Password) {
 		boolean retval = false;
 		/* '*************************************************** */
@@ -886,7 +890,7 @@ public class TCP {
 		}
 
 		/* '¿Existe el personaje? */
-		if (!General.FileExist(Declaraciones.CharPath + vb6.UCase(Name) + ".chr", 0)) {
+		if (! /* FIXME */General.FileExist(Declaraciones.CharPath + vb6.UCase(Name) + ".chr", 0)) {
 			Protocol.WriteErrorMsg(UserIndex, "El personaje no existe.");
 			Protocol.FlushBuffer(UserIndex);
 			CloseSocket(UserIndex);
@@ -974,7 +978,7 @@ public class TCP {
 
 		ES.LoadUserStats(UserIndex, Leer);
 
-		if (!ValidateChr(UserIndex)) {
+		if (! /* FIXME */ValidateChr(UserIndex)) {
 			Protocol.WriteErrorMsg(UserIndex, "Error en el personaje.");
 			CloseSocket(UserIndex);
 			return retval;
@@ -1025,7 +1029,7 @@ public class TCP {
 			mapa = Declaraciones.Nemahuak.Map;
 		} else {
 
-			if (!General.MapaValido(mapa)) {
+			if (! /* FIXME */General.MapaValido(mapa)) {
 				Protocol.WriteErrorMsg(UserIndex, "El PJ se encuenta en un mapa inválido.");
 				CloseSocket(UserIndex);
 				return retval;
@@ -1196,7 +1200,7 @@ public class TCP {
 		/* # END IF */
 
 		/* 'Crea el personaje del usuario (hubo algun error) */
-		if (!UsUaRiOs.MakeUserChar(true, Declaraciones.UserList[UserIndex].Pos.Map, UserIndex,
+		if (! /* FIXME */UsUaRiOs.MakeUserChar(true, Declaraciones.UserList[UserIndex].Pos.Map, UserIndex,
 				Declaraciones.UserList[UserIndex].Pos.Map, Declaraciones.UserList[UserIndex].Pos.X,
 				Declaraciones.UserList[UserIndex].Pos.Y)) {
 			return retval;
@@ -1306,7 +1310,8 @@ public class TCP {
 
 		if (Declaraciones.UserList[UserIndex].GuildIndex > 0) {
 			/* 'welcome to the show baby... */
-			if (!modGuilds.m_ConectarMiembroAClan(UserIndex, Declaraciones.UserList[UserIndex].GuildIndex)) {
+			if (! /* FIXME */modGuilds.m_ConectarMiembroAClan(UserIndex,
+					Declaraciones.UserList[UserIndex].GuildIndex)) {
 				Protocol.WriteConsoleMsg(UserIndex, "Tu estado no te permite entrar al clan.",
 						FontTypeNames.FONTTYPE_GUILD);
 			}
@@ -1366,7 +1371,7 @@ public class TCP {
 		return retval;
 	}
 
-	static void SendMOTD(int UserIndex) {
+	public static void SendMOTD(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1381,7 +1386,7 @@ public class TCP {
 		}
 	}
 
-	static void ResetFacciones(int UserIndex) {
+	public static void ResetFacciones(int UserIndex) {
 		/* '************************************************* */
 		/* 'Author: Unknown */
 		/* 'Last modified: 23/01/2007 */
@@ -1411,7 +1416,7 @@ public class TCP {
 		Declaraciones.UserList[UserIndex].Faccion.NextRecompensa = 0;
 	}
 
-	static void ResetContadores(int UserIndex) {
+	public static void ResetContadores(int UserIndex) {
 		/* '************************************************* */
 		/* 'Author: Unknown */
 		/* 'Last modified: 10/07/2010 */
@@ -1460,7 +1465,7 @@ public class TCP {
 		Declaraciones.UserList[UserIndex].Counters.Veneno = 0;
 	}
 
-	static void ResetCharInfo(int UserIndex) {
+	public static void ResetCharInfo(int UserIndex) {
 		/* '************************************************* */
 		/* 'Author: Unknown */
 		/* 'Last modified: 03/15/2006 */
@@ -1481,7 +1486,7 @@ public class TCP {
 		Declaraciones.UserList[UserIndex].Char.WeaponAnim = 0;
 	}
 
-	static void ResetBasicUserInfo(int UserIndex) {
+	public static void ResetBasicUserInfo(int UserIndex) {
 		/* '************************************************* */
 		/* 'Author: Unknown */
 		/* 'Last modified: 03/15/2006 */
@@ -1529,7 +1534,7 @@ public class TCP {
 
 	}
 
-	static void ResetReputacion(int UserIndex) {
+	public static void ResetReputacion(int UserIndex) {
 		/* '************************************************* */
 		/* 'Author: Unknown */
 		/* 'Last modified: 03/15/2006 */
@@ -1548,7 +1553,7 @@ public class TCP {
 		Declaraciones.UserList[UserIndex].Reputacion.Promedio = 0;
 	}
 
-	static void ResetGuildInfo(int UserIndex) {
+	public static void ResetGuildInfo(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1565,7 +1570,7 @@ public class TCP {
 		Declaraciones.UserList[UserIndex].GuildIndex = 0;
 	}
 
-	static void ResetUserFlags(int UserIndex) {
+	public static void ResetUserFlags(int UserIndex) {
 		/* '************************************************* */
 		/* 'Author: Unknown */
 		/* 'Last modified: 06/28/2008 */
@@ -1640,7 +1645,7 @@ public class TCP {
 
 	}
 
-	static void ResetUserSpells(int UserIndex) {
+	public static void ResetUserSpells(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1653,7 +1658,7 @@ public class TCP {
 		}
 	}
 
-	static void ResetUserPets(int UserIndex) {
+	public static void ResetUserPets(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1670,7 +1675,7 @@ public class TCP {
 		}
 	}
 
-	static void ResetUserBanco(int UserIndex) {
+	public static void ResetUserBanco(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1688,7 +1693,7 @@ public class TCP {
 		Declaraciones.UserList[UserIndex].BancoInvent.NroItems = 0;
 	}
 
-	static void LimpiarComercioSeguro(int UserIndex) {
+	public static void LimpiarComercioSeguro(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1701,7 +1706,7 @@ public class TCP {
 		}
 	}
 
-	static void ResetUserSlot(int UserIndex) {
+	public static void ResetUserSlot(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1741,7 +1746,7 @@ public class TCP {
 		/* # END IF */
 	}
 
-	static void CloseUser(int UserIndex) {
+	public static void CloseUser(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1871,7 +1876,7 @@ public class TCP {
 
 	}
 
-	static void ReloadSokcet() {
+	public static void ReloadSokcet() {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1903,7 +1908,7 @@ public class TCP {
 
 	}
 
-	static void EnviarNoche(int UserIndex) {
+	public static void EnviarNoche(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1918,7 +1923,7 @@ public class TCP {
 		Protocol.WriteSendNight(UserIndex, vb6.IIf(Admin.DeNoche, true, false));
 	}
 
-	static void EcharPjsNoPrivilegiados() {
+	public static void EcharPjsNoPrivilegiados() {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */

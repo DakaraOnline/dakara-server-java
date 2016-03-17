@@ -1,5 +1,10 @@
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"clsIniManager"')] */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_GlobalNameSpace'), (5, '='), (1, 'False')] */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Creatable'), (5, '='), (1, 'True')] */
@@ -98,7 +103,7 @@ public class clsIniManager {
 	/* '' */
 	/* 'Default constructor. Does nothing. */
 
-	void Class_Initialize() {
+	private void Class_Initialize() {
 		/* '************************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero */
 		/* 'Last Modify Date: 5/01/2006 */
@@ -110,7 +115,7 @@ public class clsIniManager {
 	/* 'Destroy every array and deallocates al memory. */
 	/* ' */
 
-	void Class_Terminate() {
+	private void Class_Terminate() {
 		/* '************************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero */
 		/* 'Last Modify Date: 5/01/2006 */
@@ -139,7 +144,7 @@ public class clsIniManager {
 	/* ' @param file Complete path of the INI file to be loaded. */
 	/* ' @see GetValue */
 
-	void Initialize(String File) {
+	public void Initialize(String File) {
 		/* '************************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero */
 		/* 'Last Modify Date: 27/07/2006 */
@@ -236,7 +241,7 @@ public class clsIniManager {
 	/* ' @param first The first index to consider when sorting. */
 	/* ' @param last The last index to be considered when sorting. */
 
-	void SortChildNodes(MainNode /* FIXME BYREF!! */ Node, int First, int Last) {
+	private void SortChildNodes(MainNode /* FIXME BYREF!! */ Node, int First, int Last) {
 		/* '************************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero */
 		/* 'Last Modify Date: 5/01/2006 */
@@ -289,7 +294,7 @@ public class clsIniManager {
 	/* ' @param first The first index to consider when sorting. */
 	/* ' @param last The last index to be considered when sorting. */
 
-	void SortMainNodes(int First, int Last) {
+	private void SortMainNodes(int First, int Last) {
 		/* '************************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero */
 		/* 'Last Modify Date: 5/01/2006 */
@@ -348,7 +353,7 @@ public class clsIniManager {
 	 * section of the INI file or a null string if it's not found.
 	 */
 
-	String GetValue(String Main, String key) {
+	public String GetValue(String Main, String key) {
 		String retval;
 		/* '************************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero */
@@ -391,7 +396,7 @@ public class clsIniManager {
 	 * section of the INI file or a null string if it's not found.
 	 */
 
-	void ChangeValue(String Main, String key, String value) {
+	public void ChangeValue(String Main, String key, String value) {
 		/* '************************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modify Date: 27/05/2009 */
@@ -436,45 +441,40 @@ public class clsIniManager {
 	 * found.
 	 */
 
-	int FindKey(MainNode /* FIXME BYREF!! */ Node, String key) {
-		int retval = 0;
-		/* '************************************************************** */
-		/* 'Author: Juan Martín Sotuyo Dodero */
-		/* 'Last Modify Date: 5/01/2006 */
-		/*
-		 * 'Returns the index of the value which key matches the requested one,
-		 */
-		/* 'or the negation of the position were it should be if not found */
-		/* '************************************************************** */
-		int min = 0;
-		int max = 0;
-		int mid = 0;
-
-		min = 0;
-		max = Node.numValues - 1;
-
-		while (min <= max) {
-			mid = (min + max) / 2;
-
-			if (Node.values[mid].key < key) {
-				min = mid + 1;
-			} else if (Node.values[mid].key > key) {
-				max = mid - 1;
-			} else {
-				/* 'We found it */
-				retval = mid;
-				return retval;
-			}
-		}
-
-		/* 'Not found, return the negation of the position where it should be */
-		/*
-		 * '(all higher values are to the right of the list and lower values are
-		 * to the left)
-		 */
-		retval = !min;
-		return retval;
-	}
+	private int FindKey(MainNode /* FIXME BYREF!! */ Node, String key) {
+ int retval = 0;
+ /* '************************************************************** */
+ /* 'Author: Juan Martín Sotuyo Dodero */
+ /* 'Last Modify Date: 5/01/2006 */
+ /* 'Returns the index of the value which key matches the requested one, */
+ /* 'or the negation of the position were it should be if not found */
+ /* '************************************************************** */
+ int min = 0;
+ int max = 0;
+ int mid = 0;
+ 
+ min = 0;
+ max = Node.numValues-1;
+ 
+  while (min<=max) {
+  mid = (min+max)/2;
+  
+   if (Node.values[mid].key<key) {
+   min = mid+1;
+   } else if (Node.values[mid].key>key) {
+   max = mid-1;
+   } else {
+   /* 'We found it */
+   retval = mid;
+   return retval;
+  }
+ }
+ 
+ /* 'Not found, return the negation of the position where it should be */
+ /* '(all higher values are to the right of the list and lower values are to the left) */
+ retval = ! / * FIXME * /min;
+return retval;
+}
 
 	/* '' */
 	/*
@@ -489,46 +489,40 @@ public class clsIniManager {
 	 * stored or the negation of the index in which it should be if not found.
 	 */
 
-	int FindMain(String Name) {
-		int retval = 0;
-		/* '************************************************************** */
-		/* 'Author: Juan Martín Sotuyo Dodero */
-		/* 'Last Modify Date: 5/01/2006 */
-		/*
-		 * 'Returns the index of the MainNode which name matches the requested
-		 * one,
-		 */
-		/* 'or the negation of the position were it should be if not found */
-		/* '************************************************************** */
-		int min = 0;
-		int max = 0;
-		int mid = 0;
-
-		min = 0;
-		max = MainNodes - 1;
-
-		while (min <= max) {
-			mid = (min + max) / 2;
-
-			if (fileData[mid].Name < Name) {
-				min = mid + 1;
-			} else if (fileData[mid].Name > Name) {
-				max = mid - 1;
-			} else {
-				/* 'We found it */
-				retval = mid;
-				return retval;
-			}
-		}
-
-		/* 'Not found, return the negation of the position where it should be */
-		/*
-		 * '(all higher values are to the right of the list and lower values are
-		 * to the left)
-		 */
-		retval = !min;
-		return retval;
-	}
+	private int FindMain(String Name) {
+ int retval = 0;
+ /* '************************************************************** */
+ /* 'Author: Juan Martín Sotuyo Dodero */
+ /* 'Last Modify Date: 5/01/2006 */
+ /* 'Returns the index of the MainNode which name matches the requested one, */
+ /* 'or the negation of the position were it should be if not found */
+ /* '************************************************************** */
+ int min = 0;
+ int max = 0;
+ int mid = 0;
+ 
+ min = 0;
+ max = MainNodes-1;
+ 
+  while (min<=max) {
+  mid = (min+max)/2;
+  
+   if (fileData[mid].Name<Name) {
+   min = mid+1;
+   } else if (fileData[mid].Name>Name) {
+   max = mid-1;
+   } else {
+   /* 'We found it */
+   retval = mid;
+   return retval;
+  }
+ }
+ 
+ /* 'Not found, return the negation of the position where it should be */
+ /* '(all higher values are to the right of the list and lower values are to the left) */
+ retval = ! / * FIXME * /min;
+return retval;
+}
 
 	/* '' */
 	/* 'Checks wether a given key exists or not. */
@@ -538,7 +532,7 @@ public class clsIniManager {
 	 */
 	/* ' @returns True if the key exists, false otherwise. */
 
-	boolean KeyExists(String Name) {
+	public boolean KeyExists(String Name) {
 		boolean retval = false;
 		/* '************************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero */
@@ -549,7 +543,7 @@ public class clsIniManager {
 		return retval;
 	}
 
-	int AddNode(String /* FIXME BYREF!! */ Name) {
+	private int AddNode(String /* FIXME BYREF!! */ Name) {
 		int retval = 0;
 		/* '************************************************************** */
 		/* 'Author: Torres Patricio (Pato) */
@@ -566,7 +560,7 @@ public class clsIniManager {
 
 		if (MainNodes) {
 			i = MainNodes - 1;
-			MainPos = !FindMain(Name);
+			MainPos = ! /* FIXME */FindMain(Name);
 
 			while (i >= MainPos) {
 				fileData[i + 1] = fileData[i];
@@ -585,11 +579,13 @@ public class clsIniManager {
 		return retval;
 	}
 
-	int AddKey(String /* FIXME BYREF!! */ Main, String /* FIXME BYREF!! */ key) {
+	private int AddKey(String /* FIXME BYREF!! */ Main,
+			String /* FIXME BYREF!! */ key) {
 		return AddKey(Main, key, "");
 	}
 
-	int AddKey(String /* FIXME BYREF!! */ Main, String /* FIXME BYREF!! */ key, String value) {
+	private int AddKey(String /* FIXME BYREF!! */ Main,
+			String /* FIXME BYREF!! */ key, String value) {
 		int retval = 0;
 		/* '************************************************************** */
 		/* 'Author: Torres Patricio (Pato) */
@@ -615,7 +611,7 @@ public class clsIniManager {
 
 		if (fileData[MainPos].numValues > 0) {
 			i = fileData[MainPos].numValues - 1;
-			KeyPos = !FindKey(fileData[MainPos], key);
+			KeyPos = ! /* FIXME */FindKey(fileData[MainPos], key);
 
 			while (i >= KeyPos) {
 				fileData[MainPos].values[i + 1] = fileData[MainPos].values[i];
@@ -632,7 +628,7 @@ public class clsIniManager {
 		return retval;
 	}
 
-	void DumpFile(String /* FIXME BYREF!! */ File) {
+	public void DumpFile(String /* FIXME BYREF!! */ File) {
 		/* '************************************************************** */
 		/* 'Author: Torres Patricio (Pato) */
 		/* 'Last Modify Date: 10/10/2010 */

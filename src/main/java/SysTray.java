@@ -1,6 +1,10 @@
-
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"SysTray"')] */
 /* 'Argentum Online 0.12.2 */
 /* 'Copyright (C) 2002 Márquez Pablo Ignacio */
@@ -56,7 +60,7 @@ public class SysTray {
 
 	public static int hHook;
 
-	static int AppHook(int idHook, int wParam, int lParam) {
+	public static int AppHook(int idHook, int wParam, int lParam) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */

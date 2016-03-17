@@ -1,6 +1,10 @@
-
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"clsByteBuffer"')] */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_GlobalNameSpace'), (5, '='), (1, 'False')] */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Creatable'), (5, '='), (1, 'True')] */
@@ -26,7 +30,7 @@ public class clsByteBuffer {
 	static final int DOUBLE_SIZE = 8;
 	static final int STRING_LENGTH_SIZE = 2;
 
-	void initializeReader(int[] /* FIXME BYREF!! */ arrayByte) {
+	public void initializeReader(int[] /* FIXME BYREF!! */ arrayByte) {
 		lastPos = vb6.UBound(arrayByte);
 		data = new Byte[0];
 		data = (data == null) ? new Byte[lastPos] : java.util.Arrays.copyOf(data, lastPos);
@@ -35,7 +39,7 @@ public class clsByteBuffer {
 		CurrentPos = 0;
 	}
 
-	void initializeWriter(int fileHandler) {
+	public void initializeWriter(int fileHandler) {
 		data = new Byte[0];
 		data = (data == null) ? new Byte[DEFAULT_MAX_SIZE_FILE * 20]
 				: java.util.Arrays.copyOf(data, DEFAULT_MAX_SIZE_FILE * 20);
@@ -45,11 +49,11 @@ public class clsByteBuffer {
 		lastPos = -1;
 	}
 
-	void getBytes(int[] /* FIXME BYREF!! */ destination) {
+	public void getBytes(int[] /* FIXME BYREF!! */ destination) {
 		getBytes(destination, -1);
 	}
 
-	void getBytes(int[] /* FIXME BYREF!! */ destination, int length) {
+	public void getBytes(int[] /* FIXME BYREF!! */ destination, int length) {
 		if (length >= 0) {
 			SysTray.CopyMemory(destination[0], data[CurrentPos], length);
 		} else {
@@ -57,53 +61,53 @@ public class clsByteBuffer {
 		}
 	}
 
-	int getByte() {
+	public int getByte() {
 		int retval = 0;
 		retval = data[CurrentPos];
 		CurrentPos = CurrentPos + BYTE_SIZE;
 		return retval;
 	}
 
-	boolean getBoolean() {
+	public boolean getBoolean() {
 		boolean retval = false;
 		SysTray.CopyMemory(retval, data[CurrentPos], BOOL_SIZE);
 		CurrentPos = CurrentPos + BOOL_SIZE;
 		return retval;
 	}
 
-	int getInteger() {
+	public int getInteger() {
 		int retval = 0;
 		SysTray.CopyMemory(retval, data[CurrentPos], INTEGER_SIZE);
 		CurrentPos = CurrentPos + INTEGER_SIZE;
 		return retval;
 	}
 
-	int getLong() {
+	public int getLong() {
 		int retval = 0;
 		SysTray.CopyMemory(retval, data[CurrentPos], LONG_SIZE);
 		CurrentPos = CurrentPos + LONG_SIZE;
 		return retval;
 	}
 
-	float getSingle() {
+	public float getSingle() {
 		float retval = 0.0f;
 		SysTray.CopyMemory(retval, data[CurrentPos], SINGLE_SIZE);
 		CurrentPos = CurrentPos + SINGLE_SIZE;
 		return retval;
 	}
 
-	double getDouble() {
+	public double getDouble() {
 		double retval = 0.0;
 		SysTray.CopyMemory(retval, data[CurrentPos], DOUBLE_SIZE);
 		CurrentPos = CurrentPos + DOUBLE_SIZE;
 		return retval;
 	}
 
-	String getString() {
+	public String getString() {
 		return getString(-1);
 	}
 
-	String getString(int length) {
+	public String getString(int length) {
 		String retval;
 		int[] ret;
 
@@ -125,41 +129,41 @@ public class clsByteBuffer {
 		return retval;
 	}
 
-	void putByte(int value) {
+	public void putByte(int value) {
 		data[lastPos + 1] = value;
 		lastPos = lastPos + BYTE_SIZE;
 	}
 
-	void putBoolean(boolean value) {
+	public void putBoolean(boolean value) {
 		SysTray.CopyMemory(data[lastPos + 1], value, BOOL_SIZE);
 		lastPos = lastPos + BOOL_SIZE;
 	}
 
-	void putInteger(int value) {
+	public void putInteger(int value) {
 		SysTray.CopyMemory(data[lastPos + 1], value, INTEGER_SIZE);
 		lastPos = lastPos + INTEGER_SIZE;
 	}
 
-	void putLong(int value) {
+	public void putLong(int value) {
 		SysTray.CopyMemory(data[lastPos + 1], value, LONG_SIZE);
 		lastPos = lastPos + LONG_SIZE;
 	}
 
-	void putSingle(float value) {
+	public void putSingle(float value) {
 		SysTray.CopyMemory(data[lastPos + 1], value, SINGLE_SIZE);
 		lastPos = lastPos + SINGLE_SIZE;
 	}
 
-	void putDouble(double value) {
+	public void putDouble(double value) {
 		SysTray.CopyMemory(data[lastPos + 1], value, DOUBLE_SIZE);
 		lastPos = lastPos + DOUBLE_SIZE;
 	}
 
-	void putString(String /* FIXME BYREF!! */ str) {
+	public void putString(String /* FIXME BYREF!! */ str) {
 		putString(str, true);
 	}
 
-	void putString(String /* FIXME BYREF!! */ str, boolean withLength) {
+	public void putString(String /* FIXME BYREF!! */ str, boolean withLength) {
 		int length = 0;
 
 		length = vb6.Len(str);
@@ -176,15 +180,15 @@ public class clsByteBuffer {
 		}
 	}
 
-	void getVoid(int length) {
+	public void getVoid(int length) {
 		CurrentPos = CurrentPos + length;
 	}
 
-	void putVoid(int length) {
+	public void putVoid(int length) {
 		lastPos = lastPos + length;
 	}
 
-	void clearData() {
+	public void clearData() {
 		data = new Byte[0];
 		data = (data == null) ? new Byte[DEFAULT_MAX_SIZE_FILE] : java.util.Arrays.copyOf(data, DEFAULT_MAX_SIZE_FILE);
 
@@ -193,25 +197,25 @@ public class clsByteBuffer {
 		hFile = -1;
 	}
 
-	int getLastPos() {
+	public int getLastPos() {
 		int retval = 0;
 		retval = lastPos;
 		return retval;
 	}
 
-	int getCurrentPos() {
+	public int getCurrentPos() {
 		int retval = 0;
 		retval = CurrentPos;
 		return retval;
 	}
 
-	boolean Eof() {
+	public boolean Eof() {
 		boolean retval = false;
 		retval = (CurrentPos > vb6.UBound(data));
 		return retval;
 	}
 
-	void saveBuffer() {
+	public void saveBuffer() {
 		int[] buf;
 
 		if (hFile > 0) {
@@ -223,11 +227,11 @@ public class clsByteBuffer {
 		}
 	}
 
-	void Class_Initialize() {
+	private void Class_Initialize() {
 		hFile = INVALID_FILE_HANDLER;
 	}
 
-	void Class_Terminate() {
+	private void Class_Terminate() {
 		/* FIXME: ERASE data ( ) */
 	}
 

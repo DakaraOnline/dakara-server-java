@@ -1,6 +1,10 @@
-
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"modNuevoTimer"')] */
 /* 'Argentum Online 0.12.2 */
 /* 'Copyright (C) 2002 Márquez Pablo Ignacio */
@@ -41,11 +45,11 @@ public class modNuevoTimer {
 	/* ' */
 
 	/* ' CASTING DE HECHIZOS */
-	static boolean IntervaloPermiteLanzarSpell(int UserIndex) {
+	public static boolean IntervaloPermiteLanzarSpell(int UserIndex) {
 		return IntervaloPermiteLanzarSpell(UserIndex, true);
 	}
 
-	static boolean IntervaloPermiteLanzarSpell(int UserIndex, boolean Actualizar) {
+	public static boolean IntervaloPermiteLanzarSpell(int UserIndex, boolean Actualizar) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -70,11 +74,11 @@ public class modNuevoTimer {
 		return retval;
 	}
 
-	static boolean IntervaloPermiteAtacar(int UserIndex) {
+	public static boolean IntervaloPermiteAtacar(int UserIndex) {
 		return IntervaloPermiteAtacar(UserIndex, true);
 	}
 
-	static boolean IntervaloPermiteAtacar(int UserIndex, boolean Actualizar) {
+	public static boolean IntervaloPermiteAtacar(int UserIndex, boolean Actualizar) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -99,11 +103,11 @@ public class modNuevoTimer {
 		return retval;
 	}
 
-	static boolean IntervaloPermiteGolpeUsar(int UserIndex) {
+	public static boolean IntervaloPermiteGolpeUsar(int UserIndex) {
 		return IntervaloPermiteGolpeUsar(UserIndex, true);
 	}
 
-	static boolean IntervaloPermiteGolpeUsar(int UserIndex, boolean Actualizar) {
+	public static boolean IntervaloPermiteGolpeUsar(int UserIndex, boolean Actualizar) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
@@ -130,11 +134,11 @@ public class modNuevoTimer {
 		return retval;
 	}
 
-	static boolean IntervaloPermiteMagiaGolpe(int UserIndex) {
+	public static boolean IntervaloPermiteMagiaGolpe(int UserIndex) {
 		return IntervaloPermiteMagiaGolpe(UserIndex, true);
 	}
 
-	static boolean IntervaloPermiteMagiaGolpe(int UserIndex, boolean Actualizar) {
+	public static boolean IntervaloPermiteMagiaGolpe(int UserIndex, boolean Actualizar) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -163,11 +167,11 @@ public class modNuevoTimer {
 		return retval;
 	}
 
-	static boolean IntervaloPermiteGolpeMagia(int UserIndex) {
+	public static boolean IntervaloPermiteGolpeMagia(int UserIndex) {
 		return IntervaloPermiteGolpeMagia(UserIndex, true);
 	}
 
-	static boolean IntervaloPermiteGolpeMagia(int UserIndex, boolean Actualizar) {
+	public static boolean IntervaloPermiteGolpeMagia(int UserIndex, boolean Actualizar) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -220,11 +224,11 @@ public class modNuevoTimer {
 	/* 'End Function */
 
 	/* ' TRABAJO */
-	static boolean IntervaloPermiteTrabajar(int UserIndex) {
+	public static boolean IntervaloPermiteTrabajar(int UserIndex) {
 		return IntervaloPermiteTrabajar(UserIndex, true);
 	}
 
-	static boolean IntervaloPermiteTrabajar(int UserIndex, boolean Actualizar) {
+	public static boolean IntervaloPermiteTrabajar(int UserIndex, boolean Actualizar) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -249,11 +253,11 @@ public class modNuevoTimer {
 	}
 
 	/* ' USAR OBJETOS */
-	static boolean IntervaloPermiteUsar(int UserIndex) {
+	public static boolean IntervaloPermiteUsar(int UserIndex) {
 		return IntervaloPermiteUsar(UserIndex, true);
 	}
 
-	static boolean IntervaloPermiteUsar(int UserIndex, boolean Actualizar) {
+	public static boolean IntervaloPermiteUsar(int UserIndex, boolean Actualizar) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -298,11 +302,11 @@ public class modNuevoTimer {
 		return retval;
 	}
 
-	static boolean IntervaloPermiteUsarArcos(int UserIndex) {
+	public static boolean IntervaloPermiteUsarArcos(int UserIndex) {
 		return IntervaloPermiteUsarArcos(UserIndex, true);
 	}
 
-	static boolean IntervaloPermiteUsarArcos(int UserIndex, boolean Actualizar) {
+	public static boolean IntervaloPermiteUsarArcos(int UserIndex, boolean Actualizar) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -327,11 +331,11 @@ public class modNuevoTimer {
 		return retval;
 	}
 
-	static boolean IntervaloPermiteSerAtacado(int UserIndex) {
+	public static boolean IntervaloPermiteSerAtacado(int UserIndex) {
 		return IntervaloPermiteSerAtacado(UserIndex, false);
 	}
 
-	static boolean IntervaloPermiteSerAtacado(int UserIndex, boolean Actualizar) {
+	public static boolean IntervaloPermiteSerAtacado(int UserIndex, boolean Actualizar) {
 		boolean retval = false;
 		/* '************************************************************** */
 		/* 'Author: ZaMa */
@@ -364,11 +368,11 @@ public class modNuevoTimer {
 		return retval;
 	}
 
-	static boolean IntervaloPerdioNpc(int UserIndex) {
+	public static boolean IntervaloPerdioNpc(int UserIndex) {
 		return IntervaloPerdioNpc(UserIndex, false);
 	}
 
-	static boolean IntervaloPerdioNpc(int UserIndex, boolean Actualizar) {
+	public static boolean IntervaloPerdioNpc(int UserIndex, boolean Actualizar) {
 		boolean retval = false;
 		/* '************************************************************** */
 		/* 'Author: ZaMa */
@@ -399,11 +403,11 @@ public class modNuevoTimer {
 		return retval;
 	}
 
-	static boolean IntervaloEstadoAtacable(int UserIndex) {
+	public static boolean IntervaloEstadoAtacable(int UserIndex) {
 		return IntervaloEstadoAtacable(UserIndex, false);
 	}
 
-	static boolean IntervaloEstadoAtacable(int UserIndex, boolean Actualizar) {
+	public static boolean IntervaloEstadoAtacable(int UserIndex, boolean Actualizar) {
 		boolean retval = false;
 		/* '************************************************************** */
 		/* 'Author: ZaMa */
@@ -434,11 +438,11 @@ public class modNuevoTimer {
 		return retval;
 	}
 
-	static boolean IntervaloGoHome(int UserIndex) {
+	public static boolean IntervaloGoHome(int UserIndex) {
  return  IntervaloGoHome(UserIndex, int(), false);
  }
 
-	static boolean IntervaloGoHome(int UserIndex, int TimeInterval, boolean Actualizar) {
+	public static boolean IntervaloGoHome(int UserIndex, int TimeInterval, boolean Actualizar) {
 		boolean retval = false;
 		/* '************************************************************** */
 		/* 'Author: ZaMa */
@@ -466,7 +470,7 @@ public class modNuevoTimer {
 		return retval;
 	}
 
-	static boolean checkInterval(int /* FIXME BYREF!! */ startTime, int timeNow, int interval) {
+	public static boolean checkInterval(int /* FIXME BYREF!! */ startTime, int timeNow, int interval) {
 		boolean retval = false;
 		int lInterval = 0;
 
@@ -485,7 +489,7 @@ public class modNuevoTimer {
 		return retval;
 	}
 
-	static int getInterval(int timeNow, int startTime) {
+	public static int getInterval(int timeNow, int startTime) {
 		int retval = 0;
 		if (timeNow < startTime) {
 			retval = 0x7FFFFFFF - startTime + timeNow + 1;

@@ -1,5 +1,10 @@
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"NPCs"')] */
 /* 'Argentum Online 0.12.2 */
 /* 'Copyright (C) 2002 Márquez Pablo Ignacio */
@@ -47,7 +52,7 @@ import enums.*;
 
 public class NPCs {
 
-	static void QuitarMascota(int UserIndex, int NpcIndex) {
+	public static void QuitarMascota(int UserIndex, int NpcIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -67,7 +72,7 @@ public class NPCs {
 		}
 	}
 
-	static void QuitarMascotaNpc(int Maestro) {
+	public static void QuitarMascotaNpc(int Maestro) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -77,7 +82,7 @@ public class NPCs {
 		Declaraciones.Npclist[Maestro].Mascotas = Declaraciones.Npclist[Maestro].Mascotas - 1;
 	}
 
-	static void MuereNpc(int NpcIndex, int UserIndex) {
+	public static void MuereNpc(int NpcIndex, int UserIndex) {
 		/* '******************************************************** */
 		/* 'Author: Unknown */
 		/* 'Llamado cuando la vida de un NPC llega a cero. */
@@ -180,7 +185,7 @@ public class NPCs {
 					}
 				}
 
-			} else if (!Extra.esCaos(UserIndex)) {
+			} else if (! /* FIXME */Extra.esCaos(UserIndex)) {
 				if (MiNPC.Stats.Alineacion == 1) {
 					Declaraciones.UserList[UserIndex].Reputacion.PlebeRep = Declaraciones.UserList[UserIndex].Reputacion.PlebeRep
 							+ Declaraciones.vlCAZADOR;
@@ -249,7 +254,7 @@ public class NPCs {
 		General.LogError("Error en MuereNpc - Error: " + Err.Number + " - Desc: " + Err.description);
 	}
 
-	static void ResetNpcFlags(int NpcIndex) {
+	public static void ResetNpcFlags(int NpcIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -284,7 +289,7 @@ public class NPCs {
 		Declaraciones.Npclist[NpcIndex].flags.TierraInvalida = 0;
 	}
 
-	static void ResetNpcCounters(int NpcIndex) {
+	public static void ResetNpcCounters(int NpcIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -295,7 +300,7 @@ public class NPCs {
 		Declaraciones.Npclist[NpcIndex].Contadores.TiempoExistencia = 0;
 	}
 
-	static void ResetNpcCharInfo(int NpcIndex) {
+	public static void ResetNpcCharInfo(int NpcIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -313,7 +318,7 @@ public class NPCs {
 		Declaraciones.Npclist[NpcIndex].Char.WeaponAnim = 0;
 	}
 
-	static void ResetNpcCriatures(int NpcIndex) {
+	public static void ResetNpcCriatures(int NpcIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -330,7 +335,7 @@ public class NPCs {
 		Declaraciones.Npclist[NpcIndex].NroCriaturas = 0;
 	}
 
-	static void ResetExpresiones(int NpcIndex) {
+	public static void ResetExpresiones(int NpcIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -346,7 +351,7 @@ public class NPCs {
 		Declaraciones.Npclist[NpcIndex].NroExpresiones = 0;
 	}
 
-	static void ResetNpcMainInfo(int NpcIndex) {
+	public static void ResetNpcMainInfo(int NpcIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -407,7 +412,7 @@ public class NPCs {
 		ResetExpresiones(NpcIndex);
 	}
 
-	static void QuitarNPC(int NpcIndex) {
+	public static void QuitarNPC(int NpcIndex) {
 		/* '*************************************************** */
 		/* 'Autor: Unknown (orginal version) */
 		/* 'Last Modification: 16/11/2009 */
@@ -448,7 +453,7 @@ public class NPCs {
 		General.LogError("Error en QuitarNPC");
 	}
 
-	static void QuitarPet(int UserIndex, int NpcIndex) {
+	public static void QuitarPet(int UserIndex, int NpcIndex) {
 		/* '*************************************************** */
 		/* 'Autor: ZaMa */
 		/* 'Last Modification: 18/11/2009 */
@@ -486,11 +491,11 @@ public class NPCs {
 				+ NpcIndex + " UserIndex: " + UserIndex + " PetIndex: " + PetIndex);
 	}
 
-	static boolean TestSpawnTrigger(Declaraciones.WorldPos Pos) {
+	public static boolean TestSpawnTrigger(Declaraciones.WorldPos Pos) {
 		return TestSpawnTrigger(Pos, false);
 	}
 
-	static boolean TestSpawnTrigger(Declaraciones.WorldPos Pos, boolean PuedeAgua) {
+	public static boolean TestSpawnTrigger(Declaraciones.WorldPos Pos, boolean PuedeAgua) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -507,11 +512,11 @@ public class NPCs {
 		return retval;
 	}
 
-	static int CrearNPC(int NroNPC, int mapa, Declaraciones.WorldPos OrigPos) {
+	public static int CrearNPC(int NroNPC, int mapa, Declaraciones.WorldPos OrigPos) {
  return  CrearNPC(NroNPC, mapa, OrigPos, int());
  }
 
-	static int CrearNPC(int NroNPC, int mapa, Declaraciones.WorldPos OrigPos, int CustomHead) {
+	public static int CrearNPC(int NroNPC, int mapa, Declaraciones.WorldPos OrigPos, int CustomHead) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -564,7 +569,7 @@ public class NPCs {
 			Pos.Map = mapa;
 			altpos.Map = mapa;
 
-			while (!PosicionValida) {
+			while (! /* FIXME */PosicionValida) {
 				/* 'Obtenemos posicion al azar en x */
 				Pos.X = Matematicas.RandomNumber(Declaraciones.MinXBorder, Declaraciones.MaxXBorder);
 				/* 'Obtenemos posicion al azar en y */
@@ -594,7 +599,7 @@ public class NPCs {
 				 * 'Si X e Y son iguales a 0 significa que no se encontro
 				 * posicion valida
 				 */
-				if (Extra.LegalPosNPC(newpos.Map, newpos.X, newpos.Y, PuedeAgua) && !TCP.HayPCarea(newpos)
+				if (Extra.LegalPosNPC(newpos.Map, newpos.X, newpos.Y, PuedeAgua) && ! /* FIXME */TCP.HayPCarea(newpos)
 						&& TestSpawnTrigger(newpos, PuedeAgua)) {
 					/* 'Asignamos las nuevas coordenas solo si son validas */
 					Declaraciones.Npclist[nIndex].Pos.Map = newpos.Map;
@@ -653,7 +658,7 @@ public class NPCs {
 		return retval;
 	}
 
-	static void MakeNPCChar(boolean toMap, int sndIndex, int NpcIndex, int Map, int X, int Y) {
+	public static void MakeNPCChar(boolean toMap, int sndIndex, int NpcIndex, int Map, int X, int Y) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -670,7 +675,7 @@ public class NPCs {
 
 		Declaraciones.MapData[Map][X][Y].NpcIndex = NpcIndex;
 
-		if (!toMap) {
+		if (! /* FIXME */toMap) {
 			Protocol.WriteCharacterCreate(sndIndex, Declaraciones.Npclist[NpcIndex].Char.body,
 					Declaraciones.Npclist[NpcIndex].Char.Head, Declaraciones.Npclist[NpcIndex].Char.heading,
 					Declaraciones.Npclist[NpcIndex].Char.CharIndex, X, Y, 0, 0, 0, 0, 0, "", 0, 0);
@@ -680,7 +685,7 @@ public class NPCs {
 		}
 	}
 
-	static void ChangeNPCChar(int NpcIndex, int body, int Head, eHeading heading) {
+	public static void ChangeNPCChar(int NpcIndex, int body, int Head, eHeading heading) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -697,7 +702,7 @@ public class NPCs {
 		}
 	}
 
-	static void EraseNPCChar(int NpcIndex) {
+	public static void EraseNPCChar(int NpcIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -732,7 +737,7 @@ public class NPCs {
 
 	}
 
-	static boolean MoveNPCChar(int NpcIndex, int nHeading) {
+	public static boolean MoveNPCChar(int NpcIndex, int nHeading) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Autor: Unknown (orginal version) */
@@ -769,7 +774,7 @@ public class NPCs {
 				return retval;
 			}
 			if (Declaraciones.Npclist[NpcIndex].flags.TierraInvalida == 1
-					&& !General.HayAgua(Declaraciones.Npclist[NpcIndex].Pos.Map, nPos.X, nPos.Y)) {
+					&& ! /* FIXME */General.HayAgua(Declaraciones.Npclist[NpcIndex].Pos.Map, nPos.X, nPos.Y)) {
 				return retval;
 			}
 
@@ -781,12 +786,12 @@ public class NPCs {
 
 				/* ' No se traslada caspers de agua a tierra */
 				if (General.HayAgua(Declaraciones.Npclist[NpcIndex].Pos.Map, nPos.X, nPos.Y)
-						&& !General.HayAgua(Declaraciones.Npclist[NpcIndex].Pos.Map,
+						&& ! /* FIXME */General.HayAgua(Declaraciones.Npclist[NpcIndex].Pos.Map,
 								Declaraciones.Npclist[NpcIndex].Pos.X, Declaraciones.Npclist[NpcIndex].Pos.Y)) {
 					return retval;
 				}
 				/* ' No se traslada caspers de tierra a agua */
-				if (!General.HayAgua(Declaraciones.Npclist[NpcIndex].Pos.Map, nPos.X, nPos.Y)
+				if (! /* FIXME */General.HayAgua(Declaraciones.Npclist[NpcIndex].Pos.Map, nPos.X, nPos.Y)
 						&& General.HayAgua(Declaraciones.Npclist[NpcIndex].Pos.Map,
 								Declaraciones.Npclist[NpcIndex].Pos.X, Declaraciones.Npclist[NpcIndex].Pos.Y)) {
 					return retval;
@@ -838,7 +843,7 @@ public class NPCs {
 		return retval;
 	}
 
-	static int NextOpenNPC() {
+	public static int NextOpenNPC() {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -853,7 +858,7 @@ public class NPCs {
 			if (LoopC > Declaraciones.MAXNPCS) {
 				break; /* FIXME: EXIT FOR */
 			}
-			if (!Declaraciones.Npclist[LoopC].flags.NPCActive) {
+			if (! /* FIXME */Declaraciones.Npclist[LoopC].flags.NPCActive) {
 				break; /* FIXME: EXIT FOR */
 			}
 		}
@@ -866,7 +871,7 @@ public class NPCs {
 		return retval;
 	}
 
-	static void NpcEnvenenarUser(int UserIndex) {
+	public static void NpcEnvenenarUser(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 10/07/2010 */
@@ -887,7 +892,7 @@ public class NPCs {
 
 	}
 
-	static int SpawnNpc(int NpcIndex, Declaraciones.WorldPos Pos, boolean FX, boolean Respawn) {
+	public static int SpawnNpc(int NpcIndex, Declaraciones.WorldPos Pos, boolean FX, boolean Respawn) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Autor: Unknown (orginal version) */
@@ -918,7 +923,7 @@ public class NPCs {
 		}
 
 		PuedeAgua = Declaraciones.Npclist[nIndex].flags.AguaValida;
-		PuedeTierra = !Declaraciones.Npclist[nIndex].flags.TierraInvalida == 1;
+		PuedeTierra = ! /* FIXME */Declaraciones.Npclist[nIndex].flags.TierraInvalida == 1;
 
 		/* 'Nos devuelve la posicion valida mas cercana */
 		Extra.ClosestLegalPos(Pos, newpos, PuedeAgua, PuedeTierra);
@@ -945,7 +950,7 @@ public class NPCs {
 			}
 		}
 
-		if (!PosicionValida) {
+		if (! /* FIXME */PosicionValida) {
 			QuitarNPC(nIndex);
 			retval = 0;
 			return retval;
@@ -971,7 +976,7 @@ public class NPCs {
 		return retval;
 	}
 
-	static void ReSpawnNpc(Declaraciones.npc MiNPC) {
+	public static void ReSpawnNpc(Declaraciones.npc MiNPC) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -984,7 +989,7 @@ public class NPCs {
 
 	}
 
-	static void NPCTirarOro(Declaraciones.npc /* FIXME BYREF!! */ MiNPC) {
+	public static void NPCTirarOro(Declaraciones.npc /* FIXME BYREF!! */ MiNPC) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1010,11 +1015,11 @@ public class NPCs {
 		}
 	}
 
-	static int OpenNPC(int NpcNumber) {
+	public static int OpenNPC(int NpcNumber) {
 		return OpenNPC(NpcNumber, true);
 	}
 
-	static int OpenNPC(int NpcNumber, Object Respawn) {
+	public static int OpenNPC(int NpcNumber, Object Respawn) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -1043,7 +1048,7 @@ public class NPCs {
 		Leer = General.LeerNPCs;
 
 		/* 'If requested index is invalid, abort */
-		if (!Leer.KeyExists("NPC" + NpcNumber)) {
+		if (! /* FIXME */Leer.KeyExists("NPC" + NpcNumber)) {
 			retval = Declaraciones.MAXNPCS + 1;
 			return retval;
 		}
@@ -1193,7 +1198,7 @@ public class NPCs {
 		return retval;
 	}
 
-	static void DoFollow(int NpcIndex, String UserName) {
+	public static void DoFollow(int NpcIndex, String UserName) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1213,7 +1218,7 @@ public class NPCs {
 		}
 	}
 
-	static void FollowAmo(int NpcIndex) {
+	public static void FollowAmo(int NpcIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1227,7 +1232,7 @@ public class NPCs {
 		Declaraciones.Npclist[NpcIndex].TargetNPC = 0;
 	}
 
-	static void ValidarPermanenciaNpc(int NpcIndex) {
+	public static void ValidarPermanenciaNpc(int NpcIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */

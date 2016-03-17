@@ -1,5 +1,10 @@
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"Admin"')] */
 /* 'Argentum Online 0.12.2 */
 /* 'Copyright (C) 2002 Márquez Pablo Ignacio */
@@ -99,7 +104,7 @@ public class Admin {
 	public static boolean Lloviendo;
 	public static boolean DeNoche;
 
-	static boolean VersionOK(String Ver) {
+	public static boolean VersionOK(String Ver) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -111,7 +116,7 @@ public class Admin {
 		return retval;
 	}
 
-	static void ReSpawnOrigPosNpcs() {
+	public static void ReSpawnOrigPosNpcs() {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -144,7 +149,7 @@ public class Admin {
 
 	}
 
-	static void WorldSave() {
+	public static void WorldSave() {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -212,7 +217,7 @@ public class Admin {
 				Protocol.PrepareMessageConsoleMsg("Servidor> WorldSave ha concluído.", FontTypeNames.FONTTYPE_SERVER));
 	}
 
-	static void PurgarPenas() {
+	public static void PurgarPenas() {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -239,11 +244,11 @@ public class Admin {
 		}
 	}
 
-	static void Encarcelar(int UserIndex, int Minutos) {
+	public static void Encarcelar(int UserIndex, int Minutos) {
 		Encarcelar(UserIndex, Minutos, "");
 	}
 
-	static void Encarcelar(int UserIndex, int Minutos, String GmName) {
+	public static void Encarcelar(int UserIndex, int Minutos, String GmName) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -271,7 +276,7 @@ public class Admin {
 		}
 	}
 
-	static void BorrarUsuario(String UserName) {
+	public static void BorrarUsuario(String UserName) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -284,7 +289,7 @@ public class Admin {
 		}
 	}
 
-	static boolean BANCheck(String Name) {
+	public static boolean BANCheck(String Name) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -297,7 +302,7 @@ public class Admin {
 		return retval;
 	}
 
-	static boolean PersonajeExiste(String Name) {
+	public static boolean PersonajeExiste(String Name) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -310,7 +315,7 @@ public class Admin {
 		return retval;
 	}
 
-	static boolean UnBan(String Name) {
+	public static boolean UnBan(String Name) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -327,7 +332,7 @@ public class Admin {
 		return retval;
 	}
 
-	static boolean MD5ok(String md5formateado) {
+	public static boolean MD5ok(String md5formateado) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -352,7 +357,7 @@ public class Admin {
 		return retval;
 	}
 
-	static void MD5sCarga() {
+	public static void MD5sCarga() {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -380,7 +385,7 @@ public class Admin {
 
 	}
 
-	static void BanIpAgrega(String ip) {
+	public static void BanIpAgrega(String ip) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -392,7 +397,7 @@ public class Admin {
 		BanIpGuardar();
 	}
 
-	static int BanIpBuscar(String ip) {
+	public static int BanIpBuscar(String ip) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -418,7 +423,7 @@ public class Admin {
 		return retval;
 	}
 
-	static boolean BanIpQuita(String ip) {
+	public static boolean BanIpQuita(String ip) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -442,7 +447,7 @@ public class Admin {
 		return retval;
 	}
 
-	static void BanIpGuardar() {
+	public static void BanIpGuardar() {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -466,7 +471,7 @@ public class Admin {
 
 	}
 
-	static void BanIpCargar() {
+	public static void BanIpCargar() {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -484,7 +489,7 @@ public class Admin {
 		ArchN = vb6.FreeFile();
 		/* FIXME: OPEN ArchivoBanIp FOR INPUT AS # ArchN */
 
-		while (!clsByteBuffer.Eof(ArchN)) {
+		while (! /* FIXME */clsByteBuffer.Eof(ArchN)) {
 			/* FIXME: LINE INPUT # ArchN , Tmp */
 			Declaraciones.BanIps.Add(Tmp);
 		}
@@ -493,7 +498,7 @@ public class Admin {
 
 	}
 
-	static void ActualizaEstadisticasWeb() {
+	public static void ActualizaEstadisticasWeb() {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -519,7 +524,7 @@ public class Admin {
 
 	}
 
-	static PlayerType UserDarPrivilegioLevel(String Name) {
+	public static PlayerType UserDarPrivilegioLevel(String Name) {
 		PlayerType retval;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -541,7 +546,7 @@ public class Admin {
 		return retval;
 	}
 
-	static void BanCharacter(int bannerUserIndex, String UserName, String Reason) {
+	public static void BanCharacter(int bannerUserIndex, String UserName, String Reason) {
 		/* '*************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 03/02/07 */

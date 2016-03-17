@@ -1,5 +1,10 @@
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"wskapiAO"')] */
 /* '************************************************************** */
 /* ' wskapiAO.bas */
@@ -103,7 +108,7 @@ public class wskapiAO {
 	 * ===========
 	 */
 
-	static void IniciaWsApi(int hwndParent) {
+	public static void IniciaWsApi(int hwndParent) {
  /* # IF UsarQueSocket = 1 THEN */
  
  LogApiSock("IniciaWsApi");
@@ -124,7 +129,7 @@ public class wskapiAO {
  /* # END IF */
 }
 
-	static void LimpiaWsApi() {
+	public static void LimpiaWsApi() {
  /* # IF UsarQueSocket = 1 THEN */
  
  LogApiSock("LimpiaWsApi");
@@ -144,7 +149,7 @@ public class wskapiAO {
  /* # END IF */
 }
 
-	static int BuscaSlotSock(int S) {
+	public static int BuscaSlotSock(int S) {
 		int retval = 0;
 		/* # IF UsarQueSocket = 1 THEN */
 
@@ -160,7 +165,7 @@ public class wskapiAO {
 		return retval;
 	}
 
-	static void AgregaSlotSock(int Sock, int Slot) {
+	public static void AgregaSlotSock(int Sock, int Slot) {
  Debug.PRINT"AgregaSockSlot"();
  /* # IF ( UsarQueSocket = 1 ) THEN */
  
@@ -204,7 +209,7 @@ public class wskapiAO {
  /* # END IF */
 }
 
-	static void BorraSlotSock(int Sock) {
+	public static void BorraSlotSock(int Sock) {
  /* # IF ( UsarQueSocket = 1 ) THEN */
  int cant = 0;
  
@@ -217,7 +222,7 @@ public class wskapiAO {
  /* # END IF */
 }
 
-	static int WndProc(int hWnd, int msg, int wParam, int lParam) {
+	public static int WndProc(int hWnd, int msg, int wParam, int lParam) {
  int retval = 0;
  /* # IF UsarQueSocket = 1 THEN */
  
@@ -338,7 +343,7 @@ return retval;
 
 	/* 'Retorna 0 cuando se envió o se metio en la cola, */
 	/* 'retorna <> 0 cuando no se pudo enviar o no se pudo meter en la cola */
-	static int WsApiEnviar(int Slot, String /* FIXME BYREF!! */ str) {
+	public static int WsApiEnviar(int Slot, String /* FIXME BYREF!! */ str) {
  int retval = 0;
  /* # IF UsarQueSocket = 1 THEN */
  String ret;
@@ -367,8 +372,8 @@ return retval;
     Declaraciones.UserList[Slot].outgoingData.WriteASCIIStringFixed(str);
    }
   }
-  } else if (Declaraciones.UserList[Slot].ConnID != -1 && !Declaraciones.UserList[Slot].ConnIDValida) {
-   if (!Declaraciones.UserList[Slot].Counters.Saliendo) {
+  } else if (Declaraciones.UserList[Slot].ConnID != -1 && ! /* FIXME */Declaraciones.UserList[Slot].ConnIDValida) {
+   if (! /* FIXME */Declaraciones.UserList[Slot].Counters.Saliendo) {
    Retorno = -1;
   }
  }
@@ -378,7 +383,7 @@ return retval;
 return retval;
 }
 
-	static void LogApiSock(String str) {
+	public static void LogApiSock(String str) {
 		/* # IF ( UsarQueSocket = 1 ) THEN */
 
 		/* FIXME: ON ERROR GOTO ErrHandler */
@@ -400,7 +405,7 @@ return retval;
 		/* # END IF */
 	}
 
-	static void EventoSockAccept(int SockID) {
+	public static void EventoSockAccept(int SockID) {
  /* # IF UsarQueSocket = 1 THEN */
  /* '========================================================== */
  /* 'USO DE LA API DE WINSOCK */
@@ -452,7 +457,7 @@ return retval;
   General.LogCriticEvent("Error al setear lingers." + i + ": " + GetWSAErrorString[i]);
  }
  
-  if (!SecurityIp.IpSecurityAceptarNuevaConexion(sa.sin_addr)) {
+  if (! /* FIXME */SecurityIp.IpSecurityAceptarNuevaConexion(sa.sin_addr)) {
   WSApiCloseSocket(NuevoSock);
   return;
  }
@@ -540,7 +545,7 @@ return retval;
  /* # END IF */
 }
 
-	static void EventoSockRead(int Slot, int[] /* FIXME BYREF!! */ Datos) {
+	public static void EventoSockRead(int Slot, int[] /* FIXME BYREF!! */ Datos) {
 		/* # IF UsarQueSocket = 1 THEN */
 
 		/* # IF SeguridadAlkon THEN */
@@ -557,7 +562,7 @@ return retval;
 		/* # END IF */
 	}
 
-	static void EventoSockClose(int Slot) {
+	public static void EventoSockClose(int Slot) {
 		/* # IF UsarQueSocket = 1 THEN */
 
 		/* 'Es el mismo user al que está revisando el centinela?? */
@@ -584,7 +589,7 @@ return retval;
 		/* # END IF */
 	}
 
-	static void WSApiReiniciarSockets() {
+	public static void WSApiReiniciarSockets() {
  /* # IF UsarQueSocket = 1 THEN */
  int i = 0;
  /* 'Cierra el socket de escucha */
@@ -628,14 +633,14 @@ return retval;
  /* # END IF */
 }
 
-	static void WSApiCloseSocket(int Socket) {
+	public static void WSApiCloseSocket(int Socket) {
  /* # IF UsarQueSocket = 1 THEN */
  WSAAsyncSelect[Socket][wskapiAO.hWndMsg][BYVAL1025][BYVAL(FD_CLOSE)];
  ShutDown[Socket][wskapiAO.SD_BOTH];
  /* # END IF */
 }
 
-	static int CondicionSocket(WSABUF /* FIXME BYREF!! */ lpCallerId,
+	public static int CondicionSocket(WSABUF /* FIXME BYREF!! */ lpCallerId,
 			WSABUF /* FIXME BYREF!! */ lpCallerData,
 			FLOWSPEC /* FIXME BYREF!! */ lpSQOS, int Reserved,
 			WSABUF /* FIXME BYREF!! */ lpCalleeId, WSABUF /* FIXME BYREF!! */ lpCalleeData,
@@ -655,7 +660,7 @@ return retval;
 
 		SysTray.CopyMemory(sa, BYVALlpCallerId.lpBuffer, lpCallerId.dwBufferLen);
 
-		if (!SecurityIp.IpSecurityAceptarNuevaConexion(sa.sin_addr)) {
+		if (! /* FIXME */SecurityIp.IpSecurityAceptarNuevaConexion(sa.sin_addr)) {
 			retval = CF_REJECT;
 			return retval;
 		}

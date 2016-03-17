@@ -1,6 +1,10 @@
-
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"frmDebugNpc"')] */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_GlobalNameSpace'), (5, '='), (1, 'False')] */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Creatable'), (5, '='), (1, 'False')] */
@@ -38,7 +42,7 @@ import enums.*;
 
 public class frmDebugNpc {
 
-	static void Command1_Click() {
+	public static void Command1_Click() {
 		int i = 0;
 		int k = 0;
 
@@ -55,7 +59,7 @@ public class frmDebugNpc {
 
 	}
 
-	static void Command2_Click() {
+	public static void Command2_Click() {
 		Unload(Me);
 	}
 

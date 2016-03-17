@@ -1,5 +1,10 @@
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"clsParty"')] */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_GlobalNameSpace'), (5, '='), (1, 'False')] */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Creatable'), (5, '='), (1, 'True')] */
@@ -52,7 +57,7 @@ public class clsParty {
 	 */
 
 	/* 'Constructor de clase */
-	void Class_Initialize() {
+	public void Class_Initialize() {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 07/04/08 */
@@ -68,7 +73,7 @@ public class clsParty {
 	}
 
 	/* 'Destructor de clase */
-	void Class_Terminate() {
+	public void Class_Terminate() {
 	}
 
 	/* '' */
@@ -79,7 +84,7 @@ public class clsParty {
 	 * ' @remarks When a user level up and he is in a party, we update
 	 * p_sumaNivelesElavados so the formula still works.
 	 */
-	void UpdateSumaNivelesElevados(int Lvl) {
+	public void UpdateSumaNivelesElevados(int Lvl) {
  /* '************************************************* */
  /* 'Author: Marco Vanotti (MarKoxX) */
  /* 'Last modified: 11/24/09 */
@@ -88,7 +93,7 @@ public class clsParty {
  p_SumaNivelesElevados = p_SumaNivelesElevados-((Lvl-1) $ mdParty.ExponenteNivelParty)+Lvl $ mdParty.ExponenteNivelParty;
 }
 
-	int MiExperiencia(int UserIndex) {
+	public int MiExperiencia(int UserIndex) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -119,7 +124,7 @@ public class clsParty {
 		return retval;
 	}
 
-	void ObtenerExito(int ExpGanada, int mapa, int X, int Y) {
+	public void ObtenerExito(int ExpGanada, int mapa, int X, int Y) {
  /* '*************************************************** */
  /* 'Author: Unknown */
  /* 'Last Modification: 07/04/08 */
@@ -164,7 +169,7 @@ public class clsParty {
  
 }
 
-	void MandarMensajeAConsola(String texto, String Sender) {
+	public void MandarMensajeAConsola(String texto, String Sender) {
 		/*
 		 * 'feo feo, muy feo acceder a senddata desde aca, pero BUEEEEEEEEEEE...
 		 */
@@ -179,13 +184,13 @@ public class clsParty {
 
 	}
 
-	boolean EsPartyLeader(int UserIndex) {
+	public boolean EsPartyLeader(int UserIndex) {
 		boolean retval = false;
 		retval = (UserIndex == p_Fundador);
 		return retval;
 	}
 
-	boolean NuevoMiembro(int UserIndex) {
+	public boolean NuevoMiembro(int UserIndex) {
  boolean retval = false;
  /* '*************************************************** */
  /* 'Author: Unknown */
@@ -214,7 +219,7 @@ public class clsParty {
 return retval;
 }
 
-	boolean SaleMiembro(int UserIndex) {
+	public boolean SaleMiembro(int UserIndex) {
  boolean retval = false;
  /* '*************************************************** */
  /* 'Author: Unknown */
@@ -253,7 +258,7 @@ return retval;
      
      Protocol.WriteConsoleMsg(p_members[j].UserIndex, "Durante la misma has conseguido " + vb6.CStr(vb6.Fix(p_members[j].Experiencia)) + " puntos de experiencia.", FontTypeNames.FONTTYPE_PARTY);
      
-      if (!mdParty.PARTY_EXPERIENCIAPORGOLPE) {
+      if (! /* FIXME */mdParty.PARTY_EXPERIENCIAPORGOLPE) {
       Declaraciones.UserList[p_members[j].UserIndex].Stats.Exp = Declaraciones.UserList[p_members[j].UserIndex].Stats.Exp+vb6.Fix(p_members[j].Experiencia);
       if (Declaraciones.UserList[p_members[j].UserIndex].Stats.Exp>Declaraciones.MAXEXP) {
       Declaraciones.UserList[p_members[j].UserIndex].Stats.Exp = Declaraciones.MAXEXP;
@@ -278,7 +283,7 @@ return retval;
    
    MemberIndex = p_members[i].UserIndex;
    
-     if (!mdParty.PARTY_EXPERIENCIAPORGOLPE) {
+     if (! /* FIXME */mdParty.PARTY_EXPERIENCIAPORGOLPE) {
      Declaraciones.UserList[MemberIndex].Stats.Exp = Declaraciones.UserList[MemberIndex].Stats.Exp+vb6.Fix(p_members[i].Experiencia);
      if (Declaraciones.UserList[MemberIndex].Stats.Exp>Declaraciones.MAXEXP) {
      Declaraciones.UserList[MemberIndex].Stats.Exp = Declaraciones.MAXEXP;
@@ -304,7 +309,7 @@ return retval;
 return retval;
 }
 
-	boolean HacerLeader(int UserIndex) {
+	public boolean HacerLeader(int UserIndex) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -328,7 +333,7 @@ return retval;
 			}
 		}
 
-		if (!retval) {
+		if (! /* FIXME */retval) {
 			return retval;
 		}
 
@@ -365,7 +370,7 @@ return retval;
 		return retval;
 	}
 
-	void ObtenerMiembrosOnline(int[] /* FIXME BYREF!! */ MemberList) {
+	public void ObtenerMiembrosOnline(int[] /* FIXME BYREF!! */ MemberList) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 09/29/07 */
@@ -392,7 +397,7 @@ return retval;
 
 	}
 
-	int ObtenerExperienciaTotal() {
+	public int ObtenerExperienciaTotal() {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Budi */
@@ -403,7 +408,7 @@ return retval;
 		return retval;
 	}
 
-	boolean PuedeEntrar(int UserIndex, String /* FIXME BYREF!! */ razon) {
+	public boolean PuedeEntrar(int UserIndex, String /* FIXME BYREF!! */ razon) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -439,7 +444,7 @@ return retval;
 							rv = false;
 						}
 						/* 'aspirante caos en party ciuda */
-						if (esCaos && !ES.criminal(UI)) {
+						if (esCaos && ! /* FIXME */ES.criminal(UI)) {
 							razon = "Los miembros de la legión oscura no entran a una party con ciudadanos.";
 							rv = false;
 						}
@@ -449,13 +454,14 @@ return retval;
 							rv = false;
 						}
 						/* 'aspirante ciuda en party caos */
-						if (Declaraciones.UserList[UI].Faccion.FuerzasCaos == 1 && !ES.criminal(UserIndex)) {
+						if (Declaraciones.UserList[UI].Faccion.FuerzasCaos == 1
+								&& ! /* FIXME */ES.criminal(UserIndex)) {
 							razon = "Los ciudadanos no entran a parties con miembros de la legión oscura.";
 							rv = false;
 						}
 
 						/* 'violate una programacion estructurada */
-						if (!rv) {
+						if (! /* FIXME */rv) {
 							break; /* FIXME: EXIT FOR */
 						}
 					}
@@ -473,7 +479,7 @@ return retval;
 		return retval;
 	}
 
-	void FlushExperiencia() {
+	public void FlushExperiencia() {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 09/29/07 */
@@ -492,7 +498,7 @@ return retval;
 
 		int i = 0;
 		/* 'esto sirve SOLO cuando acumulamos la experiencia! */
-		if (!mdParty.PARTY_EXPERIENCIAPORGOLPE) {
+		if (! /* FIXME */mdParty.PARTY_EXPERIENCIAPORGOLPE) {
 			for (i = (1); i <= (mdParty.PARTY_MAXMEMBERS); i++) {
 				if (p_members[i].UserIndex > 0) {
 					if (p_members[i].Experiencia > 0) {
@@ -519,7 +525,7 @@ return retval;
 
 	}
 
-	void CompactMemberList() {
+	private void CompactMemberList() {
 		int i = 0;
 		int freeIndex = 0;
 		i = 1;
@@ -540,7 +546,7 @@ return retval;
 
 	}
 
-	int CantMiembros() {
+	public int CantMiembros() {
 		int retval = 0;
 		retval = p_CantMiembros;
 		return retval;

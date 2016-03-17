@@ -1,6 +1,10 @@
-
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"CColaArray"')] */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_GlobalNameSpace'), (5, '='), (1, 'False')] */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Creatable'), (5, '='), (1, 'True')] */
@@ -44,23 +48,23 @@ public class CColaArray {
 	private int m_firstelem;
 	private int m_size;
 
-	boolean IsEmpty() {
+	public boolean IsEmpty() {
 		boolean retval = false;
 		retval = m_size == 0;
 		return retval;
 	}
 
-	boolean IsFull() {
+	public boolean IsFull() {
 		boolean retval = false;
 		/* 'IsFull = m_lastelem = m_maxelem */
 		retval = m_size == m_maxelem;
 		return retval;
 	}
 
-	boolean Push(String aString) {
+	public boolean Push(String aString) {
 		boolean retval = false;
 
-		if (!Me.IsFull) {
+		if (! /* FIXME */Me.IsFull) {
 
 			if (Me.IsEmpty) {
 				m_firstelem = 1;
@@ -81,10 +85,10 @@ public class CColaArray {
 		return retval;
 	}
 
-	String Pop() {
+	public String Pop() {
 		String retval;
 
-		if (!Me.IsEmpty) {
+		if (! /* FIXME */Me.IsEmpty) {
 
 			retval = m_array[m_firstelem];
 			m_firstelem = m_firstelem + 1;
@@ -107,7 +111,7 @@ public class CColaArray {
 		return retval;
 	}
 
-	void Class_Initialize() {
+	private void Class_Initialize() {
 		m_lastelem = 0;
 		m_firstelem = 0;
 		m_size = 0;
@@ -117,13 +121,13 @@ public class CColaArray {
 		m_array = (m_array == null) ? new None[1 + m_maxelem] : java.util.Arrays.copyOf(m_array, 1 + m_maxelem);
 	}
 
-	int MaxElems() {
+	public int MaxElems() {
 		int retval = 0;
 		retval = m_maxelem;
 		return retval;
 	}
 
-	void MaxElems(int lNewValue) {
+	public void MaxElems(int lNewValue) {
 		m_maxelem = lNewValue;
 		m_array = (m_array == null) ? new None[1 + m_maxelem] : java.util.Arrays.copyOf(m_array, 1 + m_maxelem);
 

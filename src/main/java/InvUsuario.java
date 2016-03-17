@@ -1,6 +1,10 @@
-
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"InvUsuario"')] */
 /* 'Argentum Online 0.12.2 */
 /* 'Copyright (C) 2002 Márquez Pablo Ignacio */
@@ -34,7 +38,7 @@ import enums.*;
 
 public class InvUsuario {
 
-	static boolean TieneObjetosRobables(int UserIndex) {
+	public static boolean TieneObjetosRobables(int UserIndex) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -54,7 +58,8 @@ public class InvUsuario {
 			ObjIndex = Declaraciones.UserList[UserIndex].Invent.Object[i].ObjIndex;
 			if (ObjIndex > 0) {
 				if ((Declaraciones.ObjData[ObjIndex].OBJType != eOBJType.otLlaves
-						&& Declaraciones.ObjData[ObjIndex].OBJType != eOBJType.otBarcos && !ItemNewbie(ObjIndex))) {
+						&& Declaraciones.ObjData[ObjIndex].OBJType != eOBJType.otBarcos
+						&& ! /* FIXME */ItemNewbie(ObjIndex))) {
 					retval = true;
 					return retval;
 				}
@@ -68,11 +73,11 @@ public class InvUsuario {
 		return retval;
 	}
 
-	static boolean ClasePuedeUsarItem(int UserIndex, int ObjIndex) {
+	public static boolean ClasePuedeUsarItem(int UserIndex, int ObjIndex) {
 		return ClasePuedeUsarItem(UserIndex, ObjIndex, String());
 	}
 
-	static boolean ClasePuedeUsarItem(int UserIndex, int ObjIndex, String sMotivo) {
+	public static boolean ClasePuedeUsarItem(int UserIndex, int ObjIndex, String sMotivo) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -108,7 +113,7 @@ public class InvUsuario {
 		return retval;
 	}
 
-	static void QuitarNewbieObj(int UserIndex) {
+	public static void QuitarNewbieObj(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -163,7 +168,7 @@ public class InvUsuario {
 
 	}
 
-	static void LimpiarInventario(int UserIndex) {
+	public static void LimpiarInventario(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -206,7 +211,7 @@ public class InvUsuario {
 
 	}
 
-	static void TirarOro(int Cantidad, int UserIndex) {
+	public static void TirarOro(int Cantidad, int UserIndex) {
 		/* '*************************************************** */
 		/* 'Autor: Unknown (orginal version) */
 		/* 'Last Modification: 23/01/2007 */
@@ -318,7 +323,7 @@ public class InvUsuario {
 		General.LogError("Error en TirarOro. Error " + Err.Number + " : " + Err.description);
 	}
 
-	static void QuitarUserInvItem(int UserIndex, int Slot, int Cantidad) {
+	public static void QuitarUserInvItem(int UserIndex, int Slot, int Cantidad) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -353,7 +358,7 @@ public class InvUsuario {
 
 	}
 
-	static void UpdateUserInv(boolean UpdateAll, int UserIndex, int Slot) {
+	public static void UpdateUserInv(boolean UpdateAll, int UserIndex, int Slot) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -366,7 +371,7 @@ public class InvUsuario {
 		int LoopC = 0;
 
 		/* 'Actualiza un solo slot */
-		if (!UpdateAll) {
+		if (! /* FIXME */UpdateAll) {
 
 			/* 'Actualiza el inventario */
 			if (Declaraciones.UserList[UserIndex].Invent.Object[Slot].ObjIndex > 0) {
@@ -395,11 +400,11 @@ public class InvUsuario {
 
 	}
 
-	static void DropObj(int UserIndex, int Slot, int num, int Map, int X, int Y) {
+	public static void DropObj(int UserIndex, int Slot, int num, int Map, int X, int Y) {
 		DropObj(UserIndex, Slot, num, Map, X, Y, false);
 	}
 
-	static void DropObj(int UserIndex, int Slot, int num, int Map, int X, int Y, boolean isDrop) {
+	public static void DropObj(int UserIndex, int Slot, int num, int Map, int X, int Y, boolean isDrop) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 11/5/2010 */
@@ -460,7 +465,7 @@ public class InvUsuario {
 							FontTypeNames.FONTTYPE_TALK);
 				}
 
-				if (!Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.User) {
+				if (! /* FIXME */Declaraciones.UserList[UserIndex].flags.Privilegios && PlayerType.User) {
 					General.LogGM(Declaraciones.UserList[UserIndex].Name,
 							"Tiró cantidad:" + num + " Objeto:" + Declaraciones.ObjData[DropObj.ObjIndex].Name);
 				}
@@ -504,7 +509,7 @@ public class InvUsuario {
 
 	}
 
-	static void EraseObj(int num, int Map, int X, int Y) {
+	public static void EraseObj(int num, int Map, int X, int Y) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -522,7 +527,7 @@ public class InvUsuario {
 
 	}
 
-	static void MakeObj(Declaraciones.Obj /* FIXME BYREF!! */ Obj, int Map, int X, int Y) {
+	public static void MakeObj(Declaraciones.Obj /* FIXME BYREF!! */ Obj, int Map, int X, int Y) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -544,7 +549,7 @@ public class InvUsuario {
 
 	}
 
-	static boolean MeterItemEnInventario(int UserIndex,
+	public static boolean MeterItemEnInventario(int UserIndex,
 			Declaraciones.Obj /* FIXME BYREF!! */ MiObj) {
 		boolean retval = false;
 		/* '*************************************************** */
@@ -583,7 +588,7 @@ public class InvUsuario {
 		}
 
 		if (Slot > Declaraciones.MAX_NORMAL_INVENTORY_SLOTS && Slot <= Declaraciones.MAX_INVENTORY_SLOTS) {
-			if (!ItemSeCae(MiObj.ObjIndex)) {
+			if (! /* FIXME */ItemSeCae(MiObj.ObjIndex)) {
 				Protocol.WriteConsoleMsg(UserIndex,
 						"No puedes contener objetos especiales en tu "
 								+ Declaraciones.ObjData[Declaraciones.UserList[UserIndex].Invent.MochilaEqpObjIndex].Name
@@ -614,7 +619,7 @@ public class InvUsuario {
 		return retval;
 	}
 
-	static void GetObj(int UserIndex) {
+	public static void GetObj(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Autor: Unknown (orginal version) */
 		/* 'Last Modification: 18/12/2009 */
@@ -718,7 +723,7 @@ public class InvUsuario {
 
 	}
 
-	static void Desequipar(int UserIndex, int Slot, boolean RefreshChar) {
+	public static void Desequipar(int UserIndex, int Slot, boolean RefreshChar) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -745,7 +750,7 @@ public class InvUsuario {
 			Declaraciones.UserList[UserIndex].Invent.WeaponEqpObjIndex = 0;
 			Declaraciones.UserList[UserIndex].Invent.WeaponEqpSlot = 0;
 
-			if (!Declaraciones.UserList[UserIndex].flags.Mimetizado == 1) {
+			if (! /* FIXME */Declaraciones.UserList[UserIndex].flags.Mimetizado == 1) {
 				Declaraciones.UserList[UserIndex].Char.WeaponAnim = Declaraciones.NingunArma;
 
 				if (RefreshChar && Declaraciones.UserList[UserIndex].flags.Navegando != 1) {
@@ -799,7 +804,7 @@ public class InvUsuario {
 			Declaraciones.UserList[UserIndex].Invent.CascoEqpObjIndex = 0;
 			Declaraciones.UserList[UserIndex].Invent.CascoEqpSlot = 0;
 
-			if (!Declaraciones.UserList[UserIndex].flags.Mimetizado == 1) {
+			if (! /* FIXME */Declaraciones.UserList[UserIndex].flags.Mimetizado == 1) {
 				Declaraciones.UserList[UserIndex].Char.CascoAnim = Declaraciones.NingunCasco;
 
 				if (RefreshChar) {
@@ -818,7 +823,7 @@ public class InvUsuario {
 			Declaraciones.UserList[UserIndex].Invent.EscudoEqpObjIndex = 0;
 			Declaraciones.UserList[UserIndex].Invent.EscudoEqpSlot = 0;
 
-			if (!Declaraciones.UserList[UserIndex].flags.Mimetizado == 1) {
+			if (! /* FIXME */Declaraciones.UserList[UserIndex].flags.Mimetizado == 1) {
 				Declaraciones.UserList[UserIndex].Char.ShieldAnim = Declaraciones.NingunEscudo;
 
 				if (RefreshChar) {
@@ -855,11 +860,11 @@ public class InvUsuario {
 
 	}
 
-	static boolean SexoPuedeUsarItem(int UserIndex, int ObjIndex) {
+	public static boolean SexoPuedeUsarItem(int UserIndex, int ObjIndex) {
 		return SexoPuedeUsarItem(UserIndex, ObjIndex, String());
 	}
 
-	static boolean SexoPuedeUsarItem(int UserIndex, int ObjIndex, String sMotivo) {
+	public static boolean SexoPuedeUsarItem(int UserIndex, int ObjIndex, String sMotivo) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -880,7 +885,7 @@ public class InvUsuario {
 			retval = true;
 		}
 
-		if (!retval) {
+		if (! /* FIXME */retval) {
 			sMotivo = "Tu género no puede usar este objeto.";
 		}
 
@@ -890,11 +895,11 @@ public class InvUsuario {
 		return retval;
 	}
 
-	static boolean FaccionPuedeUsarItem(int UserIndex, int ObjIndex) {
+	public static boolean FaccionPuedeUsarItem(int UserIndex, int ObjIndex) {
 		return FaccionPuedeUsarItem(UserIndex, ObjIndex, String());
 	}
 
-	static boolean FaccionPuedeUsarItem(int UserIndex, int ObjIndex, String sMotivo) {
+	public static boolean FaccionPuedeUsarItem(int UserIndex, int ObjIndex, String sMotivo) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -906,7 +911,7 @@ public class InvUsuario {
 		/* '*************************************************** */
 
 		if (Declaraciones.ObjData[ObjIndex].Real == 1) {
-			if (!ES.criminal(UserIndex)) {
+			if (! /* FIXME */ES.criminal(UserIndex)) {
 				retval = Extra.esArmada(UserIndex);
 			} else {
 				retval = false;
@@ -921,14 +926,14 @@ public class InvUsuario {
 			retval = true;
 		}
 
-		if (!retval) {
+		if (! /* FIXME */retval) {
 			sMotivo = "Tu alineación no puede usar este objeto.";
 		}
 
 		return retval;
 	}
 
-	static void EquiparInvItem(int UserIndex, int Slot) {
+	public static void EquiparInvItem(int UserIndex, int Slot) {
 		/* '************************************************* */
 		/* 'Author: Unknown */
 		/* 'Last modified: 14/01/2010 (ZaMa) */
@@ -952,7 +957,7 @@ public class InvUsuario {
 		ObjIndex = Declaraciones.UserList[UserIndex].Invent.Object[Slot].ObjIndex;
 		Obj = Declaraciones.ObjData[ObjIndex];
 
-		if (Obj.Newbie == 1 && !Extra.EsNewbie(UserIndex)) {
+		if (Obj.Newbie == 1 && ! /* FIXME */Extra.EsNewbie(UserIndex)) {
 			Protocol.WriteConsoleMsg(UserIndex, "Sólo los newbies pueden usar este objeto.",
 					FontTypeNames.FONTTYPE_INFO);
 			return;
@@ -993,7 +998,7 @@ public class InvUsuario {
 				/*
 				 * 'El sonido solo se envia si no lo produce un admin invisible
 				 */
-				if (!(Declaraciones.UserList[UserIndex].flags.AdminInvisible == 1)) {
+				if (! /* FIXME */(Declaraciones.UserList[UserIndex].flags.AdminInvisible == 1)) {
 					modSendData.SendData(SendTarget.ToPCArea, UserIndex,
 							Protocol.PrepareMessagePlayWave(Declaraciones.SND_SACARARMA,
 									Declaraciones.UserList[UserIndex].Pos.X, Declaraciones.UserList[UserIndex].Pos.Y));
@@ -1264,11 +1269,11 @@ public class InvUsuario {
 				+ Err.description);
 	}
 
-	static boolean CheckRazaUsaRopa(int UserIndex, int ItemIndex) {
+	public static boolean CheckRazaUsaRopa(int UserIndex, int ItemIndex) {
 		return CheckRazaUsaRopa(UserIndex, ItemIndex, String());
 	}
 
-	static boolean CheckRazaUsaRopa(int UserIndex, int ItemIndex, String sMotivo) {
+	public static boolean CheckRazaUsaRopa(int UserIndex, int ItemIndex, String sMotivo) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -1298,7 +1303,7 @@ public class InvUsuario {
 			retval = false;
 		}
 
-		if (!retval) {
+		if (! /* FIXME */retval) {
 			sMotivo = "Tu raza no puede usar este objeto.";
 		}
 
@@ -1310,7 +1315,7 @@ public class InvUsuario {
 		return retval;
 	}
 
-	static void UseInvItem(int UserIndex, int Slot) {
+	public static void UseInvItem(int UserIndex, int Slot) {
 		/* '************************************************* */
 		/* 'Author: Unknown */
 		/* 'Last modified: 10/12/2009 */
@@ -1353,7 +1358,7 @@ public class InvUsuario {
 
 		Obj = Declaraciones.ObjData[Declaraciones.UserList[UserIndex].Invent.Object[Slot].ObjIndex];
 
-		if (Obj.Newbie == 1 && !Extra.EsNewbie(UserIndex)) {
+		if (Obj.Newbie == 1 && ! /* FIXME */Extra.EsNewbie(UserIndex)) {
 			Protocol.WriteConsoleMsg(UserIndex, "Sólo los newbies pueden usar estos objetos.",
 					FontTypeNames.FONTTYPE_INFO);
 			return;
@@ -1366,17 +1371,17 @@ public class InvUsuario {
 				 * 'valido para evitar el flood pero no bloqueo. El bloqueo se
 				 * hace en WLC con proyectiles.
 				 */
-				if (!modNuevoTimer.IntervaloPermiteUsar(UserIndex, false)) {
+				if (! /* FIXME */modNuevoTimer.IntervaloPermiteUsar(UserIndex, false)) {
 					return;
 				}
 			} else {
 				/* 'dagas */
-				if (!modNuevoTimer.IntervaloPermiteUsar(UserIndex)) {
+				if (! /* FIXME */modNuevoTimer.IntervaloPermiteUsar(UserIndex)) {
 					return;
 				}
 			}
 		} else {
-			if (!modNuevoTimer.IntervaloPermiteUsar(UserIndex)) {
+			if (! /* FIXME */modNuevoTimer.IntervaloPermiteUsar(UserIndex)) {
 				return;
 			}
 		}
@@ -1443,7 +1448,7 @@ public class InvUsuario {
 				return;
 			}
 
-			if (!Declaraciones.UserList[UserIndex].Stats.MinSta > 0) {
+			if (! /* FIXME */Declaraciones.UserList[UserIndex].Stats.MinSta > 0) {
 				Protocol.WriteConsoleMsg(UserIndex,
 						"Estás muy cansad"
 								+ vb6.IIf(Declaraciones.UserList[UserIndex].Genero == eGenero.Hombre, "o", "a") + ".",
@@ -1566,7 +1571,7 @@ public class InvUsuario {
 				return;
 			}
 
-			if (!modNuevoTimer.IntervaloPermiteGolpeUsar(UserIndex, false)) {
+			if (! /* FIXME */modNuevoTimer.IntervaloPermiteGolpeUsar(UserIndex, false)) {
 				Protocol.WriteConsoleMsg(UserIndex, "¡¡Debes esperar unos momentos para tomar otra poción!!",
 						FontTypeNames.FONTTYPE_INFO);
 				return;
@@ -1811,7 +1816,7 @@ public class InvUsuario {
 						FontTypeNames.FONTTYPE_INFO);
 				return;
 			}
-			if (!General.HayAgua(Declaraciones.UserList[UserIndex].Pos.Map,
+			if (! /* FIXME */General.HayAgua(Declaraciones.UserList[UserIndex].Pos.Map,
 					Declaraciones.UserList[UserIndex].flags.TargetX, Declaraciones.UserList[UserIndex].flags.TargetY)) {
 				Protocol.WriteConsoleMsg(UserIndex, "No hay agua allí.", FontTypeNames.FONTTYPE_INFO);
 				return;
@@ -1819,7 +1824,7 @@ public class InvUsuario {
 			MiObj.Amount = 1;
 			MiObj.ObjIndex = Declaraciones.ObjData[Declaraciones.UserList[UserIndex].Invent.Object[Slot].ObjIndex].IndexAbierta;
 			QuitarUserInvItem(UserIndex, Slot, 1);
-			if (!MeterItemEnInventario(UserIndex, MiObj)) {
+			if (! /* FIXME */MeterItemEnInventario(UserIndex, MiObj)) {
 				InvNpc.TirarItemAlPiso(Declaraciones.UserList[UserIndex].Pos, MiObj);
 			}
 
@@ -1843,7 +1848,7 @@ public class InvUsuario {
 			MiObj.Amount = 1;
 			MiObj.ObjIndex = Declaraciones.ObjData[Declaraciones.UserList[UserIndex].Invent.Object[Slot].ObjIndex].IndexCerrada;
 			QuitarUserInvItem(UserIndex, Slot, 1);
-			if (!MeterItemEnInventario(UserIndex, MiObj)) {
+			if (! /* FIXME */MeterItemEnInventario(UserIndex, MiObj)) {
 				InvNpc.TirarItemAlPiso(Declaraciones.UserList[UserIndex].Pos, MiObj);
 			}
 
@@ -2029,7 +2034,7 @@ public class InvUsuario {
 
 	}
 
-	static void EnivarArmasConstruibles(int UserIndex) {
+	public static void EnivarArmasConstruibles(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -2039,7 +2044,7 @@ public class InvUsuario {
 		Protocol.WriteBlacksmithWeapons(UserIndex);
 	}
 
-	static void EnivarObjConstruibles(int UserIndex) {
+	public static void EnivarObjConstruibles(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -2049,7 +2054,7 @@ public class InvUsuario {
 		Protocol.WriteCarpenterObjects(UserIndex);
 	}
 
-	static void EnivarArmadurasConstruibles(int UserIndex) {
+	public static void EnivarArmadurasConstruibles(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -2059,7 +2064,7 @@ public class InvUsuario {
 		Protocol.WriteBlacksmithArmors(UserIndex);
 	}
 
-	static void TirarTodo(int UserIndex) {
+	public static void TirarTodo(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -2088,7 +2093,7 @@ public class InvUsuario {
 		General.LogError("Error en TirarTodo. Error: " + Err.Number + " - " + Err.description);
 	}
 
-	static boolean ItemSeCae(int index) {
+	public static boolean ItemSeCae(int index) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -2105,7 +2110,7 @@ public class InvUsuario {
 		return retval;
 	}
 
-	static void TirarTodosLosItems(int UserIndex) {
+	public static void TirarTodosLosItems(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 12/01/2010 (ZaMa) */
@@ -2164,7 +2169,7 @@ public class InvUsuario {
 		General.LogError("Error en TirarTodosLosItems. Error: " + Err.Number + " - " + Err.description);
 	}
 
-	static boolean ItemNewbie(int ItemIndex) {
+	public static boolean ItemNewbie(int ItemIndex) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -2180,7 +2185,7 @@ public class InvUsuario {
 		return retval;
 	}
 
-	static void TirarTodosLosItemsNoNewbies(int UserIndex) {
+	public static void TirarTodosLosItemsNoNewbies(int UserIndex) {
  /* '*************************************************** */
  /* 'Author: Unknown */
  /* 'Last Modification: 23/11/2009 */
@@ -2199,7 +2204,7 @@ public class InvUsuario {
    for (i = (1); i <= (Declaraciones.UserList[UserIndex].CurrentInventorySlots); i++) {
    ItemIndex = Declaraciones.UserList[UserIndex].Invent.Object[i].ObjIndex;
     if (ItemIndex>0) {
-     if (ItemSeCae(ItemIndex) && !ItemNewbie(ItemIndex)) {
+     if (ItemSeCae(ItemIndex) && ! /* FIXME */ItemNewbie(ItemIndex)) {
      NuevaPos.X = 0;
      NuevaPos.Y = 0;
      
@@ -2218,7 +2223,7 @@ public class InvUsuario {
  
 }
 
-	static void TirarTodosLosItemsEnMochila(int UserIndex) {
+	public static void TirarTodosLosItemsEnMochila(int UserIndex) {
  /* '*************************************************** */
  /* 'Author: Unknown */
  /* 'Last Modification: 12/01/09 (Budi) */
@@ -2252,7 +2257,7 @@ public class InvUsuario {
  
 }
 
-	static eOBJType getObjType(int ObjIndex) {
+	public static eOBJType getObjType(int ObjIndex) {
 		eOBJType retval;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -2267,7 +2272,7 @@ public class InvUsuario {
 		return retval;
 	}
 
-	static void moveItem(int UserIndex, int originalSlot, int newSlot) {
+	public static void moveItem(int UserIndex, int originalSlot, int newSlot) {
 
 		Declaraciones.UserOBJ tmpObj;
 		int newObjIndex = 0;

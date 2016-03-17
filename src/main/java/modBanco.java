@@ -1,5 +1,10 @@
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"modBanco"')] */
 /* '************************************************************** */
 /* ' modBanco.bas - Handles the character's bank accounts. */
@@ -26,7 +31,7 @@ import enums.*;
 
 public class modBanco {
 
-	static void IniciarDeposito(int UserIndex) {
+	public static void IniciarDeposito(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -49,7 +54,7 @@ public class modBanco {
 
 	}
 
-	static void SendBanObj(int UserIndex, int Slot, Declaraciones.UserOBJ Object) {
+	public static void SendBanObj(int UserIndex, int Slot, Declaraciones.UserOBJ Object) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -62,7 +67,7 @@ public class modBanco {
 
 	}
 
-	static void UpdateBanUserInv(boolean UpdateAll, int UserIndex, int Slot) {
+	public static void UpdateBanUserInv(boolean UpdateAll, int UserIndex, int Slot) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -73,7 +78,7 @@ public class modBanco {
 		int LoopC = 0;
 
 		/* 'Actualiza un solo slot */
-		if (!UpdateAll) {
+		if (! /* FIXME */UpdateAll) {
 			/* 'Actualiza el inventario */
 			if (Declaraciones.UserList[UserIndex].BancoInvent.Object[Slot].ObjIndex > 0) {
 				SendBanObj(UserIndex, Slot, Declaraciones.UserList[UserIndex].BancoInvent.Object[Slot]);
@@ -94,7 +99,7 @@ public class modBanco {
 
 	}
 
-	static void UserRetiraItem(int UserIndex, int i, int Cantidad) {
+	public static void UserRetiraItem(int UserIndex, int i, int Cantidad) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -140,7 +145,7 @@ public class modBanco {
 
 	}
 
-	static void UserReciveObj(int UserIndex, int ObjIndex, int Cantidad) {
+	public static void UserReciveObj(int UserIndex, int ObjIndex, int Cantidad) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -197,7 +202,7 @@ public class modBanco {
 
 	}
 
-	static void QuitarBancoInvItem(int UserIndex, int Slot, int Cantidad) {
+	public static void QuitarBancoInvItem(int UserIndex, int Slot, int Cantidad) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -222,7 +227,7 @@ public class modBanco {
 
 	}
 
-	static void UpdateVentanaBanco(int UserIndex) {
+	public static void UpdateVentanaBanco(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -232,7 +237,7 @@ public class modBanco {
 		Protocol.WriteBankOK(UserIndex);
 	}
 
-	static void UserDepositaItem(int UserIndex, int Item, int Cantidad) {
+	public static void UserDepositaItem(int UserIndex, int Item, int Cantidad) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -271,7 +276,7 @@ public class modBanco {
 		/* FIXME: ErrHandler : */
 	}
 
-	static void UserDejaObj(int UserIndex, int ObjIndex, int Cantidad) {
+	public static void UserDejaObj(int UserIndex, int ObjIndex, int Cantidad) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -335,7 +340,7 @@ public class modBanco {
 		}
 	}
 
-	static void SendUserBovedaTxt(int sendIndex, int UserIndex) {
+	public static void SendUserBovedaTxt(int sendIndex, int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -362,7 +367,7 @@ public class modBanco {
 
 	}
 
-	static void SendUserBovedaTxtFromChar(int sendIndex, String charName) {
+	public static void SendUserBovedaTxtFromChar(int sendIndex, String charName) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */

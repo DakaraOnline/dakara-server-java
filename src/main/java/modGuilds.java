@@ -1,5 +1,10 @@
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"modGuilds"')] */
 /* '************************************************************** */
 /* ' modGuilds.bas - Module to allow the usage of areas instead of maps. */
@@ -71,7 +76,7 @@ public class modGuilds {
 	/* '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''' */
 	/* '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''' */
 
-	static void LoadGuildsDB() {
+	public static void LoadGuildsDB() {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -102,7 +107,7 @@ public class modGuilds {
 
 	}
 
-	static boolean m_ConectarMiembroAClan(int UserIndex, int GuildIndex) {
+	public static boolean m_ConectarMiembroAClan(int UserIndex, int GuildIndex) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -135,7 +140,7 @@ public class modGuilds {
 		return retval;
 	}
 
-	static boolean m_ValidarPermanencia(int UserIndex, boolean SumaAntifaccion,
+	public static boolean m_ValidarPermanencia(int UserIndex, boolean SumaAntifaccion,
 			boolean /* FIXME BYREF!! */ CambioAlineacion) {
 		boolean retval = false;
 		/* '*************************************************** */
@@ -161,7 +166,7 @@ public class modGuilds {
 			return retval;
 		}
 
-		if (!m_EstadoPermiteEntrar(UserIndex, GuildIndex)) {
+		if (! /* FIXME */m_EstadoPermiteEntrar(UserIndex, GuildIndex)) {
 
 			/* ' Es el lider, bajamos 1 rango de alineacion */
 			if (m_EsGuildLeader(Declaraciones.UserList[UserIndex].Name, GuildIndex)) {
@@ -206,7 +211,7 @@ public class modGuilds {
 		return retval;
 	}
 
-	static void UpdateGuildMembers(int GuildIndex) {
+	public static void UpdateGuildMembers(int GuildIndex) {
 		/* '*************************************************** */
 		/* 'Autor: ZaMa */
 		/* 'Last Modification: 14/01/2010 (ZaMa) */
@@ -241,9 +246,9 @@ public class modGuilds {
 				/* 'vamos a violar un poco de capas.. */
 				UserIndex = Extra.NameIndex(MemberName);
 				if (UserIndex > 0) {
-					Sale = !m_EstadoPermiteEntrar(UserIndex, GuildIndex);
+					Sale = ! /* FIXME */m_EstadoPermiteEntrar(UserIndex, GuildIndex);
 				} else {
-					Sale = !m_EstadoPermiteEntrarChar(MemberName, GuildIndex);
+					Sale = ! /* FIXME */m_EstadoPermiteEntrarChar(MemberName, GuildIndex);
 				}
 
 				if (Sale) {
@@ -286,7 +291,7 @@ public class modGuilds {
 		}
 	}
 
-	static ALINEACION_GUILD BajarGrado(int GuildIndex) {
+	public static ALINEACION_GUILD BajarGrado(int GuildIndex) {
 		ALINEACION_GUILD retval;
 		/* '*************************************************** */
 		/* 'Autor: ZaMa */
@@ -311,7 +316,7 @@ public class modGuilds {
 		return retval;
 	}
 
-	static void m_DesconectarMiembroDelClan(int UserIndex, int GuildIndex) {
+	public static void m_DesconectarMiembroDelClan(int UserIndex, int GuildIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -324,7 +329,7 @@ public class modGuilds {
 		guilds[GuildIndex].DesConectarMiembro(UserIndex);
 	}
 
-	static boolean m_EsGuildLeader(String /* FIXME BYREF!! */ PJ, int GuildIndex) {
+	public static boolean m_EsGuildLeader(String /* FIXME BYREF!! */ PJ, int GuildIndex) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -336,7 +341,7 @@ public class modGuilds {
 		return retval;
 	}
 
-	static boolean m_EsGuildFounder(String /* FIXME BYREF!! */ PJ, int GuildIndex) {
+	public static boolean m_EsGuildFounder(String /* FIXME BYREF!! */ PJ, int GuildIndex) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -348,7 +353,7 @@ public class modGuilds {
 		return retval;
 	}
 
-	static int m_EcharMiembroDeClan(int Expulsador, String Expulsado) {
+	public static int m_EcharMiembroDeClan(int Expulsador, String Expulsado) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -401,7 +406,8 @@ public class modGuilds {
 		return retval;
 	}
 
-	static void ActualizarWebSite(int UserIndex, String /* FIXME BYREF!! */ Web) {
+	public static void ActualizarWebSite(int UserIndex,
+			String /* FIXME BYREF!! */ Web) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -415,7 +421,7 @@ public class modGuilds {
 			return;
 		}
 
-		if (!m_EsGuildLeader(Declaraciones.UserList[UserIndex].Name, GI)) {
+		if (! /* FIXME */m_EsGuildLeader(Declaraciones.UserList[UserIndex].Name, GI)) {
 			return;
 		}
 
@@ -423,7 +429,7 @@ public class modGuilds {
 
 	}
 
-	static void ChangeCodexAndDesc(String /* FIXME BYREF!! */ desc, String[] /* FIXME BYREF!! */ codex, int GuildIndex) {
+	public static void ChangeCodexAndDesc(String /* FIXME BYREF!! */ desc, String[] /* FIXME BYREF!! */ codex, int GuildIndex) {
  /* '*************************************************** */
  /* 'Author: Unknown */
  /* 'Last Modification: - */
@@ -447,7 +453,8 @@ public class modGuilds {
   }
 }
 
-	static void ActualizarNoticias(int UserIndex, String /* FIXME BYREF!! */ Datos) {
+	public static void ActualizarNoticias(int UserIndex,
+			String /* FIXME BYREF!! */ Datos) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: 21/02/2010 */
@@ -465,7 +472,7 @@ public class modGuilds {
 			return;
 		}
 
-		if (!m_EsGuildLeader(Declaraciones.UserList[UserIndex].Name, GI)) {
+		if (! /* FIXME */m_EsGuildLeader(Declaraciones.UserList[UserIndex].Name, GI)) {
 			return;
 		}
 
@@ -476,7 +483,7 @@ public class modGuilds {
 						Declaraciones.UserList[UserIndex].Name + " ha actualizado las noticias del clan!"));
 	}
 
-	static boolean CrearNuevoClan(int FundadorIndex, String /* FIXME BYREF!! */ desc, String /* FIXME BYREF!! */ GuildName, String /* FIXME BYREF!! */ URL, String[] /* FIXME BYREF!! */ codex, ALINEACION_GUILD Alineacion, String /* FIXME BYREF!! */ refError) {
+	public static boolean CrearNuevoClan(int FundadorIndex, String /* FIXME BYREF!! */ desc, String /* FIXME BYREF!! */ GuildName, String /* FIXME BYREF!! */ URL, String[] /* FIXME BYREF!! */ codex, ALINEACION_GUILD Alineacion, String /* FIXME BYREF!! */ refError) {
  boolean retval = false;
  /* '*************************************************** */
  /* 'Author: Unknown */
@@ -489,12 +496,12 @@ public class modGuilds {
  String DummyString;
  
  retval = false;
-  if (!PuedeFundarUnClan(FundadorIndex, Alineacion, DummyString)) {
+  if (! /* FIXME */PuedeFundarUnClan(FundadorIndex, Alineacion, DummyString)) {
   refError = DummyString;
   return retval;
  }
  
-  if (GuildName == "" || !GuildNameValido(GuildName)) {
+  if (GuildName == "" || ! /* FIXME */GuildNameValido(GuildName)) {
   refError = "Nombre de clan inválido.";
   return retval;
  }
@@ -547,7 +554,7 @@ public class modGuilds {
 return retval;
 }
 
-	static void SendGuildNews(int UserIndex) {
+	public static void SendGuildNews(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -617,7 +624,7 @@ return retval;
 
 	}
 
-	static boolean m_PuedeSalirDeClan(String /* FIXME BYREF!! */ Nombre, int GuildIndex, int QuienLoEchaUI) {
+	public static boolean m_PuedeSalirDeClan(String /* FIXME BYREF!! */ Nombre, int GuildIndex, int QuienLoEchaUI) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -647,7 +654,7 @@ return retval;
 		 * voluntariamente
 		 */
 		if (Declaraciones.UserList[QuienLoEchaUI].flags.Privilegios && PlayerType.User) {
-			if (!m_EsGuildLeader(vb6.UCase(Declaraciones.UserList[QuienLoEchaUI].Name), GuildIndex)) {
+			if (! /* FIXME */m_EsGuildLeader(vb6.UCase(Declaraciones.UserList[QuienLoEchaUI].Name), GuildIndex)) {
 				/* 'si no sale voluntariamente... */
 				if (vb6.UCase(Declaraciones.UserList[QuienLoEchaUI].Name) != vb6.UCase(Nombre)) {
 					return retval;
@@ -661,7 +668,7 @@ return retval;
 		return retval;
 	}
 
-	static boolean PuedeFundarUnClan(int UserIndex, ALINEACION_GUILD Alineacion,
+	public static boolean PuedeFundarUnClan(int UserIndex, ALINEACION_GUILD Alineacion,
 			String /* FIXME BYREF!! */ refError) {
 		boolean retval = false;
 		/* '*************************************************** */
@@ -698,7 +705,7 @@ return retval;
 			break;
 
 		case ALINEACION_CRIMINAL:
-			if (!ES.criminal(UserIndex)) {
+			if (! /* FIXME */ES.criminal(UserIndex)) {
 				refError = "Para fundar un clan de criminales no debes ser ciudadano.";
 				return retval;
 			}
@@ -733,7 +740,7 @@ return retval;
 		return retval;
 	}
 
-	static boolean m_EstadoPermiteEntrarChar(String /* FIXME BYREF!! */ Personaje, int GuildIndex) {
+	public static boolean m_EstadoPermiteEntrarChar(String /* FIXME BYREF!! */ Personaje, int GuildIndex) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -805,52 +812,49 @@ return retval;
 		return retval;
 	}
 
-	static boolean m_EstadoPermiteEntrar(int UserIndex, int GuildIndex) {
-		boolean retval = false;
-		/* '*************************************************** */
-		/* 'Author: Unknown */
-		/* 'Last Modification: - */
-		/* ' */
-		/* '*************************************************** */
+	public static boolean m_EstadoPermiteEntrar(int UserIndex, int GuildIndex) {
+ boolean retval = false;
+ /* '*************************************************** */
+ /* 'Author: Unknown */
+ /* 'Last Modification: - */
+ /* ' */
+ /* '*************************************************** */
+ 
+ switch (guilds[GuildIndex].Alineacion) {
+  case ALINEACION_ARMADA:
+  retval = ! / * FIXME * /ES.criminal(UserIndex) && vb6.IIf(Declaraciones.UserList[UserIndex].Stats.ELV>=25, Declaraciones.UserList[UserIndex].Faccion.ArmadaReal != 0, true);
+  
+  break;
+  
+  case ALINEACION_LEGION:
+  retval = ES.criminal(UserIndex) && vb6.IIf(Declaraciones.UserList[UserIndex].Stats.ELV>=25, Declaraciones.UserList[UserIndex].Faccion.FuerzasCaos != 0, true);
+  
+  break;
+  
+  case ALINEACION_NEUTRO:
+  retval = Declaraciones.UserList[UserIndex].Faccion.ArmadaReal == 0 && Declaraciones.UserList[UserIndex].Faccion.FuerzasCaos == 0;
+  
+  break;
+  
+  case ALINEACION_CIUDA:
+  retval = ! / * FIXME * /ES.criminal(UserIndex);
+  
+  break;
+  
+  case ALINEACION_CRIMINAL:
+  retval = ES.criminal(UserIndex);
+  
+  /* 'game masters */
+  break;
+  
+  default:
+  retval = true;
+ break;
+ }
+return retval;
+}
 
-		switch (guilds[GuildIndex].Alineacion) {
-		case ALINEACION_ARMADA:
-			retval = !ES.criminal(UserIndex) && vb6.IIf(Declaraciones.UserList[UserIndex].Stats.ELV >= 25,
-					Declaraciones.UserList[UserIndex].Faccion.ArmadaReal != 0, true);
-
-			break;
-
-		case ALINEACION_LEGION:
-			retval = ES.criminal(UserIndex) && vb6.IIf(Declaraciones.UserList[UserIndex].Stats.ELV >= 25,
-					Declaraciones.UserList[UserIndex].Faccion.FuerzasCaos != 0, true);
-
-			break;
-
-		case ALINEACION_NEUTRO:
-			retval = Declaraciones.UserList[UserIndex].Faccion.ArmadaReal == 0
-					&& Declaraciones.UserList[UserIndex].Faccion.FuerzasCaos == 0;
-
-			break;
-
-		case ALINEACION_CIUDA:
-			retval = !ES.criminal(UserIndex);
-
-			break;
-
-		case ALINEACION_CRIMINAL:
-			retval = ES.criminal(UserIndex);
-
-			/* 'game masters */
-			break;
-
-		default:
-			retval = true;
-			break;
-		}
-		return retval;
-	}
-
-	static ALINEACION_GUILD String2Alineacion(String /* FIXME BYREF!! */ S) {
+	public static ALINEACION_GUILD String2Alineacion(String /* FIXME BYREF!! */ S) {
 		ALINEACION_GUILD retval;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -886,7 +890,7 @@ return retval;
 		return retval;
 	}
 
-	static String Alineacion2String(ALINEACION_GUILD Alineacion) {
+	public static String Alineacion2String(ALINEACION_GUILD Alineacion) {
 		String retval;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -922,7 +926,7 @@ return retval;
 		return retval;
 	}
 
-	static String Relacion2String(RELACIONES_GUILD Relacion) {
+	public static String Relacion2String(RELACIONES_GUILD Relacion) {
 		String retval;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -950,7 +954,7 @@ return retval;
 		return retval;
 	}
 
-	static RELACIONES_GUILD String2Relacion(String S) {
+	public static RELACIONES_GUILD String2Relacion(String S) {
 		RELACIONES_GUILD retval;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -979,7 +983,7 @@ return retval;
 		return retval;
 	}
 
-	static boolean GuildNameValido(String cad) {
+	public static boolean GuildNameValido(String cad) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -1009,7 +1013,7 @@ return retval;
 		return retval;
 	}
 
-	static boolean YaExiste(String GuildName) {
+	public static boolean YaExiste(String GuildName) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -1032,7 +1036,7 @@ return retval;
 		return retval;
 	}
 
-	static boolean HasFound(String /* FIXME BYREF!! */ UserName) {
+	public static boolean HasFound(String /* FIXME BYREF!! */ UserName) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Autor: ZaMa */
@@ -1054,7 +1058,8 @@ return retval;
 		return retval;
 	}
 
-	static boolean v_AbrirElecciones(int UserIndex, String /* FIXME BYREF!! */ refError) {
+	public static boolean v_AbrirElecciones(int UserIndex,
+			String /* FIXME BYREF!! */ refError) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -1072,7 +1077,7 @@ return retval;
 			return retval;
 		}
 
-		if (!m_EsGuildLeader(Declaraciones.UserList[UserIndex].Name, GuildIndex)) {
+		if (! /* FIXME */m_EsGuildLeader(Declaraciones.UserList[UserIndex].Name, GuildIndex)) {
 			refError = "No eres el líder de tu clan";
 			return retval;
 		}
@@ -1088,7 +1093,7 @@ return retval;
 		return retval;
 	}
 
-	static boolean v_UsuarioVota(int UserIndex, String /* FIXME BYREF!! */ Votado, String /* FIXME BYREF!! */ refError) {
+	public static boolean v_UsuarioVota(int UserIndex, String /* FIXME BYREF!! */ Votado, String /* FIXME BYREF!! */ refError) {
  boolean retval = false;
  /* '*************************************************** */
  /* 'Author: Unknown */
@@ -1108,7 +1113,7 @@ return retval;
   return retval;
  }
  
-   if (!guilds[GuildIndex].EleccionesAbiertas()) {
+   if (! /* FIXME */guilds[GuildIndex].EleccionesAbiertas()) {
    refError = "No hay elecciones abiertas en tu clan.";
    return retval;
   }
@@ -1136,7 +1141,7 @@ return retval;
 return retval;
 }
 
-	static void v_RutinaElecciones() {
+	public static void v_RutinaElecciones() {
  /* '*************************************************** */
  /* 'Author: Unknown */
  /* 'Last Modification: - */
@@ -1148,7 +1153,7 @@ return retval;
  /* FIXME: ON ERROR GOTO errh */
  modSendData.SendData(SendTarget.ToAll, 0, Protocol.PrepareMessageConsoleMsg("Servidor> Revisando elecciones", FontTypeNames.FONTTYPE_SERVER));
   for (i = (1); i <= (modGuilds.CANTIDADDECLANES); i++) {
-   if (!guilds[i]Is null ) {
+   if (! /* FIXME */guilds[i]Is null ) {
     if (guilds[i].RevisarElecciones()) {
     modSendData.SendData(SendTarget.ToAll, 0, Protocol.PrepareMessageConsoleMsg("Servidor> " + guilds[i].GetLeader + " es el nuevo líder de " + guilds[i].GuildName + ".", FontTypeNames.FONTTYPE_SERVER));
    }
@@ -1162,7 +1167,7 @@ return retval;
  /* FIXME: RESUME proximo */
 }
 
-	static int GetGuildIndexFromChar(String /* FIXME BYREF!! */ PlayerName) {
+	public static int GetGuildIndexFromChar(String /* FIXME BYREF!! */ PlayerName) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -1191,7 +1196,7 @@ return retval;
 		return retval;
 	}
 
-	static int GetGuildIndex(String GuildName) {
+	public static int GetGuildIndex(String GuildName) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -1213,7 +1218,7 @@ return retval;
 		return retval;
 	}
 
-	static String m_ListaDeMiembrosOnline(int UserIndex, int GuildIndex) {
+	public static String m_ListaDeMiembrosOnline(int UserIndex, int GuildIndex) {
 		String retval;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -1253,7 +1258,7 @@ return retval;
 		return retval;
 	}
 
-	static String[] PrepareGuildsList() {
+	public static String[] PrepareGuildsList() {
 		String[] retval;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -1281,7 +1286,8 @@ return retval;
 		return retval;
 	}
 
-	static void SendGuildDetails(int UserIndex, String /* FIXME BYREF!! */ GuildName) {
+	public static void SendGuildDetails(int UserIndex,
+			String /* FIXME BYREF!! */ GuildName) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1308,7 +1314,7 @@ return retval;
 				codex, guilds[GI].GetDesc());
 	}
 
-	static void SendGuildLeaderInfo(int UserIndex) {
+	public static void SendGuildLeaderInfo(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Autor: Mariano Barrou (El Oso) */
 		/* 'Last Modification: 12/10/06 */
@@ -1331,7 +1337,7 @@ return retval;
 
 		MemberList = guilds[GI].GetMemberList();
 
-		if (!m_EsGuildLeader(Declaraciones.UserList[UserIndex].Name, GI)) {
+		if (! /* FIXME */m_EsGuildLeader(Declaraciones.UserList[UserIndex].Name, GI)) {
 			/* 'Send the guild list instead */
 			Protocol.WriteGuildMemberInfo(UserIndex, guildList, MemberList);
 			return;
@@ -1342,7 +1348,7 @@ return retval;
 		Protocol.WriteGuildLeaderInfo(UserIndex, guildList, MemberList, guilds[GI].GetGuildNews(), aspirantsList);
 	}
 
-	static int m_Iterador_ProximoUserIndex(int GuildIndex) {
+	public static int m_Iterador_ProximoUserIndex(int GuildIndex) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -1358,7 +1364,7 @@ return retval;
 		return retval;
 	}
 
-	static int Iterador_ProximoGM(int GuildIndex) {
+	public static int Iterador_ProximoGM(int GuildIndex) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -1374,7 +1380,7 @@ return retval;
 		return retval;
 	}
 
-	static int r_Iterador_ProximaPropuesta(int GuildIndex, RELACIONES_GUILD Tipo) {
+	public static int r_Iterador_ProximaPropuesta(int GuildIndex, RELACIONES_GUILD Tipo) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -1390,7 +1396,7 @@ return retval;
 		return retval;
 	}
 
-	static int GMEscuchaClan(int UserIndex, String GuildName) {
+	public static int GMEscuchaClan(int UserIndex, String GuildName) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -1440,7 +1446,7 @@ return retval;
 		return retval;
 	}
 
-	static void GMDejaDeEscucharClan(int UserIndex, int GuildIndex) {
+	public static void GMDejaDeEscucharClan(int UserIndex, int GuildIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1452,7 +1458,7 @@ return retval;
 		guilds[GuildIndex].DesconectarGM(UserIndex);
 	}
 
-	static int r_DeclararGuerra(int UserIndex, String /* FIXME BYREF!! */ GuildGuerra,
+	public static int r_DeclararGuerra(int UserIndex, String /* FIXME BYREF!! */ GuildGuerra,
 			String /* FIXME BYREF!! */ refError) {
 		int retval = 0;
 		/* '*************************************************** */
@@ -1471,7 +1477,7 @@ return retval;
 			return retval;
 		}
 
-		if (!m_EsGuildLeader(Declaraciones.UserList[UserIndex].Name, GI)) {
+		if (! /* FIXME */m_EsGuildLeader(Declaraciones.UserList[UserIndex].Name, GI)) {
 			refError = "No eres el líder de tu clan.";
 			return retval;
 		}
@@ -1508,8 +1514,8 @@ return retval;
 		return retval;
 	}
 
-	static int r_AceptarPropuestaDePaz(int UserIndex, String /* FIXME BYREF!! */ GuildPaz,
-			String /* FIXME BYREF!! */ refError) {
+	public static int r_AceptarPropuestaDePaz(int UserIndex,
+			String /* FIXME BYREF!! */ GuildPaz, String /* FIXME BYREF!! */ refError) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -1530,7 +1536,7 @@ return retval;
 			return retval;
 		}
 
-		if (!m_EsGuildLeader(Declaraciones.UserList[UserIndex].Name, GI)) {
+		if (! /* FIXME */m_EsGuildLeader(Declaraciones.UserList[UserIndex].Name, GI)) {
 			refError = "No eres el líder de tu clan.";
 			return retval;
 		}
@@ -1553,7 +1559,7 @@ return retval;
 			return retval;
 		}
 
-		if (!guilds[GI].HayPropuesta(GIG, RELACIONES_GUILD.PAZ)) {
+		if (! /* FIXME */guilds[GI].HayPropuesta(GIG, RELACIONES_GUILD.PAZ)) {
 			refError = "No hay ninguna propuesta de paz para aceptar.";
 			return retval;
 		}
@@ -1567,7 +1573,7 @@ return retval;
 		return retval;
 	}
 
-	static int r_RechazarPropuestaDeAlianza(int UserIndex,
+	public static int r_RechazarPropuestaDeAlianza(int UserIndex,
 			String /* FIXME BYREF!! */ GuildPro, String /* FIXME BYREF!! */ refError) {
 		int retval = 0;
 		/* '*************************************************** */
@@ -1588,7 +1594,7 @@ return retval;
 			return retval;
 		}
 
-		if (!m_EsGuildLeader(Declaraciones.UserList[UserIndex].Name, GI)) {
+		if (! /* FIXME */m_EsGuildLeader(Declaraciones.UserList[UserIndex].Name, GI)) {
 			refError = "No eres el líder de tu clan.";
 			return retval;
 		}
@@ -1606,7 +1612,7 @@ return retval;
 			return retval;
 		}
 
-		if (!guilds[GI].HayPropuesta(GIG, ALIADOS)) {
+		if (! /* FIXME */guilds[GI].HayPropuesta(GIG, ALIADOS)) {
 			refError = "No hay propuesta de alianza del clan " + GuildPro;
 			return retval;
 		}
@@ -1620,7 +1626,7 @@ return retval;
 		return retval;
 	}
 
-	static int r_RechazarPropuestaDePaz(int UserIndex,
+	public static int r_RechazarPropuestaDePaz(int UserIndex,
 			String /* FIXME BYREF!! */ GuildPro, String /* FIXME BYREF!! */ refError) {
 		int retval = 0;
 		/* '*************************************************** */
@@ -1641,7 +1647,7 @@ return retval;
 			return retval;
 		}
 
-		if (!m_EsGuildLeader(Declaraciones.UserList[UserIndex].Name, GI)) {
+		if (! /* FIXME */m_EsGuildLeader(Declaraciones.UserList[UserIndex].Name, GI)) {
 			refError = "No eres el líder de tu clan.";
 			return retval;
 		}
@@ -1659,7 +1665,7 @@ return retval;
 			return retval;
 		}
 
-		if (!guilds[GI].HayPropuesta(GIG, RELACIONES_GUILD.PAZ)) {
+		if (! /* FIXME */guilds[GI].HayPropuesta(GIG, RELACIONES_GUILD.PAZ)) {
 			refError = "No hay propuesta de paz del clan " + GuildPro;
 			return retval;
 		}
@@ -1673,7 +1679,7 @@ return retval;
 		return retval;
 	}
 
-	static int r_AceptarPropuestaDeAlianza(int UserIndex,
+	public static int r_AceptarPropuestaDeAlianza(int UserIndex,
 			String /* FIXME BYREF!! */ GuildAllie, String /* FIXME BYREF!! */ refError) {
 		int retval = 0;
 		/* '*************************************************** */
@@ -1696,7 +1702,7 @@ return retval;
 			return retval;
 		}
 
-		if (!m_EsGuildLeader(Declaraciones.UserList[UserIndex].Name, GI)) {
+		if (! /* FIXME */m_EsGuildLeader(Declaraciones.UserList[UserIndex].Name, GI)) {
 			refError = "No eres el líder de tu clan.";
 			return retval;
 		}
@@ -1719,7 +1725,7 @@ return retval;
 			return retval;
 		}
 
-		if (!guilds[GI].HayPropuesta(GIG, RELACIONES_GUILD.ALIADOS)) {
+		if (! /* FIXME */guilds[GI].HayPropuesta(GIG, RELACIONES_GUILD.ALIADOS)) {
 			refError = "No hay ninguna propuesta de alianza para aceptar.";
 			return retval;
 		}
@@ -1734,7 +1740,7 @@ return retval;
 		return retval;
 	}
 
-	static boolean r_ClanGeneraPropuesta(int UserIndex,
+	public static boolean r_ClanGeneraPropuesta(int UserIndex,
 			String /* FIXME BYREF!! */ OtroClan, RELACIONES_GUILD Tipo,
 			String /* FIXME BYREF!! */ Detalle, String /* FIXME BYREF!! */ refError) {
 		boolean retval = false;
@@ -1772,7 +1778,7 @@ return retval;
 			return retval;
 		}
 
-		if (!m_EsGuildLeader(Declaraciones.UserList[UserIndex].Name, GI)) {
+		if (! /* FIXME */m_EsGuildLeader(Declaraciones.UserList[UserIndex].Name, GI)) {
 			refError = "No eres el líder de tu clan.";
 			return retval;
 		}
@@ -1798,7 +1804,8 @@ return retval;
 		return retval;
 	}
 
-	static String r_VerPropuesta(int UserIndex, String /* FIXME BYREF!! */ OtroGuild, RELACIONES_GUILD Tipo,
+	public static String r_VerPropuesta(int UserIndex,
+			String /* FIXME BYREF!! */ OtroGuild, RELACIONES_GUILD Tipo,
 			String /* FIXME BYREF!! */ refError) {
 		String retval;
 		/* '*************************************************** */
@@ -1819,14 +1826,14 @@ return retval;
 			return retval;
 		}
 
-		if (!m_EsGuildLeader(Declaraciones.UserList[UserIndex].Name, GI)) {
+		if (! /* FIXME */m_EsGuildLeader(Declaraciones.UserList[UserIndex].Name, GI)) {
 			refError = "No eres el líder de tu clan.";
 			return retval;
 		}
 
 		OtroClanGI = GetGuildIndex(OtroGuild);
 
-		if (!guilds[GI].HayPropuesta(OtroClanGI, Tipo)) {
+		if (! /* FIXME */guilds[GI].HayPropuesta(OtroClanGI, Tipo)) {
 			refError = "No existe la propuesta solicitada.";
 			return retval;
 		}
@@ -1836,7 +1843,7 @@ return retval;
 		return retval;
 	}
 
-	static String[] r_ListaDePropuestas(int UserIndex, RELACIONES_GUILD Tipo) {
+	public static String[] r_ListaDePropuestas(int UserIndex, RELACIONES_GUILD Tipo) {
 		String[] retval;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -1874,7 +1881,7 @@ return retval;
 		return retval;
 	}
 
-	static void a_RechazarAspiranteChar(String /* FIXME BYREF!! */ Aspirante, int guild,
+	public static void a_RechazarAspiranteChar(String /* FIXME BYREF!! */ Aspirante, int guild,
 			String /* FIXME BYREF!! */ Detalles) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -1894,7 +1901,7 @@ return retval;
 		guilds[guild].InformarRechazoEnChar(Aspirante, Detalles);
 	}
 
-	static String a_ObtenerRechazoDeChar(String /* FIXME BYREF!! */ Aspirante) {
+	public static String a_ObtenerRechazoDeChar(String /* FIXME BYREF!! */ Aspirante) {
 		String retval;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -1916,8 +1923,8 @@ return retval;
 		return retval;
 	}
 
-	static boolean a_RechazarAspirante(int UserIndex, String /* FIXME BYREF!! */ Nombre,
-			String /* FIXME BYREF!! */ refError) {
+	public static boolean a_RechazarAspirante(int UserIndex,
+			String /* FIXME BYREF!! */ Nombre, String /* FIXME BYREF!! */ refError) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -1949,7 +1956,8 @@ return retval;
 		return retval;
 	}
 
-	static String a_DetallesAspirante(int UserIndex, String /* FIXME BYREF!! */ Nombre) {
+	public static String a_DetallesAspirante(int UserIndex,
+			String /* FIXME BYREF!! */ Nombre) {
 		String retval;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -1965,7 +1973,7 @@ return retval;
 			return retval;
 		}
 
-		if (!m_EsGuildLeader(Declaraciones.UserList[UserIndex].Name, GI)) {
+		if (! /* FIXME */m_EsGuildLeader(Declaraciones.UserList[UserIndex].Name, GI)) {
 			return retval;
 		}
 
@@ -1977,7 +1985,7 @@ return retval;
 		return retval;
 	}
 
-	static void SendDetallesPersonaje(int UserIndex, String Personaje) {
+	public static void SendDetallesPersonaje(int UserIndex, String Personaje) {
  /* '*************************************************** */
  /* 'Author: Unknown */
  /* 'Last Modification: - */
@@ -2003,7 +2011,7 @@ return retval;
   return;
  }
  
-  if (!m_EsGuildLeader(Declaraciones.UserList[UserIndex].Name, GI)) {
+  if (! /* FIXME */m_EsGuildLeader(Declaraciones.UserList[UserIndex].Name, GI)) {
   Protocol.WriteConsoleMsg(UserIndex, "No eres el líder de tu clan.", FontTypeNames.FONTTYPE_INFO);
   return;
  }
@@ -2062,7 +2070,7 @@ return retval;
  return;
  /* ERROR : */
  UserFile = null;
-  if (!(General.FileExist(Declaraciones.CharPath + Personaje + ".chr", vbArchive))) {
+  if (! /* FIXME */(General.FileExist(Declaraciones.CharPath + Personaje + ".chr", vbArchive))) {
   General.LogError("El usuario " + Declaraciones.UserList[UserIndex].Name + " (" + UserIndex + " ) ha pedido los detalles del personaje " + Personaje + " que no se encuentra.");
   
   /* FIXME: ON ERROR RESUME NEXT */
@@ -2073,8 +2081,9 @@ return retval;
  }
 }
 
-	static boolean a_NuevoAspirante(int UserIndex, String /* FIXME BYREF!! */ clan,
-			String /* FIXME BYREF!! */ Solicitud, String /* FIXME BYREF!! */ refError) {
+	public static boolean a_NuevoAspirante(int UserIndex,
+			String /* FIXME BYREF!! */ clan, String /* FIXME BYREF!! */ Solicitud,
+			String /* FIXME BYREF!! */ refError) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -2105,7 +2114,7 @@ return retval;
 			return retval;
 		}
 
-		if (!m_EstadoPermiteEntrar(UserIndex, NuevoGuildIndex)) {
+		if (! /* FIXME */m_EstadoPermiteEntrar(UserIndex, NuevoGuildIndex)) {
 			refError = "Tú no puedes entrar a un clan de alineación "
 					+ Alineacion2String(guilds[NuevoGuildIndex].Alineacion);
 			return retval;
@@ -2141,8 +2150,8 @@ return retval;
 		return retval;
 	}
 
-	static boolean a_AceptarAspirante(int UserIndex, String /* FIXME BYREF!! */ Aspirante,
-			String /* FIXME BYREF!! */ refError) {
+	public static boolean a_AceptarAspirante(int UserIndex,
+			String /* FIXME BYREF!! */ Aspirante, String /* FIXME BYREF!! */ refError) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -2164,7 +2173,7 @@ return retval;
 			return retval;
 		}
 
-		if (!m_EsGuildLeader(Declaraciones.UserList[UserIndex].Name, GI)) {
+		if (! /* FIXME */m_EsGuildLeader(Declaraciones.UserList[UserIndex].Name, GI)) {
 			refError = "No eres el líder de tu clan";
 			return retval;
 		}
@@ -2179,18 +2188,18 @@ return retval;
 		AspiranteUI = Extra.NameIndex(Aspirante);
 		if (AspiranteUI > 0) {
 			/* 'pj Online */
-			if (!m_EstadoPermiteEntrar(AspiranteUI, GI)) {
+			if (! /* FIXME */m_EstadoPermiteEntrar(AspiranteUI, GI)) {
 				refError = Aspirante + " no puede entrar a un clan de alineación "
 						+ Alineacion2String(guilds[GI].Alineacion);
 				guilds[GI].RetirarAspirante(Aspirante, NroAspirante);
 				return retval;
-			} else if (!Declaraciones.UserList[AspiranteUI].GuildIndex == 0) {
+			} else if (! /* FIXME */Declaraciones.UserList[AspiranteUI].GuildIndex == 0) {
 				refError = Aspirante + " ya es parte de otro clan.";
 				guilds[GI].RetirarAspirante(Aspirante, NroAspirante);
 				return retval;
 			}
 		} else {
-			if (!m_EstadoPermiteEntrarChar(Aspirante, GI)) {
+			if (! /* FIXME */m_EstadoPermiteEntrarChar(Aspirante, GI)) {
 				refError = Aspirante + " no puede entrar a un clan de alineación "
 						+ Alineacion2String(guilds[GI].Alineacion);
 				guilds[GI].RetirarAspirante(Aspirante, NroAspirante);
@@ -2215,7 +2224,7 @@ return retval;
 		return retval;
 	}
 
-	static String GuildName(int GuildIndex) {
+	public static String GuildName(int GuildIndex) {
 		String retval;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -2231,7 +2240,7 @@ return retval;
 		return retval;
 	}
 
-	static String GuildLeader(int GuildIndex) {
+	public static String GuildLeader(int GuildIndex) {
 		String retval;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -2247,7 +2256,7 @@ return retval;
 		return retval;
 	}
 
-	static String GuildAlignment(int GuildIndex) {
+	public static String GuildAlignment(int GuildIndex) {
 		String retval;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -2263,7 +2272,7 @@ return retval;
 		return retval;
 	}
 
-	static String GuildFounder(int GuildIndex) {
+	public static String GuildFounder(int GuildIndex) {
 		String retval;
 		/* '*************************************************** */
 		/* 'Autor: ZaMa */
@@ -2278,7 +2287,8 @@ return retval;
 		return retval;
 	}
 
-	static void SetNewGuildName(int GuildIndex, String /* FIXME BYREF!! */ newGuildName) {
+	public static void SetNewGuildName(int GuildIndex,
+			String /* FIXME BYREF!! */ newGuildName) {
 		/* '*************************************************** */
 		/* 'Author: Lex! */
 		/* 'Last Modification: 15/05/2012 */

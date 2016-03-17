@@ -1,6 +1,10 @@
-
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"Matematicas"')] */
 /* 'Argentum Online 0.12.2 */
 /* 'Copyright (C) 2002 Márquez Pablo Ignacio */
@@ -34,7 +38,7 @@ import enums.*;
 
 public class Matematicas {
 
-	static int Porcentaje(int Total, int Porc) {
+	public static int Porcentaje(int Total, int Porc) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -46,7 +50,7 @@ public class Matematicas {
 		return retval;
 	}
 
-	static int Distancia(Declaraciones.WorldPos /* FIXME BYREF!! */ wp1,
+	public static int Distancia(Declaraciones.WorldPos /* FIXME BYREF!! */ wp1,
 			Declaraciones.WorldPos /* FIXME BYREF!! */ wp2) {
 		int retval = 0;
 		/* '*************************************************** */
@@ -60,7 +64,7 @@ public class Matematicas {
 		return retval;
 	}
 
-	static double Distance(int X1, int Y1, int X2, int Y2) {
+	public static double Distance(int X1, int Y1, int X2, int Y2) {
  double retval = 0.0;
  /* '*************************************************** */
  /* 'Author: Unknown */
@@ -75,7 +79,7 @@ public class Matematicas {
 return retval;
 }
 
-	static int RandomNumber(int LowerBound, int UpperBound) {
+	public static int RandomNumber(int LowerBound, int UpperBound) {
 		int retval = 0;
 		/* '************************************************************** */
 		/* 'Author: Juan Martín Sotuyo Dodero */

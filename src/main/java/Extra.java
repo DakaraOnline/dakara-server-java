@@ -1,6 +1,10 @@
-
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"Extra"')] */
 /* 'Argentum Online 0.12.2 */
 /* 'Copyright (C) 2002 Márquez Pablo Ignacio */
@@ -34,7 +38,7 @@ import enums.*;
 
 public class Extra {
 
-	static boolean EsNewbie(int UserIndex) {
+	public static boolean EsNewbie(int UserIndex) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -46,7 +50,7 @@ public class Extra {
 		return retval;
 	}
 
-	static boolean esArmada(int UserIndex) {
+	public static boolean esArmada(int UserIndex) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Autor: Pablo (ToxicWaste) */
@@ -57,7 +61,7 @@ public class Extra {
 		return retval;
 	}
 
-	static boolean esCaos(int UserIndex) {
+	public static boolean esCaos(int UserIndex) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Autor: Pablo (ToxicWaste) */
@@ -68,7 +72,7 @@ public class Extra {
 		return retval;
 	}
 
-	static boolean EsGm(int UserIndex) {
+	public static boolean EsGm(int UserIndex) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Autor: Pablo (ToxicWaste) */
@@ -80,7 +84,7 @@ public class Extra {
 		return retval;
 	}
 
-	static void DoTileEvents(int UserIndex, int Map, int X, int Y) {
+	public static void DoTileEvents(int UserIndex, int Map, int X, int Y) {
 		/* '*************************************************** */
 		/* 'Autor: Pablo (ToxicWaste) & Unknown (orginal version) */
 		/* 'Last Modification: 06/03/2010 */
@@ -303,7 +307,7 @@ public class Extra {
 		General.LogError("Error en DotileEvents. Error: " + Err.Number + " - Desc: " + Err.description);
 	}
 
-	static boolean InRangoVision(int UserIndex, int X, int Y) {
+	public static boolean InRangoVision(int UserIndex, int X, int Y) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -324,7 +328,7 @@ public class Extra {
 		return retval;
 	}
 
-	static boolean InVisionRangeAndMap(int UserIndex,
+	public static boolean InVisionRangeAndMap(int UserIndex,
 			Declaraciones.WorldPos /* FIXME BYREF!! */ OtherUserPos) {
 		boolean retval = false;
 		/* '*************************************************** */
@@ -355,7 +359,7 @@ public class Extra {
 		return retval;
 	}
 
-	static boolean InRangoVisionNPC(int NpcIndex, int X, int Y) {
+	public static boolean InRangoVisionNPC(int NpcIndex, int X, int Y) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -376,7 +380,7 @@ public class Extra {
 		return retval;
 	}
 
-	static boolean InMapBounds(int Map, int X, int Y) {
+	public static boolean InMapBounds(int Map, int X, int Y) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -394,12 +398,14 @@ public class Extra {
 		return retval;
 	}
 
-	static boolean RhombLegalPos(Declaraciones.WorldPos /* FIXME BYREF!! */ Pos,
+	public static boolean RhombLegalPos(
+			Declaraciones.WorldPos /* FIXME BYREF!! */ Pos,
 			int /* FIXME BYREF!! */ vX, int /* FIXME BYREF!! */ vY, int Distance) {
 		return RhombLegalPos(Pos, vX, vY, Distance, false, true, false);
 	}
 
-	static boolean RhombLegalPos(Declaraciones.WorldPos /* FIXME BYREF!! */ Pos,
+	public static boolean RhombLegalPos(
+			Declaraciones.WorldPos /* FIXME BYREF!! */ Pos,
 			int /* FIXME BYREF!! */ vX, int /* FIXME BYREF!! */ vY, int Distance, boolean PuedeAgua,
 			boolean PuedeTierra, boolean CheckExitTile) {
 		boolean retval = false;
@@ -465,7 +471,8 @@ public class Extra {
 		return retval;
 	}
 
-	static boolean RhombLegalTilePos(Declaraciones.WorldPos /* FIXME BYREF!! */ Pos,
+	public static boolean RhombLegalTilePos(
+			Declaraciones.WorldPos /* FIXME BYREF!! */ Pos,
 			int /* FIXME BYREF!! */ vX, int /* FIXME BYREF!! */ vY, int Distance, int ObjIndex, int ObjAmount,
 			boolean PuedeAgua, boolean PuedeTierra) {
 		boolean retval = false;
@@ -498,7 +505,7 @@ public class Extra {
 				/*
 				 * ' No hay obj tirado o la suma de lo que hay + lo nuevo <= 10k
 				 */
-				if (!HayObjeto(Pos.Map, X, Y, ObjIndex, ObjAmount)) {
+				if (! /* FIXME */HayObjeto(Pos.Map, X, Y, ObjIndex, ObjAmount)) {
 					vX = X;
 					vY = Y;
 
@@ -522,7 +529,7 @@ public class Extra {
 				/*
 				 * ' No hay obj tirado o la suma de lo que hay + lo nuevo <= 10k
 				 */
-				if (!HayObjeto(Pos.Map, X, Y, ObjIndex, ObjAmount)) {
+				if (! /* FIXME */HayObjeto(Pos.Map, X, Y, ObjIndex, ObjAmount)) {
 					vX = X;
 					vY = Y;
 
@@ -545,7 +552,7 @@ public class Extra {
 				/*
 				 * ' No hay obj tirado o la suma de lo que hay + lo nuevo <= 10k
 				 */
-				if (!HayObjeto(Pos.Map, X, Y, ObjIndex, ObjAmount)) {
+				if (! /* FIXME */HayObjeto(Pos.Map, X, Y, ObjIndex, ObjAmount)) {
 					vX = X;
 					vY = Y;
 
@@ -567,7 +574,7 @@ public class Extra {
 				/*
 				 * ' No hay obj tirado o la suma de lo que hay + lo nuevo <= 10k
 				 */
-				if (!HayObjeto(Pos.Map, X, Y, ObjIndex, ObjAmount)) {
+				if (! /* FIXME */HayObjeto(Pos.Map, X, Y, ObjIndex, ObjAmount)) {
 					vX = X;
 					vY = Y;
 
@@ -586,7 +593,7 @@ public class Extra {
 		return retval;
 	}
 
-	static boolean HayObjeto(int mapa, int X, int Y, int ObjIndex, int ObjAmount) {
+	public static boolean HayObjeto(int mapa, int X, int Y, int ObjIndex, int ObjAmount) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
@@ -613,12 +620,12 @@ public class Extra {
 		return retval;
 	}
 
-	static void ClosestLegalPos(Declaraciones.WorldPos Pos,
+	public static void ClosestLegalPos(Declaraciones.WorldPos Pos,
 			Declaraciones.WorldPos /* FIXME BYREF!! */ nPos) {
 		ClosestLegalPos(Pos, nPos, false, true, false);
 	}
 
-	static void ClosestLegalPos(Declaraciones.WorldPos Pos,
+	public static void ClosestLegalPos(Declaraciones.WorldPos Pos,
 			Declaraciones.WorldPos /* FIXME BYREF!! */ nPos, boolean PuedeAgua, boolean PuedeTierra,
 			boolean CheckExitTile) {
 		/* '***************************************************************** */
@@ -646,7 +653,7 @@ public class Extra {
 
 			/* ' Busca en las demas posiciones, en forma de "rombo" */
 		} else {
-			while ((!Found) && LoopC <= 12) {
+			while ((! /* FIXME */Found) && LoopC <= 12) {
 				if (RhombLegalPos(Pos, tX, tY, LoopC, PuedeAgua, PuedeTierra, CheckExitTile)) {
 					nPos.X = tX;
 					nPos.Y = tY;
@@ -658,14 +665,14 @@ public class Extra {
 
 		}
 
-		if (!Found) {
+		if (! /* FIXME */Found) {
 			nPos.X = 0;
 			nPos.Y = 0;
 		}
 
 	}
 
-	static void ClosestStablePos(Declaraciones.WorldPos Pos, Declaraciones.WorldPos /* FIXME BYREF!! */ nPos) {
+	public static void ClosestStablePos(Declaraciones.WorldPos Pos, Declaraciones.WorldPos /* FIXME BYREF!! */ nPos) {
  /* '*************************************************** */
  /* 'Author: Unknown */
  /* 'Last Modification: 09/14/2010 */
@@ -676,7 +683,7 @@ public class Extra {
  
 }
 
-	static int NameIndex(String Name) {
+	public static int NameIndex(String Name) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -711,7 +718,7 @@ public class Extra {
 		return retval;
 	}
 
-	static boolean CheckForSameIP(int UserIndex, String UserIP) {
+	public static boolean CheckForSameIP(int UserIndex, String UserIP) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -734,7 +741,7 @@ public class Extra {
 		return retval;
 	}
 
-	static boolean CheckForSameName(String Name) {
+	public static boolean CheckForSameName(String Name) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -780,7 +787,7 @@ public class Extra {
 		return retval;
 	}
 
-	static void HeadtoPos(eHeading Head,
+	public static void HeadtoPos(eHeading Head,
 			Declaraciones.WorldPos /* FIXME BYREF!! */ Pos) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -810,108 +817,88 @@ public class Extra {
 		}
 	}
 
-	static boolean LegalPos(int Map, int X, int Y) {
+	public static boolean LegalPos(int Map, int X, int Y) {
 		return LegalPos(Map, X, Y, false, true, false);
 	}
 
-	static boolean LegalPos(int Map, int X, int Y, boolean PuedeAgua, boolean PuedeTierra, boolean CheckExitTile) {
-		boolean retval = false;
-		/* '*************************************************** */
-		/* 'Autor: Pablo (ToxicWaste) & Unknown (orginal version) */
-		/* 'Last Modification: 23/01/2007 */
-		/* 'Checks if the position is Legal. */
-		/* '*************************************************** */
+	public static boolean LegalPos(int Map, int X, int Y, boolean PuedeAgua, boolean PuedeTierra, boolean CheckExitTile) {
+ boolean retval = false;
+ /* '*************************************************** */
+ /* 'Autor: Pablo (ToxicWaste) & Unknown (orginal version) */
+ /* 'Last Modification: 23/01/2007 */
+ /* 'Checks if the position is Legal. */
+ /* '*************************************************** */
+ 
+ /* '¿Es un mapa valido? */
+  if ((Map<=0 || Map>Declaraciones.NumMaps) || (X<Declaraciones.MinXBorder || X>Declaraciones.MaxXBorder || Y<Declaraciones.MinYBorder || Y>Declaraciones.MaxYBorder)) {
+  retval = false;
+  } else {
+    if (PuedeAgua && PuedeTierra) {
+    retval = (Declaraciones.MapData[Map][X][Y].Blocked != 1) && (Declaraciones.MapData[Map][X][Y].UserIndex == 0) && (Declaraciones.MapData[Map][X][Y].NpcIndex == 0);
+    } else if (PuedeTierra && ! /* FIXME */PuedeAgua) {
+    retval = (Declaraciones.MapData[Map][X][Y].Blocked != 1) && (Declaraciones.MapData[Map][X][Y].UserIndex == 0) && (Declaraciones.MapData[Map][X][Y].NpcIndex == 0) && (! / * FIXME * /General.HayAgua(Map, X, Y));
+    } else if (PuedeAgua && ! /* FIXME */PuedeTierra) {
+    retval = (Declaraciones.MapData[Map][X][Y].Blocked != 1) && (Declaraciones.MapData[Map][X][Y].UserIndex == 0) && (Declaraciones.MapData[Map][X][Y].NpcIndex == 0) && (General.HayAgua(Map, X, Y));
+    } else {
+    retval = false;
+   }
+  
+   if (CheckExitTile) {
+   retval = retval && (Declaraciones.MapData[Map][X][Y].TileExit.Map == 0);
+  }
+  
+ }
+ 
+return retval;
+}
 
-		/* '¿Es un mapa valido? */
-		if ((Map <= 0 || Map > Declaraciones.NumMaps) || (X < Declaraciones.MinXBorder || X > Declaraciones.MaxXBorder
-				|| Y < Declaraciones.MinYBorder || Y > Declaraciones.MaxYBorder)) {
-			retval = false;
-		} else {
-			if (PuedeAgua && PuedeTierra) {
-				retval = (Declaraciones.MapData[Map][X][Y].Blocked != 1)
-						&& (Declaraciones.MapData[Map][X][Y].UserIndex == 0)
-						&& (Declaraciones.MapData[Map][X][Y].NpcIndex == 0);
-			} else if (PuedeTierra && !PuedeAgua) {
-				retval = (Declaraciones.MapData[Map][X][Y].Blocked != 1)
-						&& (Declaraciones.MapData[Map][X][Y].UserIndex == 0)
-						&& (Declaraciones.MapData[Map][X][Y].NpcIndex == 0) && (!General.HayAgua(Map, X, Y));
-			} else if (PuedeAgua && !PuedeTierra) {
-				retval = (Declaraciones.MapData[Map][X][Y].Blocked != 1)
-						&& (Declaraciones.MapData[Map][X][Y].UserIndex == 0)
-						&& (Declaraciones.MapData[Map][X][Y].NpcIndex == 0) && (General.HayAgua(Map, X, Y));
-			} else {
-				retval = false;
-			}
-
-			if (CheckExitTile) {
-				retval = retval && (Declaraciones.MapData[Map][X][Y].TileExit.Map == 0);
-			}
-
-		}
-
-		return retval;
-	}
-
-	static boolean MoveToLegalPos(int Map, int X, int Y) {
+	public static boolean MoveToLegalPos(int Map, int X, int Y) {
 		return MoveToLegalPos(Map, X, Y, false, true);
 	}
 
-	static boolean MoveToLegalPos(int Map, int X, int Y, boolean PuedeAgua, boolean PuedeTierra) {
-		boolean retval = false;
-		/* '*************************************************** */
-		/* 'Autor: ZaMa */
-		/* 'Last Modification: 13/07/2009 */
-		/*
-		 * 'Checks if the position is Legal, but considers that if there's a
-		 * casper, it's a legal movement.
-		 */
-		/*
-		 * '13/07/2009: ZaMa - Now it's also legal move where an invisible admin
-		 * is.
-		 */
-		/* '*************************************************** */
+	public static boolean MoveToLegalPos(int Map, int X, int Y, boolean PuedeAgua, boolean PuedeTierra) {
+ boolean retval = false;
+ /* '*************************************************** */
+ /* 'Autor: ZaMa */
+ /* 'Last Modification: 13/07/2009 */
+ /* 'Checks if the position is Legal, but considers that if there's a casper, it's a legal movement. */
+ /* '13/07/2009: ZaMa - Now it's also legal move where an invisible admin is. */
+ /* '*************************************************** */
+ 
+ int UserIndex = 0;
+ boolean IsDeadChar = false;
+ boolean IsAdminInvisible = false;
+ 
+ /* '¿Es un mapa valido? */
+  if ((Map<=0 || Map>Declaraciones.NumMaps) || (X<Declaraciones.MinXBorder || X>Declaraciones.MaxXBorder || Y<Declaraciones.MinYBorder || Y>Declaraciones.MaxYBorder)) {
+  retval = false;
+  } else {
+   UserIndex = Declaraciones.MapData[Map][X][Y].UserIndex;
+   
+    if (UserIndex>0) {
+    IsDeadChar = (Declaraciones.UserList[UserIndex].flags.Muerto == 1);
+    IsAdminInvisible = (Declaraciones.UserList[UserIndex].flags.AdminInvisible == 1);
+    } else {
+    IsDeadChar = false;
+    IsAdminInvisible = false;
+   }
+   
+    if (PuedeAgua && PuedeTierra) {
+    retval = (Declaraciones.MapData[Map][X][Y].Blocked != 1) && (UserIndex == 0 || IsDeadChar || IsAdminInvisible) && (Declaraciones.MapData[Map][X][Y].NpcIndex == 0);
+    } else if (PuedeTierra && ! /* FIXME */PuedeAgua) {
+    retval = (Declaraciones.MapData[Map][X][Y].Blocked != 1) && (UserIndex == 0 || IsDeadChar || IsAdminInvisible) && (Declaraciones.MapData[Map][X][Y].NpcIndex == 0) && (! / * FIXME * /General.HayAgua(Map, X, Y));
+    } else if (PuedeAgua && ! /* FIXME */PuedeTierra) {
+    retval = (Declaraciones.MapData[Map][X][Y].Blocked != 1) && (UserIndex == 0 || IsDeadChar || IsAdminInvisible) && (Declaraciones.MapData[Map][X][Y].NpcIndex == 0) && (General.HayAgua(Map, X, Y));
+    } else {
+    retval = false;
+   }
+ }
+ 
+return retval;
+}
 
-		int UserIndex = 0;
-		boolean IsDeadChar = false;
-		boolean IsAdminInvisible = false;
-
-		/* '¿Es un mapa valido? */
-		if ((Map <= 0 || Map > Declaraciones.NumMaps) || (X < Declaraciones.MinXBorder || X > Declaraciones.MaxXBorder
-				|| Y < Declaraciones.MinYBorder || Y > Declaraciones.MaxYBorder)) {
-			retval = false;
-		} else {
-			UserIndex = Declaraciones.MapData[Map][X][Y].UserIndex;
-
-			if (UserIndex > 0) {
-				IsDeadChar = (Declaraciones.UserList[UserIndex].flags.Muerto == 1);
-				IsAdminInvisible = (Declaraciones.UserList[UserIndex].flags.AdminInvisible == 1);
-			} else {
-				IsDeadChar = false;
-				IsAdminInvisible = false;
-			}
-
-			if (PuedeAgua && PuedeTierra) {
-				retval = (Declaraciones.MapData[Map][X][Y].Blocked != 1)
-						&& (UserIndex == 0 || IsDeadChar || IsAdminInvisible)
-						&& (Declaraciones.MapData[Map][X][Y].NpcIndex == 0);
-			} else if (PuedeTierra && !PuedeAgua) {
-				retval = (Declaraciones.MapData[Map][X][Y].Blocked != 1)
-						&& (UserIndex == 0 || IsDeadChar || IsAdminInvisible)
-						&& (Declaraciones.MapData[Map][X][Y].NpcIndex == 0) && (!General.HayAgua(Map, X, Y));
-			} else if (PuedeAgua && !PuedeTierra) {
-				retval = (Declaraciones.MapData[Map][X][Y].Blocked != 1)
-						&& (UserIndex == 0 || IsDeadChar || IsAdminInvisible)
-						&& (Declaraciones.MapData[Map][X][Y].NpcIndex == 0) && (General.HayAgua(Map, X, Y));
-			} else {
-				retval = false;
-			}
-		}
-
-		return retval;
-	}
-
-	static void FindLegalPos(int UserIndex, int Map, int /* FIXME BYREF!! */ X,
-			int /* FIXME BYREF!! */ Y) {
+	public static void FindLegalPos(int UserIndex, int Map,
+			int /* FIXME BYREF!! */ X, int /* FIXME BYREF!! */ Y) {
 		/* '*************************************************** */
 		/* 'Autor: ZaMa */
 		/* 'Last Modification: 26/03/2009 */
@@ -1002,56 +989,45 @@ public class Extra {
 
 	}
 
-	static boolean LegalPosNPC(int Map, int X, int Y, int AguaValida) {
+	public static boolean LegalPosNPC(int Map, int X, int Y, int AguaValida) {
 		return LegalPosNPC(Map, X, Y, AguaValida, false);
 	}
 
-	static boolean LegalPosNPC(int Map, int X, int Y, int AguaValida, boolean IsPet) {
-		boolean retval = false;
-		/* '*************************************************** */
-		/* 'Autor: Unkwnown */
-		/* 'Last Modification: 09/23/2009 */
-		/* 'Checks if it's a Legal pos for the npc to move to. */
-		/*
-		 * '09/23/2009: Pato - If UserIndex is a AdminInvisible, then is a legal
-		 * pos.
-		 */
-		/* '*************************************************** */
-		boolean IsDeadChar = false;
-		int UserIndex = 0;
-		boolean IsAdminInvisible = false;
+	public static boolean LegalPosNPC(int Map, int X, int Y, int AguaValida, boolean IsPet) {
+ boolean retval = false;
+ /* '*************************************************** */
+ /* 'Autor: Unkwnown */
+ /* 'Last Modification: 09/23/2009 */
+ /* 'Checks if it's a Legal pos for the npc to move to. */
+ /* '09/23/2009: Pato - If UserIndex is a AdminInvisible, then is a legal pos. */
+ /* '*************************************************** */
+ boolean IsDeadChar = false;
+ int UserIndex = 0;
+ boolean IsAdminInvisible = false;
+ 
+  if ((Map<=0 || Map>Declaraciones.NumMaps) || (X<Declaraciones.MinXBorder || X>Declaraciones.MaxXBorder || Y<Declaraciones.MinYBorder || Y>Declaraciones.MaxYBorder)) {
+  retval = false;
+  return retval;
+ }
+ 
+  UserIndex = Declaraciones.MapData[Map][X][Y].UserIndex;
+   if (UserIndex>0) {
+   IsDeadChar = Declaraciones.UserList[UserIndex].flags.Muerto == 1;
+   IsAdminInvisible = (Declaraciones.UserList[UserIndex].flags.AdminInvisible == 1);
+   } else {
+   IsDeadChar = false;
+   IsAdminInvisible = false;
+  }
+  
+   if (AguaValida == 0) {
+   retval = (Declaraciones.MapData[Map][X][Y].Blocked != 1) && (Declaraciones.MapData[Map][X][Y].UserIndex == 0 || IsDeadChar || IsAdminInvisible) && (Declaraciones.MapData[Map][X][Y].NpcIndex == 0) && (Declaraciones.MapData[Map][X][Y].trigger != eTrigger.POSINVALIDA || IsPet) && ! / * FIXME * /General.HayAgua(Map, X, Y);
+   } else {
+   retval = (Declaraciones.MapData[Map][X][Y].Blocked != 1) && (Declaraciones.MapData[Map][X][Y].UserIndex == 0 || IsDeadChar || IsAdminInvisible) && (Declaraciones.MapData[Map][X][Y].NpcIndex == 0) && (Declaraciones.MapData[Map][X][Y].trigger != eTrigger.POSINVALIDA || IsPet);
+  }
+return retval;
+}
 
-		if ((Map <= 0 || Map > Declaraciones.NumMaps) || (X < Declaraciones.MinXBorder || X > Declaraciones.MaxXBorder
-				|| Y < Declaraciones.MinYBorder || Y > Declaraciones.MaxYBorder)) {
-			retval = false;
-			return retval;
-		}
-
-		UserIndex = Declaraciones.MapData[Map][X][Y].UserIndex;
-		if (UserIndex > 0) {
-			IsDeadChar = Declaraciones.UserList[UserIndex].flags.Muerto == 1;
-			IsAdminInvisible = (Declaraciones.UserList[UserIndex].flags.AdminInvisible == 1);
-		} else {
-			IsDeadChar = false;
-			IsAdminInvisible = false;
-		}
-
-		if (AguaValida == 0) {
-			retval = (Declaraciones.MapData[Map][X][Y].Blocked != 1)
-					&& (Declaraciones.MapData[Map][X][Y].UserIndex == 0 || IsDeadChar || IsAdminInvisible)
-					&& (Declaraciones.MapData[Map][X][Y].NpcIndex == 0)
-					&& (Declaraciones.MapData[Map][X][Y].trigger != eTrigger.POSINVALIDA || IsPet)
-					&& !General.HayAgua(Map, X, Y);
-		} else {
-			retval = (Declaraciones.MapData[Map][X][Y].Blocked != 1)
-					&& (Declaraciones.MapData[Map][X][Y].UserIndex == 0 || IsDeadChar || IsAdminInvisible)
-					&& (Declaraciones.MapData[Map][X][Y].NpcIndex == 0)
-					&& (Declaraciones.MapData[Map][X][Y].trigger != eTrigger.POSINVALIDA || IsPet);
-		}
-		return retval;
-	}
-
-	static void SendHelp(int index) {
+	public static void SendHelp(int index) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1070,7 +1046,7 @@ public class Extra {
 
 	}
 
-	static void Expresar(int NpcIndex, int UserIndex) {
+	public static void Expresar(int NpcIndex, int UserIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modification: - */
@@ -1086,7 +1062,7 @@ public class Extra {
 		}
 	}
 
-	static void LookatTile(int UserIndex, int Map, int X, int Y) {
+	public static void LookatTile(int UserIndex, int Map, int X, int Y) {
 		/* '*************************************************** */
 		/* 'Autor: Unknown (orginal version) */
 		/* 'Last Modification: 26/03/2009 */
@@ -1231,7 +1207,8 @@ public class Extra {
 							Stat = Stat + " [CONCILIO DE LAS SOMBRAS]";
 							ft = FontTypeNames.FONTTYPE_CONSEJOCAOSVesA;
 						} else {
-							if (!Declaraciones.UserList[TempCharIndex].flags.Privilegios && PlayerType.User) {
+							if (! /* FIXME */Declaraciones.UserList[TempCharIndex].flags.Privilegios
+									&& PlayerType.User) {
 								Stat = Stat + " <GAME MASTER>";
 
 								/* ' Elijo el color segun el rango del GM: */
@@ -1306,35 +1283,35 @@ public class Extra {
 							}
 
 						} else if (SupervivenciaSkill <= 30) {
-							if (MinHp < (MaxHp * 0.5)) {
+							if (MinHp < (MaxHp * 0.5f)) {
 								estatus = "(Malherido) ";
-							} else if (MinHp < (MaxHp * 0.75)) {
+							} else if (MinHp < (MaxHp * 0.75f)) {
 								estatus = "(Herido) ";
 							} else {
 								estatus = "(Sano) ";
 							}
 
 						} else if (SupervivenciaSkill <= 40) {
-							if (MinHp < (MaxHp * 0.25)) {
+							if (MinHp < (MaxHp * 0.25f)) {
 								estatus = "(Muy malherido) ";
-							} else if (MinHp < (MaxHp * 0.5)) {
+							} else if (MinHp < (MaxHp * 0.5f)) {
 								estatus = "(Herido) ";
-							} else if (MinHp < (MaxHp * 0.75)) {
+							} else if (MinHp < (MaxHp * 0.75f)) {
 								estatus = "(Levemente herido) ";
 							} else {
 								estatus = "(Sano) ";
 							}
 
 						} else if (SupervivenciaSkill < 60) {
-							if (MinHp < (MaxHp * 0.05)) {
+							if (MinHp < (MaxHp * 0.05f)) {
 								estatus = "(Agonizando) ";
-							} else if (MinHp < (MaxHp * 0.1)) {
+							} else if (MinHp < (MaxHp * 0.1f)) {
 								estatus = "(Casi muerto) ";
-							} else if (MinHp < (MaxHp * 0.25)) {
+							} else if (MinHp < (MaxHp * 0.25f)) {
 								estatus = "(Muy Malherido) ";
-							} else if (MinHp < (MaxHp * 0.5)) {
+							} else if (MinHp < (MaxHp * 0.5f)) {
 								estatus = "(Herido) ";
-							} else if (MinHp < (MaxHp * 0.75)) {
+							} else if (MinHp < (MaxHp * 0.75f)) {
 								estatus = "(Levemente herido) ";
 							} else if (MinHp < (MaxHp)) {
 								estatus = "(Sano) ";
@@ -1395,7 +1372,7 @@ public class Extra {
 										UsUaRiOs.UserDie(UserIndex);
 									}
 								}
-							} else if (!ES.criminal(UserIndex)) {
+							} else if (! /* FIXME */ES.criminal(UserIndex)) {
 								/*
 								 * 'Nos fijamos si es ciudadano enlistable o no
 								 * enlistable:
@@ -1499,7 +1476,7 @@ public class Extra {
 
 	}
 
-	static eHeading FindDirection(Declaraciones.WorldPos Pos, Declaraciones.WorldPos Target) {
+	public static eHeading FindDirection(Declaraciones.WorldPos Pos, Declaraciones.WorldPos Target) {
 		eHeading retval;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -1571,25 +1548,20 @@ public class Extra {
 		return retval;
 	}
 
-	static boolean ItemNoEsDeMapa(int index, boolean bIsExit) {
-		boolean retval = false;
-		/* '*************************************************** */
-		/* 'Author: Unknown */
-		/* 'Last Modification: - */
-		/* ' */
-		/* '*************************************************** */
+	public static boolean ItemNoEsDeMapa(int index, boolean bIsExit) {
+ boolean retval = false;
+ /* '*************************************************** */
+ /* 'Author: Unknown */
+ /* 'Last Modification: - */
+ /* ' */
+ /* '*************************************************** */
+ 
+  retval = Declaraciones.ObjData[index].OBJType != eOBJType.otPuertas && Declaraciones.ObjData[index].OBJType != eOBJType.otForos && Declaraciones.ObjData[index].OBJType != eOBJType.otCarteles && Declaraciones.ObjData[index].OBJType != eOBJType.otArboles && Declaraciones.ObjData[index].OBJType != eOBJType.otYacimiento && ! / * FIXME * /(Declaraciones.ObjData[index].OBJType == eOBJType.otTeleport && bIsExit);
+  
+return retval;
+}
 
-		retval = Declaraciones.ObjData[index].OBJType != eOBJType.otPuertas
-				&& Declaraciones.ObjData[index].OBJType != eOBJType.otForos
-				&& Declaraciones.ObjData[index].OBJType != eOBJType.otCarteles
-				&& Declaraciones.ObjData[index].OBJType != eOBJType.otArboles
-				&& Declaraciones.ObjData[index].OBJType != eOBJType.otYacimiento
-				&& !(Declaraciones.ObjData[index].OBJType == eOBJType.otTeleport && bIsExit);
-
-		return retval;
-	}
-
-	static boolean MostrarCantidad(int index) {
+	public static boolean MostrarCantidad(int index) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -1607,7 +1579,7 @@ public class Extra {
 		return retval;
 	}
 
-	static boolean EsObjetoFijo(eOBJType OBJType) {
+	public static boolean EsObjetoFijo(eOBJType OBJType) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown */
@@ -1620,7 +1592,7 @@ public class Extra {
 		return retval;
 	}
 
-	static int RestrictStringToByte(String /* FIXME BYREF!! */ restrict) {
+	public static int RestrictStringToByte(String /* FIXME BYREF!! */ restrict) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Torres Patricio (Pato) */
@@ -1657,7 +1629,7 @@ public class Extra {
 		return retval;
 	}
 
-	static String RestrictByteToString(int restrict) {
+	public static String RestrictByteToString(int restrict) {
 		String retval;
 		/* '*************************************************** */
 		/* 'Author: Torres Patricio (Pato) */
@@ -1692,7 +1664,7 @@ public class Extra {
 		return retval;
 	}
 
-	static int TerrainStringToByte(String /* FIXME BYREF!! */ restrict) {
+	public static int TerrainStringToByte(String /* FIXME BYREF!! */ restrict) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: Torres Patricio (Pato) */
@@ -1734,7 +1706,7 @@ public class Extra {
 		return retval;
 	}
 
-	static String TerrainByteToString(int restrict) {
+	public static String TerrainByteToString(int restrict) {
 		String retval;
 		/* '*************************************************** */
 		/* 'Author: Torres Patricio (Pato) */

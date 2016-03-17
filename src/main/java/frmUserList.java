@@ -1,5 +1,10 @@
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"frmUserList"')] */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_GlobalNameSpace'), (5, '='), (1, 'False')] */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Creatable'), (5, '='), (1, 'False')] */
@@ -28,7 +33,7 @@ import enums.*;
 
 public class frmUserList {
 
-	static void Command1_Click() {
+	public static void Command1_Click() {
 		int LoopC = 0;
 
 		Text2.Text = "MaxUsers: " + Declaraciones.MaxUsers + vbCrLf;
@@ -46,18 +51,19 @@ public class frmUserList {
 
 	}
 
-	static void Command2_Click() {
+	public static void Command2_Click() {
 		int LoopC = 0;
 
 		for (LoopC = (1); LoopC <= (Declaraciones.MaxUsers); LoopC++) {
-			if (Declaraciones.UserList[LoopC].ConnID != -1 && !Declaraciones.UserList[LoopC].flags.UserLogged) {
+			if (Declaraciones.UserList[LoopC].ConnID != -1
+					&& ! /* FIXME */Declaraciones.UserList[LoopC].flags.UserLogged) {
 				TCP.CloseSocket(LoopC);
 			}
 		}
 
 	}
 
-	static void List1_Click() {
+	public static void List1_Click() {
 		int UserIndex = 0;
 		if (List1.ListIndex != -1) {
 			UserIndex = List1.ItemData[List1.ListIndex];

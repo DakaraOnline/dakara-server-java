@@ -1,5 +1,10 @@
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"mdlCOmercioConUsuario"')] */
 /* '************************************************************** */
 /* ' mdlComercioConUsuarios.bas - Allows players to commerce between themselves. */
@@ -47,7 +52,7 @@ public class mdlCOmercioConUsuario {
 
 	/* 'origen: origen de la transaccion, originador del comando */
 	/* 'destino: receptor de la transaccion */
-	static void IniciarComercioConUsuario(int Origen, int Destino) {
+	public static void IniciarComercioConUsuario(int Origen, int Destino) {
 		/* '*************************************************** */
 		/* 'Autor: Unkown */
 		/* 'Last Modification: 25/11/2009 */
@@ -94,7 +99,7 @@ public class mdlCOmercioConUsuario {
 		General.LogError("Error en IniciarComercioConUsuario: " + Err.description);
 	}
 
-	static void EnviarOferta(int UserIndex, int OfferSlot) {
+	public static void EnviarOferta(int UserIndex, int OfferSlot) {
 		/* '*************************************************** */
 		/* 'Autor: Unkown */
 		/* 'Last Modification: 25/11/2009 */
@@ -130,7 +135,7 @@ public class mdlCOmercioConUsuario {
 				+ ". OfferSlot: " + OfferSlot);
 	}
 
-	static void FinComerciarUsu(int UserIndex) {
+	public static void FinComerciarUsu(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Autor: Unkown */
 		/* 'Last Modification: 25/11/2009 */
@@ -164,7 +169,7 @@ public class mdlCOmercioConUsuario {
 		General.LogError("Error en FinComerciarUsu. Error: " + Err.description + ". UserIndex: " + UserIndex);
 	}
 
-	static void AceptarComercioUsu(int UserIndex) {
+	public static void AceptarComercioUsu(int UserIndex) {
 		/* '*************************************************** */
 		/* 'Autor: Unkown */
 		/* 'Last Modification: 06/05/2010 */
@@ -197,7 +202,7 @@ public class mdlCOmercioConUsuario {
 		}
 
 		/* ' Aceptaron ambos, chequeo que tengan los items que ofertaron */
-		if (!HasOfferedItems(UserIndex)) {
+		if (! /* FIXME */HasOfferedItems(UserIndex)) {
 
 			Protocol.WriteConsoleMsg(UserIndex, "¡¡¡El comercio se canceló porque no posees los ítems que ofertaste!!!",
 					FontTypeNames.FONTTYPE_FIGHT);
@@ -211,7 +216,7 @@ public class mdlCOmercioConUsuario {
 
 			return;
 
-		} else if (!HasOfferedItems(OtroUserIndex)) {
+		} else if (! /* FIXME */HasOfferedItems(OtroUserIndex)) {
 
 			Protocol.WriteConsoleMsg(UserIndex, "¡¡¡El comercio se canceló porque "
 					+ Declaraciones.UserList[OtroUserIndex].Name + " no posee los ítems que ofertó!!!",
@@ -257,7 +262,7 @@ public class mdlCOmercioConUsuario {
 				TradingObj.Amount = Declaraciones.UserList[UserIndex].ComUsu.cant[OfferSlot];
 
 				/* 'Quita el objeto y se lo da al otro */
-				if (!InvUsuario.MeterItemEnInventario(OtroUserIndex, TradingObj)) {
+				if (! /* FIXME */InvUsuario.MeterItemEnInventario(OtroUserIndex, TradingObj)) {
 					InvNpc.TirarItemAlPiso(Declaraciones.UserList[OtroUserIndex].Pos, TradingObj);
 				}
 
@@ -318,7 +323,7 @@ public class mdlCOmercioConUsuario {
 				TradingObj.Amount = Declaraciones.UserList[OtroUserIndex].ComUsu.cant[OfferSlot];
 
 				/* 'Quita el objeto y se lo da al otro */
-				if (!InvUsuario.MeterItemEnInventario(UserIndex, TradingObj)) {
+				if (! /* FIXME */InvUsuario.MeterItemEnInventario(UserIndex, TradingObj)) {
 					InvNpc.TirarItemAlPiso(Declaraciones.UserList[UserIndex].Pos, TradingObj);
 				}
 
@@ -361,7 +366,7 @@ public class mdlCOmercioConUsuario {
 
 	}
 
-	static void AgregarOferta(int UserIndex, int OfferSlot, int ObjIndex, int Amount, boolean IsGold) {
+	public static void AgregarOferta(int UserIndex, int OfferSlot, int ObjIndex, int Amount, boolean IsGold) {
 		/* '*************************************************** */
 		/* 'Autor: ZaMa */
 		/* 'Last Modification: 24/11/2009 */
@@ -370,7 +375,7 @@ public class mdlCOmercioConUsuario {
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
 		/* ' Si ya confirmo su oferta, no puede cambiarla! */
-		if (!Declaraciones.UserList[UserIndex].ComUsu.Confirmo) {
+		if (! /* FIXME */Declaraciones.UserList[UserIndex].ComUsu.Confirmo) {
 			if (IsGold) {
 				/* ' Agregamos (o quitamos) mas oro a la oferta */
 				Declaraciones.UserList[UserIndex].ComUsu.GoldAmount = Declaraciones.UserList[UserIndex].ComUsu.GoldAmount
@@ -406,7 +411,7 @@ public class mdlCOmercioConUsuario {
 		General.LogError("Error en AgregarOferta. Error: " + Err.description + ". UserIndex: " + UserIndex);
 	}
 
-	static boolean PuedeSeguirComerciando(int UserIndex) {
+	public static boolean PuedeSeguirComerciando(int UserIndex) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Autor: ZaMa */
@@ -428,7 +433,7 @@ public class mdlCOmercioConUsuario {
 			ComercioInvalido = true;
 		}
 
-		if (!ComercioInvalido) {
+		if (! /* FIXME */ComercioInvalido) {
 			/* ' Estan logueados? */
 			if (Declaraciones.UserList[OtroUserIndex].flags.UserLogged == false
 					|| Declaraciones.UserList[UserIndex].flags.UserLogged == false) {
@@ -436,28 +441,28 @@ public class mdlCOmercioConUsuario {
 			}
 		}
 
-		if (!ComercioInvalido) {
+		if (! /* FIXME */ComercioInvalido) {
 			/* ' Se estan comerciando el uno al otro? */
 			if (Declaraciones.UserList[OtroUserIndex].ComUsu.DestUsu != UserIndex) {
 				ComercioInvalido = true;
 			}
 		}
 
-		if (!ComercioInvalido) {
+		if (! /* FIXME */ComercioInvalido) {
 			/* ' El nombre del otro es el mismo que al que le comercio? */
 			if (Declaraciones.UserList[OtroUserIndex].Name != Declaraciones.UserList[UserIndex].ComUsu.DestNick) {
 				ComercioInvalido = true;
 			}
 		}
 
-		if (!ComercioInvalido) {
+		if (! /* FIXME */ComercioInvalido) {
 			/* ' Mi nombre es el mismo que al que el le comercia? */
 			if (Declaraciones.UserList[UserIndex].Name != Declaraciones.UserList[OtroUserIndex].ComUsu.DestNick) {
 				ComercioInvalido = true;
 			}
 		}
 
-		if (!ComercioInvalido) {
+		if (! /* FIXME */ComercioInvalido) {
 			/* ' Esta vivo? */
 			if (Declaraciones.UserList[OtroUserIndex].flags.Muerto == 1) {
 				ComercioInvalido = true;
@@ -485,7 +490,7 @@ public class mdlCOmercioConUsuario {
 		return retval;
 	}
 
-	static boolean HasOfferedItems(int UserIndex) {
+	public static boolean HasOfferedItems(int UserIndex) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Autor: ZaMa */
@@ -535,7 +540,8 @@ public class mdlCOmercioConUsuario {
 
 		/* ' Chequeo que tengan la cantidad en el inventario */
 		for (Slot = (0); Slot <= (SlotCount - 1); Slot++) {
-			if (!UsUaRiOs.HasEnoughItems(UserIndex, OfferedItems[Slot].ObjIndex, OfferedItems[Slot].Amount)) {
+			if (! /* FIXME */UsUaRiOs.HasEnoughItems(UserIndex, OfferedItems[Slot].ObjIndex,
+					OfferedItems[Slot].Amount)) {
 				return retval;
 			}
 		}

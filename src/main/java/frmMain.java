@@ -1,6 +1,10 @@
-
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"frmMain"')] */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_GlobalNameSpace'), (5, '='), (1, 'False')] */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Creatable'), (5, '='), (1, 'False')] */
@@ -62,7 +66,8 @@ public class frmMain {
 	static final int WM_LBUTTONDBLCLK = 0x203;
 	static final int WM_RBUTTONUP = 0x205;
 
-	static NOTIFYICONDATA setNOTIFYICONDATA(int hWnd, int ID, int flags, int CallbackMessage, int Icon, String Tip) {
+	public static NOTIFYICONDATA setNOTIFYICONDATA(int hWnd, int ID, int flags, int CallbackMessage, int Icon,
+			String Tip) {
 		NOTIFYICONDATA retval;
 		NOTIFYICONDATA nidTemp;
 
@@ -78,7 +83,7 @@ public class frmMain {
 		return retval;
 	}
 
-	static void CheckIdleUser() {
+	public static void CheckIdleUser() {
 		int iUserIndex = 0;
 
 		for (iUserIndex = (1); iUserIndex <= (Declaraciones.MaxUsers); iUserIndex++) {
@@ -116,7 +121,7 @@ public class frmMain {
 		}
 	}
 
-	static void Auditoria_Timer() {
+	public static void Auditoria_Timer() {
  /* FIXME: ON ERROR GOTO errhand */
  Static(centinelSecsASByte);
  
@@ -143,7 +148,7 @@ public class frmMain {
  
 }
 
-	static void UpdateNpcsExp(float Multiplicador) {
+	public static void UpdateNpcsExp(float Multiplicador) {
 
 		int NpcIndex = 0;
 		for (NpcIndex = (1); NpcIndex <= (Declaraciones.LastNPC); NpcIndex++) {
@@ -153,7 +158,7 @@ public class frmMain {
 		}
 	}
 
-	static void AutoSave_Timer() {
+	public static void AutoSave_Timer() {
  
  /* FIXME: ON ERROR GOTO ErrHandler */
  /* 'fired every minute */
@@ -263,11 +268,11 @@ public class frmMain {
  /* FIXME: RESUME NEXT */
 }
 
-	static void chkServerHabilitado_Click() {
+	public static void chkServerHabilitado_Click() {
 		Declaraciones.ServerSoloGMs = chkServerHabilitado.value;
 	}
 
-	static void cmdCerrarServer_Click() {
+	public static void cmdCerrarServer_Click() {
   if (vb6.MsgBox("¡¡Atencion!! Si cierra el servidor puede provocar la perdida de datos. " + "¿Desea hacerlo de todas maneras?", vbYesNo) == vbYes) {
   
   Object f;
@@ -277,11 +282,11 @@ public class frmMain {
  }
 }
 
-	static void cmdConfiguracion_Click() {
+	public static void cmdConfiguracion_Click() {
 		frmServidor.Visible = true;
 	}
 
-	static void CMDDUMP_Click() {
+	public static void CMDDUMP_Click() {
 		/* FIXME: ON ERROR RESUME NEXT */
 
 		int i = 0;
@@ -295,18 +300,18 @@ public class frmMain {
 
 	}
 
-	static void cmdSystray_Click() {
+	public static void cmdSystray_Click() {
 		ASetSystray();
 	}
 
-	static void Command1_Click() {
+	public static void Command1_Click() {
 		modSendData.SendData(SendTarget.ToAll, 0, Protocol.PrepareMessageShowMessageBox(BroadMsg.Text));
 		/* ''''''''''''''''SOLO PARA EL TESTEO''''''' */
 		/* ''''''''''SE USA PARA COMUNICARSE CON EL SERVER''''''''''' */
 		txtChat.Text = txtChat.Text + vbNewLine + "Servidor> " + BroadMsg.Text;
 	}
 
-	static void InitMain(int f) {
+	public static void InitMain(int f) {
 
 		if (f == 1) {
 			SetSystray();
@@ -316,7 +321,7 @@ public class frmMain {
 
 	}
 
-	static void Command2_Click() {
+	public static void Command2_Click() {
 		modSendData.SendData(SendTarget.ToAll, 0,
 				Protocol.PrepareMessageConsoleMsg("Servidor> " + BroadMsg.Text, FontTypeNames.FONTTYPE_SERVER));
 		/* ''''''''''''''''SOLO PARA EL TESTEO''''''' */
@@ -324,10 +329,10 @@ public class frmMain {
 		txtChat.Text = txtChat.Text + vbNewLine + "Servidor> " + BroadMsg.Text;
 	}
 
-	static void Form_MouseMove(int Button, int Shift, float X, float Y) {
+	public static void Form_MouseMove(int Button, int Shift, float X, float Y) {
 		/* FIXME: ON ERROR RESUME NEXT */
 
-		if (!Visible) {
+		if (! /* FIXME */Visible) {
 			switch (X / Screen.TwipsPerPixelX) {
 
 			case WM_LBUTTONDBLCLK:
@@ -352,7 +357,7 @@ public class frmMain {
 
 	}
 
-	static void QuitarIconoSystray() {
+	public static void QuitarIconoSystray() {
 		/* FIXME: ON ERROR RESUME NEXT */
 
 		/* 'Borramos el icono del systray */
@@ -365,7 +370,7 @@ public class frmMain {
 
 	}
 
-	static void Form_Unload(int Cancel) {
+	public static void Form_Unload(int Cancel) {
  /* FIXME: ON ERROR RESUME NEXT */
  
  /* 'Save stats!!! */
@@ -400,7 +405,7 @@ public class frmMain {
  
 }
 
-	static void FX_Timer() {
+	public static void FX_Timer() {
 		/* FIXME: ON ERROR GOTO hayerror */
 
 		Declaraciones.SonidosMapas.ReproducirSonidosDeMapas();
@@ -410,7 +415,7 @@ public class frmMain {
 
 	}
 
-	static void GameTimer_Timer() {
+	public static void GameTimer_Timer() {
 		/* '******************************************************** */
 		/* 'Author: Unknown */
 		/* 'Last Modify Date: - */
@@ -488,8 +493,8 @@ public class frmMain {
 						if (Declaraciones.UserList[iUserIndex].flags.Hambre == 0
 								&& Declaraciones.UserList[iUserIndex].flags.Sed == 0) {
 							if (Admin.Lloviendo) {
-								if (!General.Intemperie(iUserIndex)) {
-									if (!Declaraciones.UserList[iUserIndex].flags.Descansar) {
+								if (! /* FIXME */General.Intemperie(iUserIndex)) {
+									if (! /* FIXME */Declaraciones.UserList[iUserIndex].flags.Descansar) {
 										/* 'No esta descansando */
 										General.Sanar(iUserIndex, bEnviarStats, Admin.SanaIntervaloSinDescansar);
 										if (bEnviarStats) {
@@ -528,7 +533,7 @@ public class frmMain {
 									}
 								}
 							} else {
-								if (!Declaraciones.UserList[iUserIndex].flags.Descansar) {
+								if (! /* FIXME */Declaraciones.UserList[iUserIndex].flags.Descansar) {
 									/* 'No esta descansando */
 
 									General.Sanar(iUserIndex, bEnviarStats, Admin.SanaIntervaloSinDescansar);
@@ -603,17 +608,17 @@ public class frmMain {
 		General.LogError("Error en GameTimer: " + Err.description + " UserIndex = " + iUserIndex);
 	}
 
-	static void mnusalir_Click() {
+	public static void mnusalir_Click() {
 		cmdCerrarServer_Click();
 	}
 
-	static void mnuMostrar_Click() {
+	public static void mnuMostrar_Click() {
 		/* FIXME: ON ERROR RESUME NEXT */
 		WindowState = 0;
 		Form_MouseMove(0, 0, 7725, 0);
 	}
 
-	static void KillLog_Timer() {
+	public static void KillLog_Timer() {
 		/* FIXME: ON ERROR RESUME NEXT */
 		if (General.FileExist(vb6.App.Instance().Path + "\\logs\\connect.log", 0)) {
 			/* FIXME: KILL App . Path & "\\logs\\connect.log" */
@@ -630,7 +635,7 @@ public class frmMain {
 		if (General.FileExist(vb6.App.Instance().Path + "\\logs\\HackAttemps.log", 0)) {
 			/* FIXME: KILL App . Path & "\\logs\\HackAttemps.log" */
 		}
-		if (!General.FileExist(vb6.App.Instance().Path + "\\logs\\nokillwsapi.txt")) {
+		if (! /* FIXME */General.FileExist(vb6.App.Instance().Path + "\\logs\\nokillwsapi.txt")) {
 			if (General.FileExist(vb6.App.Instance().Path + "\\logs\\wsapi.log", 0)) {
 				/* FIXME: KILL App . Path & "\\logs\\wsapi.log" */
 			}
@@ -638,7 +643,7 @@ public class frmMain {
 
 	}
 
-	static void SetSystray() {
+	public static void SetSystray() {
 
 		int i = 0;
 		String S;
@@ -656,7 +661,7 @@ public class frmMain {
 
 	}
 
-	static void npcataca_Timer() {
+	public static void npcataca_Timer() {
 
 		/* FIXME: ON ERROR RESUME NEXT */
 		int npc = 0;
@@ -667,7 +672,7 @@ public class frmMain {
 
 	}
 
-	static void packetResend_Timer() {
+	public static void packetResend_Timer() {
 		/* '*************************************************** */
 		/* 'Autor: Juan Martín Sotuyo Dodero (Maraxus) */
 		/* 'Last Modification: 04/01/07 */
@@ -692,14 +697,14 @@ public class frmMain {
 		/* FIXME: RESUME NEXT */
 	}
 
-	static void securityTimer_Timer() {
+	public static void securityTimer_Timer() {
 
 		/* # IF SeguridadAlkon THEN */
 		/* # END IF */
 
 	}
 
-	static void TIMER_AI_Timer() {
+	public static void TIMER_AI_Timer() {
 
 		/* FIXME: ON ERROR GOTO ErrorHandler */
 		int NpcIndex = 0;
@@ -707,7 +712,7 @@ public class frmMain {
 		int e_p = 0;
 
 		/* 'Barrin 29/9/03 */
-		if (!Declaraciones.haciendoBK && !Declaraciones.EnPausa) {
+		if (! /* FIXME */Declaraciones.haciendoBK && ! /* FIXME */Declaraciones.EnPausa) {
 			/* 'Update NPCs */
 			for (NpcIndex = (1); NpcIndex <= (Declaraciones.LastNPC); NpcIndex++) {
 
@@ -755,7 +760,7 @@ public class frmMain {
 		NPCs.MuereNpc(NpcIndex, 0);
 	}
 
-	static void tLluvia_Timer() {
+	public static void tLluvia_Timer() {
 		/* FIXME: ON ERROR GOTO ErrHandler */
 
 		/* ' [TEMPORAL] */
@@ -773,13 +778,13 @@ public class frmMain {
 		General.LogError("tLluvia " + Err.Number + ": " + Err.description);
 	}
 
-	static void tLluviaEvent_Timer() {
+	public static void tLluviaEvent_Timer() {
 
 		/* FIXME: ON ERROR GOTO ErrorHandler */
 		Static(MinutosLloviendoASLong);
 		Static(MinutosSinLluviaASLong);
 
-		if (!Admin.Lloviendo) {
+		if (! /* FIXME */Admin.Lloviendo) {
 			MinutosSinLluvia = MinutosSinLluvia + 1;
 			if (MinutosSinLluvia >= 15 && MinutosSinLluvia < 1440) {
 				if (Matematicas.RandomNumber(1, 100) <= 2) {
@@ -813,7 +818,7 @@ public class frmMain {
 
 	}
 
-	static void tPiqueteC_Timer() {
+	public static void tPiqueteC_Timer() {
 		boolean NuevaA = false;
 		/* ' Dim NuevoL As Boolean */
 		int GI = 0;
@@ -858,7 +863,7 @@ public class frmMain {
 				if (GI > 0) {
 					NuevaA = false;
 					/* ' NuevoL = False */
-					if (!modGuilds.m_ValidarPermanencia(i, true, NuevaA)) {
+					if (! /* FIXME */modGuilds.m_ValidarPermanencia(i, true, NuevaA)) {
 						Protocol.WriteConsoleMsg(i,
 								"Has sido expulsado del clan. ¡El clan ha sumado un punto de antifacción!",
 								FontTypeNames.FONTTYPE_GUILD);

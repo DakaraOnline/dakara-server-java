@@ -1,5 +1,10 @@
-
 /*  AUTOMATICALLY CONVERTED FILE  */
+
+/* 
+ * Este archivo fue convertido automaticamente, por un script, desde el 
+ * código fuente original de Visual Basic 6.
+ */
+
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Name'), (5, '='), (4, '"clsClanPretoriano"')] */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_GlobalNameSpace'), (5, '='), (1, 'False')] */
 /* [(0, 'ATTRIBUTE'), (1, 'VB_Creatable'), (5, '='), (1, 'True')] */
@@ -86,11 +91,11 @@ public class clsClanPretoriano {
 	/* ' Contiene los index de los miembros del clan. */
 	private tPretorianData[] Pretorianos = new tPretorianData[0];
 
-	boolean SpawnClan(int mapa, int X, int Y, int PretoClanIndex) {
+	public boolean SpawnClan(int mapa, int X, int Y, int PretoClanIndex) {
 		return SpawnClan(mapa, X, Y, PretoClanIndex, false);
 	}
 
-	boolean SpawnClan(int mapa, int X, int Y, int PretoClanIndex, boolean Respawning) {
+	public boolean SpawnClan(int mapa, int X, int Y, int PretoClanIndex, boolean Respawning) {
 		boolean retval = false;
 		/* '******************************************************** */
 		/* 'Author: EL OSO */
@@ -119,7 +124,7 @@ public class clsClanPretoriano {
 		ClanIndex = PretoClanIndex;
 
 		/* ' Check valid spawn place only if it's the first time */
-		if (!Respawning) {
+		if (! /* FIXME */Respawning) {
 			/* ' The clan only respawns on pretorian map */
 			if (mapa == PraetoriansCoopNPC.MAPA_PRETORIANO) {
 				RespawnClan = true;
@@ -130,7 +135,7 @@ public class clsClanPretoriano {
 
 				/* ' Check if it's a valid area to respawn */
 			} else {
-				if (!IsValidSpawnArea()) {
+				if (! /* FIXME */IsValidSpawnArea()) {
 					return retval;
 				}
 			}
@@ -198,7 +203,7 @@ public class clsClanPretoriano {
 		return retval;
 	}
 
-	boolean IsValidSpawnArea() {
+	private boolean IsValidSpawnArea() {
 		boolean retval = false;
 		/* '******************************************************** */
 		/* 'Author: ZaMa */
@@ -215,7 +220,7 @@ public class clsClanPretoriano {
 		for (loopX = (CenterPos.X - 6); loopX <= (CenterPos.X + 6); loopX++) {
 			for (LoopY = (CenterPos.Y - 6); LoopY <= (CenterPos.Y + 6); LoopY++) {
 
-				if (!Extra.InMapBounds(CenterPos.Map, loopX, LoopY)) {
+				if (! /* FIXME */Extra.InMapBounds(CenterPos.Map, loopX, LoopY)) {
 					return retval;
 				}
 
@@ -231,7 +236,7 @@ public class clsClanPretoriano {
 		return retval;
 	}
 
-	void InitializePretoriansVars() {
+	private void InitializePretoriansVars() {
 		/* '******************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Initialize the variables/const used in pretorian map */
@@ -248,11 +253,11 @@ public class clsClanPretoriano {
 
 	}
 
-	void SpawnPretorian(Declaraciones.WorldPos /* FIXME BYREF!! */ SpawnPos, int PretorianAI, int PretoIndex) {
+	private void SpawnPretorian(Declaraciones.WorldPos /* FIXME BYREF!! */ SpawnPos, int PretorianAI, int PretoIndex) {
 		SpawnPretorian(SpawnPos, PretorianAI, PretoIndex, false);
 	}
 
-	void SpawnPretorian(Declaraciones.WorldPos /* FIXME BYREF!! */ SpawnPos, int PretorianAI, int PretoIndex,
+	private void SpawnPretorian(Declaraciones.WorldPos /* FIXME BYREF!! */ SpawnPos, int PretorianAI, int PretoIndex,
 			boolean IsKing) {
 		/* '******************************************************** */
 		/* 'Author: ZaMa */
@@ -324,7 +329,7 @@ public class clsClanPretoriano {
 
 	}
 
-	int RandomTallHead() {
+	private int RandomTallHead() {
 		int retval = 0;
 		/* '******************************************************** */
 		/* 'Author: ZaMa */
@@ -375,7 +380,7 @@ public class clsClanPretoriano {
 		return retval;
 	}
 
-	int RandomShortHead() {
+	private int RandomShortHead() {
 		int retval = 0;
 		/* '******************************************************** */
 		/* 'Author: ZaMa */
@@ -418,7 +423,7 @@ public class clsClanPretoriano {
 		return retval;
 	}
 
-	void PerformPretorianAI(int NpcIndex) {
+	public void PerformPretorianAI(int NpcIndex) {
 		/* '******************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Performs Pretorian's AI. */
@@ -463,7 +468,7 @@ public class clsClanPretoriano {
 
 	}
 
-	int GetPretorianAI(int NpcIndex) {
+	private int GetPretorianAI(int NpcIndex) {
 		int retval = 0;
 		/* '******************************************************** */
 		/* 'Author: ZaMa */
@@ -483,7 +488,7 @@ public class clsClanPretoriano {
 		return retval;
 	}
 
-	void AI_King(int NpcIndex) {
+	public void AI_King(int NpcIndex) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 19/09/2010 */
@@ -503,7 +508,7 @@ public class clsClanPretoriano {
 		General.LogError("Error en AI_King. Error: " + Err.Number + " - " + Err.description);
 	}
 
-	int KingBestTarget(int NpcIndex, int /* FIXME BYREF!! */ Accion) {
+	private int KingBestTarget(int NpcIndex, int /* FIXME BYREF!! */ Accion) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
@@ -647,7 +652,7 @@ public class clsClanPretoriano {
 		return retval;
 	}
 
-	void KingPerformAction(int NpcIndex, int BestTarget, int Accion) {
+	private void KingPerformAction(int NpcIndex, int BestTarget, int Accion) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 05/07/2010 */
@@ -736,7 +741,7 @@ public class clsClanPretoriano {
 		General.LogError("Error en KingPerformAction. Error: " + Err.Number + " - " + Err.description);
 	}
 
-	void KingMeleeAttack(Object NpcIndex) {
+	private void KingMeleeAttack(Object NpcIndex) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 19/09/2010 */
@@ -783,7 +788,7 @@ public class clsClanPretoriano {
 		General.LogError("Error en KingMeleeAttack. Error: " + Err.Number + " - " + Err.description);
 	}
 
-	void KingReviveAlly(int NpcIndex) {
+	private void KingReviveAlly(int NpcIndex) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 26/09/2010 */
@@ -814,7 +819,7 @@ public class clsClanPretoriano {
 
 	}
 
-	void AI_Healer(int NpcIndex) {
+	public void AI_Healer(int NpcIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unkown */
 		/* 'Last Modification: - */
@@ -881,7 +886,7 @@ public class clsClanPretoriano {
 		General.LogError("Error en AI_Healer. Error: " + Err.Number + " - " + Err.description);
 	}
 
-	int HealerBestTarget(int NpcIndex, int /* FIXME BYREF!! */ Accion) {
+	private int HealerBestTarget(int NpcIndex, int /* FIXME BYREF!! */ Accion) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
@@ -984,7 +989,7 @@ public class clsClanPretoriano {
 		return retval;
 	}
 
-	void HealerPerformAction(int NpcIndex, int BestTarget, int Accion,
+	private void HealerPerformAction(int NpcIndex, int BestTarget, int Accion,
 			boolean /* FIXME BYREF!! */ CanMove) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
@@ -1051,7 +1056,7 @@ public class clsClanPretoriano {
 
 	}
 
-	void HealerMove(int NpcIndex) {
+	private void HealerMove(int NpcIndex) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 09/07/2010 */
@@ -1080,7 +1085,7 @@ public class clsClanPretoriano {
 
 	}
 
-	void AI_SpellCaster(int NpcIndex) {
+	public void AI_SpellCaster(int NpcIndex) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: - */
@@ -1112,7 +1117,7 @@ public class clsClanPretoriano {
 		General.LogError("Error en AI_SpellCaster. Error: " + Err.Number + " - " + Err.description);
 	}
 
-	boolean SpellCasterSacrifice(int NpcIndex) {
+	private boolean SpellCasterSacrifice(int NpcIndex) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
@@ -1160,7 +1165,7 @@ public class clsClanPretoriano {
 		return retval;
 	}
 
-	int SpellCasterBestTarget(int NpcIndex, int /* FIXME BYREF!! */ Accion) {
+	private int SpellCasterBestTarget(int NpcIndex, int /* FIXME BYREF!! */ Accion) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
@@ -1235,7 +1240,7 @@ public class clsClanPretoriano {
 						 * ' If not found an invisible and paralized target,
 						 * then it's a good one
 						 */
-						if (!BestTargetInvisible || BestTarget == 0) {
+						if (! /* FIXME */BestTargetInvisible || BestTarget == 0) {
 							BestTarget = UserIndex;
 							Accion = eSpellCasterAction.Attack;
 						}
@@ -1266,7 +1271,7 @@ public class clsClanPretoriano {
 		return retval;
 	}
 
-	void SpellCasterPerformAction(int NpcIndex, int BestTarget, int Accion) {
+	private void SpellCasterPerformAction(int NpcIndex, int BestTarget, int Accion) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 05/07/2010 */
@@ -1290,7 +1295,7 @@ public class clsClanPretoriano {
 
 	}
 
-	void SpellCasterMove(int NpcIndex, int BestTarget) {
+	private void SpellCasterMove(int NpcIndex, int BestTarget) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 05/07/2010 */
@@ -1319,7 +1324,7 @@ public class clsClanPretoriano {
 
 	}
 
-	void SpellCasterDestroyWand(int NpcIndex, int SpellIndex) {
+	private void SpellCasterDestroyWand(int NpcIndex, int SpellIndex) {
 		/* '*************************************************** */
 		/* 'Author: Unkown */
 		/* 'Last Modification: - */
@@ -1389,7 +1394,7 @@ public class clsClanPretoriano {
 		General.LogError("Error en SpellCasterDestroyWand. Error: " + Err.Number + " - " + Err.description);
 	}
 
-	void DealWandDamage(int NpcIndex, int SpellIndex) {
+	private void DealWandDamage(int NpcIndex, int SpellIndex) {
  /* '*************************************************** */
  /* 'Author: ZaMa */
  /* 'Last Modification: 17/06/2011 */
@@ -1452,7 +1457,7 @@ public class clsClanPretoriano {
  General.LogError("Error en DealWandDamage. Error: " + Err.Number + " - " + Err.description);
 }
 
-	void DealWandDamageToPets(int NpcIndex, int UserIndex, int SpellIndex) {
+	private void DealWandDamageToPets(int NpcIndex, int UserIndex, int SpellIndex) {
  /* '*************************************************** */
  /* 'Author: ZaMa */
  /* 'Last Modification: 26/09/2010 */
@@ -1500,7 +1505,7 @@ public class clsClanPretoriano {
  General.LogError("Error en DealWandDamageToPets. Error: " + Err.Number + " - " + Err.description);
 }
 
-	void AI_SwordMaster(int NpcIndex) {
+	public void AI_SwordMaster(int NpcIndex) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: - */
@@ -1524,7 +1529,7 @@ public class clsClanPretoriano {
 		General.LogError("Error en AI_SwordMaster. Error: " + Err.Number + " - " + Err.description);
 	}
 
-	int SwordMasterBestTarget(int NpcIndex) {
+	private int SwordMasterBestTarget(int NpcIndex) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
@@ -1612,7 +1617,7 @@ public class clsClanPretoriano {
 		return retval;
 	}
 
-	void SwordMasterMove(int NpcIndex, int BestTarget) {
+	private void SwordMasterMove(int NpcIndex, int BestTarget) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 24/06/2010 */
@@ -1656,7 +1661,7 @@ public class clsClanPretoriano {
 		General.LogError("Error en SwordMasterMove. Error: " + Err.Number + " - " + Err.description);
 	}
 
-	void SwordMasterAttack(int NpcIndex) {
+	private void SwordMasterAttack(int NpcIndex) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 26/06/2010 */
@@ -1695,7 +1700,7 @@ public class clsClanPretoriano {
 		General.LogError("Error en SwordMasterAttack. Error: " + Err.Number + " - " + Err.description);
 	}
 
-	void AI_Shooter(int NpcIndex) {
+	public void AI_Shooter(int NpcIndex) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: - */
@@ -1720,7 +1725,7 @@ public class clsClanPretoriano {
 		General.LogError("Error en AI_Shooter. Error: " + Err.Number + " - " + Err.description);
 	}
 
-	int ShooterBestTarget(int NpcIndex) {
+	private int ShooterBestTarget(int NpcIndex) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
@@ -1810,7 +1815,7 @@ public class clsClanPretoriano {
 		return retval;
 	}
 
-	void ShooterMove(int NpcIndex, int BestTarget) {
+	private void ShooterMove(int NpcIndex, int BestTarget) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 24/06/2010 */
@@ -1891,7 +1896,7 @@ public class clsClanPretoriano {
 		General.LogError("Error en ShooterMove. Error: " + Err.Number + " - " + Err.description);
 	}
 
-	void AI_Thief(int NpcIndex) {
+	private void AI_Thief(int NpcIndex) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: - */
@@ -1913,7 +1918,7 @@ public class clsClanPretoriano {
 		General.LogError("Error en AI_Thief. Error: " + Err.Number + " - " + Err.description);
 	}
 
-	int ThiefBestTarget(int NpcIndex, int /* FIXME BYREF!! */ Action) {
+	private int ThiefBestTarget(int NpcIndex, int /* FIXME BYREF!! */ Action) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
@@ -2023,7 +2028,7 @@ public class clsClanPretoriano {
 		return retval;
 	}
 
-	void ThiefPerfomAction(int NpcIndex, int BestTarget, int Action) {
+	private void ThiefPerfomAction(int NpcIndex, int BestTarget, int Action) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 28/10/2010 */
@@ -2066,7 +2071,7 @@ public class clsClanPretoriano {
 					}
 
 					/* ' Try to snatch/Steal (except for admins) */
-				} else if (!Extra.EsGm(BestTarget)) {
+				} else if (! /* FIXME */Extra.EsGm(BestTarget)) {
 
 					/* ' Can snatch weapon or arrows */
 					if (Matematicas.RandomNumber(1, 100) < 16) {
@@ -2149,7 +2154,7 @@ public class clsClanPretoriano {
 		General.LogError("Error en ThiefPerfomAction. Error: " + Err.Number + " - " + Err.description);
 	}
 
-	boolean SnatchItem(int NpcIndex, int TargetIndex, int Slot) {
+	private boolean SnatchItem(int NpcIndex, int TargetIndex, int Slot) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
@@ -2188,7 +2193,7 @@ public class clsClanPretoriano {
 		return retval;
 	}
 
-	boolean ThiefStealITem(int NpcIndex, int TargetIndex, int Slot) {
+	private boolean ThiefStealITem(int NpcIndex, int TargetIndex, int Slot) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
@@ -2211,7 +2216,7 @@ public class clsClanPretoriano {
 		}
 
 		/* ' If not stealable, then don't do anything */
-		if (!Trabajo.ObjEsRobable(TargetIndex, Slot)) {
+		if (! /* FIXME */Trabajo.ObjEsRobable(TargetIndex, Slot)) {
 			return retval;
 		}
 
@@ -2244,7 +2249,7 @@ public class clsClanPretoriano {
 		return retval;
 	}
 
-	void ThiefTurnInvisible(int NpcIndex, boolean TurnVisible) {
+	private void ThiefTurnInvisible(int NpcIndex, boolean TurnVisible) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 26/09/2010 */
@@ -2262,7 +2267,7 @@ public class clsClanPretoriano {
 
 	}
 
-	boolean TargetClose(Declaraciones.WorldPos /* FIXME BYREF!! */ Pos) {
+	private boolean TargetClose(Declaraciones.WorldPos /* FIXME BYREF!! */ Pos) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
@@ -2295,7 +2300,7 @@ public class clsClanPretoriano {
 		return retval;
 	}
 
-	int CheckNearUserPets(int NpcIndex, int UserIndex) {
+	private int CheckNearUserPets(int NpcIndex, int UserIndex) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
@@ -2335,7 +2340,7 @@ public class clsClanPretoriano {
 		return retval;
 	}
 
-	boolean EsClaseMagica(int UserIndex) {
+	private boolean EsClaseMagica(int UserIndex) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unkown */
@@ -2355,7 +2360,7 @@ public class clsClanPretoriano {
 		return retval;
 	}
 
-	void GreedyWalkTo(int NpcIndex, int TargetMap, int TargetX, int TargetY) {
+	private void GreedyWalkTo(int NpcIndex, int TargetMap, int TargetX, int TargetY) {
 		/* '*************************************************** */
 		/* 'Author: Unknown */
 		/* ' Este procedimiento es llamado cada vez que un NPC deba ir */
@@ -2609,7 +2614,7 @@ public class clsClanPretoriano {
 		General.LogError("Error en GreedyWalkTo. Error: " + Err.Number + " - " + Err.description);
 	}
 
-	void MoveFailed(int NpcIndex) {
+	private void MoveFailed(int NpcIndex) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 26/06/2010 */
@@ -2628,7 +2633,7 @@ public class clsClanPretoriano {
 
 	}
 
-	void ReturnToCenter(int NpcIndex) {
+	private void ReturnToCenter(int NpcIndex) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 19/09/2010 */
@@ -2639,7 +2644,7 @@ public class clsClanPretoriano {
 
 	}
 
-	boolean FarFromTeam(Object NpcIndex) {
+	private boolean FarFromTeam(Object NpcIndex) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: Unknown & ZaMa */
@@ -2661,7 +2666,7 @@ public class clsClanPretoriano {
 		return retval;
 	}
 
-	boolean UserReachable(int NpcIndex, int UserIndex) {
+	private boolean UserReachable(int NpcIndex, int UserIndex) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
@@ -2687,11 +2692,11 @@ public class clsClanPretoriano {
 		return retval;
 	}
 
-	boolean InVisionRange(int UserIndex, int X, int Y) {
+	private boolean InVisionRange(int UserIndex, int X, int Y) {
 		return InVisionRange(UserIndex, X, Y, false);
 	}
 
-	boolean InVisionRange(int UserIndex, int X, int Y, boolean ExtendedRange) {
+	private boolean InVisionRange(int UserIndex, int X, int Y, boolean ExtendedRange) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
@@ -2708,11 +2713,11 @@ public class clsClanPretoriano {
 		return retval;
 	}
 
-	boolean InVisionRangeNpc(int NpcIndex, int X, int Y) {
+	private boolean InVisionRangeNpc(int NpcIndex, int X, int Y) {
 		return InVisionRangeNpc(NpcIndex, X, Y, false);
 	}
 
-	boolean InVisionRangeNpc(int NpcIndex, int X, int Y, boolean ExtendedRange) {
+	private boolean InVisionRangeNpc(int NpcIndex, int X, int Y, boolean ExtendedRange) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
@@ -2729,37 +2734,33 @@ public class clsClanPretoriano {
 		return retval;
 	}
 
-	boolean UserAtacable(int UserIndex) {
+	private boolean UserAtacable(int UserIndex) {
 		return UserAtacable(UserIndex, true, true);
 	}
 
-	boolean UserAtacable(int UserIndex, boolean CheckVisibility, boolean AttackAdmin) {
-		boolean retval = false;
-		/* '*************************************************** */
-		/* 'Author: ZaMa */
-		/* 'Last Modification: 05/10/2010 */
-		/* 'DEtermines whether the user can be atacked or not */
-		/* '05/10/2010: ZaMa - Now doesn't allow to attack admins sometimes. */
-		/* '*************************************************** */
+	private boolean UserAtacable(int UserIndex, boolean CheckVisibility, boolean AttackAdmin) {
+ boolean retval = false;
+ /* '*************************************************** */
+ /* 'Author: ZaMa */
+ /* 'Last Modification: 05/10/2010 */
+ /* 'DEtermines whether the user can be atacked or not */
+ /* '05/10/2010: ZaMa - Now doesn't allow to attack admins sometimes. */
+ /* '*************************************************** */
+ 
+  retval = ! / * FIXME * /Declaraciones.UserList[UserIndex].flags.EnConsulta && Declaraciones.UserList[UserIndex].flags.AdminInvisible == 0 && Declaraciones.UserList[UserIndex].flags.AdminPerseguible && Declaraciones.UserList[UserIndex].flags.Muerto == 0;
+  
+   if (CheckVisibility) {
+   retval = retval && Declaraciones.UserList[UserIndex].flags.Oculto == 0 && Declaraciones.UserList[UserIndex].flags.invisible == 0;
+  }
+  
+   if (! /* FIXME */AttackAdmin) {
+   retval = retval && (! / * FIXME * /Extra.EsGm(UserIndex));
+  }
+  
+return retval;
+}
 
-		retval = !Declaraciones.UserList[UserIndex].flags.EnConsulta
-				&& Declaraciones.UserList[UserIndex].flags.AdminInvisible == 0
-				&& Declaraciones.UserList[UserIndex].flags.AdminPerseguible
-				&& Declaraciones.UserList[UserIndex].flags.Muerto == 0;
-
-		if (CheckVisibility) {
-			retval = retval && Declaraciones.UserList[UserIndex].flags.Oculto == 0
-					&& Declaraciones.UserList[UserIndex].flags.invisible == 0;
-		}
-
-		if (!AttackAdmin) {
-			retval = retval && (!Extra.EsGm(UserIndex));
-		}
-
-		return retval;
-	}
-
-	int UserDistance(int UserIndex, int X, int Y) {
+	private int UserDistance(int UserIndex, int X, int Y) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
@@ -2773,7 +2774,7 @@ public class clsClanPretoriano {
 		return retval;
 	}
 
-	int NpcDistance(int NpcIndex, int X, int Y) {
+	private int NpcDistance(int NpcIndex, int X, int Y) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
@@ -2787,7 +2788,7 @@ public class clsClanPretoriano {
 		return retval;
 	}
 
-	void MuerePretoriano(int NpcIndex) {
+	public void MuerePretoriano(int NpcIndex) {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 27/06/2010 */
@@ -2834,7 +2835,7 @@ public class clsClanPretoriano {
 
 	}
 
-	int AllyParalyzed(int NpcIndex, boolean ExtendedRange) {
+	private int AllyParalyzed(int NpcIndex, boolean ExtendedRange) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
@@ -2863,7 +2864,7 @@ public class clsClanPretoriano {
 		return retval;
 	}
 
-	int AllyInjured(int NpcIndex) {
+	private int AllyInjured(int NpcIndex) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
@@ -2892,7 +2893,7 @@ public class clsClanPretoriano {
 		return retval;
 	}
 
-	int AllyPoisoned(int NpcIndex) {
+	private int AllyPoisoned(int NpcIndex) {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
@@ -2921,7 +2922,7 @@ public class clsClanPretoriano {
 		return retval;
 	}
 
-	int AllyDead() {
+	private int AllyDead() {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
@@ -2944,7 +2945,7 @@ public class clsClanPretoriano {
 		return retval;
 	}
 
-	boolean CanAtackMember(int NpcIndex) {
+	public boolean CanAtackMember(int NpcIndex) {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
@@ -2968,7 +2969,7 @@ public class clsClanPretoriano {
 		return retval;
 	}
 
-	int ClanMap() {
+	public int ClanMap() {
 		int retval = 0;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
@@ -2979,7 +2980,7 @@ public class clsClanPretoriano {
 		return retval;
 	}
 
-	boolean Active() {
+	public boolean Active() {
 		boolean retval = false;
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
@@ -2990,7 +2991,7 @@ public class clsClanPretoriano {
 		return retval;
 	}
 
-	void DeleteClan() {
+	public void DeleteClan() {
 		/* '*************************************************** */
 		/* 'Author: ZaMa */
 		/* 'Last Modification: 29/10/2010 */

@@ -33,7 +33,7 @@
 /* 'La Plata - Pcia, Buenos Aires - Republica Argentina */
 /* 'Cï¿½digo Postal 1900 */
 /* 'Pablo Ignacio Mï¿½rquez */
-
+// HOLA Q ASEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
 import enums.*;
 
 public class AI {
